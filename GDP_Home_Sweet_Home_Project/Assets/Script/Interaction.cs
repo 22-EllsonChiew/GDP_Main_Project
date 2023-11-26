@@ -5,15 +5,17 @@ using UnityEngine;
 public class Interaction : MonoBehaviour
 {
 
-    public delegate void TaskEventHandler(bool isTaskComplete);
+    public delegate void TaskEventHandler(bool isTaskStarted);
     public event TaskEventHandler OnTaskInteract;
+
+    //[SerializeField] private 
 
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Object") && Input.GetKey(KeyCode.E)) //check if tag of the object colliding with player is "object"
         {
-            Debug.Log("Task Complete"); //prints "Task Complete"
+            Debug.Log("Task Started"); //prints "Task Complete"
             OnTaskInteract?.Invoke(true);
             Destroy(other.gameObject); //Destroys the gameobject that is collidng with player
         }
