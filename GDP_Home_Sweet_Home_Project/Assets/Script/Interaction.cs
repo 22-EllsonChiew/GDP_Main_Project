@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Interaction : MonoBehaviour
 {
 
@@ -14,25 +15,25 @@ public class Interaction : MonoBehaviour
     {
         if (other.CompareTag("Object") && Input.GetKey(KeyCode.E)) //check if tag of the object colliding with player is "object"
         {
-            confirmationWindow.gameObject.SetActive(true);
-            confirmationWindow.confirmButton.onClick.AddListener(ConfirmClicked);
-            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+            //confirmationWindow.gameObject.SetActive(true);
+            //confirmationWindow.confirmButton.onClick.AddListener(ConfirmClicked);
+            //confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
             //Debug.Log("Task Complete"); //prints "Task Complete"
-            //OnTaskInteract?.Invoke(true);
-            //Destroy(other.gameObject); //Destroys the gameobject that is collidng with player
+            OnTaskInteract?.Invoke(true);
+            Destroy(other.gameObject); //Destroys the gameobject that is collidng with player
         }
     }
 
-    private void ConfirmClicked()
-    {
-        confirmationWindow.gameObject.SetActive(false);
-        //call function for minigame
-    }
+    //private void ConfirmClicked()
+    //{
+    //    confirmationWindow.gameObject.SetActive(false);
+    //    //call function for minigame
+    //}
 
-    private void ExitClicked()
-    {
-        confirmationWindow.gameObject.SetActive(false);
-    }
+    //private void ExitClicked()
+    //{
+    //    confirmationWindow.gameObject.SetActive(false);
+    //}
 
     //private void OnTriggerEnter(Collider other)
     //{
