@@ -11,15 +11,13 @@ public class AngerBar : MonoBehaviour
     
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Entering now");
-        if (other.CompareTag("Player"))
+        
+        if (other.CompareTag("Player") && Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Player entered trigger");
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                DecreaseAnger();
-            }
+            
+            DecreaseAnger();
+            
 
         }
     }
@@ -38,7 +36,7 @@ public class AngerBar : MonoBehaviour
     {
         if(angerSlider != null)
         {
-            angerSlider.value -= 0.1f;
+            angerSlider.value -= 0.2f;
             Debug.Log("IM ANGRY" + angerSlider.value);
         }
 
