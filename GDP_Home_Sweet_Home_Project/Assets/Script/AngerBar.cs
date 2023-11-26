@@ -8,39 +8,48 @@ public class AngerBar : MonoBehaviour
 {
     public Slider angerSlider;
 
-    //public KeyCode buildingObject = KeyCode.Mouse0;
-
-
-    // Start is called before the first frame update
-    void Start()
+    
+    private void OnTriggerStay(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+        Debug.Log("Entering now");
+        if (other.CompareTag("Player"))
         {
-            DecreaseAnger();
+            Debug.Log("Player entered trigger");
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                DecreaseAnger();
+            }
+
         }
     }
 
-    private void OntriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Player"))
-        {
-            DecreaseAnger();
-            
-        }
+        Debug.Log("Player exited trigger");
+
+
+        // Disable the entire GameObject
+        gameObject.SetActive(false);
+
     }
 
-    private void DecreaseAnger()
+    public void DecreaseAnger()
     {
         if(angerSlider != null)
         {
             angerSlider.value -= 0.1f;
             Debug.Log("IM ANGRY" + angerSlider.value);
         }
+
+        if (angerSlider.value <= 0.0f)
+        {
+            // Disable the player or perform other actions
+            Debug.Log("Report");
+            
+        }
     }
+
+
+    
 }
