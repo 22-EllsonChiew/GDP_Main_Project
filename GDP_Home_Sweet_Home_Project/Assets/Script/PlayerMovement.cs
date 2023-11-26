@@ -28,8 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
-    
-
+    Animator animator;
+    private bool isWalking;
  
 
     // Start is called before the first frame update
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
-
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -67,7 +67,11 @@ public class PlayerMovement : MonoBehaviour
         else
             rb.drag = 0f; //rigibody drag become the same value as the new variable which is groundDrag
 
-
+        animator.SetBool("isWalking", isWalking);
+        if (isWalking)
+        {
+            animator.SetTrigger("WalkTrigger");
+        }
 
     }
 
@@ -75,13 +79,21 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+
+        // Determine if the player is walking based on input
+        isWalking = (horizontalInput != 0f || verticalInput != 0f);
     }
 
     private void MovePlayer()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-    
+        if (moveDirection != Vector3.zero)
+        {
+            // Rotate the player to face the direction of movement
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection.normalized, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.fixedDeltaTime * 250f);
+        }
 
         rb.AddForce(moveDirection.normalized * speed * 10, ForceMode.Force);
    
