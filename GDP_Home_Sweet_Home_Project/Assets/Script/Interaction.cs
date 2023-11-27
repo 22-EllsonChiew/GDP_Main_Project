@@ -24,6 +24,7 @@ public class Interaction : MonoBehaviour
     private void ConfirmClicked()
     {
         confirmationWindow.gameObject.SetActive(false);
+        OnTaskInteract?.Invoke(true);
         //call function for minigame
     }
 
