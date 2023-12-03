@@ -45,13 +45,18 @@ public class HammerMinigame : MonoBehaviour
     public event TaskEventHandler OnTaskComplete;
 
 
-    void Start()
+    public AngerBar clickHandlerReference;
+
+
+    public void Start()
     {
         FindObjectOfType<Interaction>().OnTaskInteract += StartMinigame;
         originalFOV = mainCamera.fieldOfView;
         progress.maxValue = clicksNeeded;
         noise.maxValue = noiseThreshold;
 
+
+        AngerBar clickHandlerReference = GetComponent<AngerBar>();
     }
 
     private void StartMinigame(bool isTaskStarted)
@@ -113,7 +118,7 @@ public class HammerMinigame : MonoBehaviour
 
     }
 
-    private void HandleClick()
+    public void HandleClick()
     {
         if (currentClicks < clicksNeeded)
         {
@@ -125,7 +130,9 @@ public class HammerMinigame : MonoBehaviour
 
             if (currentNoise > (noiseThreshold * 0.85f))
             {
-                neighbourTotalHealth -= 1;
+                //neighbourTotalHealth -= 1;
+                    clickHandlerReference.DecreaseAnger();
+                
             }
 
             if (currentClicks >= clicksNeeded)
@@ -177,6 +184,11 @@ public class HammerMinigame : MonoBehaviour
             mainCamera.fieldOfView = originalFOV;
         }
 
+    }
+
+    public void ClickNoiseLevelRef()
+    {
+        HandleClick();
     }
 
 }   
