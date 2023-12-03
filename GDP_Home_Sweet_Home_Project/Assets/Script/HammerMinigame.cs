@@ -41,6 +41,9 @@ public class HammerMinigame : MonoBehaviour
     private bool swapFOV = false;
     private float fovChangeStartTime;
 
+    public delegate void TaskEventHandler(bool isCompleted);
+    public event TaskEventHandler OnTaskComplete;
+
 
     void Start()
     {
@@ -128,6 +131,7 @@ public class HammerMinigame : MonoBehaviour
             if (currentClicks >= clicksNeeded)
             {
                 EndMinigame();
+                OnTaskComplete?.Invoke(true);
             }
         }
     }

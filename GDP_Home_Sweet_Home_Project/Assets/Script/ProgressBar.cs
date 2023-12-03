@@ -10,12 +10,12 @@ public class ProgressBar : MonoBehaviour
     public Image mask;
 
     [SerializeField]
-    private Interaction taskDetection;
+    private HammerMinigame taskDetection;
 
     // Start is called before the first frame update
     void Start()
     {
-        taskDetection.OnTaskInteract += OnTaskCompletion;
+        taskDetection.OnTaskComplete += OnTaskCompletion;
     }
 
     private void TaskDetection_OnTaskComplete(bool isTaskComplete)
@@ -29,9 +29,9 @@ public class ProgressBar : MonoBehaviour
         GetCurrentFill();
     }
 
-    private void OnTaskCompletion(bool isTaskComplete)
+    private void OnTaskCompletion(bool isCompleted)
     {
-        if (isTaskComplete)
+        if (isCompleted)
         {
             current += 1;
         }
