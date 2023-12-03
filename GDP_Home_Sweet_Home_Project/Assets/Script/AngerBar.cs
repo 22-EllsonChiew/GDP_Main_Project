@@ -4,21 +4,46 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
+
 public class AngerBar : MonoBehaviour
 {
     public Slider angerSlider;
 
-    
+    public int reportCounter;
+    public Text reportCounterText;
+
+    private bool hasReported = false;
+
+    public HammerMinigame noiseLevelReference;
+
+    public void Start()
+    {
+        // Attempt to get the HammerMinigame script component
+        HammerMinigame noiseLevelReference = GetComponent<HammerMinigame>();
+
+        if (noiseLevelReference == null)
+        {
+            Debug.LogError("HammerMinigame script not found on the same GameObject.");
+        }
+    }
+
+
     private void OnTriggerStay(Collider other)
     {
-        
-        if (other.CompareTag("Player") && Input.GetMouseButtonDown(0))
+
+        if (other.CompareTag("Player"))
         {
-
             
-            DecreaseAnger();
-            
-
+            /*if (noiseLevelReference != null)
+            {
+                Debug.Log("HammerMinigame script found.");
+                // Call the HandleClick method from HammerMinigame
+                noiseLevelReference.ClickNoiseLevelRef();
+            }
+            else
+            {
+                Debug.LogError("HammerMinigame script not found.");
+            }*/
         }
     }
 
@@ -40,12 +65,21 @@ public class AngerBar : MonoBehaviour
             Debug.Log("IM ANGRY" + angerSlider.value);
         }
 
-        if (angerSlider.value <= 0.0f)
+        if (angerSlider.value <= 0.0f && !hasReported)
         {
             // Disable the player or perform other actions
+            reportCounter++;
+            reportCounterText.text = "Neighbour Reports: " + reportCounter.ToString();
             Debug.Log("Report");
-            
+
+            hasReported = true;
+
         }
+    }
+
+    public void HandlerAnger()
+    {
+        DecreaseAnger();
     }
 
 
