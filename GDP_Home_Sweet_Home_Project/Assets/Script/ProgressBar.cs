@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ProgressBar : MonoBehaviour
 {
@@ -27,6 +28,12 @@ public class ProgressBar : MonoBehaviour
     void Update()
     {
         GetCurrentFill();
+
+        if (current == 5)
+        {
+            SceneManager.LoadScene("Win Scene");
+        }
+
     }
 
     private void OnTaskCompletion(bool isCompleted)
@@ -43,4 +50,6 @@ public class ProgressBar : MonoBehaviour
         float amtToFill = (float) current / (float) maximum;
         mask.fillAmount = amtToFill;
     }
+
+    
 }
