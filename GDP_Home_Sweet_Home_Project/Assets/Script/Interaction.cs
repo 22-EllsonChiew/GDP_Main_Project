@@ -11,26 +11,40 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] private ConfirmationWindow confirmationWindow;
 
+    private Collider currentCollider;
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Object") && Input.GetKey(KeyCode.E)) //check if tag of the object colliding with player is "object"
         {
             confirmationWindow.gameObject.SetActive(true);
-            confirmationWindow.confirmButton.onClick.AddListener(ConfirmClicked);
+            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClicked(other)); ;
             confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
         }
+
+        currentCollider = other;
     }
 
-    private void ConfirmClicked()
+    private void ConfirmClicked(Collider confirmedCollider)
     {
         confirmationWindow.gameObject.SetActive(false);
-        OnTaskInteract?.Invoke(true);
+
+        if (confirmedCollider != null) 
+        {
+            Destroy(confirmedCollider.gameObject);
+            OnTaskInteract?.Invoke(true);
+        }
         //call function for minigame
     }
 
     private void ExitClicked()
     {
         confirmationWindow.gameObject.SetActive(false);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        currentCollider = null;
     }
 
     //private void OnTriggerEnter(Collider other)

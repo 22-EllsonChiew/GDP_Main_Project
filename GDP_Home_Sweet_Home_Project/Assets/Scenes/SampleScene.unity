@@ -3891,6 +3891,9 @@ MonoBehaviour:
   noiseIncreaseRate: 0.11
   noiseDecreaseRate: 0.105
   neighbourTotalHealth: 5
+  furnitureObjects:
+  - {fileID: 809707461337287918, guid: 2b0555104b280454abbc320405290afb, type: 3}
+  - {fileID: 6274506741612219801, guid: 43af4f9a9a9ca634e90a4b00439b55eb, type: 3}
   player: {fileID: 1790319697}
   gameUI: {fileID: 273975645}
   minigameUI: {fileID: 2017483942}

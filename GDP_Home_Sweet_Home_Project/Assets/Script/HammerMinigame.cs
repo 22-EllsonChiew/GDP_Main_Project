@@ -18,7 +18,8 @@ public class HammerMinigame : MonoBehaviour
 
     public int neighbourTotalHealth = 5;
 
-
+    [SerializeField]
+    private GameObject[] furnitureObjects;
 
     private bool isMinigameActive = false;
 
@@ -89,7 +90,16 @@ public class HammerMinigame : MonoBehaviour
         gameUI.SetActive(true);
         minigameUI.SetActive(false);
         isMinigameActive = false;
+
+        if (furnitureObjects != null && furnitureObjects.Length > 0)
+        {
+            int randomIndex = Random.Range(0, furnitureObjects.Length);
+            GameObject spawnedObject = Instantiate(furnitureObjects[randomIndex], new Vector3(player.transform.position.x,0, player.transform.position.z), Quaternion.identity);
+            Debug.Log(spawnedObject.name);
+        }
+
         player.GetComponent<PlayerMovement>().enabled = true;
+        
     }
 
     // Update is called once per frame
