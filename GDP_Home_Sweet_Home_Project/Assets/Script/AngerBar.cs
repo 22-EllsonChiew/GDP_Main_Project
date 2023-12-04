@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-
+using UnityEngine.SceneManagement;
 
 public class AngerBar : MonoBehaviour
 {
@@ -74,6 +74,11 @@ public class AngerBar : MonoBehaviour
 
             hasReported = true;
 
+        }
+
+        if(reportCounter == 1)
+        {
+            SceneManager.LoadScene("Lose Scene");
         }
     }
 
