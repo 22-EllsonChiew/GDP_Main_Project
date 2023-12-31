@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
     Animator animator;
     private bool isWalking;
+
+    static public bool dialogue = false;
  
 
     // Start is called before the first frame update
@@ -43,7 +45,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovePlayer();
+
+        if(!dialogue)
+        {
+            MovePlayer();
+        }
+        
     }
 
     // Update is called once per frame
