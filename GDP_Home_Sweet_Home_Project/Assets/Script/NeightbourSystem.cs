@@ -69,7 +69,7 @@ public class NeightbourSystem : MonoBehaviour
         }
     }
 
-    public void NewDialogue(string text)
+    void NewDialogue(string text)
     {
         GameObject template_clone = Instantiate(d_template, d_template.transform);
         template_clone.transform.parent = canva.transform;
