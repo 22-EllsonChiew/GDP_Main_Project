@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Object
   - Chest
+  - Top_Right_Corner
+  - Bottom_Right_Corner
   layers:
   - Default
   - TransparentFX

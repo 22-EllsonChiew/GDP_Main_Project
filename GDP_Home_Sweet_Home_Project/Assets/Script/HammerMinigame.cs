@@ -47,7 +47,13 @@ public class HammerMinigame : MonoBehaviour
     public event TaskEventHandler OnTaskComplete;
 
 
-    public AngerBar clickHandlerReference;
+   //public AngerBar clickHandlerReference;
+
+    
+
+    public List<AngerBar> clickHandlerReference = new List<AngerBar>();
+
+    //private Dictionary<string, AngerBar> tagToAngerBarMap = new Dictionary<string, AngerBar>();
 
     InventoryManager.AllItems rubberHammer = InventoryManager.AllItems.RubberCover;
 
@@ -62,6 +68,9 @@ public class HammerMinigame : MonoBehaviour
 
 
         AngerBar clickHandlerReference = GetComponent<AngerBar>();
+        //clickHandlerReference.Add(GetComponent<AngerBar>());
+
+
     }
 
     private void StartMinigame(bool isTaskStarted)
@@ -103,12 +112,12 @@ public class HammerMinigame : MonoBehaviour
         if (furnitureObjects != null && furnitureObjects.Length > 0)
         {
             int randomIndex = Random.Range(0, furnitureObjects.Length);
-            GameObject spawnedObject = Instantiate(furnitureObjects[randomIndex], new Vector3(player.transform.position.x,0, player.transform.position.z), Quaternion.identity);
+            GameObject spawnedObject = Instantiate(furnitureObjects[randomIndex], new Vector3(player.transform.position.x, 0, player.transform.position.z), Quaternion.identity);
             Debug.Log(spawnedObject.name);
         }
 
         player.GetComponent<PlayerMovement>().enabled = true;
-        
+
     }
 
     // Update is called once per frame
@@ -120,7 +129,7 @@ public class HammerMinigame : MonoBehaviour
 
         if (isMinigameActive)
         {
-           
+
             if (Input.GetMouseButtonDown(0))
             {
                 HandleClick();
@@ -145,23 +154,37 @@ public class HammerMinigame : MonoBehaviour
 
             progress.value = currentClicks;
 
-            
+
 
             currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
 
             if (currentNoise > (noiseThreshold * 0.85f))
             {
-                //neighbourTotalHealth -= 1;
-                    clickHandlerReference.DecreaseAnger();
-                
-            }
+                string cornerTag = gameObject.tag;
 
-            if (currentClicks >= clicksNeeded)
-            {
-                EndMinigame();
-                OnTaskComplete?.Invoke(true);
+                for (int i = 0; i < clickHandlerReference.Count; i++)
+                {
+                    // Check if the index is within the bounds of the list
+                    if (i < clickHandlerReference.Count)
+                    {
+                        // Check if the AngerBar instance matches the corner tag
+                        if (clickHandlerReference[i].gameObject.CompareTag(cornerTag))
+                        {
+                            clickHandlerReference[i].DecreaseAnger();
+                        }
+                    }
+
+                }
+
+                if (currentClicks >= clicksNeeded)
+                {
+                    EndMinigame();
+                    OnTaskComplete?.Invoke(true);
+                }
             }
         }
+
+
     }
 
     private void ChangeFOV()
@@ -224,4 +247,10 @@ public class HammerMinigame : MonoBehaviour
         }
     }
 
-}   
+    
+}
+
+   
+    
+
+
