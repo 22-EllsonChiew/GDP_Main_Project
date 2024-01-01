@@ -47,11 +47,11 @@ public class HammerMinigame : MonoBehaviour
     public event TaskEventHandler OnTaskComplete;
 
 
-   //public AngerBar clickHandlerReference;
+   public AngerBar clickHandlerReference;
 
     
 
-    public List<AngerBar> clickHandlerReference = new List<AngerBar>();
+    //public List<AngerBar> clickHandlerReference = new List<AngerBar>();
 
     //private Dictionary<string, AngerBar> tagToAngerBarMap = new Dictionary<string, AngerBar>();
 
@@ -160,7 +160,8 @@ public class HammerMinigame : MonoBehaviour
 
             if (currentNoise > (noiseThreshold * 0.85f))
             {
-                string cornerTag = gameObject.tag;
+                clickHandlerReference.DecreaseAnger();
+                /*string cornerTag = gameObject.tag;
 
                 for (int i = 0; i < clickHandlerReference.Count; i++)
                 {
@@ -172,7 +173,9 @@ public class HammerMinigame : MonoBehaviour
                         {
                             clickHandlerReference[i].DecreaseAnger();
                         }
-                    }
+                    }*/
+
+
 
                 }
 
@@ -185,7 +188,7 @@ public class HammerMinigame : MonoBehaviour
         }
 
 
-    }
+    
 
     private void ChangeFOV()
     {
