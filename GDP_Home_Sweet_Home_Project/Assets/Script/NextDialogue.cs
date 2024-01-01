@@ -9,13 +9,33 @@ public class NextDialogue : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && transform.childCount > 1)
+        /*if(Input.GetKeyDown(KeyCode.Space) && transform.childCount > 1)
         {
             if(PlayerMovement.dialogue)
             {
                 transform.GetChild(index).gameObject.SetActive(true);
                 index += 1;
                 if(transform.childCount == index)
+                {
+                    index = 2;
+                    PlayerMovement.dialogue = false;
+                }
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }*/
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && transform.childCount > 1)
+        {
+            if (PlayerMovement.dialogue)
+            {
+                transform.GetChild(index).gameObject.SetActive(true);
+                index += 1;
+                if (transform.childCount == index)
                 {
                     index = 2;
                     PlayerMovement.dialogue = false;

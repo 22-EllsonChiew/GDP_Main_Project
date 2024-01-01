@@ -10,61 +10,29 @@ public class NeightbourSystem : MonoBehaviour
     public GameObject canva;
     bool player_detection = false;
 
-
-    public Button optionAButton;
-    public Button optionBButton;
-    bool inDialogue = false;
-
     // Start is called before the first frame update
-    void Start()
-    {
-        optionAButton.onClick.AddListener(OptionASelected);
-        optionBButton.onClick.AddListener(OptionBSelected);
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
-        if(player_detection && Input.GetKeyDown(KeyCode.F) && !PlayerMovement.dialogue)
+        /*if(player_detection && Input.GetKeyDown(KeyCode.F) && !PlayerMovement.dialogue)
         {
             canva.SetActive(true);
-            /*PlayerMovement.dialogue = true;
+            PlayerMovement.dialogue = true;
             NewDialogue("Pls dont make too much noise");
             NewDialogue("If not i will report you");
-            canva.transform.GetChild(1).gameObject.SetActive(true);*/
+            canva.transform.GetChild(1).gameObject.SetActive(true);
 
-            inDialogue = true;
-            //canva.SetActive(true);
+            
+        }*/
+
+        if (player_detection && (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.B)) && !PlayerMovement.dialogue)
+        {
+            canva.SetActive(true);
             PlayerMovement.dialogue = true;
-
-            Debug.Log("Starting dialogue");
-
-            // Display initial dialogue with options
-            NewDialogue("Hey there! Just make want sure you're not too noisy brethren.");
-
-            // Wait for the player to make a choice through the UI buttons
-            //yield return StartCoroutine(WaitForButtonPress());
-
-            // Process the choice
-            if (optionAFlag)
-            {
-                // Player chose option A
-                NewDialogue("Sick blud");
-                Debug.Log("Choice made A");
-            }
-            else if (optionBFlag)
-            {
-                // Player chose option B
-                canva.SetActive(false);
-                Debug.Log("Choice made B");
-                PlayerMovement.dialogue = false;
-            }
-
-            // Reset the choice flags
-            optionAFlag = false;
-            optionBFlag = false;
-
-            inDialogue = false;
+            NewDialogue("Pls dont make too much noise");
+            NewDialogue("If not I will report you");
             canva.transform.GetChild(1).gameObject.SetActive(true);
         }
     }
@@ -89,64 +57,5 @@ public class NeightbourSystem : MonoBehaviour
         player_detection = false;
     }
 
-    /*IEnumerator StartDialogue()
-    {
-        inDialogue = true;
-        canva.SetActive(true);
-        PlayerMovement.dialogue = true;
-
-        Debug.Log("Starting dialogue");
-
-        // Display initial dialogue with options
-        NewDialogue("Hey there! Just make want sure you're not too noisy brethren.");
-
-        // Wait for the player to make a choice through the UI buttons
-        yield return StartCoroutine(WaitForButtonPress());
-
-        // Process the choice
-        if (optionAFlag)
-        {
-            // Player chose option A
-            NewDialogue("Sick blud");
-            Debug.Log("Choice made A");
-        }
-        else if (optionBFlag)
-        {
-            // Player chose option B
-            canva.SetActive(false);
-            Debug.Log("Choice made B");
-            PlayerMovement.dialogue = false;
-        }
-
-        // Reset the choice flags
-        optionAFlag = false;
-        optionBFlag = false;
-
-        inDialogue = false;
-        canva.transform.GetChild(1).gameObject.SetActive(true);
-    }*/
-    IEnumerator WaitForButtonPress()
-    {
-        while (!optionAFlag && !optionBFlag)
-        {
-            // Yielding null allows the event system to process the button click
-            yield return null;
-        }
-    }
-
-    // Button click handlers
-    private bool optionAFlag = false;
-    private bool optionBFlag = false;
-
-    void OptionASelected()
-    {
-        // Change the text value when option A is selected
-        optionAFlag = true;
-    }
-
-    void OptionBSelected()
-    {
-        // Change the text value when option B is selected
-        optionBFlag = true;
-    }
+    
 }
