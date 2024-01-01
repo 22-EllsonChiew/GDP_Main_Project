@@ -5,6 +5,7 @@ using UnityEngine;
 public class NextDialogue : MonoBehaviour
 {
     int index = 2;
+    public GameObject canvasD;
 
     // Update is called once per frame
     private void Update()
@@ -43,7 +44,7 @@ public class NextDialogue : MonoBehaviour
             }
             else
             {
-                gameObject.SetActive(false);
+                canvasD.SetActive(false);
             }
         }
     }

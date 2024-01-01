@@ -1957,8 +1957,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   d_template: {fileID: 1002918196}
   canva: {fileID: 1303035725}
-  optionAButton: {fileID: 0}
-  optionBButton: {fileID: 0}
 --- !u!135 &493705475
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2246,6 +2244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b914ac86b5517340aa5f5b9b82b7cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasD: {fileID: 0}
 --- !u!1 &564196456
 GameObject:
   m_ObjectHideFlags: 0
@@ -9866,6 +9865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b914ac86b5517340aa5f5b9b82b7cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasD: {fileID: 1303035725}
 --- !u!114 &1303035727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11179,9 +11179,7 @@ MonoBehaviour:
   mainCamera: {fileID: 963194227}
   minigameFOV: 20
   fovChangeDuration: 2
-  clickHandlerReference:
-  - {fileID: 1345170845}
-  - {fileID: 1219725469}
+  clickHandlerReference: {fileID: 0}
 --- !u!4 &1624398248
 Transform:
   m_ObjectHideFlags: 0
@@ -11592,8 +11590,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   d_template: {fileID: 1002918196}
   canva: {fileID: 1303035725}
-  optionAButton: {fileID: 0}
-  optionBButton: {fileID: 0}
 --- !u!1 &1790319697
 GameObject:
   m_ObjectHideFlags: 0
