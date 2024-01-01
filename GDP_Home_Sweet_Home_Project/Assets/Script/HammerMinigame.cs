@@ -14,7 +14,7 @@ public class HammerMinigame : MonoBehaviour
     private float currentNoise = 0f;
 
     public float noiseIncreaseRate = 0.1f;
-    public float noiseDecreaseRate = 0.05f;
+    public float noiseDecreaseRate;
 
     public int neighbourTotalHealth = 5;
 
@@ -41,12 +41,15 @@ public class HammerMinigame : MonoBehaviour
     private float originalFOV;
     private bool swapFOV = false;
     private float fovChangeStartTime;
+    private bool isMuffled = false;
 
     public delegate void TaskEventHandler(bool isCompleted);
     public event TaskEventHandler OnTaskComplete;
 
 
     public AngerBar clickHandlerReference;
+
+    InventoryManager.AllItems rubberHammer = InventoryManager.AllItems.RubberCover;
 
 
     public void Start()
@@ -55,6 +58,7 @@ public class HammerMinigame : MonoBehaviour
         originalFOV = mainCamera.fieldOfView;
         progress.maxValue = clicksNeeded;
         noise.maxValue = noiseThreshold;
+        noiseDecreaseRate = noiseIncreaseRate;
 
 
         AngerBar clickHandlerReference = GetComponent<AngerBar>();
@@ -64,6 +68,11 @@ public class HammerMinigame : MonoBehaviour
     {
         if (isTaskStarted)
         {
+            if (HasHammer() && !isMuffled)
+            {
+                noiseIncreaseRate *= 0.5f;
+                isMuffled = true;
+            }
             isMinigameActive = true;
             gameUI.SetActive(false);
             minigameUI.SetActive(true);
@@ -136,6 +145,8 @@ public class HammerMinigame : MonoBehaviour
 
             progress.value = currentClicks;
 
+            
+
             currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
 
             if (currentNoise > (noiseThreshold * 0.85f))
@@ -199,6 +210,18 @@ public class HammerMinigame : MonoBehaviour
     public void ClickNoiseLevelRef()
     {
         HandleClick();
+    }
+
+    public bool HasHammer()
+    {
+        if (InventoryManager.Instance.invItems.Contains(rubberHammer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }   

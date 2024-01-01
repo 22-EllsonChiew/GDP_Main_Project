@@ -10,6 +10,10 @@ public class Interaction : MonoBehaviour
     public event TaskEventHandler OnTaskInteract;
 
     [SerializeField] private ConfirmationWindow confirmationWindow;
+    [SerializeField] private GameObject ChestUI;
+
+
+    
 
     private Collider currentCollider;
 
@@ -20,6 +24,12 @@ public class Interaction : MonoBehaviour
             confirmationWindow.gameObject.SetActive(true);
             confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClicked(other)); ;
             confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+        }
+
+        if (other.CompareTag("Chest") && Input.GetKey(KeyCode.E))
+        {
+            Debug.Log("Opening chest");
+            ChestUI.SetActive(true);
         }
 
         currentCollider = other;
