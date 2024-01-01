@@ -27,14 +27,14 @@ public class NeightbourSystem : MonoBehaviour
     {
         if(player_detection && Input.GetKeyDown(KeyCode.F) && !PlayerMovement.dialogue)
         {
-            /*canva.SetActive(true);
-            PlayerMovement.dialogue = true;
+            canva.SetActive(true);
+            /*PlayerMovement.dialogue = true;
             NewDialogue("Pls dont make too much noise");
             NewDialogue("If not i will report you");
             canva.transform.GetChild(1).gameObject.SetActive(true);*/
 
             inDialogue = true;
-            canva.SetActive(true);
+            //canva.SetActive(true);
             PlayerMovement.dialogue = true;
 
             Debug.Log("Starting dialogue");
