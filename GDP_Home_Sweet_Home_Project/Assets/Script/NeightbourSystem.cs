@@ -31,8 +31,8 @@ public class NeightbourSystem : MonoBehaviour
         {
             canva.SetActive(true);
             PlayerMovement.dialogue = true;
-            NewDialogue("Pls dont make too much noise");
-            NewDialogue("If not I will report you");
+            NewDialogue("Alright I'll take your word for it");
+            NewDialogue("Just make sure you dont break that promise");
             canva.transform.GetChild(1).gameObject.SetActive(true);
         }
     }
