@@ -47,9 +47,17 @@ public class HammerMinigame : MonoBehaviour
     public event TaskEventHandler OnTaskComplete;
 
 
-   public AngerBar clickHandlerReference;
+    [Header("Neighbour Corner")]
 
-    
+
+   public GameObject topCorner;
+   public GameObject bottomCorner;
+
+   public AngerBar clickHandlerReferenceBottomRight;
+
+   public AngerBar clickHandlerReferenceTopRight;
+
+
 
     //public List<AngerBar> clickHandlerReference = new List<AngerBar>();
 
@@ -67,7 +75,8 @@ public class HammerMinigame : MonoBehaviour
         noiseDecreaseRate = noiseIncreaseRate;
 
 
-        AngerBar clickHandlerReference = GetComponent<AngerBar>();
+        AngerBar clickHandlerReferenceBottomRight = GetComponent<AngerBar>();
+        AngerBar clickHandlerReferenceTopRight = GetComponent<AngerBar>();
         //clickHandlerReference.Add(GetComponent<AngerBar>());
 
 
@@ -160,36 +169,27 @@ public class HammerMinigame : MonoBehaviour
 
             if (currentNoise > (noiseThreshold * 0.85f))
             {
-                clickHandlerReference.DecreaseAnger();
-                /*string cornerTag = gameObject.tag;
-
-                for (int i = 0; i < clickHandlerReference.Count; i++)
+                // Check if the player is inside the collider of topCorner
+                if (IsPlayerInsideGameObject(player, topCorner))
                 {
-                    // Check if the index is within the bounds of the list
-                    if (i < clickHandlerReference.Count)
-                    {
-                        // Check if the AngerBar instance matches the corner tag
-                        if (clickHandlerReference[i].gameObject.CompareTag(cornerTag))
-                        {
-                            clickHandlerReference[i].DecreaseAnger();
-                        }
-                    }*/
-
-
-
+                    clickHandlerReferenceTopRight.DecreaseAnger();
+                }
+                // Check if the player is inside the collider of bottomCorner
+                else if (IsPlayerInsideGameObject(player, bottomCorner))
+                {
+                    clickHandlerReferenceBottomRight.DecreaseAnger();
                 }
 
-                if (currentClicks >= clicksNeeded)
-                {
-                    EndMinigame();
-                    OnTaskComplete?.Invoke(true);
-                }
+            }
+
+            if (currentClicks >= clicksNeeded)
+            {
+                EndMinigame();
+                OnTaskComplete?.Invoke(true);
             }
         }
-
-
+    }  
     
-
     private void ChangeFOV()
     {
 
@@ -250,7 +250,23 @@ public class HammerMinigame : MonoBehaviour
         }
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+
+        }
+    }
+
+    bool IsPlayerInsideGameObject(GameObject player, GameObject corner)
+    {
+        Collider cornerCollider = corner.GetComponent<Collider>();
+
+        // Check if the player's position is inside the collider bounds
+        return cornerCollider.bounds.Contains(player.transform.position);
+    }
+
+
 }
 
    

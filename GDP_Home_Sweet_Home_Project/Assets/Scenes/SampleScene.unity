@@ -4155,7 +4155,7 @@ GameObject:
   - component: {fileID: 982778014}
   m_Layer: 0
   m_Name: Corner (3)
-  m_TagString: Bottom_Right_Corner
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11522,7 +11522,10 @@ MonoBehaviour:
   mainCamera: {fileID: 963194227}
   minigameFOV: 20
   fovChangeDuration: 2
-  clickHandlerReference: {fileID: 0}
+  topCorner: {fileID: 1645684916}
+  bottomCorner: {fileID: 982778012}
+  clickHandlerReferenceBottomRight: {fileID: 1219725469}
+  clickHandlerReferenceTopRight: {fileID: 1345170845}
 --- !u!4 &1624398248
 Transform:
   m_ObjectHideFlags: 0
@@ -11567,7 +11570,7 @@ GameObject:
   - component: {fileID: 1645684918}
   m_Layer: 0
   m_Name: Corner (2)
-  m_TagString: Top_Right_Corner
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
