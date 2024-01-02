@@ -7,12 +7,6 @@ using UnityEngine.UI;
 public class NeighbourInteractChoice : MonoBehaviour
 {
     public GameObject canva;
-    public GameObject textMeshPro;
-
-    private void Start()
-    {
-        GetComponent<TextMeshProUGUI>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,13 +14,13 @@ public class NeighbourInteractChoice : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Player entered door");
-            textMeshPro.SetActive(true);
+            canva.SetActive(true);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("Player exited door");
-        textMeshPro.SetActive(false);
+        canva.SetActive(false);
     }
 }
