@@ -141,7 +141,7 @@ public class HammerMinigame : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                HandleClick();
+                HandleClick(Input.mousePosition);
             }
 
             currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
@@ -155,7 +155,7 @@ public class HammerMinigame : MonoBehaviour
 
     }
 
-    public void HandleClick()
+    public void HandleClick(Vector3 clickPosition)
     {
         if (currentClicks < clicksNeeded)
         {
@@ -163,23 +163,25 @@ public class HammerMinigame : MonoBehaviour
 
             progress.value = currentClicks;
 
+            if (ClickNailsInToLeg(clickPosition))
+            { 
 
+                currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
 
-            currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
-
-            if (currentNoise > (noiseThreshold * 0.85f))
-            {
-                // Check if the player is inside the collider of topCorner
-                if (IsPlayerInsideGameObject(player, topCorner))
+                if (currentNoise > (noiseThreshold * 0.85f))
                 {
-                    clickHandlerReferenceTopRight.DecreaseAnger();
-                }
-                // Check if the player is inside the collider of bottomCorner
-                else if (IsPlayerInsideGameObject(player, bottomCorner))
-                {
-                    clickHandlerReferenceBottomRight.DecreaseAnger();
-                }
+                    // Check if the player is inside the collider of topCorner
+                    if (IsPlayerInsideGameObject(player, topCorner))
+                    {
+                        clickHandlerReferenceTopRight.DecreaseAnger();
+                    }
+                    // Check if the player is inside the collider of bottomCorner
+                    else if (IsPlayerInsideGameObject(player, bottomCorner))
+                    {
+                        clickHandlerReferenceBottomRight.DecreaseAnger();
+                    }
 
+                }
             }
 
             if (currentClicks >= clicksNeeded)
@@ -233,10 +235,10 @@ public class HammerMinigame : MonoBehaviour
 
     }
 
-    public void ClickNoiseLevelRef()
+   /* public void ClickNoiseLevelRef()
     {
         HandleClick();
-    }
+    }*/
 
     public bool HasHammer()
     {
@@ -250,13 +252,7 @@ public class HammerMinigame : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Player"))
-        {
-
-        }
-    }
+    
 
     bool IsPlayerInsideGameObject(GameObject player, GameObject corner)
     {
@@ -264,6 +260,16 @@ public class HammerMinigame : MonoBehaviour
 
         // Check if the player's position is inside the collider bounds
         return cornerCollider.bounds.Contains(player.transform.position);
+    }
+
+    private bool ClickNailsInToLeg(Vector3 clickPosition)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(clickPosition);
+        RaycastHit hit;
+
+        int layerMask = LayerMask.GetMask("Nails");
+
+        return Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);
     }
 
 
