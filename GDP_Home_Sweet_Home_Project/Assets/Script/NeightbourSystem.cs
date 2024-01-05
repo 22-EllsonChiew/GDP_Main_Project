@@ -31,18 +31,13 @@ public class NeightbourSystem : MonoBehaviour
         {
             canva.SetActive(true);
             PlayerMovement.dialogue = true;
-            NewDialogue("Alright ill take your word for it");
-            NewDialogue("But make sure you keep that promise");
+            //NewDialogue("Alright ill take your word for it");
+            //NewDialogue("But make sure you keep that promise");
             canva.transform.GetChild(1).gameObject.SetActive(true);
         }
     }
 
-    void NewDialogue(string text)
-    {
-        GameObject template_clone = Instantiate(d_template, d_template.transform);
-        template_clone.transform.parent = canva.transform;
-        template_clone.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = text;
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
