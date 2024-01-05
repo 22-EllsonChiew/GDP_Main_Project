@@ -8,6 +8,9 @@ TagManager:
   - Chest
   - Top_Right_Corner
   - Bottom_Right_Corner
+  - ChairLeg
+  - LegSlot
+  - NailSlot
   layers:
   - Default
   - TransparentFX
