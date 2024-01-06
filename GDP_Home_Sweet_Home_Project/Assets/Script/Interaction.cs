@@ -11,11 +11,17 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] private ConfirmationWindow confirmationWindow;
     [SerializeField] private GameObject ChestUI;
+    public Animator animator;
 
 
     
 
     private Collider currentCollider;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -30,6 +36,7 @@ public class Interaction : MonoBehaviour
         {
             Debug.Log("Opening chest");
             ChestUI.SetActive(true);
+            animator.SetTrigger("chestOpen");
         }
 
         currentCollider = other;
