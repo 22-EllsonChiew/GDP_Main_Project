@@ -11,6 +11,8 @@ TagManager:
   - ChairLeg
   - LegSlot
   - NailSlot
+  - NailGameController
+  - ChairBody
   layers:
   - Default
   - TransparentFX
