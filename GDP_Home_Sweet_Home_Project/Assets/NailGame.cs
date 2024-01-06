@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Unity.UI;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class NailGame : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class NailGame : MonoBehaviour
 
     private GameObject currentNail;
 
+    public SceneTransition sceneTransition;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +47,11 @@ public class NailGame : MonoBehaviour
         progress.maxValue = clicksNeeded;
         noise.maxValue = noiseThreshold;
         noiseDecreaseRate = noiseIncreaseRate;
+
+
+        sceneTransition = FindObjectOfType<SceneTransition>();
+
+        
 
     }
 
@@ -99,7 +107,9 @@ public class NailGame : MonoBehaviour
 
     public void EndMinigame()
     {
+        
         Debug.Log("You're done building");
+        
         minigameUI.SetActive(false);
         
         isMinigameActive = false;
@@ -107,8 +117,14 @@ public class NailGame : MonoBehaviour
         {
             Destroy(currentNail);
         }
-       
+
+        
+
         currentNail = null;
+
+       
+
+
 
         //if (furnitureObjects != null && furnitureObjects.Length > 0)
         //{
@@ -186,7 +202,13 @@ public class NailGame : MonoBehaviour
         GameObject instantiatedChair = Instantiate(newChair, new Vector3(chairPos.position.x, chairPos.position.y - 0.3f, chairPos.position.z), transform.rotation);
         instantiatedChair.transform.localScale = new Vector3(0.275f, 0.275f, 0.275f);
 
+       
+
     }
 
+
+    
+
+   
 }
 

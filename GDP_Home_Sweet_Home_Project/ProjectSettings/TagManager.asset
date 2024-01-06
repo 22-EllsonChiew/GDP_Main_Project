@@ -13,6 +13,7 @@ TagManager:
   - NailSlot
   - NailGameController
   - ChairBody
+  - NewSceneTrigger
   layers:
   - Default
   - TransparentFX
