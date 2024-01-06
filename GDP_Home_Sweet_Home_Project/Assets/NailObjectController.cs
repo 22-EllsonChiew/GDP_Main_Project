@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class AddNail : MonoBehaviour
+public class NailObjectController : MonoBehaviour
 {
+
+    public UnityEvent<GameObject> gameStart;
+
+    public int currentClicks;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameStart.AddListener(obj => GameObject.FindGameObjectWithTag("NailGameController").GetComponent<NailGame>().StartMinigame(obj));
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check if the left mouse button is clicked
         if (Input.GetMouseButtonDown(0))
         {
             // Convert mouse position to a ray
@@ -26,8 +31,9 @@ public class AddNail : MonoBehaviour
                 // Check if the collider is the Box Collider attached to this GameObject
                 if (hit.collider != null && hit.collider.gameObject == gameObject)
                 {
-                    // The click is on the Box Collider, do something
-                    Debug.Log("Box Collider clicked!");
+                    gameStart.Invoke(gameObject);
+                    Debug.Log("Starting Hammering");
+
                 }
             }
         }

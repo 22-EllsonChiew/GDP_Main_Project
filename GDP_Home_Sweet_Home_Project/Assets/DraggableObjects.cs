@@ -10,15 +10,20 @@ public class DraggableObjects : MonoBehaviour
     private bool isAttached = false;
     private Rigidbody rb;
     public LayerMask groundLayerMask;
+    public float hoverHeight = 0.4f;
 
     [SerializeField] private string targetSlot;
+
 
 
     void Start()
     {
         mainCamera = Camera.main;
         rb = GetComponent<Rigidbody>();
+
         DisableAllChildren();
+
+        
     }
 
     void OnMouseDown()
@@ -44,7 +49,7 @@ public class DraggableObjects : MonoBehaviour
             {
                 // Set the object's position to the intersection point with the ground
 
-                newPosition.y = hit.point.y + 0.3f;
+                newPosition.y = hit.point.y + hoverHeight;
 
                 
 
@@ -85,7 +90,7 @@ public class DraggableObjects : MonoBehaviour
                 {
                     // Snap the object to the trigger's position
                     Vector3 snapPosition = col.transform.position;
-                    snapPosition.y = transform.position.y; // Keep the original Y position
+                    //snapPosition.y = transform.position.y; // Keep the original Y position
                     transform.position = snapPosition;
                     transform.rotation = Quaternion.identity;
                     transform.SetParent(col.transform);
@@ -97,7 +102,11 @@ public class DraggableObjects : MonoBehaviour
             }
             else
             {
-                rb.isKinematic = false;
+                if (!isAttached)
+                {
+                    rb.isKinematic = false;
+                }
+                
             }
         }
     }
