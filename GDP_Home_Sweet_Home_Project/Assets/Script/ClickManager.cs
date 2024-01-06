@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClickManager : MonoBehaviour
 {
-    void Update()
+   /* void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -35,5 +35,5 @@ public class ClickManager : MonoBehaviour
                 Debug.Log("Ray did not hit anything on the 'Nails' layer.");
             }
         }
-    }
+    }*/
 }

@@ -141,7 +141,7 @@ public class HammerMinigame : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                HandleClick(Input.mousePosition);
+                HandleClick();
             }
 
             currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
@@ -155,7 +155,7 @@ public class HammerMinigame : MonoBehaviour
 
     }
 
-    public void HandleClick(Vector3 clickPosition)
+    public void HandleClick()
     {
         if (currentClicks < clicksNeeded)
         {
@@ -163,8 +163,8 @@ public class HammerMinigame : MonoBehaviour
 
             progress.value = currentClicks;
 
-            if (ClickNailsInToLeg(clickPosition))
-            { 
+            //if (ClickNailsInToLeg(clickPosition))
+            //{ 
 
                 currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
 
@@ -182,7 +182,7 @@ public class HammerMinigame : MonoBehaviour
                     }
 
                 }
-            }
+            //}
 
             if (currentClicks >= clicksNeeded)
             {

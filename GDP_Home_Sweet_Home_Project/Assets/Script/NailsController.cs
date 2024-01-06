@@ -9,7 +9,7 @@ public class NailsController : MonoBehaviour
     private float timer = 2f;
     private List<GameObject> holes;
 
-    public HammerMinigame hammerMiniGame;
+    public NailGame hammerMiniGame;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +52,7 @@ public class NailsController : MonoBehaviour
         timer = 2f;
     }
 
-    public void SmackNails()
+    /*public void SmackNails()
     {
             Debug.Log("Smacking Nails");
         if(hammerMiniGame != null)
@@ -62,7 +62,7 @@ public class NailsController : MonoBehaviour
             nails.SetActive(false);
             isUp = false;
             StartCoroutine(WaitForNails(2f));
-    }
+    }*/
 
     
 }

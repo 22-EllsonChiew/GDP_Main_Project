@@ -13,7 +13,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject ChestUI;
     public Animator animator;
 
-
+    public GameObject BuildingChair;
     
 
     private Collider currentCollider;
@@ -45,9 +45,11 @@ public class Interaction : MonoBehaviour
     private void ConfirmClicked(Collider confirmedCollider)
     {
         confirmationWindow.gameObject.SetActive(false);
+        
 
         if (confirmedCollider != null) 
         {
+            BuildingChair.gameObject.SetActive(true);
             Destroy(confirmedCollider.gameObject);
             OnTaskInteract?.Invoke(true);
         }

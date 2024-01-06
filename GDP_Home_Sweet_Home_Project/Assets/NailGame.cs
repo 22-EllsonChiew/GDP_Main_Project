@@ -40,9 +40,20 @@ public class NailGame : MonoBehaviour
 
     public SceneTransition sceneTransition;
 
+    [Header("Neighbour Corner")]
+
+    public GameObject player;
+
+    public GameObject topCorner;
+    public GameObject bottomCorner;
+
+    public AngerBar clickHandlerReferenceBottomRight;
+
+    public AngerBar clickHandlerReferenceTopRight;
+
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         progress.maxValue = clicksNeeded;
         noise.maxValue = noiseThreshold;
@@ -51,8 +62,8 @@ public class NailGame : MonoBehaviour
 
         sceneTransition = FindObjectOfType<SceneTransition>();
 
-        
-
+        AngerBar clickHandlerReferenceBottomRight = GetComponent<AngerBar>();
+        AngerBar clickHandlerReferenceTopRight = GetComponent<AngerBar>();
     }
 
     // Update is called once per frame
@@ -135,7 +146,7 @@ public class NailGame : MonoBehaviour
 
     }
 
-    private void HandleClick()
+    public void HandleClick()
     {
         if (currentClicks < clicksNeeded)
         {
@@ -146,20 +157,26 @@ public class NailGame : MonoBehaviour
 
             currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
 
-            if (currentNoise > (noiseThreshold * 0.85f))
-            {
-                //// Check if the player is inside the collider of topCorner
-                //if (IsPlayerInsideGameObject(player, topCorner))
-                //{
-                //    clickHandlerReferenceTopRight.DecreaseAnger();
-                //}
-                //// Check if the player is inside the collider of bottomCorner
-                //else if (IsPlayerInsideGameObject(player, bottomCorner))
-                //{
-                //    clickHandlerReferenceBottomRight.DecreaseAnger();
-                //}
+           
+                Debug.Log("im angry1");
+                currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
 
-            }
+                if (currentNoise > (noiseThreshold * 0.85f))
+                {
+                    // Check if the player is inside the collider of topCorner
+                    if (IsPlayerInsideGameObject(player, topCorner))
+                    {
+                        Debug.Log("im angry2");
+                        clickHandlerReferenceTopRight.DecreaseAnger();
+                    }
+                    // Check if the player is inside the collider of bottomCorner
+                    else if (IsPlayerInsideGameObject(player, bottomCorner))
+                    {
+                        clickHandlerReferenceBottomRight.DecreaseAnger();
+                    }
+
+                }
+            
         }
 
         if (currentClicks >= clicksNeeded)
@@ -206,9 +223,23 @@ public class NailGame : MonoBehaviour
 
     }
 
+    bool IsPlayerInsideGameObject(GameObject player, GameObject corner)
+    {
+        Collider cornerCollider = corner.GetComponent<Collider>();
 
-    
+        // Check if the player's position is inside the collider bounds
+        return cornerCollider.bounds.Contains(player.transform.position);
+    }
 
-   
+    /*private bool ClickNailsInToLeg(Vector3 clickPosition)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(clickPosition);
+        RaycastHit hit;
+
+        int layerMask = LayerMask.GetMask("Nails");
+
+        return Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);
+    }*/
+
 }
 

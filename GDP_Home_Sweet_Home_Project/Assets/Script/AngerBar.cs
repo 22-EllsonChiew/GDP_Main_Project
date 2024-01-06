@@ -14,17 +14,19 @@ public class AngerBar : MonoBehaviour
 
     private bool hasReported = false;
 
-    public HammerMinigame noiseLevelReference;
+    //public HammerMinigame noiseLevelReference;
+
+    public NailGame noiseLevelReference;
 
     public void Start()
     {
-        //// Attempt to get the HammerMinigame script component
-        //HammerMinigame noiseLevelReference = GetComponent<HammerMinigame>();
+        // Attempt to get the HammerMinigame script component
+        NailGame noiseLevelReference = GetComponent<NailGame>();
 
-        //if (noiseLevelReference == null)
-        //{
-        //    Debug.LogError("HammerMinigame script not found on the same GameObject.");
-        //}
+        if (noiseLevelReference == null)
+        {
+            Debug.LogError("NailGame script not found on the same GameObject.");
+        }
     }
 
 
