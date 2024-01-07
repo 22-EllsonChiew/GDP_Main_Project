@@ -19,6 +19,7 @@ public class Interaction : MonoBehaviour
 
     private Collider currentCollider;
 
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -50,12 +51,10 @@ public class Interaction : MonoBehaviour
 
         if (confirmedCollider != null) 
         {
-            BuildingChair.gameObject.SetActive(true);
             Destroy(confirmedCollider.gameObject);
            
             minigameCam.SetActive(true);
             mainCam.SetActive(false);
-            
         }
         //call function for minigame
     }

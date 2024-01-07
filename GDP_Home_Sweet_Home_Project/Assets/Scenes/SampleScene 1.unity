@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.38771427, g: 0.4013707, b: 0.38972384, a: 1}
+  m_IndirectSpecularColor: {r: 0.3876171, g: 0.40122858, b: 0.38950473, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2748,7 +2748,7 @@ GameObject:
   - component: {fileID: 554869190}
   m_Layer: 5
   m_Name: Progress Bar
-  m_TagString: Untagged
+  m_TagString: MainProgressBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2789,7 +2789,6 @@ MonoBehaviour:
   maximum: 5
   current: 0
   mask: {fileID: 94795291}
-  taskDetection: {fileID: 0}
 --- !u!114 &554869191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5379,7 +5378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982778012}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.6, y: 1.46, z: 6.01}
+  m_LocalPosition: {x: -10.99, y: 1.46, z: 6.01}
   m_LocalScale: {x: 22.002312, y: 15.771135, z: 38.76545}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13459,7 +13458,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645684916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.2, y: 1.9, z: 6.2}
+  m_LocalPosition: {x: 10.4, y: 1.9, z: 6.2}
   m_LocalScale: {x: 20.676968, y: 15.912704, z: 36.98431}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13566,7 +13565,7 @@ GameObject:
   - component: {fileID: 1649021140}
   m_Layer: 0
   m_Name: MiniGameCam
-  m_TagString: Untagged
+  m_TagString: MinigameCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13910,7 +13909,7 @@ MonoBehaviour:
   confirmationWindow: {fileID: 803605616}
   ChestUI: {fileID: 170469813}
   animator: {fileID: 1633611348}
-  BuildingChair: {fileID: 7187468411351150508}
+  BuildingChair: {fileID: 0}
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}
 --- !u!95 &1790319703
@@ -15541,15 +15540,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1406005507680499007, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1406005507680499007, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1406005507680499007, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1406005507680499007, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15579,6 +15578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minigame_Update
       objectReference: {fileID: 0}
+    - target: {fileID: 6120752689837624132, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6670344082968517397, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
       propertyPath: gameCamera
       value: 
@@ -15587,6 +15590,10 @@ PrefabInstance:
       propertyPath: gameCamera
       value: 
       objectReference: {fileID: 1649021141}
+    - target: {fileID: 7475504449937527977, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
+      propertyPath: m_TagString
+      value: Draggable
+      objectReference: {fileID: 0}
     - target: {fileID: 7587640260301872515, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
       propertyPath: gameCamera
       value: 
@@ -15596,6 +15603,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
+--- !u!1 &127167186114093667 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8008408127929317525, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
+  m_PrefabInstance: {fileID: 127167186114093666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &181731762941606143
 GameObject:
   m_ObjectHideFlags: 0
@@ -15632,6 +15644,7 @@ MonoBehaviour:
   noiseThreshold: 0.7
   noiseIncreaseRate: 0.1
   noiseDecreaseRate: 0
+  isMinigameActive: 0
   minigameUI: {fileID: 0}
   noise: {fileID: 0}
   progress: {fileID: 0}
@@ -15670,6 +15683,7 @@ MonoBehaviour:
   newChair: {fileID: 0}
   sceneTransition: {fileID: 0}
   player: {fileID: 0}
+  minigamePos: {fileID: 0}
   topCorner: {fileID: 0}
   bottomCorner: {fileID: 0}
   clickHandlerReferenceBottomRight: {fileID: 0}
@@ -15677,6 +15691,12 @@ MonoBehaviour:
   mainCam: {fileID: 0}
   minigameCam: {fileID: 0}
   chairSet: {fileID: 0}
+  taskCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  resetLeg:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!224 &542056928356617897
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15705,7 +15725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149491710626}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.9496, y: 0.74, z: 11.096}
+  m_LocalPosition: {x: 0.08, y: 0.74, z: 11.096}
   m_LocalScale: {x: 0.2510301, y: 0.2510301, z: 0.2510301}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17479,11 +17499,6 @@ MonoBehaviour:
     m_Bits: 8
   hoverHeight: 0.4
   targetSlot: LegSlot
---- !u!1 &6516109682033105466 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8008408127929317525, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
-  m_PrefabInstance: {fileID: 127167186114093666}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6554990934927551764
 Transform:
   m_ObjectHideFlags: 0
@@ -17681,9 +17696,9 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &7187468411351150508 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6120752689837624132, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
+--- !u!4 &7187468411351150509 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1406005507680499007, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
   m_PrefabInstance: {fileID: 127167186114093666}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &7307571374988224096
@@ -17790,11 +17805,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d3eb0ca8ffc3a4aaec6e197d588437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicksNeeded: 5
+  clicksNeeded: 1
   nailsNeeded: 4
   noiseThreshold: 1
   noiseIncreaseRate: 0.1
   noiseDecreaseRate: 0
+  isMinigameActive: 0
   minigameUI: {fileID: 4870747693653130841}
   noise: {fileID: 8285317169771310291}
   progress: {fileID: 4889879708428260302}
@@ -17829,10 +17845,11 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  oldChair: {fileID: 6516109682033105466}
+  oldChair: {fileID: 127167186114093667}
   newChair: {fileID: 919132149155446097, guid: b5031afbf7e66a944ad0711fe436a06f, type: 3}
   sceneTransition: {fileID: 0}
   player: {fileID: 1790319697}
+  minigamePos: {fileID: 7187468411351150509}
   topCorner: {fileID: 1645684916}
   bottomCorner: {fileID: 982778012}
   clickHandlerReferenceBottomRight: {fileID: 1219725469}
@@ -17840,6 +17857,12 @@ MonoBehaviour:
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}
   chairSet: {fileID: 6120752689837624132, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
+  taskCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  resetLeg:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7565215745276000207
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,18 +10,13 @@ public class ProgressBar : MonoBehaviour
     public int current;
     public Image mask;
 
-    [SerializeField]
-    private HammerMinigame taskDetection;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        taskDetection.OnTaskComplete += OnTaskCompletion;
-    }
-
-    private void TaskDetection_OnTaskComplete(bool isTaskComplete)
-    {
-        throw new System.NotImplementedException();
+        GameObject[] totalTasks = GameObject.FindGameObjectsWithTag("Object");
+        maximum = totalTasks.Length;
     }
 
     // Update is called once per frame
@@ -29,14 +24,14 @@ public class ProgressBar : MonoBehaviour
     {
         GetCurrentFill();
 
-        if (current == 5)
+        if (current == maximum)
         {
             SceneManager.LoadScene("Win Scene");
         }
 
     }
 
-    private void OnTaskCompletion(bool isCompleted)
+    public void OnTaskCompletion(bool isCompleted)
     {
         if (isCompleted)
         {
