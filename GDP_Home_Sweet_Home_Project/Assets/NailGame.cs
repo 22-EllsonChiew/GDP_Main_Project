@@ -46,15 +46,21 @@ public class NailGame : MonoBehaviour
 
     public GameObject topCorner;
     public GameObject bottomCorner;
+    private GameObject instantiatedChair;
 
     public AngerBar clickHandlerReferenceBottomRight;
 
     public AngerBar clickHandlerReferenceTopRight;
 
+    public GameObject mainCam;
+    public GameObject minigameCam;
 
+    public GameObject chairSet;
     // Start is called before the first frame update
     public void Start()
     {
+        minigameCam.SetActive(false);
+
         progress.maxValue = clicksNeeded;
         noise.maxValue = noiseThreshold;
         noiseDecreaseRate = noiseIncreaseRate;
@@ -100,20 +106,16 @@ public class NailGame : MonoBehaviour
         isMinigameActive = true;
         currentNail = nailPrefab;
         minigameUI.SetActive(true);
-        ResetMinigame();
-
-
-        Debug.Log("Time to build");
-
-    }
-
-    private void ResetMinigame()
-    {
         if (currentNail != null)
         {
             currentClicks = currentNail.GetComponent<NailObjectController>().currentClicks;
         }
-        //add completion bar for game
+
+        minigameCam.SetActive(true);
+        mainCam.SetActive(false);
+
+        Debug.Log("Time to build");
+
     }
 
     public void EndMinigame()
@@ -201,7 +203,7 @@ public class NailGame : MonoBehaviour
         yield return new WaitForSeconds(1.25f);
 
         Quaternion targetRotation = Quaternion.Euler(0f, 0f, 180f);
-        Transform chairPos = oldChair.transform;
+        Transform newChairPos = oldChair.transform;
 
         float elapsedTime = 0f;
         float rotationTime = 2f; // Adjust this value as needed for the desired rotation time
@@ -216,12 +218,19 @@ public class NailGame : MonoBehaviour
         Debug.Log("Imma go disappear");
         Destroy(oldChair);
 
-        GameObject instantiatedChair = Instantiate(newChair, new Vector3(chairPos.position.x, chairPos.position.y - 0.3f, chairPos.position.z), transform.rotation);
-        instantiatedChair.transform.localScale = new Vector3(0.275f, 0.275f, 0.275f);
+        instantiatedChair = Instantiate(newChair, new Vector3(newChairPos.position.x, newChairPos.position.y - 1f, newChairPos.position.z), transform.rotation);
 
-       
+        yield return new WaitForSeconds(2f);
+        Destroy(instantiatedChair);
+
+        minigameCam.SetActive(false);
+        mainCam.SetActive(true);
+
+        Instantiate(chairSet, newChairPos.transform.position, transform.rotation);
+
 
     }
+
 
     bool IsPlayerInsideGameObject(GameObject player, GameObject corner)
     {
