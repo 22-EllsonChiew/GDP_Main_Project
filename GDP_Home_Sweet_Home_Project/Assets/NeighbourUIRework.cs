@@ -11,6 +11,11 @@ public class NeighbourUIRework : MonoBehaviour
     public GameObject text2;
     public GameObject promiseButtonObj;
     public GameObject exitButtonObj;
+    public GameObject interactText;
+    public GameObject neighbourCam;
+    public GameObject neighbourBar;
+    public GameObject mainCanvas;
+    public GameObject playerObj;
 
     bool player_detection = false;
     // Start is called before the first frame update
@@ -22,8 +27,17 @@ public class NeighbourUIRework : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player_detection)
+        {
+            interactText.SetActive(true);
+        }
+
         if (player_detection && (Input.GetKeyDown(KeyCode.Tab)) && !PlayerMovement.dialogue)
         {
+            playerObj.SetActive(false);
+            mainCanvas.SetActive(false);
+            neighbourBar.SetActive(true);
+            neighbourCam.SetActive(true);
             Debug.Log("Started interaction with neighbour");
             canva.SetActive(true);
             PlayerMovement.dialogue = true;
@@ -34,6 +48,10 @@ public class NeighbourUIRework : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.G) && PlayerMovement.dialogue)
         {
+            playerObj.SetActive(true);
+            mainCanvas.SetActive(true);
+            neighbourBar.SetActive(false);
+            neighbourCam.SetActive(false);
             Debug.Log("Ended interaction through promise");
             canva.SetActive(false);
             text2.SetActive(false);
@@ -54,7 +72,9 @@ public class NeighbourUIRework : MonoBehaviour
         Debug.Log("Ended interaction through exit");
         canva.SetActive(false);
         PlayerMovement.dialogue = false;
-
+        neighbourCam.SetActive(false);
+        neighbourBar.SetActive(false);
+        playerObj.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
