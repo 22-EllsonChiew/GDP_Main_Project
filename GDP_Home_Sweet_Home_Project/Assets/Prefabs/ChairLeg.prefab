@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2071065020815305315}
   m_Layer: 0
   m_Name: ChairLeg
-  m_TagString: ChairLeg
+  m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

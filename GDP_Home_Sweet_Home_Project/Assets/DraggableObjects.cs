@@ -14,16 +14,20 @@ public class DraggableObjects : MonoBehaviour
 
     [SerializeField] private string targetSlot;
 
-
+    private Vector3 originalPos;
+    private Quaternion originalRotation;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        gameCamera = GameObject.FindGameObjectWithTag("MinigameCam").GetComponent<Camera>();
         DisableAllChildren();
 
-        
+        originalPos = transform.position;
+        originalRotation = transform.rotation;
+
     }
+
 
     void OnMouseDown()
     {
@@ -58,6 +62,7 @@ public class DraggableObjects : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 10f * Time.deltaTime);
 
         }
+
     }
 
     Vector3 GetMouseWorldPosition()
@@ -109,6 +114,19 @@ public class DraggableObjects : MonoBehaviour
             }
         }
     }
+
+    public void ResetObject()
+    {
+        transform.SetParent(null);
+
+        rb.isKinematic = false;
+
+        isAttached = false;
+
+        transform.position = originalPos;
+        transform.rotation = originalRotation;
+    }
+
 
     void DisableAllChildren()
     {

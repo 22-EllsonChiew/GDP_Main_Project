@@ -6,6 +6,7 @@ using Unity.UI;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class NailGame : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class NailGame : MonoBehaviour
     public float noiseIncreaseRate = 0.1f;
     public float noiseDecreaseRate;
 
-    private bool isMinigameActive = false;
+    public bool isMinigameActive = false;
     private bool isObjectBuilt = false;
 
     public GameObject minigameUI;
@@ -37,12 +38,15 @@ public class NailGame : MonoBehaviour
     public GameObject newChair;
 
     private GameObject currentNail;
+    private bool isMuffled = false;
 
     public SceneTransition sceneTransition;
 
     [Header("Neighbour Corner")]
 
     public GameObject player;
+
+    public Transform minigamePos;
 
     public GameObject topCorner;
     public GameObject bottomCorner;
@@ -56,15 +60,44 @@ public class NailGame : MonoBehaviour
     public GameObject minigameCam;
 
     public GameObject chairSet;
+
+    public UnityEvent<bool> taskCompleted;
+    public UnityEvent resetLeg;
+
+    private Transform newChairPos;
+
+
+    InventoryManager.AllItems rubberHammer = InventoryManager.AllItems.RubberCover;
+
     // Start is called before the first frame update
     public void Start()
     {
+        
         minigameCam.SetActive(false);
 
         progress.maxValue = clicksNeeded;
         noise.maxValue = noiseThreshold;
         noiseDecreaseRate = noiseIncreaseRate;
 
+        taskCompleted.AddListener(isTaskComplete => GameObject.FindGameObjectWithTag("MainProgressBar").GetComponent<ProgressBar>().OnTaskCompletion(isTaskComplete));
+        GameObject[] draggableObjects = GameObject.FindGameObjectsWithTag("Draggable");
+
+        // Add listeners for each DraggableObject
+        foreach (GameObject draggableObject in draggableObjects)
+        {
+            DraggableObjects draggableScript = draggableObject.GetComponent<DraggableObjects>();
+
+            if (draggableScript != null)
+            {
+                resetLeg.AddListener(() => draggableScript.ResetObject());
+            }
+            else
+            {
+                Debug.LogWarning("No DraggableObjects script found on " + draggableObject.name);
+            }
+        }
+    
+        newChairPos = oldChair.transform;
 
         sceneTransition = FindObjectOfType<SceneTransition>();
 
@@ -98,11 +131,11 @@ public class NailGame : MonoBehaviour
     public void StartMinigame(GameObject nailPrefab)
     {
 
-        //if (HasHammer() && !isMuffled)
-        //{
-        //    noiseIncreaseRate *= 0.5f;
-        //    isMuffled = true;
-        //}
+        if (HasHammer() && !isMuffled)
+        {
+            noiseIncreaseRate *= 0.5f;
+            isMuffled = true;
+        }
         isMinigameActive = true;
         currentNail = nailPrefab;
         minigameUI.SetActive(true);
@@ -113,6 +146,7 @@ public class NailGame : MonoBehaviour
 
         minigameCam.SetActive(true);
         mainCam.SetActive(false);
+
 
         Debug.Log("Time to build");
 
@@ -128,7 +162,7 @@ public class NailGame : MonoBehaviour
         isMinigameActive = false;
         if (currentNail != null)
         {
-            Destroy(currentNail);
+            currentNail.SetActive(false);
         }
 
         
@@ -194,6 +228,7 @@ public class NailGame : MonoBehaviour
         if (currentNails == 4 )
         {
             StartCoroutine(DestroyDelay());
+            taskCompleted.Invoke(true);
         }
 
     }
@@ -203,7 +238,6 @@ public class NailGame : MonoBehaviour
         yield return new WaitForSeconds(1.25f);
 
         Quaternion targetRotation = Quaternion.Euler(0f, 0f, 180f);
-        Transform newChairPos = oldChair.transform;
 
         float elapsedTime = 0f;
         float rotationTime = 2f; // Adjust this value as needed for the desired rotation time
@@ -216,20 +250,40 @@ public class NailGame : MonoBehaviour
         }
 
         Debug.Log("Imma go disappear");
-        Destroy(oldChair);
+
+        oldChair.SetActive(false);
 
         instantiatedChair = Instantiate(newChair, new Vector3(newChairPos.position.x, newChairPos.position.y - 1f, newChairPos.position.z), transform.rotation);
 
         yield return new WaitForSeconds(2f);
+
         Destroy(instantiatedChair);
+
 
         minigameCam.SetActive(false);
         mainCam.SetActive(true);
 
-        Instantiate(chairSet, newChairPos.transform.position, transform.rotation);
+        oldChair.SetActive(true);
 
+        oldChair.transform.rotation = Quaternion.identity;
 
+        currentNails = 0;
+
+        resetLeg.Invoke();
     }
+
+    public bool HasHammer()
+    {
+        if (InventoryManager.Instance.invItems.Contains(rubberHammer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 
 
     bool IsPlayerInsideGameObject(GameObject player, GameObject corner)

@@ -14,6 +14,9 @@ TagManager:
   - NailGameController
   - ChairBody
   - NewSceneTrigger
+  - MainProgressBar
+  - MinigameCam
+  - Draggable
   layers:
   - Default
   - TransparentFX
