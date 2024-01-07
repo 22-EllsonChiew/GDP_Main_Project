@@ -30,12 +30,12 @@ Transform:
   m_GameObject: {fileID: 264018481770716761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.782, y: 0.372, z: -0.048}
-  m_LocalScale: {x: 0.11182713, y: 0.45997566, z: 0.11974153}
+  m_LocalScale: {x: 0.111827135, y: 0.4599757, z: 0.11974152}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6143927985932615265}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3770458238851046057
 MeshFilter:
@@ -120,10 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44880f521cbf5e84bad0262e10604bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCamera: {fileID: 0}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  hoverHeight: 0.35
+  hoverHeight: 2.5
   targetSlot: LegSlot
 --- !u!54 &2071065020815305315
 Rigidbody:
@@ -366,4 +367,5 @@ MonoBehaviour:
   gameStart:
     m_PersistentCalls:
       m_Calls: []
+  gameCamera: {fileID: 0}
   currentClicks: 0

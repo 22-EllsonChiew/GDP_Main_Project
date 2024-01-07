@@ -8,6 +8,8 @@ public class NailObjectController : MonoBehaviour
 
     public UnityEvent<GameObject> gameStart;
 
+    public Camera gameCamera;
+
     public int currentClicks;
 
     // Start is called before the first frame update
@@ -22,7 +24,7 @@ public class NailObjectController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // Convert mouse position to a ray
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
 
             // Check if the ray hits something with a collider
             RaycastHit hit;

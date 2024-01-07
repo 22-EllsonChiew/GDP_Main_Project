@@ -5,7 +5,7 @@ using UnityEngine;
 public class DraggableObjects : MonoBehaviour
 {
     private Vector3 offset;
-    private Camera mainCamera;
+    public Camera gameCamera;
     private bool isDragging = false;
     private bool isAttached = false;
     private Rigidbody rb;
@@ -18,7 +18,6 @@ public class DraggableObjects : MonoBehaviour
 
     void Start()
     {
-        mainCamera = Camera.main;
         rb = GetComponent<Rigidbody>();
 
         DisableAllChildren();
@@ -43,7 +42,7 @@ public class DraggableObjects : MonoBehaviour
             Vector3 newPosition = GetMouseWorldPosition() + offset;
 
             // Cast a ray from the mouse position to the ground
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayerMask))
             {
@@ -65,8 +64,8 @@ public class DraggableObjects : MonoBehaviour
     {
         // Get the mouse position in screen space and convert it to world space
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = Camera.main.transform.position.y; // Set the Z position based on the camera angle
-        return Camera.main.ScreenToWorldPoint(mousePosition);
+        mousePosition.z = gameCamera.transform.position.y; // Set the Z position based on the camera angle
+        return gameCamera.ScreenToWorldPoint(mousePosition);
     }
 
     void OnMouseUp()
