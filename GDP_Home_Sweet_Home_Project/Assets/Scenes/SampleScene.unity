@@ -14442,6 +14442,8 @@ MonoBehaviour:
   ChestUI: {fileID: 170469813}
   animator: {fileID: 1633611348}
   BuildingChair: {fileID: 7187468411351150508}
+  mainCam: {fileID: 0}
+  minigameCam: {fileID: 0}
 --- !u!95 &1790319703
 Animator:
   serializedVersion: 5
@@ -15901,6 +15903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44880f521cbf5e84bad0262e10604bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCamera: {fileID: 0}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -16079,6 +16082,9 @@ MonoBehaviour:
   bottomCorner: {fileID: 0}
   clickHandlerReferenceBottomRight: {fileID: 0}
   clickHandlerReferenceTopRight: {fileID: 0}
+  mainCam: {fileID: 0}
+  minigameCam: {fileID: 0}
+  chairSet: {fileID: 0}
 --- !u!224 &542056928356617897
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17187,6 +17193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44880f521cbf5e84bad0262e10604bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCamera: {fileID: 0}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -17783,6 +17790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44880f521cbf5e84bad0262e10604bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCamera: {fileID: 0}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -18440,6 +18448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44880f521cbf5e84bad0262e10604bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCamera: {fileID: 0}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -18954,6 +18963,9 @@ MonoBehaviour:
   bottomCorner: {fileID: 982778012}
   clickHandlerReferenceBottomRight: {fileID: 1219725469}
   clickHandlerReferenceTopRight: {fileID: 1345170845}
+  mainCam: {fileID: 0}
+  minigameCam: {fileID: 0}
+  chairSet: {fileID: 0}
 --- !u!1 &7577161608248113852
 GameObject:
   m_ObjectHideFlags: 0

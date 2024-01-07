@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lose Scene.unity
     guid: 633d4dc4960e5b94ab74b1a2cca5ede8
+  - enabled: 1
+    path: Assets/Scenes/Sleep Scene.unity
+    guid: 9c2c04cf35cb8164c945adbebec448ac
   m_configObjects: {}

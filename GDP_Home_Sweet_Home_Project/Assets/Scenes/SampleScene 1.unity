@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465961, g: 0.496436, b: 0.5748296, a: 1}
+  m_IndirectSpecularColor: {r: 0.38771427, g: 0.4013707, b: 0.38972384, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3837,14 +3837,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40592834, y: -0.21686293, z: 0.117593944, w: 0.8799797}
+  m_LocalRotation: {x: 0.99898094, y: -0.04177097, z: 0.013572847, w: 0.010393592}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 49.944, y: -26.406, z: 2.752}
+  m_LocalEulerAnglesHint: {x: 1.255, y: -541.505, z: 184.772}
 --- !u!1 &726224073
 GameObject:
   m_ObjectHideFlags: 0
@@ -13801,6 +13801,7 @@ MonoBehaviour:
   exitButtonObj: {fileID: 611213620}
   interactText: {fileID: 726224073}
   neighbourCam: {fileID: 870159043}
+  mainCam: {fileID: 0}
   neighbourBar: {fileID: 1219725467}
   mainCanvas: {fileID: 557129279}
   playerObj: {fileID: 1790319697}
@@ -15846,6 +15847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5756703701831720448}
   - component: {fileID: 7565215745276000206}
+  - component: {fileID: 7565215745276000207}
   m_Layer: 0
   m_Name: MinigameController
   m_TagString: NailGameController
@@ -17838,6 +17840,25 @@ MonoBehaviour:
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}
   chairSet: {fileID: 6120752689837624132, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
+--- !u!114 &7565215745276000207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069056548248898491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf66f42689b48da45ba5a38628dfdf10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endHour: 1
+  endMinute: 30
+  directionalLight: {fileID: 705507994}
+  dayIntensity: 1
+  nightIntensity: 0.2
+  eveningIntensity: 0.5
+  transitionSpeed: 0.1
 --- !u!1 &7577161608248113852
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,6 @@ public class SceneManagement : MonoBehaviour
 
     void MainGameScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("SampleScene 1");
     }
 }
