@@ -14332,6 +14332,7 @@ MonoBehaviour:
   exitButtonObj: {fileID: 611213620}
   interactText: {fileID: 726224073}
   neighbourCam: {fileID: 870159043}
+  mainCam: {fileID: 963194225}
   neighbourBar: {fileID: 1219725467}
   mainCanvas: {fileID: 557129279}
   playerObj: {fileID: 1790319697}
