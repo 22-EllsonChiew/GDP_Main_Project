@@ -13,6 +13,7 @@ public class NeighbourUIRework : MonoBehaviour
     public GameObject exitButtonObj;
     public GameObject interactText;
     public GameObject neighbourCam;
+    public GameObject mainCam;
     public GameObject neighbourBar;
     public GameObject mainCanvas;
     public GameObject playerObj;
@@ -34,6 +35,7 @@ public class NeighbourUIRework : MonoBehaviour
 
         if (player_detection && (Input.GetKeyDown(KeyCode.Tab)) && !PlayerMovement.dialogue)
         {
+            mainCam.SetActive(false);
             playerObj.SetActive(false);
             mainCanvas.SetActive(false);
             neighbourBar.SetActive(true);
@@ -48,6 +50,7 @@ public class NeighbourUIRework : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.G) && PlayerMovement.dialogue)
         {
+            mainCam.SetActive(true);
             playerObj.SetActive(true);
             mainCanvas.SetActive(true);
             neighbourBar.SetActive(false);
@@ -72,6 +75,7 @@ public class NeighbourUIRework : MonoBehaviour
         Debug.Log("Ended interaction through exit");
         canva.SetActive(false);
         PlayerMovement.dialogue = false;
+        mainCam.SetActive(true);
         neighbourCam.SetActive(false);
         neighbourBar.SetActive(false);
         playerObj.SetActive(true);
