@@ -95,10 +95,10 @@ public class NeighbourUIRework : MonoBehaviour
     public void exitButton()
     {
         Debug.Log("Ended interaction through exit");
+        neighbourCam.SetActive(false);
         canva.SetActive(false);
         PlayerMovement.dialogue = false;
         mainCam.SetActive(true);
-        neighbourCam.SetActive(false);
         neighbourBar.SetActive(false);
         playerObj.SetActive(true);
     }
