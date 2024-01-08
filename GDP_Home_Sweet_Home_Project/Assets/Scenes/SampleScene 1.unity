@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3876171, g: 0.40122858, b: 0.38950473, a: 1}
+  m_IndirectSpecularColor: {r: 0.38771427, g: 0.4013707, b: 0.38972384, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -930,7 +930,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 5.3223, y: 0}
   m_SizeDelta: {x: 20.6446, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3436,7 +3436,7 @@ MonoBehaviour:
   angerSlider: {fileID: 0}
   reportCounter: 0
   reportCounterText: {fileID: 0}
-  noiseLevelReference: {fileID: 0}
+  ticketHolder: 0
 --- !u!1001 &654407579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5378,8 +5378,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982778012}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.99, y: 1.46, z: 6.01}
-  m_LocalScale: {x: 22.002312, y: 15.771135, z: 38.76545}
+  m_LocalPosition: {x: -31.1, y: 1.46, z: 1.1}
+  m_LocalScale: {x: 43.52497, y: 15.771135, z: 46.96047}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1209164746}
@@ -5400,7 +5400,7 @@ MonoBehaviour:
   angerSlider: {fileID: 1219725470}
   reportCounter: 0
   reportCounterText: {fileID: 1877224489}
-  noiseLevelReference: {fileID: 0}
+  ticketHolder: 0
 --- !u!65 &982778015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5648,9 +5648,9 @@ Transform:
   m_LocalScale: {x: 3.7297306, y: 1.931251, z: 1.931251}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 1709238398}
   - {fileID: 1927237813}
   - {fileID: 802731666}
-  - {fileID: 1709238398}
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: -38.033, z: 0}
@@ -11357,7 +11357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1219725468
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11396,7 +11396,7 @@ MonoBehaviour:
   angerSlider: {fileID: 1219725470}
   reportCounter: 0
   reportCounterText: {fileID: 1877224489}
-  noiseLevelReference: {fileID: 0}
+  ticketHolder: 0
 --- !u!114 &1219725470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12099,7 +12099,7 @@ MonoBehaviour:
   angerSlider: {fileID: 1345170846}
   reportCounter: 0
   reportCounterText: {fileID: 1877224489}
-  noiseLevelReference: {fileID: 0}
+  ticketHolder: 0
 --- !u!114 &1345170846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13480,7 +13480,7 @@ MonoBehaviour:
   angerSlider: {fileID: 1345170846}
   reportCounter: 0
   reportCounterText: {fileID: 1877224489}
-  noiseLevelReference: {fileID: 0}
+  ticketHolder: 0
 --- !u!65 &1645684919
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13804,6 +13804,7 @@ MonoBehaviour:
   neighbourBar: {fileID: 1219725467}
   mainCanvas: {fileID: 557129279}
   playerObj: {fileID: 1790319697}
+  ticketPromise: 0
 --- !u!1 &1790319697
 GameObject:
   m_ObjectHideFlags: 0
@@ -15937,7 +15938,7 @@ MonoBehaviour:
   angerSlider: {fileID: 0}
   reportCounter: 0
   reportCounterText: {fileID: 0}
-  noiseLevelReference: {fileID: 0}
+  ticketHolder: 0
 --- !u!65 &1609596589731356770
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17805,7 +17806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d3eb0ca8ffc3a4aaec6e197d588437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicksNeeded: 1
+  clicksNeeded: 10
   nailsNeeded: 4
   noiseThreshold: 1
   noiseIncreaseRate: 0.1

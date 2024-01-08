@@ -14,54 +14,33 @@ public class AngerBar : MonoBehaviour
 
     private bool hasReported = false;
 
-    //public HammerMinigame noiseLevelReference;
 
-    public NailGame noiseLevelReference;
+    //public NailGame noiseLevelReference;
+    
 
-    public void Start()
+    public int ticketHolder;
+
+
+    //public int ticketPromiseValue { get; private set; }
+
+    public void Update()
     {
-        //// Attempt to get the HammerMinigame script component
-        //NailGame noiseLevelReference = GetComponent<NailGame>();
-
-        //if (noiseLevelReference == null)
-        //{
-        //    Debug.LogError("NailGame script not found on the same GameObject.");
-        //}
+        PromiseTicketButton();
     }
 
+    
 
-    private void OnTriggerStay(Collider other)
-    {
-
-        if (other.CompareTag("Player"))
-        {
-            
-            /*if (noiseLevelReference != null)
-            {
-                Debug.Log("HammerMinigame script found.");
-                // Call the HandleClick method from HammerMinigame
-                noiseLevelReference.ClickNoiseLevelRef();
-            }
-            else
-            {
-                Debug.LogError("HammerMinigame script not found.");
-            }*/
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("Player exited trigger");
-
-
-        // Disable the entire GameObject
-        gameObject.SetActive(false);
-
-    }
 
     public void DecreaseAnger()
     {
-        if(angerSlider != null)
+
+        if (ticketHolder == 1)
+        {
+            Debug.Log("promise route");
+            angerSlider.value -= 0.5f;
+            Debug.Log("IM REALLY ANGRY" + angerSlider.value);
+        }
+        else if (angerSlider != null)
         {
             angerSlider.value -= 0.2f;
             Debug.Log("IM ANGRY" + angerSlider.value);
@@ -77,18 +56,39 @@ public class AngerBar : MonoBehaviour
             hasReported = true;
 
         }
+        
+        
 
-        if(reportCounter == 1)
+        if (reportCounter == 1)
         {
             SceneManager.LoadScene("Lose Scene");
         }
+
+        
+            
     }
 
+    
     public void HandlerAnger()
     {
         DecreaseAnger();
     }
 
+    public void PromiseTicketButton()
+    {
+        if (Input.GetKeyDown(KeyCode.G) && ticketHolder <= 1)
+        {
+            ticketHolder += 1;
+            Debug.Log("Ticket given: " + ticketHolder);
+        }
+        
+        else if (ticketHolder > 2)
+        {
+            // Handle the case where ticketHolder is more than 1, if needed
+            Debug.Log("Cannot give more tickets, ticketHolder is already greater than 1.");
+        }
+    }
 
     
+
 }
