@@ -19,10 +19,16 @@ public class NeighbourUIRework : MonoBehaviour
     public GameObject playerObj;
 
     bool player_detection = false;
+
+    
+    public int ticketPromise = 0;
+
+    //public AngerBar angerBarCS;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //angerBarCS = GetComponent<AngerBar>();
     }
 
     // Update is called once per frame
@@ -50,6 +56,7 @@ public class NeighbourUIRework : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.G) && PlayerMovement.dialogue)
         {
+            //PromiseTicketButton(true);
             mainCam.SetActive(true);
             playerObj.SetActive(true);
             mainCanvas.SetActive(true);
@@ -69,6 +76,21 @@ public class NeighbourUIRework : MonoBehaviour
         promiseButtonObj.SetActive(false);
         exitButtonObj.SetActive(false);
     }
+
+    /*public void PromiseTicketButton(bool keyPressed)
+    {
+        if (keyPressed)
+        {
+            ticketPromise += 1;
+            Debug.Log("Ticket given: " + ticketPromise);
+        }
+    }*/
+
+    public int ticketPromiseGive()
+    {
+        return ticketPromise; 
+    }
+
 
     public void exitButton()
     {
