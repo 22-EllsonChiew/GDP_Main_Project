@@ -4722,7 +4722,7 @@ MonoBehaviour:
   angerSlider: {fileID: 0}
   reportCounter: 0
   reportCounterText: {fileID: 0}
-  ticketHolder: 0
+  ticketHolders: 0
 --- !u!1 &627702987
 GameObject:
   m_ObjectHideFlags: 0
@@ -7779,7 +7779,7 @@ MonoBehaviour:
   angerSlider: {fileID: 1219725470}
   reportCounter: 0
   reportCounterText: {fileID: 1877224489}
-  ticketHolder: 0
+  ticketHolders: 0
 --- !u!65 &982778015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14059,7 +14059,7 @@ MonoBehaviour:
   angerSlider: {fileID: 1219725470}
   reportCounter: 0
   reportCounterText: {fileID: 1877224489}
-  ticketHolder: 0
+  ticketHolders: 0
 --- !u!114 &1219725470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14762,7 +14762,7 @@ MonoBehaviour:
   angerSlider: {fileID: 1345170846}
   reportCounter: 0
   reportCounterText: {fileID: 1877224489}
-  ticketHolder: 0
+  ticketHolders: 0
 --- !u!114 &1345170846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16501,8 +16501,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645684916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.4, y: 1.9, z: 6.2}
-  m_LocalScale: {x: 20.676968, y: 15.912704, z: 36.98431}
+  m_LocalPosition: {x: 26.16, y: 1.9, z: 3.45}
+  m_LocalScale: {x: 44.46537, y: 18.444416, z: 47.927002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1209164746}
@@ -16523,7 +16523,7 @@ MonoBehaviour:
   angerSlider: {fileID: 1345170846}
   reportCounter: 0
   reportCounterText: {fileID: 1877224489}
-  ticketHolder: 0
+  ticketHolders: 0
 --- !u!65 &1645684919
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19326,7 +19326,7 @@ MonoBehaviour:
   angerSlider: {fileID: 0}
   reportCounter: 0
   reportCounterText: {fileID: 0}
-  ticketHolder: 0
+  ticketHolders: 0
 --- !u!65 &1609596589731356770
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class AngerBar : MonoBehaviour
     //public NailGame noiseLevelReference;
     
 
-    public int ticketHolders;
+    public float ticketHolders;
 
 
     //public int ticketPromiseValue { get; private set; }
@@ -40,7 +40,7 @@ public class AngerBar : MonoBehaviour
             angerSlider.value -= 0.5f;
             Debug.Log("IM REALLY ANGRY" + angerSlider.value);
         }
-        else if (ticketHolders == 0)
+        else if (angerSlider != null)
         {
             angerSlider.value -= 0.2f;
             Debug.Log("IM ANGRY" + angerSlider.value);
