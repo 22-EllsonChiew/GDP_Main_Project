@@ -18,7 +18,7 @@ public class AngerBar : MonoBehaviour
     //public NailGame noiseLevelReference;
     
 
-    public int ticketHolder;
+    public int ticketHolders;
 
 
     //public int ticketPromiseValue { get; private set; }
@@ -34,13 +34,13 @@ public class AngerBar : MonoBehaviour
     public void DecreaseAnger()
     {
 
-        if (ticketHolder == 1)
+        if (ticketHolders == 1)
         {
             Debug.Log("promise route");
             angerSlider.value -= 0.5f;
             Debug.Log("IM REALLY ANGRY" + angerSlider.value);
         }
-        else if (angerSlider != null)
+        else if (ticketHolders == 0)
         {
             angerSlider.value -= 0.2f;
             Debug.Log("IM ANGRY" + angerSlider.value);
@@ -57,8 +57,6 @@ public class AngerBar : MonoBehaviour
 
         }
         
-        
-
         if (reportCounter == 1)
         {
             SceneManager.LoadScene("Lose Scene");
@@ -76,13 +74,13 @@ public class AngerBar : MonoBehaviour
 
     public void PromiseTicketButton()
     {
-        if (Input.GetKeyDown(KeyCode.G) && ticketHolder <= 1)
+        if (Input.GetKeyDown(KeyCode.G) && ticketHolders <= 1)
         {
-            ticketHolder += 1;
-            Debug.Log("Ticket given: " + ticketHolder);
+            ticketHolders += 1;
+            Debug.Log("Ticket given: " + ticketHolders);
         }
         
-        else if (ticketHolder > 2)
+        else if (ticketHolders > 2)
         {
             // Handle the case where ticketHolder is more than 1, if needed
             Debug.Log("Cannot give more tickets, ticketHolder is already greater than 1.");
