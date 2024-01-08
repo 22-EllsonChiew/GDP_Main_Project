@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class NeighbourUIRework : MonoBehaviour
+public class NeighbourUIReRework : MonoBehaviour
 {
     public GameObject canva;
     public GameObject text1;
@@ -20,7 +20,7 @@ public class NeighbourUIRework : MonoBehaviour
 
     bool player_detection = false;
 
-    
+
     public int ticketPromise = 0;
 
     //public AngerBar angerBarCS;
@@ -88,7 +88,7 @@ public class NeighbourUIRework : MonoBehaviour
 
     public int ticketPromiseGive()
     {
-        return ticketPromise; 
+        return ticketPromise;
     }
 
 
@@ -106,7 +106,7 @@ public class NeighbourUIRework : MonoBehaviour
 
     }
 
-   
+
 
 
 
