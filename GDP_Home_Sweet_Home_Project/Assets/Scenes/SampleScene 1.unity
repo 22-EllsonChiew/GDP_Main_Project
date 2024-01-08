@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.38771427, g: 0.4013707, b: 0.38972384, a: 1}
+  m_IndirectSpecularColor: {r: 0.3876171, g: 0.40122858, b: 0.38950473, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16832,9 +16832,9 @@ MonoBehaviour:
   confirmationWindow: {fileID: 803605616}
   ChestUI: {fileID: 170469813}
   animator: {fileID: 1633611348}
-  BuildingChair: {fileID: 0}
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}
+  builtChair: {fileID: 919132149155446097, guid: b5031afbf7e66a944ad0711fe436a06f, type: 3}
 --- !u!95 &1790319703
 Animator:
   serializedVersion: 5

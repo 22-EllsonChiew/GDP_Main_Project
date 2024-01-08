@@ -13,9 +13,10 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject ChestUI;
     public Animator animator;
 
-    public GameObject BuildingChair;
     public GameObject mainCam;
     public GameObject minigameCam;
+
+    public GameObject builtChair;
 
     private Collider currentCollider;
 
@@ -50,11 +51,13 @@ public class Interaction : MonoBehaviour
         
 
         if (confirmedCollider != null) 
-        {
-            Destroy(confirmedCollider.gameObject);
-           
+        {       
             minigameCam.SetActive(true);
             mainCam.SetActive(false);
+
+            Destroy(confirmedCollider.gameObject);
+            Instantiate(builtChair, confirmedCollider.gameObject.transform.position, Quaternion.Euler(0f, 180f, 0f));
+
         }
         //call function for minigame
     }
