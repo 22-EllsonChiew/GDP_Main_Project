@@ -14,39 +14,39 @@ public class DoorController : MonoBehaviour
     {
         doorAnimator = GetComponent<Animator>();
 
-        // Find the TriggerZone GameObject by name (you can adjust this based on your hierarchy)
-        triggerZone = GameObject.Find("TriggerZone");
+        //// Find the TriggerZone GameObject by name (you can adjust this based on your hierarchy)
+        //triggerZone = GameObject.Find("TriggerZone");
 
-        if (triggerZone == null)
-        {
-            Debug.LogError("TriggerZone not found! Make sure it has the correct name or adjust the code.");
-        }
-        else
-        {
-            Debug.Log("TriggerZone found: " + triggerZone.name);
-        }
+        //if (triggerZone == null)
+        //{
+        //    Debug.LogError("TriggerZone not found! Make sure it has the correct name or adjust the code.");
+        //}
+        //else
+        //{
+        //    Debug.Log("TriggerZone found: " + triggerZone.name);
+        //}
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (InTriggerZone())
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
+    //void Update()
+    //{
+    //    if (InTriggerZone())
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.F))
+    //        {
 
-                isOpen = !isOpen;
+    //            isOpen = !isOpen;
 
-                if (isOpen)
-                    doorAnimator.SetTrigger("Open");
-                else
-                    doorAnimator.SetTrigger("Close");
+    //            if (isOpen)
+    //                doorAnimator.SetTrigger("Open");
+    //            else
+    //                doorAnimator.SetTrigger("Close");
 
-            }
-        }
+    //        }
+    //    }
         
-    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -70,22 +70,22 @@ public class DoorController : MonoBehaviour
         }
     }
 
-    // Check if the player is in the trigger zone
-    private bool InTriggerZone()
-    {
-        // Check if the player GameObject is within the trigger zone
-        Collider[] colliders = Physics.OverlapBox(triggerZone.transform.position, triggerZone.transform.localScale / 2, triggerZone.transform.rotation);
+    //// Check if the player is in the trigger zone
+    //private bool InTriggerZone()
+    //{
+    //    // Check if the player GameObject is within the trigger zone
+    //    Collider[] colliders = Physics.OverlapBox(triggerZone.transform.position, triggerZone.transform.localScale / 2, triggerZone.transform.rotation);
 
-        foreach (var collider in colliders)
-        {
-            if (collider.CompareTag("Player"))
-            {
-                return true;
-            }
-        }
+    //    foreach (var collider in colliders)
+    //    {
+    //        if (collider.CompareTag("Player"))
+    //        {
+    //            return true;
+    //        }
+    //    }
 
-        return false;
-    }
+    //    return false;
+    //}
 
 }
 

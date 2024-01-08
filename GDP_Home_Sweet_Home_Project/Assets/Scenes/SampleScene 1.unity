@@ -2265,6 +2265,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 28e11e66566d68941b0208fb5f20def6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 315984428}
+    - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 28e11e66566d68941b0208fb5f20def6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 315984430}
   m_SourcePrefab: {fileID: 100100000, guid: 28e11e66566d68941b0208fb5f20def6, type: 3}
 --- !u!1 &315984427 stripped
 GameObject:
@@ -2292,6 +2295,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &315984429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 28e11e66566d68941b0208fb5f20def6, type: 3}
+  m_PrefabInstance: {fileID: 315984426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &315984430
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315984429}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 28e11e66566d68941b0208fb5f20def6, type: 3}
 --- !u!1 &321766774
 GameObject:
   m_ObjectHideFlags: 0
@@ -3755,6 +3785,7 @@ MonoBehaviour:
   neighbourBar: {fileID: 1345170843}
   mainCanvas: {fileID: 557129279}
   playerObj: {fileID: 1790319697}
+  doorAnimator: {fileID: 315984428}
   ticketPromise: 0
 --- !u!1 &507516496
 GameObject:
@@ -7076,6 +7107,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 28e11e66566d68941b0208fb5f20def6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 947157985}
+    - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 28e11e66566d68941b0208fb5f20def6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 947157987}
   m_SourcePrefab: {fileID: 100100000, guid: 28e11e66566d68941b0208fb5f20def6, type: 3}
 --- !u!1 &947157984 stripped
 GameObject:
@@ -7103,6 +7137,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &947157986 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 28e11e66566d68941b0208fb5f20def6, type: 3}
+  m_PrefabInstance: {fileID: 947157983}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &947157987
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947157986}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 28e11e66566d68941b0208fb5f20def6, type: 3}
 --- !u!1 &952738151
 GameObject:
   m_ObjectHideFlags: 0
@@ -16726,6 +16787,7 @@ MonoBehaviour:
   neighbourBar: {fileID: 1219725467}
   mainCanvas: {fileID: 557129279}
   playerObj: {fileID: 1790319697}
+  doorAnimator: {fileID: 947157985}
   ticketPromise: 0
 --- !u!1 &1790319697
 GameObject:

@@ -18,6 +18,8 @@ public class NeighbourUIRework : MonoBehaviour
     public GameObject mainCanvas;
     public GameObject playerObj;
 
+    public Animator doorAnimator;
+
     bool player_detection = false;
 
     
@@ -53,6 +55,7 @@ public class NeighbourUIRework : MonoBehaviour
             text2.SetActive(false);
             promiseButtonObj.SetActive(true);
             exitButtonObj.SetActive(true);
+            doorAnimator.SetTrigger("Open");
         }
         if (Input.GetKeyDown(KeyCode.G) && PlayerMovement.dialogue)
         {
@@ -65,6 +68,7 @@ public class NeighbourUIRework : MonoBehaviour
             Debug.Log("Ended interaction through promise");
             canva.SetActive(false);
             text2.SetActive(false);
+            doorAnimator.SetTrigger("Close");
             PlayerMovement.dialogue = false;
         }
     }
@@ -103,6 +107,7 @@ public class NeighbourUIRework : MonoBehaviour
         mainCam.SetActive(true);
         neighbourBar.SetActive(false);
         playerObj.SetActive(true);
+        doorAnimator.SetTrigger("Close");
 
     }
 
