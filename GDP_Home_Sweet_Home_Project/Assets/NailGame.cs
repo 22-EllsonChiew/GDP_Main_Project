@@ -204,11 +204,14 @@ public class NailGame : MonoBehaviour
                     {
                         Debug.Log("im angry2");
                         clickHandlerReferenceTopRight.DecreaseAnger();
+                        //clickHandlerReferenceTopRight.PromiseRoute();
                     }
                     // Check if the player is inside the collider of bottomCorner
                     else if (IsPlayerInsideGameObject(player, bottomCorner))
                     {
                         clickHandlerReferenceBottomRight.DecreaseAnger();
+                        //clickHandlerReferenceBottomRight.PromiseRoute();
+
                     }
 
                 }

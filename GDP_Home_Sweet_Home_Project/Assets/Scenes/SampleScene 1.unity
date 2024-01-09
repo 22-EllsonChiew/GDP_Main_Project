@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3876171, g: 0.40122858, b: 0.38950473, a: 1}
+  m_IndirectSpecularColor: {r: 0.38771427, g: 0.4013707, b: 0.38972384, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5213,7 +5213,7 @@ MonoBehaviour:
   angerSlider: {fileID: 0}
   reportCounter: 0
   reportCounterText: {fileID: 0}
-  ticketHolders: 0
+  ticketGiver: 0
 --- !u!1 &627702987
 GameObject:
   m_ObjectHideFlags: 0
@@ -8563,7 +8563,7 @@ MonoBehaviour:
   angerSlider: {fileID: 1219725470}
   reportCounter: 0
   reportCounterText: {fileID: 1877224489}
-  ticketHolders: 0
+  ticketGiver: 0
 --- !u!65 &982778015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15171,7 +15171,7 @@ MonoBehaviour:
   angerSlider: {fileID: 1219725470}
   reportCounter: 0
   reportCounterText: {fileID: 1877224489}
-  ticketHolders: 0
+  ticketGiver: 1
 --- !u!114 &1219725470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15866,7 +15866,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345170843}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eab51b8e71d1bde48824320e0bd5d0ee, type: 3}
   m_Name: 
@@ -15874,7 +15874,7 @@ MonoBehaviour:
   angerSlider: {fileID: 1345170846}
   reportCounter: 0
   reportCounterText: {fileID: 1877224489}
-  ticketHolders: 0
+  ticketGiver: 0
 --- !u!114 &1345170846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17989,7 +17989,7 @@ MonoBehaviour:
   angerSlider: {fileID: 1345170846}
   reportCounter: 0
   reportCounterText: {fileID: 1877224489}
-  ticketHolders: 0
+  ticketGiver: 0
 --- !u!65 &1645684919
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21179,7 +21179,7 @@ MonoBehaviour:
   angerSlider: {fileID: 0}
   reportCounter: 0
   reportCounterText: {fileID: 0}
-  ticketHolders: 0
+  ticketGiver: 0
 --- !u!65 &1609596589731356770
 BoxCollider:
   m_ObjectHideFlags: 0
