@@ -18,32 +18,48 @@ public class AngerBar : MonoBehaviour
     //public NailGame noiseLevelReference;
     
 
-    public float ticketHolders;
+    public float ticketHolders = 0f;
 
 
     //public int ticketPromiseValue { get; private set; }
 
-    public void Update()
+    void Update()
     {
         PromiseTicketButton();
     }
 
-    
+    private void OnTriggerStay(Collider other)
+    {
+        
+    }
+
+
 
 
     public void DecreaseAnger()
     {
-
-        if (ticketHolders == 1)
+        
+        if (PromiseTicketButton())
         {
             Debug.Log("promise route");
             angerSlider.value -= 0.5f;
             Debug.Log("IM REALLY ANGRY" + angerSlider.value);
+            Debug.Log("Ticket counter" + ticketHolders);
+
         }
+        
+        /*if (ticketHolders == 1)
+        {
+
+            Debug.Log("promise route");
+            angerSlider.value -= 0.5f;
+            Debug.Log("IM REALLY ANGRY" + angerSlider.value);
+        }*/
         else if (angerSlider != null)
         {
             angerSlider.value -= 0.2f;
             Debug.Log("IM ANGRY" + angerSlider.value);
+            Debug.Log("Ticket counter" + ticketHolders);
         }
 
         if (angerSlider.value <= 0.0f && !hasReported)
@@ -72,19 +88,21 @@ public class AngerBar : MonoBehaviour
         DecreaseAnger();
     }
 
-    public void PromiseTicketButton()
+    public bool PromiseTicketButton()
     {
-        if (Input.GetKeyDown(KeyCode.G) && ticketHolders <= 1)
+        if (Input.GetKeyDown(KeyCode.G) && ticketHolders <= 0)
         {
-            ticketHolders += 1;
-            Debug.Log("Ticket given: " + ticketHolders);
+            ticketHolders++;
+            Debug.Log("Ticket counter" + ticketHolders);
+            return true;
         }
-        
+
         else if (ticketHolders > 2)
         {
             // Handle the case where ticketHolder is more than 1, if needed
             Debug.Log("Cannot give more tickets, ticketHolder is already greater than 1.");
         }
+        return false;
     }
 
     
