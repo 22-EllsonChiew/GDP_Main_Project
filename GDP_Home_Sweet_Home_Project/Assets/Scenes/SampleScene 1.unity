@@ -15125,7 +15125,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1219725468}
   - component: {fileID: 1219725470}
-  - component: {fileID: 1219725469}
   m_Layer: 5
   m_Name: Anger Bar
   m_TagString: Untagged
@@ -15156,22 +15155,6 @@ RectTransform:
   m_AnchoredPosition: {x: -273.38, y: -141.8}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1219725469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1219725467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eab51b8e71d1bde48824320e0bd5d0ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angerSlider: {fileID: 1219725470}
-  reportCounter: 0
-  reportCounterText: {fileID: 1877224489}
-  ticketGiver: 1
 --- !u!114 &1219725470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15828,7 +15811,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1345170844}
   - component: {fileID: 1345170846}
-  - component: {fileID: 1345170845}
   m_Layer: 5
   m_Name: Anger Bar
   m_TagString: Untagged
@@ -15859,22 +15841,6 @@ RectTransform:
   m_AnchoredPosition: {x: -274.7, y: -141}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1345170845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345170843}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eab51b8e71d1bde48824320e0bd5d0ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angerSlider: {fileID: 1345170846}
-  reportCounter: 0
-  reportCounterText: {fileID: 1877224489}
-  ticketGiver: 0
 --- !u!114 &1345170846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23094,8 +23060,8 @@ MonoBehaviour:
   minigamePos: {fileID: 7187468411351150509}
   topCorner: {fileID: 1645684916}
   bottomCorner: {fileID: 982778012}
-  clickHandlerReferenceBottomRight: {fileID: 1219725469}
-  clickHandlerReferenceTopRight: {fileID: 1345170845}
+  clickHandlerReferenceBottomRight: {fileID: 982778014}
+  clickHandlerReferenceTopRight: {fileID: 1645684918}
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}
   chairSet: {fileID: 6120752689837624132, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
