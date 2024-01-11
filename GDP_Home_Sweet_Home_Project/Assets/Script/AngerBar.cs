@@ -75,7 +75,7 @@ public class AngerBar : MonoBehaviour
 
     public void PromiseTicketButton()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && ticketGiver <= 1)
+        if (Input.GetKeyDown(KeyCode.G) && ticketGiver <= 1)
         {
             ticketGiver++;
             Debug.Log("Ticket counter" + ticketGiver);

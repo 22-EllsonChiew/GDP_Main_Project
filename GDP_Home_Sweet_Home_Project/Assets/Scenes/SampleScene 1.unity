@@ -7286,7 +7286,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870159043}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &870159045
 Camera:
   m_ObjectHideFlags: 0
@@ -8660,7 +8660,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001369738}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1001369740
 Camera:
   m_ObjectHideFlags: 0
@@ -15343,7 +15343,7 @@ MonoBehaviour:
   m_text: 'Ok keep it
 
 
-    ["F" to Exit]
+    ["G" to Exit]
 
 '
   m_isRightToLeft: 0
