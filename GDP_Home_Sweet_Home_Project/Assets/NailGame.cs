@@ -44,6 +44,9 @@ public class NailGame : MonoBehaviour
 
     public SceneTransition sceneTransition;
 
+    public AudioSource hammeringAudio;
+    public AudioClip hammerSound;
+
     [Header("Neighbour Corner")]
 
     public GameObject player;
@@ -82,6 +85,9 @@ public class NailGame : MonoBehaviour
         progress.maxValue = clicksNeeded;
         noise.maxValue = noiseThreshold;
         noiseDecreaseRate = noiseIncreaseRate;
+
+        hammeringAudio = GetComponent<AudioSource>();
+        hammeringAudio.clip = hammerSound;
 
         taskCompleted.AddListener(isTaskComplete => GameObject.FindGameObjectWithTag("MainProgressBar").GetComponent<ProgressBar>().OnTaskCompletion(isTaskComplete));
         GameObject[] draggableObjects = GameObject.FindGameObjectsWithTag("Draggable");
@@ -128,6 +134,7 @@ public class NailGame : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     Debug.Log("Im hitting a nail");
+                    hammeringAudio.PlayOneShot(hammerSound);
                     // Handle the click only if the hit GameObject is a nail
                     HandleClick();
                 }
