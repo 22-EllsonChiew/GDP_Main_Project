@@ -109,6 +109,7 @@ public class NeighbourUIReRework : MonoBehaviour
         neighbourBar.SetActive(false);
         playerObj.SetActive(true);
         doorAnimator.SetTrigger("Close");
+        mainCanvas.SetActive(true);
 
     }
 

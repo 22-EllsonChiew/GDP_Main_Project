@@ -26,6 +26,8 @@ public class NailGame : MonoBehaviour
     public bool isMinigameActive = false;
     private bool isObjectBuilt = false;
 
+    public UICursor uiCursor;
+
     public GameObject minigameUI;
 
     public Slider noise;
@@ -58,6 +60,8 @@ public class NailGame : MonoBehaviour
 
     public GameObject mainCam;
     public GameObject minigameCam;
+    public Camera camRay;
+    public LayerMask nailLayer;
 
     public GameObject chairSet;
 
@@ -108,23 +112,40 @@ public class NailGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RaycastHit hit;
+        Ray ray = camRay.ScreenPointToRay(Input.mousePosition);
 
         if (isMinigameActive)
         {
             currentClicks = currentNail.GetComponent<NailObjectController>().currentClicks;
-                
-            if (Input.GetMouseButtonDown(0))
+
+            progress.value = currentClicks;
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))
             {
-                HandleClick();
+
+                uiCursor.ShowCursor();
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("Im hitting a nail");
+                    // Handle the click only if the hit GameObject is a nail
+                    HandleClick();
+                }
+          
             }
+            else
+            {
+                uiCursor.HideCursor();
+            }
+
 
             currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
 
             noise.value = (noiseThreshold != 0f) ? currentNoise / noiseThreshold : 0f;
 
             fill.color = gradient.Evaluate(currentNoise);
-        }
 
+        }
 
     }
 
@@ -188,7 +209,7 @@ public class NailGame : MonoBehaviour
         {
             currentNail.GetComponent<NailObjectController>().currentClicks++;
 
-            progress.value = currentClicks;
+            
 
 
             currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
