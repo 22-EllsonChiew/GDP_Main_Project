@@ -17,6 +17,7 @@ TagManager:
   - MainProgressBar
   - MinigameCam
   - Draggable
+  - Nail
   layers:
   - Default
   - TransparentFX
