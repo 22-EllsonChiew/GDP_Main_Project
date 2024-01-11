@@ -57,12 +57,16 @@ public class NeighbourUIRework : MonoBehaviour
             exitButtonObj.SetActive(true);
             doorAnimator.SetTrigger("Open");
         }
-        if (Input.GetKeyDown(KeyCode.G) && PlayerMovement.dialogue)
+        if (Input.GetKeyDown(KeyCode.F) && PlayerMovement.dialogue)
         {
+            Debug.Log("ZOOM OUT0");
             //PromiseTicketButton(true);
             mainCam.SetActive(true);
+            Debug.Log("ZOOM OUT");
             playerObj.SetActive(true);
+            Debug.Log("ZOOM OUT2");
             mainCanvas.SetActive(true);
+            Debug.Log("ZOOM OUT3");
             neighbourBar.SetActive(false);
             neighbourCam.SetActive(false);
             Debug.Log("Ended interaction through promise");
