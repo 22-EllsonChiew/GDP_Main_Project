@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3876171, g: 0.40122858, b: 0.38950473, a: 1}
+  m_IndirectSpecularColor: {r: 0.38771427, g: 0.4013707, b: 0.38972384, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15478,7 +15478,7 @@ MonoBehaviour:
   m_text: 'Ok keep it
 
 
-    ["G" to Exit]
+    ["F" to Exit]
 
 '
   m_isRightToLeft: 0
@@ -22460,7 +22460,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6944210146045516754}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eab51b8e71d1bde48824320e0bd5d0ee, type: 3}
   m_Name: 

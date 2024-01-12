@@ -18,10 +18,18 @@ public class AngerBar : MonoBehaviour
 
     private bool keyPressed;
 
-   public void Update() 
+    private float increasePerSec = 10f;
+    private bool increaseHP = true;
+    private float targetValue = 0.8f;
+    private float increaseAmountofHp = 0.01f;
+
+    private bool hasIncreasedHealth = false;
+
+    public void Update() 
     {
         PromiseTicketButton();
 
+        IncreaseHpOneTime();
     }
 
 
@@ -57,17 +65,45 @@ public class AngerBar : MonoBehaviour
             hasReported = true;
 
         }
+
         
+
         if (reportCounter == 1)
         {
             SceneManager.LoadScene("Lose Scene");
         }
 
-        
-            
+
     }
 
-    
+
+
+
+    public void IncreaseHpOneTime()
+    {
+        if (ticketGiver == 2 && !hasIncreasedHealth)
+        {
+            Debug.Log("Increase Hp");
+
+            StartCoroutine(WaitAndStopCoroutine());
+            // Increment the slider value by 0.15f
+            angerSlider.value += 0.15f;
+
+            // Set the flag to true to indicate that health has been increased
+            hasIncreasedHealth = true;
+
+            
+            
+        }
+    }
+
+    private IEnumerator WaitAndStopCoroutine()
+    {
+        yield return new WaitForSeconds(10f);
+        
+    }
+
+
     /*public void HandlerAnger()
     {
         DecreaseAnger();
@@ -75,7 +111,7 @@ public class AngerBar : MonoBehaviour
 
     public void PromiseTicketButton()
     {
-        if (Input.GetKeyDown(KeyCode.G) && ticketGiver <= 1)
+        if (Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.F) && ticketGiver <= 1)
         {
             ticketGiver++;
             Debug.Log("Ticket counter" + ticketGiver);
