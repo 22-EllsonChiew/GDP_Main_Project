@@ -42,4 +42,11 @@ public class NailObjectController : MonoBehaviour
 
     }
 
+    public void ResetCount()
+    {
+        Debug.Log("Reset count");
+        currentClicks = 0;
+    }
+
+
 }

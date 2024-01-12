@@ -107,6 +107,7 @@ public class NeighbourUIRework : MonoBehaviour
         mainCam.SetActive(true);
         neighbourBar.SetActive(false);
         playerObj.SetActive(true);
+        mainCanvas.SetActive(true);
         doorAnimator.SetTrigger("Close");
 
     }
