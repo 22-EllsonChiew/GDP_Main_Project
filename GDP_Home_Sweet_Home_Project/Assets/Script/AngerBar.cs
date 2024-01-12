@@ -85,22 +85,34 @@ public class AngerBar : MonoBehaviour
         {
             Debug.Log("Increase Hp");
 
-            StartCoroutine(WaitAndStopCoroutine());
+            StartCoroutine(IncreaseHpContinuouslyCoroutine());
             // Increment the slider value by 0.15f
-            angerSlider.value += 0.15f;
+           // angerSlider.value += 0.15f;
 
             // Set the flag to true to indicate that health has been increased
             hasIncreasedHealth = true;
-
-            
-            
         }
     }
 
-    private IEnumerator WaitAndStopCoroutine()
+    private IEnumerator IncreaseHpContinuouslyCoroutine()
     {
-        yield return new WaitForSeconds(10f);
-        
+        while (true)
+        {
+            yield return new WaitForSeconds(10f);
+
+            if (ticketGiver == 2)
+            {
+                Debug.Log("Increase Hp");
+
+                // Increment the slider value by 0.15f
+                angerSlider.value += 0.05f;
+            }
+            if (angerSlider.value >= 0.75f)
+            {
+                Debug.Log("Reached threshold, stopping increase.");
+                yield break; // Stop the coroutine
+            }
+        }
     }
 
 
