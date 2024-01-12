@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Unity.UI;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
@@ -84,13 +83,14 @@ public class NailGame : MonoBehaviour
 
         progress.maxValue = clicksNeeded;
         noise.maxValue = noiseThreshold;
-        noiseDecreaseRate = noiseIncreaseRate;
+        //noiseDecreaseRate = noiseIncreaseRate;
 
         hammeringAudio = GetComponent<AudioSource>();
         hammeringAudio.clip = hammerSound;
 
         taskCompleted.AddListener(isTaskComplete => GameObject.FindGameObjectWithTag("MainProgressBar").GetComponent<ProgressBar>().OnTaskCompletion(isTaskComplete));
         GameObject[] draggableObjects = GameObject.FindGameObjectsWithTag("Draggable");
+        
 
         // Add listeners for each DraggableObject
         foreach (GameObject draggableObject in draggableObjects)
@@ -99,6 +99,7 @@ public class NailGame : MonoBehaviour
 
             if (draggableScript != null)
             {
+                Debug.Log("yes");
                 resetLeg.AddListener(() => draggableScript.ResetObject());
             }
             else
@@ -106,6 +107,9 @@ public class NailGame : MonoBehaviour
                 Debug.LogWarning("No DraggableObjects script found on " + draggableObject.name);
             }
         }
+        
+        
+        
     
         newChairPos = oldChair.transform;
 
@@ -129,7 +133,7 @@ public class NailGame : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))
             {
-
+                Cursor.visible = false;
                 uiCursor.ShowCursor();
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -142,7 +146,9 @@ public class NailGame : MonoBehaviour
             }
             else
             {
+                
                 uiCursor.HideCursor();
+                Cursor.visible = true;
             }
 
 
@@ -158,12 +164,26 @@ public class NailGame : MonoBehaviour
 
     public void StartMinigame(GameObject nailPrefab)
     {
+        GameObject[] nails = GameObject.FindGameObjectsWithTag("Nail");
+
+        foreach (GameObject nail in nails)
+        {
+            NailObjectController nailScript = nail.GetComponent<NailObjectController>();
+
+            if (nailScript != null)
+            {
+                Debug.Log("hehe");
+                resetLeg.AddListener(() => nailScript.ResetCount());
+            }
+        }
 
         if (HasHammer() && !isMuffled)
         {
             noiseIncreaseRate *= 0.5f;
             isMuffled = true;
         }
+
+        noiseDecreaseRate = noiseIncreaseRate * 2.25f;
         isMinigameActive = true;
         currentNail = nailPrefab;
         minigameUI.SetActive(true);
@@ -197,7 +217,7 @@ public class NailGame : MonoBehaviour
 
         currentNail = null;
 
-       
+        Cursor.visible = true;
 
 
 

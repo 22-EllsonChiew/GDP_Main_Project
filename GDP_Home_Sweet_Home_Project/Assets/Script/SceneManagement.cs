@@ -11,6 +11,8 @@ public class SceneManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = true;
+
         Button btn = replayButton.GetComponent<Button>();
 
         btn.onClick.AddListener(MainGameScene);
