@@ -57,7 +57,7 @@ public class NeighbourUIRework : MonoBehaviour
             exitButtonObj.SetActive(true);
             doorAnimator.SetTrigger("Open");
         }
-        if (Input.GetKeyDown(KeyCode.G) && PlayerMovement.dialogue)
+        if (Input.GetKeyDown(KeyCode.F) && PlayerMovement.dialogue)
         {
             //PromiseTicketButton(true);
             mainCam.SetActive(true);
