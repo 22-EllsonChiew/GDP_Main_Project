@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode sprintFunction = KeyCode.LeftShift;
 
     Vector3 moveDirection;
+
+    public float turnSmoothTime = 0.1f;
+    public float turnSmoothVelocity;
 
     Rigidbody rb;
 
@@ -94,17 +98,37 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        //moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        if (moveDirection != Vector3.zero)
+        //if (moveDirection != Vector3.zero)
+        //{
+        //    // Rotate the player to face the direction of movement
+        //    Quaternion toRotation = Quaternion.LookRotation(moveDirection.normalized, Vector3.up);
+        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.fixedDeltaTime * 250f);
+        //}
+
+        //rb.AddForce(moveDirection.normalized * speed * 10, ForceMode.Force);
+
+
+        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
+
+        // Project the camera vectors onto the horizontal plane
+        cameraForward.y = 0f;
+        cameraRight.y = 0f;
+
+        Vector3 direction = (cameraForward.normalized * verticalInput + cameraRight.normalized * horizontalInput).normalized;
+
+        if (direction.magnitude >= 0.1f)
         {
-            // Rotate the player to face the direction of movement
-            Quaternion toRotation = Quaternion.LookRotation(moveDirection.normalized, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.fixedDeltaTime * 250f);
-        }
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-        rb.AddForce(moveDirection.normalized * speed * 10, ForceMode.Force);
-   
+        }
+        rb.AddForce(direction.normalized * speed * 10, ForceMode.Force);
+
+
     }
 
     private void SpeedControl()
