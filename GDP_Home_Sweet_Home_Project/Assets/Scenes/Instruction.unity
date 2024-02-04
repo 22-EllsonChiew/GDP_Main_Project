@@ -435,18 +435,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You are a new neighbour moving into the block.
+  m_text: 'Controls
 
 
-    Build furniture for
-    your home by pressing [E] on the IKEA boxes
+    W, A, S, D - Movement
 
+    E & F- Interaction
 
-    Building furniture makes noise,
-    which can disturb your neighbours.
+    Left
+    Click - Hammer nails
 
-
-    Don''t get reported.'
+    Tab - Interact with neighbour'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

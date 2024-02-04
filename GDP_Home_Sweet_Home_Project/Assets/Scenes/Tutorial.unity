@@ -22114,13 +22114,13 @@ MonoBehaviour:
     - You will notice 2 bars.
     - Left bar is your progress bar and the right is your sound bar.
     - When you hammering the nails, the sound and progress bar will go up
-    - But faster doesn't mean good, because with the sound bar you will disturb your
-      neighbour.
-    - So thats all you need to know for this whole game will leave now.
-    - So with the sound bar it will tells you the much sound you are producing.
-    - Once you are done with the furniture, please move on to your bed and press
-      E.
-    - GOOD LUCK!!!
+    - And this is where the neighbour system comes in.
+    - The faster you hit, the higher the volume will increase.
+    - so to avoid angering the neigbour and receive a report from them.
+    - You have to hit it slowly, but becareful as the time is still going.
+    - And thats all for the guidancece. GOOD LUCK!!!
+    - Once you are done please move to the bed and press E to move on to the next
+      day.
 --- !u!65 &2009398629
 BoxCollider:
   m_ObjectHideFlags: 0
