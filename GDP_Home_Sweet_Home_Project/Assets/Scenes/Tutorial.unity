@@ -4704,7 +4704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21e0fefbd984d741a61ec800d72b35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximum: 5
+  maximum: 1
   current: 0
   mask: {fileID: 94795291}
 --- !u!114 &554869191
@@ -16750,7 +16750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35, y: -35}
+  m_AnchoredPosition: {x: 35, y: -28}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1386256331
@@ -20126,11 +20126,13 @@ MonoBehaviour:
   isGround:
     serializedVersion: 2
     m_Bits: 8
+  minigame: {fileID: 0}
   groundDrag: 5
   orientation: {fileID: 1649789939}
   sprintFunction: 304
   turnSmoothTime: 0.1
   turnSmoothVelocity: 0
+  isMinigameStarted: 0
 --- !u!114 &1790319702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20149,6 +20151,9 @@ MonoBehaviour:
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}
   builtChair: {fileID: 919132149155446097, guid: b5031afbf7e66a944ad0711fe436a06f, type: 3}
+  isGameStarting:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &1790319703
 Animator:
   serializedVersion: 5
@@ -21265,7 +21270,7 @@ RectTransform:
   m_GameObject: {fileID: 1906285561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.4745798, y: 0.81867737, z: 0.84067154}
+  m_LocalScale: {x: 5.0409203, y: 1.1877371, z: 1.2196462}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 473885903}
@@ -21276,7 +21281,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 3, y: 50.1}
+  m_AnchoredPosition: {x: 4, y: 64}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1906285563
@@ -22842,6 +22847,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   hoverHeight: 0.4
+  particlePrefab: {fileID: 0}
+  nailPrompt: {fileID: 0}
   targetSlot: LegSlot
 --- !u!1001 &78285200277729740
 PrefabInstance:
@@ -23102,6 +23109,7 @@ MonoBehaviour:
   minigameUI: {fileID: 0}
   noise: {fileID: 0}
   progress: {fileID: 0}
+  hitParticles: {fileID: 0}
   fill: {fileID: 0}
   gradient:
     serializedVersion: 2
@@ -23968,6 +23976,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   hoverHeight: 0.4
+  particlePrefab: {fileID: 0}
+  nailPrompt: {fileID: 0}
   targetSlot: LegSlot
 --- !u!1 &3253470770353689567
 GameObject:
@@ -24489,6 +24499,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   hoverHeight: 0.4
+  particlePrefab: {fileID: 0}
+  nailPrompt: {fileID: 0}
   targetSlot: LegSlot
 --- !u!1 &5105915408544386134
 GameObject:
@@ -24959,6 +24971,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   hoverHeight: 0.4
+  particlePrefab: {fileID: 0}
+  nailPrompt: {fileID: 0}
   targetSlot: LegSlot
 --- !u!4 &6554990934927551764
 Transform:
@@ -25276,6 +25290,7 @@ MonoBehaviour:
   minigameUI: {fileID: 4870747693653130841}
   noise: {fileID: 8285317169771310291}
   progress: {fileID: 4889879708428260302}
+  hitParticles: {fileID: 0}
   fill: {fileID: 1382304995239818575}
   gradient:
     serializedVersion: 2
