@@ -18,8 +18,25 @@ public class TranslucentBoxInteract : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+
+        StartCoroutine(DisableWithDelay());
+
         Debug.Log("Player exited door");
+
+    }
+
+    IEnumerator DisableWithDelay()
+    {
+        Debug.Log("Starting coroutine");
+
+        yield return new WaitForSeconds(2f);
+
+        Debug.Log("Removing text");
         translucentCubeText.SetActive(false);
+
+        
         Destroy(this.gameObject);
     }
+
+
 }

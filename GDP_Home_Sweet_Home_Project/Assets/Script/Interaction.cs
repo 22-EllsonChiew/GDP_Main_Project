@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class Interaction : MonoBehaviour
@@ -20,10 +21,22 @@ public class Interaction : MonoBehaviour
 
     private Collider currentCollider;
 
+    public UnityEvent<bool> isGameStarting;
+
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObject != null)
+        {
+            isGameStarting.AddListener(isTaskComplete => playerObject.GetComponent<PlayerMovement>().CheckMinigame(isTaskComplete));
+        }
+        else
+        {
+            Debug.LogError("Player GameObject not found in the scene!");
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -47,11 +60,14 @@ public class Interaction : MonoBehaviour
 
     private void ConfirmClicked(Collider confirmedCollider)
     {
+        //isGameStarting.Invoke(true);
+
         confirmationWindow.gameObject.SetActive(false);
-        
 
         if (confirmedCollider != null) 
-        {       
+        {
+            
+
             minigameCam.SetActive(true);
             mainCam.SetActive(false);
 

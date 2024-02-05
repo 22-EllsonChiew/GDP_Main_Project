@@ -12,6 +12,9 @@ public class DraggableObjects : MonoBehaviour
     public LayerMask groundLayerMask;
     public float hoverHeight = 0.4f;
 
+    public GameObject particlePrefab;
+    public GameObject nailPrompt;
+
     [SerializeField] private string targetSlot;
 
     private Vector3 originalPos;
@@ -101,6 +104,10 @@ public class DraggableObjects : MonoBehaviour
                     rb.isKinematic = true;
                     isAttached = true; // You might want to set isAttached to true here or wherever is appropriate in your logic
                     EnableAllChildren();
+
+                    nailPrompt.SetActive(true);
+                    StartCoroutine(DeleteWithDelay());
+
                     break; // Stop checking for triggers after snapping to the first one
                 }
             }
@@ -142,6 +149,31 @@ public class DraggableObjects : MonoBehaviour
         foreach(Transform child in transform)
         {
             child.gameObject.SetActive(true);
+            GameObject particleObject = Instantiate(particlePrefab, child.transform.position, child.transform.rotation);
+
+            // Get the ParticleSystem component from the instantiated GameObject
+            ParticleSystem particleSystem = particleObject.GetComponent<ParticleSystem>();
+
+            // Check if ParticleSystem component exists
+            if (particleSystem != null)
+            {
+                // Play the ParticleSystem
+                particleSystem.Play();
+            }
+            else
+            {
+                Debug.LogWarning("ParticleSystem component not found on the instantiated prefab.");
+            }
+
         }
+
     }
+
+    IEnumerator DeleteWithDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        nailPrompt.SetActive(false);
+    }
+
 }
