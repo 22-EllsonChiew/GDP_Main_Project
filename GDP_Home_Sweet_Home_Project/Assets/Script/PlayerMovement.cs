@@ -15,7 +15,9 @@ public class PlayerMovement : MonoBehaviour
     public float playerHeight;
     public LayerMask isGround;
     bool grounded;
-    
+
+    public NailGame minigame;
+
     public float groundDrag;
 
 
@@ -37,11 +39,14 @@ public class PlayerMovement : MonoBehaviour
     private bool isWalking;
 
     static public bool dialogue = false;
+    public bool isMinigameStarted = false;
  
 
     // Start is called before the first frame update
     void Start()
     {
+        //FindObjectOfType<Interaction>().OnTaskInteract += CheckMinigame;
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
@@ -51,12 +56,31 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if(!dialogue)
+        if(!dialogue && !isMinigameStarted)
         {
             MovePlayer();
         }
         
     }
+
+    public void CheckMinigame(bool isTaskStarted)
+    {
+        if (isTaskStarted)
+        {
+            Debug.Log("Setting bool to true");
+            isMinigameStarted = true;
+        }
+    }
+
+    public void MinigameCompleted(bool isTaskCompleted)
+    {
+        if (isTaskCompleted)
+        {
+            Debug.Log("minigame done");
+            isMinigameStarted = false;
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -109,24 +133,27 @@ public class PlayerMovement : MonoBehaviour
 
         //rb.AddForce(moveDirection.normalized * speed * 10, ForceMode.Force);
 
-
-        Vector3 cameraForward = Camera.main.transform.forward;
-        Vector3 cameraRight = Camera.main.transform.right;
-
-        // Project the camera vectors onto the horizontal plane
-        cameraForward.y = 0f;
-        cameraRight.y = 0f;
-
-        Vector3 direction = (cameraForward.normalized * verticalInput + cameraRight.normalized * horizontalInput).normalized;
-
-        if (direction.magnitude >= 0.1f)
+        if (Camera.main != null)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            Vector3 cameraForward = Camera.main.transform.forward;
+            Vector3 cameraRight = Camera.main.transform.right;
 
+            // Project the camera vectors onto the horizontal plane
+            cameraForward.y = 0f;
+            cameraRight.y = 0f;
+
+            Vector3 direction = (cameraForward.normalized * verticalInput + cameraRight.normalized * horizontalInput).normalized;
+
+            if (direction.magnitude >= 0.1f)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            }
+            rb.AddForce(direction.normalized * speed * 10, ForceMode.Force);
         }
-        rb.AddForce(direction.normalized * speed * 10, ForceMode.Force);
+        
 
 
     }

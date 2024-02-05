@@ -31,6 +31,8 @@ public class NailGame : MonoBehaviour
 
     public Slider noise;
     public Slider progress;
+    public ParticleSystem hitParticles;
+
 
     public Image fill;
     public Gradient gradient;
@@ -72,7 +74,6 @@ public class NailGame : MonoBehaviour
 
     private Transform newChairPos;
 
-
     InventoryManager.AllItems rubberHammer = InventoryManager.AllItems.RubberCover;
 
     // Start is called before the first frame update
@@ -89,6 +90,7 @@ public class NailGame : MonoBehaviour
         hammeringAudio.clip = hammerSound;
 
         taskCompleted.AddListener(isTaskComplete => GameObject.FindGameObjectWithTag("MainProgressBar").GetComponent<ProgressBar>().OnTaskCompletion(isTaskComplete));
+        taskCompleted.AddListener(isTaskComplete => GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().MinigameCompleted(isTaskComplete));
         GameObject[] draggableObjects = GameObject.FindGameObjectsWithTag("Draggable");
         
 
@@ -124,6 +126,17 @@ public class NailGame : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = camRay.ScreenPointToRay(Input.mousePosition);
+
+        //if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))
+        //{
+        //    Cursor.visible = false;
+        //    uiCursor.ShowCursor();
+        //}
+        //else if (isMinigameActive)
+        //{
+        //    uiCursor.HideCursor();
+        //    Cursor.visible = true;
+        //}
 
         if (isMinigameActive)
         {
@@ -236,7 +249,10 @@ public class NailGame : MonoBehaviour
         {
             currentNail.GetComponent<NailObjectController>().currentClicks++;
 
-            
+            if (hitParticles != null)
+            {
+                Instantiate(hitParticles, currentNail.transform.position, Quaternion.identity);
+            }
 
 
             currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
@@ -279,7 +295,7 @@ public class NailGame : MonoBehaviour
         if (currentNails == 4 )
         {
             StartCoroutine(DestroyDelay());
-            taskCompleted.Invoke(true);
+            //taskCompleted.Invoke(true);
         }
 
     }

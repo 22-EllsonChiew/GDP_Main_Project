@@ -20,7 +20,7 @@ public class HammerMinigame : MonoBehaviour
     [SerializeField]
     private GameObject[] furnitureObjects;
 
-    private bool isMinigameActive = false;
+    public bool isMinigameActive = false;
 
 
     public GameObject player;

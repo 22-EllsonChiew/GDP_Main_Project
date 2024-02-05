@@ -7,6 +7,7 @@ public class NailObjectController : MonoBehaviour
 {
 
     public UnityEvent<GameObject> gameStart;
+    
 
     public Camera gameCamera;
 
@@ -16,6 +17,7 @@ public class NailObjectController : MonoBehaviour
     void Start()
     {
         gameStart.AddListener(obj => GameObject.FindGameObjectWithTag("NailGameController").GetComponent<NailGame>().StartMinigame(obj));
+        
     }
 
     // Update is called once per frame
