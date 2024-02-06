@@ -90,7 +90,7 @@ public class NailGame : MonoBehaviour
         hammeringAudio.clip = hammerSound;
 
         taskCompleted.AddListener(isTaskComplete => GameObject.FindGameObjectWithTag("MainProgressBar").GetComponent<ProgressBar>().OnTaskCompletion(isTaskComplete));
-        taskCompleted.AddListener(isTaskComplete => GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().MinigameCompleted(isTaskComplete));
+        //taskCompleted.AddListener(isTaskComplete => GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().MinigameCompleted(isTaskComplete));
         GameObject[] draggableObjects = GameObject.FindGameObjectsWithTag("Draggable");
         
 
@@ -295,7 +295,7 @@ public class NailGame : MonoBehaviour
         if (currentNails == 4 )
         {
             StartCoroutine(DestroyDelay());
-            //taskCompleted.Invoke(true);
+            taskCompleted.Invoke(true);
         }
 
     }

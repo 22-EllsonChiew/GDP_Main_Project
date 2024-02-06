@@ -38,7 +38,7 @@ public class AngerBar : MonoBehaviour
     public void DecreaseAnger()
     {
         Debug.Log("Ticket counter" + ticketGiver);
-        if (ticketGiver == 1)
+        if (ticketGiver == 1 || ticketGiver == 2 || ticketGiver == 3)
         {
             ticketGiver++;
             Debug.Log("promise route");
@@ -92,6 +92,16 @@ public class AngerBar : MonoBehaviour
             // Set the flag to true to indicate that health has been increased
             hasIncreasedHealth = true;
         }
+
+        if(ticketGiver == 3 && !hasIncreasedHealth)
+
+        {
+            Debug.Log("Increase Hp");
+
+            StartCoroutine(IncreaseHpForSecondNeighbour());
+            
+            hasIncreasedHealth = true;
+        }
     }
 
     private IEnumerator IncreaseHpContinuouslyCoroutine()
@@ -100,7 +110,28 @@ public class AngerBar : MonoBehaviour
         {
             yield return new WaitForSeconds(10f);
 
-            if (ticketGiver == 2)
+            if (ticketGiver == 2 || ticketGiver == 3)
+            {
+                Debug.Log("Increase Hp");
+
+                // Increment the slider value by 0.15f
+                angerSlider.value += 0.05f;
+            }
+            if (angerSlider.value >= 0.75f)
+            {
+                Debug.Log("Reached threshold, stopping increase.");
+                yield break; // Stop the coroutine
+            }
+        }
+    }
+
+    private IEnumerator IncreaseHpForSecondNeighbour()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(10f);
+
+            if (ticketGiver == 2 || ticketGiver == 3)
             {
                 Debug.Log("Increase Hp");
 
