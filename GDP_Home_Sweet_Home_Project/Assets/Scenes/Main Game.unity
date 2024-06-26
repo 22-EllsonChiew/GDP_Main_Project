@@ -530,6 +530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Translucent Cube (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 876717153998231280, guid: c01e0bc7a52f8b94d86ac2f707793070, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3937904929465013518, guid: c01e0bc7a52f8b94d86ac2f707793070, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -10494,7 +10498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1034810020}
   m_Layer: 0
-  m_Name: Left Neighbour
+  m_Name: Sherly
   m_TagString: Bottom_Right_Corner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19410,7 +19414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1541756283}
   m_Layer: 0
-  m_Name: Right Neighbour
+  m_Name: Hakim
   m_TagString: Top_Right_Corner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
