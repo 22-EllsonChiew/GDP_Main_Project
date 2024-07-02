@@ -7,17 +7,58 @@ using UnityEngine.SceneManagement;
 public class LoadingScreen : MonoBehaviour
 {
 
-    GameObject LoadingScreenObj;
+    public TextAsset textJSON;
+    public Text messageText;
     
-
-
-   
-   IEnumerator LoadSceneAsync()
+    [System.Serializable]
+    public class MSOMessage
     {
-        LoadingScreenObj.SetActive(true);
-
-        yield return new WaitForSeconds(10);
-
-        LoadingScreenObj.SetActive(false);
+        public string Message;
     }
+
+    [System.Serializable]
+
+    public class MessageList
+    {
+        public MSOMessage[] message;
+    }
+
+    public MessageList myMSOMessage = new MessageList();
+
+    void Start()
+    {
+        myMSOMessage = JsonUtility.FromJson<MessageList>(textJSON.text);
+
+        ShowRandomMessage();
+
+    }
+
+
+    void ShowRandomMessage()
+    {
+        if (myMSOMessage.message.Length > 0)
+        {
+            // Select a random index
+            int randomIndex = Random.Range(0, myMSOMessage.message.Length);
+
+            // Get the random message
+            string randomMessage = myMSOMessage.message[randomIndex].Message;
+
+            // Display the message (assuming you have a Text UI element assigned to messageText)
+            if (messageText != null)
+            {
+                messageText.text = randomMessage;
+            }
+            else
+            {
+                Debug.LogError("MessageText UI element is not assigned.");
+            }
+        }
+        else
+        {
+            Debug.LogError("No messages found in the JSON file.");
+        }
+    }
+
+
 }
