@@ -18,6 +18,7 @@ TagManager:
   - MinigameCam
   - Draggable
   - Nail
+  - LoadingScreen
   layers:
   - Default
   - TransparentFX
