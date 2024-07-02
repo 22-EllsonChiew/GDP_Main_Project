@@ -38,7 +38,9 @@ public class TimeController : MonoBehaviour
     private float initialRotationY = 173f;
     private float initialRotationZ = 183f;
 
-   public TimeUI timeUI;
+    public TimeUI timeUI;
+
+    public GameObject LoadingScreenObj;
 
     private bool isNight = false;
 
@@ -50,8 +52,7 @@ public class TimeController : MonoBehaviour
         DayTime();
         isNight = false;
         isNight = true;
-        GameObject loadingScreen = GameObject.FindWithTag("LoadingScreen");
-        loadingScreen.SetActive(false);
+        LoadingScreenObj.SetActive(false);
     }
 
     
@@ -89,23 +90,11 @@ public class TimeController : MonoBehaviour
 
     }
 
-    IEnumerator LoadSceneAsync()
-    {
-        timeUI.LoadingScreenObj.SetActive(true);
-
-        yield return new WaitForSeconds(10);
-
-        timeUI.LoadingScreenObj.SetActive(false);
-        //NightTimmerController();
-        isNight = true;
-
-    }
-
 
     private void NightTime()
     {
         Minute = 00;
-        Hour = 5;
+        Hour = 19;
         UpdateDirectionalLight();
     }
 
@@ -152,11 +141,8 @@ public class TimeController : MonoBehaviour
                     {
                         Hour = 00;
                     }
-                    if(Hour == 6)
-                    {
-                        GameObject loadingScreen = GameObject.FindWithTag("LoadingScreen");
-                        loadingScreen.SetActive(false);
-                    }
+                    
+                    
                     // Reset the minute to 0
                     Minute = 0;
                     OnHourChanged?.Invoke(); // Invoke the OnHourChanged event
@@ -204,9 +190,10 @@ public class TimeController : MonoBehaviour
                     {
                         Hour = 00;
 
-                        GameObject loadingScreen = GameObject.FindWithTag("LoadingScreen");
-                        loadingScreen.SetActive(true);
+                        StartCoroutine(LoadingScreenSync());
+                        //LoadingScreenObj.SetActive(true);
                         NightTime();
+                        NightTimmerController();
 
                     }
                     // Reset the minute to 0
@@ -223,11 +210,11 @@ public class TimeController : MonoBehaviour
 
     public IEnumerator LoadingScreenSync()
     {
-        GameObject loadingScreen = GameObject.FindWithTag("LoadingScreen");
-       
-        loadingScreen.SetActive(true);
+
+        Debug.Log("Loading...");
+        LoadingScreenObj.SetActive(true);
         yield return new WaitForSecondsRealtime(10f);
-        loadingScreen.SetActive(false);
+        LoadingScreenObj.SetActive(false);
         
        
 

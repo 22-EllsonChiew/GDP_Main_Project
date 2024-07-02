@@ -27341,6 +27341,7 @@ MonoBehaviour:
   eveningIntensity: 0.5
   transitionSpeed: 0.1
   timeUI: {fileID: 0}
+  LoadingScreenObj: {fileID: 513372641}
 --- !u!82 &7565215745276000208
 AudioSource:
   m_ObjectHideFlags: 0
