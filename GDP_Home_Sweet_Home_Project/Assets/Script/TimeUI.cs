@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TimeUI : MonoBehaviour
 {
-
+    public GameObject LoadingScreenObj;
     public TextMeshProUGUI timeText;
 
     private void OnEnable()
@@ -23,6 +23,11 @@ public class TimeUI : MonoBehaviour
     private void UpdateTime()
     {
         timeText.text = $"{TimeController.Hour:00}:{TimeController.Minute:00}";
+    }
+
+    private void Start()
+    {
+       // LoadingScreenObj.SetActive(false);
     }
 
 }

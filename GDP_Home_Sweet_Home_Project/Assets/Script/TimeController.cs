@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TimeController : MonoBehaviour
 {
@@ -37,51 +38,32 @@ public class TimeController : MonoBehaviour
     private float initialRotationY = 173f;
     private float initialRotationZ = 183f;
 
-    // Start is called before the first frame update
+   public TimeUI timeUI;
 
+    private bool isNight = false;
+
+    private bool isDay = false;
+
+    
     void Start()
     {
-        Minute = 30;
-        Hour = 19;
-        UpdateDirectionalLight();
+        DayTime();
+        isNight = false;
+        isNight = true;
+        GameObject loadingScreen = GameObject.FindWithTag("LoadingScreen");
+        loadingScreen.SetActive(false);
     }
+
+    
 
     // Update is called once per frame
     void Update()
     {
-        if (Hour == endHour && Minute == endMinute)
-        {
-            Debug.Log("Sleep time");
-            SceneManager.LoadScene("Sleep Scene");
-        }
-        else
-        {
-            timer -= Time.deltaTime;
+       
+        DayTimmerController();
+        
+       
 
-
-            if (timer <= 0)
-            {
-                Minute++;
-                OnMinuteChanged?.Invoke();
-
-                if (Minute >= 60)
-                {
-                    Hour++;
-
-                    if (Hour == 24)
-                    {
-                        Hour = 00;
-                    }
-
-                    Minute = 0;
-                    OnHourChanged?.Invoke();
-
-                }
-
-                timer = minuteToRealTime;
-                UpdateDirectionalLight();
-            }
-        }
     }
 
     private void UpdateDirectionalLight()
@@ -107,7 +89,149 @@ public class TimeController : MonoBehaviour
 
     }
 
+    IEnumerator LoadSceneAsync()
+    {
+        timeUI.LoadingScreenObj.SetActive(true);
+
+        yield return new WaitForSeconds(10);
+
+        timeUI.LoadingScreenObj.SetActive(false);
+        //NightTimmerController();
+        isNight = true;
+
+    }
 
 
+    private void NightTime()
+    {
+        Minute = 00;
+        Hour = 5;
+        UpdateDirectionalLight();
+    }
+
+    private void DayTime()
+    {
+        Minute = 00;
+        Hour = 06;
+
+        UpdateDirectionalLight();
+    }
+
+    private void NightTimmerController()
+    {
+        // Check if the current time matches the specified end hour and minute
+        if (Hour == endHour && Minute == endMinute)
+        {
+            // Log a message indicating it's sleep time
+            Debug.Log("Sleep time");
+            // Load the scene named "Sleep Scene"
+            SceneManager.LoadScene("Sleep Scene");
+        }
+        else
+        {
+            // Decrease the timer by the time elapsed since the last frame
+            timer -= Time.deltaTime;
+
+            // If the timer has reached zero or less, increment the minute
+            if (timer <= 0)
+            {
+                // Increment the minute
+                Minute++;
+
+                // Invoke the OnMinuteChanged event 
+                OnMinuteChanged?.Invoke();
+
+                // Check if the minute has reached 60, indicating an hour has passed
+                if (Minute >= 60)
+                {
+                    // Increment the hour
+                    Hour++;
+
+                    // If the hour has reached 24, reset it to 0 (midnight)
+                    if (Hour == 24)
+                    {
+                        Hour = 00;
+                    }
+                    if(Hour == 6)
+                    {
+                        GameObject loadingScreen = GameObject.FindWithTag("LoadingScreen");
+                        loadingScreen.SetActive(false);
+                    }
+                    // Reset the minute to 0
+                    Minute = 0;
+                    OnHourChanged?.Invoke(); // Invoke the OnHourChanged event
+
+                }
+                // Reset the timer to the duration of one minute in real time
+                timer = minuteToRealTime;
+                UpdateDirectionalLight();
+            }
+        }
+    }
+
+    private void DayTimmerController()
+    {
+        // Check if the current time matches the specified end hour and minute
+        if (Hour == endHour && Minute == endMinute)
+        {
+            // Log a message indicating it's sleep time
+            Debug.Log("Sleep time");
+            // Load the scene named "Sleep Scene"
+            SceneManager.LoadScene("Sleep Scene");
+        }
+        else
+        {
+            // Decrease the timer by the time elapsed since the last frame
+            timer -= Time.deltaTime;
+
+            // If the timer has reached zero or less, increment the minute
+            if (timer <= 0)
+            {
+                // Increment the minute
+                Minute++;
+
+                // Invoke the OnMinuteChanged event 
+                OnMinuteChanged?.Invoke();
+
+                // Check if the minute has reached 60, indicating an hour has passed
+                if (Minute >= 60)
+                {
+                    // Increment the hour
+                    Hour++;
+
+                    // If the hour has reached 8, reset it to 0 (midnight)
+                    if (Hour == 8)
+                    {
+                        Hour = 00;
+
+                        GameObject loadingScreen = GameObject.FindWithTag("LoadingScreen");
+                        loadingScreen.SetActive(true);
+                        NightTime();
+
+                    }
+                    // Reset the minute to 0
+                    Minute = 0;
+                    OnHourChanged?.Invoke(); // Invoke the OnHourChanged event
+
+                }
+                // Reset the timer to the duration of one minute in real time
+                timer = minuteToRealTime;
+                UpdateDirectionalLight();
+            }
+        }
+    }
+
+    public IEnumerator LoadingScreenSync()
+    {
+        GameObject loadingScreen = GameObject.FindWithTag("LoadingScreen");
+       
+        loadingScreen.SetActive(true);
+        yield return new WaitForSecondsRealtime(10f);
+        loadingScreen.SetActive(false);
+        
+       
+
+        NightTimmerController();
+    }
 }
 
