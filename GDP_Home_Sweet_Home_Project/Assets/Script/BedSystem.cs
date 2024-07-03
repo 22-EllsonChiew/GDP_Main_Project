@@ -12,7 +12,7 @@ public class BedSystem : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                SceneManager.LoadScene("Sleep Scene");
+                SceneManager.LoadScene("Main GameSecondDay");
             }
         }
     }

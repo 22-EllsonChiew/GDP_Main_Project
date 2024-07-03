@@ -21,9 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Lose Scene.unity
     guid: 633d4dc4960e5b94ab74b1a2cca5ede8
   - enabled: 1
-    path: Assets/Scenes/Sleep Scene.unity
-    guid: 9c2c04cf35cb8164c945adbebec448ac
-  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 5391294ce530e35448ea8e8559167928
+  - enabled: 1
+    path: Assets/Scenes/Days/Main GameSecondDay.unity
+    guid: 63e4900c4bb2a1045838b96ce95eda61
+  - enabled: 1
+    path: Assets/Scenes/Sleep Scene.unity
+    guid: 9c2c04cf35cb8164c945adbebec448ac
   m_configObjects: {}
