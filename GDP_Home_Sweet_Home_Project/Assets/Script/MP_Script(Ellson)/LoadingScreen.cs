@@ -33,6 +33,10 @@ public class LoadingScreen : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        ShowRandomMessage();
+    }
 
     void ShowRandomMessage()
     {
