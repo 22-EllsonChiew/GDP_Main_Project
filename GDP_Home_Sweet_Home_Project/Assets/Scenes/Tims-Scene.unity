@@ -3582,7 +3582,7 @@ GameObject:
   - component: {fileID: 1044806894}
   - component: {fileID: 1044806893}
   m_Layer: 5
-  m_Name: NoogleApp
+  m_Name: NetApp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3838,6 +3838,7 @@ GameObject:
   - component: {fileID: 1141206326}
   - component: {fileID: 1141206325}
   - component: {fileID: 1141206324}
+  - component: {fileID: 1141206328}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3928,6 +3929,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1141206328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141206323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312a621a821e26444a599a740efcadd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upperY: 0
+  lowerY: -800
+  moveDuration: 0.25
+  phoneTransform: {fileID: 1230907483}
+  homeBtn: {fileID: 637805062}
+  chatBtn: {fileID: 1287091925}
+  netBtn: {fileID: 1044806893}
+  homeScreen: {fileID: 1887507506}
+  chatScreen: {fileID: 814651730}
+  netScreen: {fileID: 999417734}
 --- !u!1 &1159015807
 GameObject:
   m_ObjectHideFlags: 0
@@ -4232,7 +4255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 273, y: 0}
+  m_AnchoredPosition: {x: 275, y: -800}
   m_SizeDelta: {x: 500, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1230907484
@@ -4380,7 +4403,7 @@ GameObject:
   - component: {fileID: 1287091926}
   - component: {fileID: 1287091925}
   m_Layer: 5
-  m_Name: HowdyApp
+  m_Name: ChatApp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
