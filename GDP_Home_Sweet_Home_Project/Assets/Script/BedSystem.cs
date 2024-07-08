@@ -25,6 +25,7 @@ public class BedSystem : MonoBehaviour
         if(spawnPoint != null)
         {
             Instantiate(packagePrefab, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(packagePrefab, spawnPoint.position, spawnPoint.rotation);
         }
         
     }
