@@ -8,6 +8,8 @@ public class BedSystem : MonoBehaviour
 
     public GameObject packagePrefab;
     public Transform spawnPoint;
+    public Transform spawnPoint2;
+    public float spawnRange = 5.0f;
     private bool playerInBed = false;
 
 
@@ -15,20 +17,23 @@ public class BedSystem : MonoBehaviour
     {
         if (playerInBed && Input.GetKey(KeyCode.E))
         {
-            SceneManager.LoadScene("Main GameSecondDay");
+            SceneManager.LoadScene("Main Game 1");
             SpawnPackage();
         }
     }
 
     private void SpawnPackage()
     {
-        if(spawnPoint != null)
+        if(spawnPoint != null && spawnPoint2 != null)
         {
+
             Instantiate(packagePrefab, spawnPoint.position, spawnPoint.rotation);
-            Instantiate(packagePrefab, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(packagePrefab, spawnPoint2.position, spawnPoint.rotation);
         }
         
     }
+
+    
     private void OnTriggerStay(Collider other)
     {
         if(other.CompareTag("Player"))
