@@ -8,14 +8,15 @@ public enum PhoneApp
     // all phone app/screen states
     Stowed,
     Home,
-    Chat,
-    Net,
+    ChatApp,
+    ChatApp_Messages,
+    NetApp,
     Settings,
     Hamburger
 }
 
 
-public class UIController : MonoBehaviour
+public class PhoneUIController : MonoBehaviour
 {
     // Y values for rectTransform
     public float upperY = 0f;
@@ -33,16 +34,22 @@ public class UIController : MonoBehaviour
     private Button chatBtn;
     [SerializeField] 
     private Button netBtn;
+    [SerializeField] 
+    private Button backBtn;
+    
 
 
     [SerializeField]
     private GameObject homeScreen;
     [SerializeField]
-    private GameObject chatScreen;
+    private GameObject chatApp;
     [SerializeField]
-    private GameObject netScreen;
+    private GameObject chatApp_Messages;
+    [SerializeField]
+    private GameObject netApp;
 
     private Dictionary<PhoneApp, GameObject> appScreens;
+    private Stack<PhoneApp> navigationHistory;
 
     public bool isPhoneActive { get; private set; }
     public PhoneApp currentApp {  get; private set; }
@@ -53,23 +60,29 @@ public class UIController : MonoBehaviour
     {
         isPhoneActive = false;
         targetPos = phoneTransform.anchoredPosition;
-        currentApp = PhoneApp.Home;
+        currentApp = PhoneApp.Stowed;
 
         homeBtn.onClick.AddListener(() => OpenApp(PhoneApp.Home));
-        chatBtn.onClick.AddListener(() => OpenApp(PhoneApp.Chat));
-        netBtn.onClick.AddListener(() => OpenApp(PhoneApp.Net));
+        chatBtn.onClick.AddListener(() => OpenApp(PhoneApp.ChatApp));
+        netBtn.onClick.AddListener(() => OpenApp(PhoneApp.NetApp));
+        backBtn.onClick.AddListener(BackBtn);
 
         appScreens = new Dictionary<PhoneApp, GameObject>()
         {
             {PhoneApp.Home, homeScreen},
-            {PhoneApp.Chat, chatScreen},
-            {PhoneApp.Net, netScreen},
+            {PhoneApp.ChatApp, chatApp},
+            {PhoneApp.ChatApp_Messages, chatApp_Messages},
+            {PhoneApp.NetApp, netApp},
         };
+        
+        navigationHistory = new Stack<PhoneApp>();
 
-        //foreach (var screen in appScreens.Values)
-        //{
-        //    screen.SetActive(false);
-        //}
+        foreach (var screen in appScreens.Values)
+        {
+            screen.SetActive(false);
+        }
+
+        OpenApp(PhoneApp.Home);
 
     }
 
@@ -99,6 +112,11 @@ public class UIController : MonoBehaviour
     {
         if (currentApp != app)
         {
+            if (currentApp != PhoneApp.Stowed)
+            {
+                navigationHistory.Push(currentApp);
+            }
+
             if (currentApp != PhoneApp.Stowed && appScreens.ContainsKey(currentApp))
             {
                 appScreens[currentApp].SetActive(false);
@@ -111,6 +129,26 @@ public class UIController : MonoBehaviour
 
             currentApp = app;
             Debug.Log("Opened app: " + app.ToString());
+        }
+    }
+
+    public void BackBtn()
+    {
+        if (navigationHistory.Count > 0)
+        {
+            if (currentApp != PhoneApp.Stowed && appScreens.ContainsKey(currentApp))
+            {
+                appScreens[currentApp].SetActive(false);
+            }
+
+            currentApp = navigationHistory.Pop();
+
+            if (currentApp != PhoneApp.Stowed && appScreens.ContainsKey(currentApp))
+            {
+                appScreens[currentApp].SetActive(true);
+            }
+
+            Debug.Log("Returned to " + currentApp.ToString());
         }
     }
 
