@@ -3,7 +3,77 @@ guid: fd4102c044149b746a3dda250730b6e2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base Material
+    second: {fileID: 2100000, guid: 6c267b325aaed8f4291402c14cad4b07, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: aff68215ad3c73a4ebec6f6748520350, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corridor_Floor
+    second: {fileID: 2100000, guid: 92821106233614041a878bc8fd9bc45f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corridor_Railings
+    second: {fileID: 2100000, guid: d979d52396ffad4429f843d5a61c59cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Doorframe
+    second: {fileID: 2100000, guid: 96a18a62f88e9fd44a15e1f0839656f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor_BedRoom
+    second: {fileID: 2100000, guid: b5a7295ea361c704ebdc89871ba990c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor_Bomb
+    second: {fileID: 2100000, guid: 1e11e58930e7d1846b3ceba54db1f90e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor_LivingKitchen
+    second: {fileID: 2100000, guid: e65bc7bd52b83144795b6c326ae6001c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor_Toilet
+    second: {fileID: 2100000, guid: 3cb965a15aea4a346bca114b2bb017ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hands
+    second: {fileID: 2100000, guid: 841dae488cb1d034899636e922cdec80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Head
+    second: {fileID: 2100000, guid: 9096397b6e990e54ba9cb0f2112da962, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: b6253c050957b124f86dae54023a89ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: d8e851f5e5eca5440876f0f3eb6e896f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants.002
+    second: {fileID: 2100000, guid: 0a578a3fa514dda40881b283be187d02, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
