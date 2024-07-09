@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public enum PhoneApp
     ChatApp,
     ChatApp_Messages,
     NetApp,
+    NetApp_Post,
     Settings,
     Hamburger
 }
@@ -47,6 +49,8 @@ public class PhoneUIController : MonoBehaviour
     private GameObject chatApp_Messages;
     [SerializeField]
     private GameObject netApp;
+    [SerializeField]
+    private GameObject netApp_Post;
 
     private Dictionary<PhoneApp, GameObject> appScreens;
     private Stack<PhoneApp> navigationHistory;
@@ -54,10 +58,20 @@ public class PhoneUIController : MonoBehaviour
     public bool isPhoneActive { get; private set; }
     public PhoneApp currentApp {  get; private set; }
 
+    public static PhoneUIController instance;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         isPhoneActive = false;
         targetPos = phoneTransform.anchoredPosition;
         currentApp = PhoneApp.Stowed;
@@ -73,6 +87,7 @@ public class PhoneUIController : MonoBehaviour
             {PhoneApp.ChatApp, chatApp},
             {PhoneApp.ChatApp_Messages, chatApp_Messages},
             {PhoneApp.NetApp, netApp},
+            //{PhoneApp.NetApp_Post, netApp_Post}
         };
         
         navigationHistory = new Stack<PhoneApp>();
@@ -130,6 +145,18 @@ public class PhoneUIController : MonoBehaviour
             currentApp = app;
             Debug.Log("Opened app: " + app.ToString());
         }
+    }
+
+    public void OpenMessages()
+    {
+        OpenApp(PhoneApp.ChatApp_Messages);
+        Debug.Log("Opened messages");
+    }
+
+    public void OpenNetPost()
+    {
+        OpenApp(PhoneApp.NetApp_Post);
+        Debug.Log("Opened forum post");
     }
 
     public void BackBtn()
