@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChatManager : MonoBehaviour
 {
@@ -9,18 +11,29 @@ public class ChatManager : MonoBehaviour
     [SerializeField]
     private ContactPanel contactPrefab;
 
+    [Header("Message Screen")]
+    [SerializeField] 
+    private TextMeshProUGUI currentContactName;
     [SerializeField]
-    private GameObject contactScreen;
-    [SerializeField]
-    private GameObject messageScreen;
+    private Image currentContactPhoto;
 
     private List<PhoneContact> allPhoneContacts;
     private List<PhoneContact> unlockedPhoneContacts;
 
+    public static ChatManager instance;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         allPhoneContacts = new List<PhoneContact>()
         {
             new PhoneContact() {name = "Myself", photo = null, isUnlocked = false},
@@ -41,6 +54,17 @@ public class ChatManager : MonoBehaviour
 
     }
 
+    public void OpenMessages(string contactName)
+    {
+        PhoneContact targetContact = unlockedPhoneContacts.Find(contact => contact.name == contactName);
+
+        if (targetContact != null) 
+        {
+            currentContactName.text = contactName;
+            // load message data for each contact
+        }
+    }
+
     public void UnlockContact(string contactName)
     {
         PhoneContact contactToUnlock = allPhoneContacts.Find(contact => contact.name == contactName);
@@ -59,4 +83,5 @@ public class ChatManager : MonoBehaviour
         newContactPanel.SetContactName(contact.name);
         newContactPanel.SetContactImage(contact.photo);
     }
+
 }

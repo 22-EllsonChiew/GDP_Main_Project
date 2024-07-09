@@ -7,8 +7,10 @@ using UnityEngine.EventSystems;
 
 public class ContactPanel : MonoBehaviour
 {
+
     public TextMeshProUGUI contactName;
     public Image contactPhoto;
+
 
     public void SetContactName(string _contactName)
     {
@@ -30,4 +32,9 @@ public class ContactPanel : MonoBehaviour
         return contactPhoto;
     }
 
+    public void OnClick()
+    {
+        PhoneUIController.instance.OpenMessages();
+        ChatManager.instance.OpenMessages(GetContactName());
+    }
 }
