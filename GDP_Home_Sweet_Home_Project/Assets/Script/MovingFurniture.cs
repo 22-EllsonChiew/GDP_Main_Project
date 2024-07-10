@@ -37,10 +37,14 @@ public class MovingFurniture : MonoBehaviour
                 //check for tag "Draggable"
                 if (hitCollider.CompareTag("Draggable"))
                 {
-                    //set object pos to carryPos
+                    //set carriedObject to collided object
                     carriedObject = hitCollider.gameObject;
+                    //set object to carryPos
                     carriedObject.transform.position = carryPos.position;
-                    carriedObject.transform.SetParent(carryPos); // Make the object a child of the carry position
+                    //lock rotation of object to carryPos rotation
+                    carriedObject.transform.rotation = carryPos.rotation;
+                    //object made as child of carryPos
+                    carriedObject.transform.SetParent(carryPos); 
                     break;
                 }
             }
@@ -52,7 +56,9 @@ public class MovingFurniture : MonoBehaviour
         //keep updating position of object to stay in front of the player
         if (carriedObject != null)
         {
+            //object follows carryPos position and player rotation
             carriedObject.transform.position = carryPos.position;
+            carriedObject.transform.rotation = player.transform.rotation;
         }
     }
 
