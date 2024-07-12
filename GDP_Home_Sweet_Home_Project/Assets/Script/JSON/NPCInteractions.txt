@@ -1,0 +1,33 @@
+{
+	"interactions": [
+		{
+			"name": "Hakim",
+			"type": "Happy",
+			"dialogue": [
+				{"speaker": "Hakim", "content": "I'm doing great!"}
+			]
+
+		},
+		{
+			"name": "Hakim",
+			"type": "Angry",
+			"dialogue": [
+				{"speaker": Hakim, "content": "You're really asking that?"}
+			]
+		},
+		{
+			"name": "Sherryl",
+			"type": "Happy",
+			"dialogue": [
+				{"speaker": "Sherryl", "content": "I'm all right"}
+			]
+		},
+		{
+			"name": "Sherryl",
+			"type": "Angry",
+			"dialogue": [
+				{"speaker": "Sherryl", "content": "Thanks to you, no."}
+			]
+		}
+	]
+}

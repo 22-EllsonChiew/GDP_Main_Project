@@ -1,0 +1,24 @@
+{
+	"contacts": [
+		{ 
+			"name": "Myself",
+			"photo": null,
+			"isUnlocked": false
+		},
+		{
+			"name": "Mother"
+			"photo": null,
+			"isUnlocked": false
+		},
+		{
+			"name": "Hakim",
+			"photo": null,
+			"isUnlocked": false
+		},
+		{
+			"name": "Sherryl",
+			"photo": null,
+			"isUnlocked": false
+		}
+	]
+}

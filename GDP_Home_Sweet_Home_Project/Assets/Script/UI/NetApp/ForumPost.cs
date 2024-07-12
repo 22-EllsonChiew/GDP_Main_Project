@@ -43,7 +43,7 @@ public class ForumPost : MonoBehaviour
 
     public void OnClick()
     {
-        // open post screen
-        // handle transition logic
+        PhoneUIController.instance.OpenNetPost();
+        NetManager.instance.ViewPost(GetPostTitle());
     }
 }

@@ -87,7 +87,7 @@ public class PhoneUIController : MonoBehaviour
             {PhoneApp.ChatApp, chatApp},
             {PhoneApp.ChatApp_Messages, chatApp_Messages},
             {PhoneApp.NetApp, netApp},
-            //{PhoneApp.NetApp_Post, netApp_Post}
+            {PhoneApp.NetApp_Post, netApp_Post}
         };
         
         navigationHistory = new Stack<PhoneApp>();
