@@ -1,19 +1,19 @@
 {
    "message": [
       {
-         "Message": "Test 1"
+         "Message": "We should proactively build a relationship with neighbours from the onset, which would help us reach a mutual understanding in a friendly manner."
       },
       {
-         "Message": "Test 2"
+         "Message": "We shold practise considerate behaviours for our neighbours to create a peaceful and harmonious living environment."
       },
       {
-         "Message": "Test 3"
+         "Message": "Lift your furniture, if possible, when moving it."
       },
       {
-         "Message": "Test 4"
+         "Message": "Use a carpet or exercise mats if you are doing DIY project on your floor."
       },
       {
-         "Message": "Test 5"
+         "Message": "Be mindful of the quiet hours as the quiet hours are observed from 10.30pm to 7am "
       }
 
    ]

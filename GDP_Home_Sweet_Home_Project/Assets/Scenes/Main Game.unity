@@ -1801,8 +1801,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 209, y: -36}
+  m_SizeDelta: {x: 406.9, y: 97.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &151620406
 MonoBehaviour:
@@ -27109,7 +27109,7 @@ MonoBehaviour:
   clickHandlerReferenceBottomRight: {fileID: 0}
   clickHandlerReferenceTopRight: {fileID: 0}
   neighbourSheryl: {fileID: 0}
-  neighbourSherylHakim: {fileID: 0}
+  neighbourHakim: {fileID: 0}
   decreaseNoise: 5
   mainCam: {fileID: 0}
   minigameCam: {fileID: 0}
@@ -29949,7 +29949,7 @@ MonoBehaviour:
   clickHandlerReferenceBottomRight: {fileID: 982778014}
   clickHandlerReferenceTopRight: {fileID: 1645684918}
   neighbourSheryl: {fileID: 1146877687}
-  neighbourSherylHakim: {fileID: 1903371686}
+  neighbourHakim: {fileID: 0}
   decreaseNoise: 5
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}

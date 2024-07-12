@@ -27,7 +27,7 @@ public class AngerBarManager : MonoBehaviour
 
         UpdateHappinessGauge(averageHappinessDecrease, maxHappiness);
 
-        Debug.Log("Minus 25%");
+       
     }
 
     void UpdateHappinessGauge(float averageHappinessDecrease, float maxHappiness)
