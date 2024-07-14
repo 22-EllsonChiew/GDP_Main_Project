@@ -19,6 +19,7 @@ TagManager:
   - Draggable
   - Nail
   - LoadingScreen
+  - NeighbourInteractionCollider
   layers:
   - Default
   - TransparentFX
