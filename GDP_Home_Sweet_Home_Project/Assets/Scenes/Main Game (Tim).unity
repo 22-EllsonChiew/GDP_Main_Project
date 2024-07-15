@@ -2693,7 +2693,7 @@ GameObject:
   - component: {fileID: 168400364}
   - component: {fileID: 168400363}
   m_Layer: 0
-  m_Name: Neighbour1Collider
+  m_Name: SherrylCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7561,6 +7561,8 @@ GameObject:
   - component: {fileID: 557129281}
   - component: {fileID: 557129280}
   - component: {fileID: 557129284}
+  - component: {fileID: 557129286}
+  - component: {fileID: 557129285}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7672,6 +7674,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasD: {fileID: 0}
+--- !u!114 &557129285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557129279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c769d195e5629fd469392f15b9663caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueLoader: {fileID: 557129286}
+  neighbourUIGroup: {fileID: 1914656842}
+  neighbourUIName: {fileID: 894986680}
+  neighbourUIDialogue: {fileID: 236030673}
+  playerResponse1: {fileID: 2119106033}
+  playerResponse2: {fileID: 1093514149}
+  playerResponse3: {fileID: 987282371}
+--- !u!114 &557129286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557129279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a0497e829091944bba5ddc3c8b8a40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcInteractionsJson: {fileID: 4900000, guid: 102b9a1e5635b2f4f9c62c2488aa9c92, type: 3}
+  dialogueData:
+    conversations: []
 --- !u!1 &563759810
 GameObject:
   m_ObjectHideFlags: 0
@@ -12856,7 +12892,7 @@ GameObject:
   - component: {fileID: 899835480}
   - component: {fileID: 899835479}
   m_Layer: 0
-  m_Name: Neighbour2Collider
+  m_Name: HakimCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

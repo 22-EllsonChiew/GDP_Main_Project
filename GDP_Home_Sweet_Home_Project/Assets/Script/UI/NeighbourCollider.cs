@@ -20,6 +20,15 @@ public class NeighbourCollider : MonoBehaviour
         if (playerCanInteract && Input.GetKeyUp(KeyCode.E)) 
         {
             neighbourUIGroup.SetActive(true);
+
+            if (gameObject.name == "SherrylCollider")
+            {
+                NeighbourUIController.instance.StartInteraction("Sherryl", "AngryGreet");
+            }
+            else if (gameObject.name == "HakimCollider")
+            {
+                NeighbourUIController.instance.StartInteraction("Hakim", "HappyGreet");
+            }
         }
     }
 
