@@ -34,6 +34,8 @@ public class AngerBar : MonoBehaviour
 
 
 
+
+
    
     public void DecreaseAnger()
     {

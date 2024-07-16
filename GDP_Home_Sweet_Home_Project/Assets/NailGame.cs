@@ -62,6 +62,10 @@ public class NailGame : MonoBehaviour
 
     public AngerBar clickHandlerReferenceTopRight;
 
+    public NeighbourAngerBar neighbourSheryl;
+    public NeighbourAngerBar neighbourHakim;
+    public float decreaseNoise = 5f;
+
     public GameObject mainCam;
     public GameObject minigameCam;
     public Camera camRay;
@@ -268,13 +272,15 @@ public class NailGame : MonoBehaviour
                     {
                         Debug.Log("im angry2");
                         clickHandlerReferenceTopRight.DecreaseAnger();
+                        neighbourHakim.HeardNoise(decreaseNoise);
+
                         //clickHandlerReferenceTopRight.PromiseRoute();
                     }
                     // Check if the player is inside the collider of bottomCorner
                     else if (IsPlayerInsideGameObject(player, bottomCorner))
                     {
-                        clickHandlerReferenceBottomRight.DecreaseAnger();
-                        //clickHandlerReferenceBottomRight.PromiseRoute();
+                        //clickHandlerReferenceBottomRight.DecreaseAnger();
+                        neighbourSheryl.HeardNoise(decreaseNoise);
 
                     }
 
