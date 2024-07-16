@@ -2781,7 +2781,8 @@ Transform:
   m_LocalPosition: {x: -30.84, y: 4.81, z: -31.23}
   m_LocalScale: {x: 10.21, y: 10.21, z: 10.21}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1493613459}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &170469813
@@ -4494,6 +4495,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291088600}
   m_CullTransparentMesh: 1
+--- !u!1 &294692543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 294692544}
+  m_Layer: 0
+  m_Name: Hakim_Cam Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &294692544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294692543}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.075, y: 0.043000016, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 899835483}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &311828037
 GameObject:
   m_ObjectHideFlags: 0
@@ -7673,7 +7705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueLoader: {fileID: 557129286}
-  playerInteraction: {fileID: 1790319702}
+  playerObj: {fileID: 0}
   phoneUIGroup: {fileID: 1924885027}
   neighbourUIGroup: {fileID: 1914656842}
   neighbourUIName: {fileID: 894986680}
@@ -12968,7 +13000,8 @@ Transform:
   m_LocalPosition: {x: 28.4, y: 4.81, z: -31.23}
   m_LocalScale: {x: 10.21, y: 10.21, z: 10.21}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 294692544}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &906945672
@@ -14040,13 +14073,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3555971, y: -0, z: -0, w: 0.93463933}
+  m_LocalRotation: {x: 0.063050546, y: -0, z: -0, w: 0.99801034}
   m_LocalPosition: {x: 0.4, y: 28.8, z: -37.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 41.66, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.23, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14092,8 +14125,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camHolder: {fileID: 311828038}
+  playerColi: {fileID: 1790319700}
+  player: {fileID: 1790319697}
+  SherrylNeighbourBox: {fileID: 168400364}
+  HakimNeighbourBox: {fileID: 899835480}
+  SherrylCamHolder: {fileID: 1493613459}
+  HakimCamHolder: {fileID: 294692544}
   pLerp: 0.02
   rLerp: 1
+  lerpDuration: 1
+  onStayDuration: 10
 --- !u!1 &963974031
 GameObject:
   m_ObjectHideFlags: 0
@@ -25511,6 +25552,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4989112957858899362, guid: 7d723b96c24647f439008bd3fa83a09c, type: 3}
   m_PrefabInstance: {fileID: 1879536841}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1493613458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1493613459}
+  m_Layer: 0
+  m_Name: Sherryl_Cam Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1493613459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493613458}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.043, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 168400367}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1513076724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33636,6 +33708,9 @@ MonoBehaviour:
   bottomCorner: {fileID: 0}
   clickHandlerReferenceBottomRight: {fileID: 0}
   clickHandlerReferenceTopRight: {fileID: 0}
+  neighbourSheryl: {fileID: 0}
+  neighbourHakim: {fileID: 0}
+  decreaseNoise: 5
   mainCam: {fileID: 0}
   minigameCam: {fileID: 0}
   camRay: {fileID: 0}
@@ -36473,6 +36548,9 @@ MonoBehaviour:
   bottomCorner: {fileID: 982778012}
   clickHandlerReferenceBottomRight: {fileID: 982778014}
   clickHandlerReferenceTopRight: {fileID: 1645684918}
+  neighbourSheryl: {fileID: 0}
+  neighbourHakim: {fileID: 0}
+  decreaseNoise: 5
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}
   camRay: {fileID: 1649021141}
