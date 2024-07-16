@@ -4520,7 +4520,7 @@ Transform:
   m_GameObject: {fileID: 294692543}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.075, y: 0.043000016, z: 0}
+  m_LocalPosition: {x: -0.075, y: 0.043000016, z: -0.164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4551,7 +4551,7 @@ Transform:
   m_GameObject: {fileID: 311828037}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3555971, y: -0, z: -0, w: 0.93463933}
-  m_LocalPosition: {x: 0.45561966, y: 2.313, z: -3.7}
+  m_LocalPosition: {x: 0.45561966, y: 2.34, z: -3.8}
   m_LocalScale: {x: 0.30994534, y: 0.30994534, z: 0.30994534}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14099,6 +14099,16 @@ MonoBehaviour:
   mMinPitch: -30
   mMaxPitch: 30
   mRotationSpeed: 50
+  camHolder: {fileID: 311828038}
+  pLerp: 0.02
+  rLerp: 0.04
+  playerColi: {fileID: 1790319700}
+  lerpDuration: 1
+  onStayDuration: 10
+  SherrylNeighbourBox: {fileID: 168400364}
+  HakimNeighbourBox: {fileID: 899835480}
+  SherrylCamHolder: {fileID: 1493613459}
+  HakimCamHolder: {fileID: 294692544}
   mCameraType: 0
 --- !u!114 &963194230
 MonoBehaviour:
@@ -14119,7 +14129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d1c8a64df8cfd34182e128fdd145252, type: 3}
   m_Name: 
@@ -25577,7 +25587,7 @@ Transform:
   m_GameObject: {fileID: 1493613458}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.043, z: 0}
+  m_LocalPosition: {x: 0, y: 0.043, z: -0.164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
