@@ -2691,27 +2691,13 @@ GameObject:
   - component: {fileID: 168400366}
   - component: {fileID: 168400365}
   - component: {fileID: 168400364}
-  - component: {fileID: 168400363}
   m_Layer: 0
   m_Name: SherrylCollider
-  m_TagString: Untagged
+  m_TagString: NeighbourInteractionCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &168400363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 168400362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1aa0c9c20cac640a967413a168e411, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  neighbourUIGroup: {fileID: 1914656842}
 --- !u!65 &168400364
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7687,6 +7673,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueLoader: {fileID: 557129286}
+  playerInteraction: {fileID: 1790319702}
+  phoneUIGroup: {fileID: 1924885027}
   neighbourUIGroup: {fileID: 1914656842}
   neighbourUIName: {fileID: 894986680}
   neighbourUIDialogue: {fileID: 236030673}
@@ -12890,27 +12878,13 @@ GameObject:
   - component: {fileID: 899835482}
   - component: {fileID: 899835481}
   - component: {fileID: 899835480}
-  - component: {fileID: 899835479}
   m_Layer: 0
   m_Name: HakimCollider
-  m_TagString: Untagged
+  m_TagString: NeighbourInteractionCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &899835479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899835478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1aa0c9c20cac640a967413a168e411, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  neighbourUIGroup: {fileID: 1914656842}
 --- !u!65 &899835480
 BoxCollider:
   m_ObjectHideFlags: 0

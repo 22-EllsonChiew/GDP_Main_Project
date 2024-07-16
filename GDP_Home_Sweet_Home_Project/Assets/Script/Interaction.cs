@@ -20,6 +20,9 @@ public class Interaction : MonoBehaviour
     public GameObject builtChair;
 
     private Collider currentCollider;
+    private string currentNeighbourCollider;
+
+    public bool CanInteractWithNeighbour {  get; private set; }
 
     public UnityEvent<bool> isGameStarting;
 
@@ -29,6 +32,8 @@ public class Interaction : MonoBehaviour
         animator = GetComponent<Animator>();
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
+        CanInteractWithNeighbour = false;
+
         if (playerObject != null)
         {
             isGameStarting.AddListener(isTaskComplete => playerObject.GetComponent<PlayerMovement>().CheckMinigame(isTaskComplete));
@@ -36,6 +41,30 @@ public class Interaction : MonoBehaviour
         else
         {
             Debug.LogError("Player GameObject not found in the scene!");
+        }
+    }
+
+    private void Update()
+    {
+        if (CanInteractWithNeighbour && Input.GetKeyDown(KeyCode.E))
+        {
+            if (currentNeighbourCollider == "SherrylCollider")
+            {
+                NeighbourUIController.instance.StartInteraction("Sherryl", "HappyGreet");
+            }
+            else if (currentNeighbourCollider == "HakimCollider")
+            {
+                NeighbourUIController.instance.StartInteraction("Hakim", "HappyGreet");
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("NeighbourInteractionCollider"))
+        {
+            CanInteractWithNeighbour = true;
+            currentNeighbourCollider = other.gameObject.name;
         }
     }
 
@@ -54,6 +83,8 @@ public class Interaction : MonoBehaviour
             ChestUI.SetActive(true);
             animator.SetTrigger("chestOpen");
         }
+
+        
 
         currentCollider = other;
     }
@@ -85,21 +116,8 @@ public class Interaction : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        CanInteractWithNeighbour = false;
+        currentNeighbourCollider = null;
         currentCollider = null;
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Object"))
-    //    {
-    //        StartCoroutine(DestroyObjectWithDelay(other.gameObject, 2f));
-    //    }
-    //}
-    //private IEnumerator DestroyObjectWithDelay(GameObject objectToDestroy, float delay)
-    //{
-    //    yield return new WaitForSeconds(delay);
-
-    //    Destroy(objectToDestroy);
-    //    Debug.Log("Task Complete");
-    //}
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using JetBrains.Annotations;
 
 public class NeighbourUIController : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class NeighbourUIController : MonoBehaviour
 
     [SerializeField]
     private DialogueLoader dialogueLoader;
+
+    [SerializeField]
+    private GameObject playerObj;
+
+    [SerializeField]
+    private GameObject phoneUIGroup;
 
     [Header("UI Elements - NPC")]
     [SerializeField]
@@ -45,17 +52,22 @@ public class NeighbourUIController : MonoBehaviour
         }
 
         playerResponse2.onClick.AddListener(() => StartInteraction(currentNeighbourName, "Happy"));
+        playerResponse3.onClick.AddListener(() => EndInteraction());
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void StartInteraction(string name, string type)
     {
+        phoneUIGroup.SetActive(false);
+        neighbourUIGroup.SetActive(true);
+
+        PlayerMovement.inDialogue = true;
+
         currentNeighbourName = name;
 
         var conversation = dialogueLoader.GetConversation(name, type);
@@ -66,6 +78,14 @@ public class NeighbourUIController : MonoBehaviour
             neighbourUIName.text = line.speaker;
             neighbourUIDialogue.text = line.content;
         }
+    }
+
+    public void EndInteraction()
+    {
+        PlayerMovement.inDialogue = false;
+
+        phoneUIGroup.SetActive(true);
+        neighbourUIGroup.SetActive(false);
     }
 
 }
