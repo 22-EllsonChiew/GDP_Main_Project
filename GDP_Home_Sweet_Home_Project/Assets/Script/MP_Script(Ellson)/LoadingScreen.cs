@@ -58,6 +58,7 @@ public class LoadingScreen : MonoBehaviour
                 Debug.LogError("MessageText UI element is not assigned.");
             }
         }
+
     }
 
 
