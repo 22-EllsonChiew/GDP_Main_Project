@@ -9,7 +9,8 @@ public class MovingFurniture : MonoBehaviour
     //radius to check for draggable objects
     public float checkRadius = 2f;
     //currently carried object
-    private GameObject carriedObject = null; 
+    private GameObject carriedObject = null;
+    private Quaternion initialRotation;
 
     // Update is called once per frame
     void Update()
@@ -42,7 +43,11 @@ public class MovingFurniture : MonoBehaviour
                     //set object to carryPos
                     carriedObject.transform.position = carryPos.position;
                     //lock rotation of object to carryPos rotation
-                    carriedObject.transform.rotation = carryPos.rotation;
+                    //carriedObject.transform.rotation = carryPos.rotation;
+                    //rotation of object is always based on the foward direction of the player
+                    Vector3 forwardDirection = player.transform.forward;
+                    forwardDirection.y = 0; // Keep it upright
+                    carriedObject.transform.rotation = Quaternion.LookRotation(forwardDirection);
                     //object made as child of carryPos
                     carriedObject.transform.SetParent(carryPos); 
                     break;
@@ -58,7 +63,7 @@ public class MovingFurniture : MonoBehaviour
         {
             //object follows carryPos position and player rotation
             carriedObject.transform.position = carryPos.position;
-            carriedObject.transform.rotation = player.transform.rotation;
+            carriedObject.transform.rotation = carryPos.rotation;
         }
     }
 
