@@ -40,7 +40,7 @@ public class NextDialogue : MonoBehaviour
                 {
                     index = 2;
                     PlayerMovement.dialogue = false;
-                }
+                }   
             }
             else
             {

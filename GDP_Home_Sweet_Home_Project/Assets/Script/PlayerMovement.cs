@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     private bool isWalking;
 
-    static public bool inDialogue = false;
+    static public bool dialogue = false;
     public bool isMinigameStarted = false;
  
 
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if(!inDialogue && !isMinigameStarted)
+        if(!dialogue && !isMinigameStarted)
         {
             MovePlayer();
         }

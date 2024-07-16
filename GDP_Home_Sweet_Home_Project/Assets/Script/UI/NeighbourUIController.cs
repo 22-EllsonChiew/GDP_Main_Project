@@ -66,7 +66,7 @@ public class NeighbourUIController : MonoBehaviour
         phoneUIGroup.SetActive(false);
         neighbourUIGroup.SetActive(true);
 
-        PlayerMovement.inDialogue = true;
+        PlayerMovement.dialogue = true;
 
         currentNeighbourName = name;
 
@@ -82,7 +82,7 @@ public class NeighbourUIController : MonoBehaviour
 
     public void EndInteraction()
     {
-        PlayerMovement.inDialogue = false;
+        PlayerMovement.dialogue = false;
 
         phoneUIGroup.SetActive(true);
         neighbourUIGroup.SetActive(false);
