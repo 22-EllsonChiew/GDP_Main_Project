@@ -58,10 +58,7 @@ public class LoadingScreen : MonoBehaviour
                 Debug.LogError("MessageText UI element is not assigned.");
             }
         }
-        else
-        {
-            Debug.LogError("No messages found in the JSON file.");
-        }
+
     }
 
 

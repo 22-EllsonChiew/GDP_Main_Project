@@ -48,6 +48,8 @@ public class DraggableObjects : MonoBehaviour
             // Update the object's position based on the mouse movement
             Vector3 newPosition = GetMouseWorldPosition() + offset;
 
+            newPosition.y = 0f;
+
             // Cast a ray from the mouse position to the ground
             Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -59,10 +61,14 @@ public class DraggableObjects : MonoBehaviour
 
                 
 
-                transform.position = newPosition;
+                //transform.position = newPosition;
             }
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 10f * Time.deltaTime);
+            transform.position = newPosition;
+
+            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 10f * Time.deltaTime);
+
+            transform.rotation = Quaternion.identity;
 
         }
 
