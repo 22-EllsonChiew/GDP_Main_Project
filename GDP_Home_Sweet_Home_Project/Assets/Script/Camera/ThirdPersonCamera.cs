@@ -252,7 +252,24 @@ public class ThirdPersonCamera : MonoBehaviour
     public float mMinPitch = -30.0f;
     public float mMaxPitch = 30.0f;
     public float mRotationSpeed = 50.0f;
-   
+
+    public Transform camHolder;
+    public float pLerp = .02f;
+    public float rLerp = .04f;
+    public Transform playerColi;
+    private bool isLerping = false;
+    public float lerpDuration = 1f;
+
+    public float onStayDuration = 1f;
+    [Header("Neighbour")]
+    public BoxCollider SherrylNeighbourBox;
+    public BoxCollider HakimNeighbourBox;
+
+    public Transform SherrylCamHolder;
+    public Transform HakimCamHolder;
+
+    private bool playerInSherrylNeighbourBox;
+    private bool playerInHakimNeighbourBox;
 
     public CameraType mCameraType = CameraType.Follow_Track_Pos;
     Dictionary<CameraType, TPCBase> mThirdPersonCameraDict = new Dictionary<CameraType, TPCBase>();
@@ -303,10 +320,75 @@ public class ThirdPersonCamera : MonoBehaviour
         GameConstants.RotationSpeed = mRotationSpeed;
 
         mThirdPersonCamera = mThirdPersonCameraDict[mCameraType];
+
+        //transform.position = Vector3.Lerp(transform.position, camHolder.position, pLerp * 0.5f);
+        //transform.rotation = Quaternion.Lerp(transform.rotation, camHolder.rotation, rLerp * 0.5f);
+        KeepTrackingPlayer();
+        playerInSherrylNeighbourBox = SherrylNeighbourBox.bounds.Contains(playerColi.position);
+        playerInHakimNeighbourBox = HakimNeighbourBox.bounds.Contains(playerColi.position);
+
+        if ((playerInSherrylNeighbourBox || playerInHakimNeighbourBox) && Input.GetKeyDown(KeyCode.E))
+        {
+            if (playerInSherrylNeighbourBox)
+            {
+                //StopTrackingPlayer();
+                //StartCoroutine(LerpToTargetPosition(SherrylCamHolder));
+                //player.SetActive(false);
+                transform.position = SherrylCamHolder.position;
+            }
+            else if (playerInHakimNeighbourBox)
+            {
+                //StopTrackingPlayer();
+                //StartCoroutine(LerpToTargetPosition(HakimCamHolder));
+                //player.SetActive(false);
+                transform.position = HakimCamHolder.position;
+            }
+            
+        }
     }
 
     void LateUpdate()
     {
         mThirdPersonCamera.Update();
     }
+
+    void KeepTrackingPlayer()
+    {
+        transform.position = Vector3.Lerp(transform.position, camHolder.position, pLerp * 0.5f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, camHolder.rotation, rLerp * 0.5f);
+    }
+
+    
+    /*IEnumerator LerpToTargetPosition(Transform target)
+    {
+        isLerping = true;
+        float timeElapsed = 0f;
+        Vector3 initialPosition = transform.position;
+        Quaternion initialRotation = transform.rotation;
+
+        while (timeElapsed < lerpDuration)
+        {
+            if (mThirdPersonCamera == null) // Add this check
+            {
+                break; // Exit the coroutine early if mThirdPersonCamera is null
+            }
+            transform.position = Vector3.Lerp(initialPosition, target.position, timeElapsed / lerpDuration);
+            transform.rotation = Quaternion.Lerp(initialRotation, target.rotation, timeElapsed / lerpDuration);
+
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the final position and rotation are exactly the target's
+        transform.position = target.position;
+        transform.rotation = target.rotation;
+
+        isLerping = false;
+       
+
+        yield return new WaitForSeconds(onStayDuration);
+
+        
+
+    }*/
 }

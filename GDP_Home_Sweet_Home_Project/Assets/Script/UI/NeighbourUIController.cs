@@ -18,6 +18,8 @@ public class NeighbourUIController : MonoBehaviour
     [SerializeField]
     private GameObject phoneUIGroup;
 
+    public bool endInteraction = false; //New implement
+
     [Header("UI Elements - NPC")]
     [SerializeField]
     private GameObject neighbourUIGroup;
@@ -86,6 +88,12 @@ public class NeighbourUIController : MonoBehaviour
 
         phoneUIGroup.SetActive(true);
         neighbourUIGroup.SetActive(false);
+
+        endInteraction = true;
+        
+
     }
+
+   
 
 }
