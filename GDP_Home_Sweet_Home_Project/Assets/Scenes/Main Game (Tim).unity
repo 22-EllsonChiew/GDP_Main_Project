@@ -7707,6 +7707,7 @@ MonoBehaviour:
   dialogueLoader: {fileID: 557129286}
   playerObj: {fileID: 0}
   phoneUIGroup: {fileID: 1924885027}
+  endInteraction: 0
   neighbourUIGroup: {fileID: 1914656842}
   neighbourUIName: {fileID: 894986680}
   neighbourUIDialogue: {fileID: 236030673}
@@ -13996,9 +13997,9 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194232}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
-  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -14073,13 +14074,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.063050546, y: -0, z: -0, w: 0.99801034}
-  m_LocalPosition: {x: 0.4, y: 28.8, z: -37.1}
+  m_LocalRotation: {x: 0.23834683, y: -0, z: -0, w: 0.97118014}
+  m_LocalPosition: {x: 0.76, y: 11.44, z: -38.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 7.23, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 27.578, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14087,7 +14088,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1312bf48c396a549b13b7d89665949c, type: 3}
   m_Name: 
@@ -14122,29 +14123,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9d474e63179bb478811d6892830e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &963194231
+--- !u!114 &963194232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d1c8a64df8cfd34182e128fdd145252, type: 3}
+  m_Script: {fileID: 11500000, guid: a9de7d5fcf5d711469e99009cba80e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camHolder: {fileID: 311828038}
-  playerColi: {fileID: 1790319700}
-  player: {fileID: 1790319697}
+  neighbourUI: {fileID: 557129285}
+  player: {fileID: 1790319700}
+  offset: {x: 0, y: 0, z: 10.46}
+  heightValue: 8.5
+  pLerp: 0.02
+  rLerp: 0.04
+  lerpDuration: 1
   SherrylNeighbourBox: {fileID: 168400364}
   HakimNeighbourBox: {fileID: 899835480}
   SherrylCamHolder: {fileID: 1493613459}
   HakimCamHolder: {fileID: 294692544}
-  pLerp: 0.02
-  rLerp: 1
-  lerpDuration: 1
-  onStayDuration: 10
+  neighbourOffSet: {x: 0, y: 0, z: 8}
+  neighbourHeighValue: 5
 --- !u!1 &963974031
 GameObject:
   m_ObjectHideFlags: 0
