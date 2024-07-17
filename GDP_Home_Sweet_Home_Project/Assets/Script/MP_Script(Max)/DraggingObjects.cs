@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class DraggingObjects : MonoBehaviour
 {
@@ -9,12 +10,12 @@ public class DraggingObjects : MonoBehaviour
     private Rigidbody rb;
     public LayerMask groundLayerMask;
     public float hoverHeight = 4f;
-    public float snapRange = 5f; // Range to check for snapping
+    public float snapRange = 0.5f; // Range to check for snapping
 
-    private Transform nailSlotTransform;
-
+    private List<Transform> nailSlotTransforms = new List<Transform>(); // List to hold NailSlots
     private Vector3 originalPos;
     private Quaternion originalRotation;
+    private Transform currentNailSlot = null; // Keep track of the current slot
 
     void Start()
     {
@@ -22,11 +23,14 @@ public class DraggingObjects : MonoBehaviour
         gameCamera = GameObject.FindGameObjectWithTag("MinigameCam").GetComponent<Camera>();
         originalPos = transform.position;
         originalRotation = transform.rotation;
-        nailSlotTransform = GameObject.FindGameObjectWithTag("NailSlot").transform;
-        if (nailSlotTransform != null)
+
+        // Find all NailSlots in the scene
+        GameObject[] slots = GameObject.FindGameObjectsWithTag("NailSlot");
+        foreach (GameObject slot in slots)
         {
-            Debug.Log("Slots present");
+            nailSlotTransforms.Add(slot.transform);
         }
+        Debug.Log("number of slots = " + slots.Length);
     }
 
     void OnMouseDown()
@@ -46,7 +50,7 @@ public class DraggingObjects : MonoBehaviour
             Vector3 newPosition = GetMouseWorldPosition() + offset;
 
             // Keep the original Y position
-            newPosition.y = transform.position.y;
+            newPosition.y = -2.5f;
 
             // Set the object's position to the calculated new position
             transform.position = newPosition;
@@ -58,11 +62,9 @@ public class DraggingObjects : MonoBehaviour
     {
         // Get the mouse position in screen space and convert it to world space
         Vector3 mousePosition = Input.mousePosition;
-        // Set the Z position based on the camera angle
         mousePosition.z = gameCamera.transform.position.y;
         Vector3 worldPosition = gameCamera.ScreenToWorldPoint(mousePosition);
 
-        // Return the X and Z position, and maintain the object's hover height
         return new Vector3(worldPosition.x, hoverHeight, worldPosition.z);
     }
 
@@ -74,23 +76,24 @@ public class DraggingObjects : MonoBehaviour
 
     void CheckForSnap()
     {
-        if (nailSlotTransform != null && Vector3.Distance(transform.position, nailSlotTransform.position) <= snapRange)
+        if (currentNailSlot != null)
         {
-            SnapToPosition(nailSlotTransform);
+            SnapToPosition(currentNailSlot);
             Debug.Log("SNAPPIN");
         }
     }
 
     void SnapToPosition(Transform targetTransform)
     {
-        // Snap the object to the target position
         Vector3 snapPosition = targetTransform.position;
-        snapPosition.y = transform.position.y; // Keep the original Y position
+        snapPosition.y = transform.position.y - 1.1f;
         transform.position = snapPosition;
-        transform.rotation = targetTransform.rotation;
+
+        transform.rotation = targetTransform.rotation * Quaternion.Euler(0, 0, 180);
         transform.SetParent(targetTransform);
         rb.isKinematic = true;
         isAttached = true;
+        currentNailSlot = null;
     }
 
     public void ResetObject()
@@ -100,5 +103,24 @@ public class DraggingObjects : MonoBehaviour
         isAttached = false;
         transform.position = originalPos;
         transform.rotation = originalRotation;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("NailSlot"))
+        {
+            currentNailSlot = other.transform; // Set the current slot
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("NailSlot"))
+        {
+            if (other.transform == currentNailSlot)
+            {
+                currentNailSlot = null; // Clear the current slot
+            }
+        }
     }
 }
