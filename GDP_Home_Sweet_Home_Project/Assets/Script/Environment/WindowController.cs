@@ -3,7 +3,7 @@ using UnityEngine;
 public class WindowController : MonoBehaviour
 {
     private Animator animator;
-    private bool isOpen = true;
+    private bool isOpen = false;
 
     void Start()
     {
