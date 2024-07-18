@@ -37,7 +37,7 @@ public class NeighbourUIController : MonoBehaviour
     private Button playerResponse3;
 
 
-    private Conversation currentConversation;
+    private InteractionConversation currentConversation;
     private string currentNeighbourName;
 
 

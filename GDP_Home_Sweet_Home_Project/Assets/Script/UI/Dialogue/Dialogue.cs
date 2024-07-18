@@ -9,8 +9,9 @@ public class DialogueLine
     public string content;
 }
 
+
 [System.Serializable]
-public class Conversation
+public class InteractionConversation
 {
     public string name;
     public string type;
@@ -18,7 +19,22 @@ public class Conversation
 }
 
 [System.Serializable]
+public class MessageConversation 
+{
+    public string sender;
+    public string type;
+    public DialogueLine[] messages;
+}
+
+
+[System.Serializable]
 public class DialogueData
 {
-    public Conversation[] conversations;
+    public InteractionConversation[] conversations;
+}
+
+[System.Serializable]
+public class MessageData
+{
+    public MessageConversation[] conversations;
 }
