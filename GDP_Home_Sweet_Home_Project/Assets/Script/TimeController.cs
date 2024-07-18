@@ -46,6 +46,8 @@ public class TimeController : MonoBehaviour
 
     private bool isDay = false;
 
+    [SerializeField] private Slider LoadingBarTimer;
+
     
     void Start()
     {
@@ -213,7 +215,22 @@ public class TimeController : MonoBehaviour
 
         Debug.Log("Loading...");
         LoadingScreenObj.SetActive(true);
-        yield return new WaitForSecondsRealtime(10f);
+        LoadingBarTimer.value = 0;
+
+        float loadingTime = 10f;
+        float timeGoBy = 0f;
+
+        while(timeGoBy < loadingTime)
+        {
+            timeGoBy += Time.deltaTime;
+
+            LoadingBarTimer.value = Mathf.Clamp01(timeGoBy / loadingTime);
+            yield return null;
+
+        }
+
+
+        //yield return new WaitForSecondsRealtime(10f);
         LoadingScreenObj.SetActive(false);
         
        
