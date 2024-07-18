@@ -27,6 +27,7 @@ public class DraggingObjects : MonoBehaviour
         foreach (GameObject slot in slots)
         {
             nailSlotTransforms.Add(slot.transform);
+            Debug.Log("Nail slot added: " + slot.name + " at position " + slot.transform.position);
         }
         Debug.Log("Number of slots = " + slots.Length);
     }
@@ -58,7 +59,7 @@ public class DraggingObjects : MonoBehaviour
 
     Vector3 GetMouseWorldPosition()
     {
-        // Get the mouse position in screen space and convert it to world space
+        //get the mouse position in screen space and convert it to world space
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = gameCamera.transform.position.y;
         Vector3 worldPosition = gameCamera.ScreenToWorldPoint(mousePosition);
@@ -78,7 +79,7 @@ public class DraggingObjects : MonoBehaviour
         if (closestSlot != null && Vector3.Distance(transform.position, closestSlot.position) <= snapRange)
         {
             SnapToPosition(closestSlot);
-            Debug.Log("SNAPPING to " + closestSlot.name);
+            Debug.Log("SNAPPING to " + closestSlot.name + " at position " + closestSlot.position);
         }
     }
 
@@ -104,10 +105,9 @@ public class DraggingObjects : MonoBehaviour
     void SnapToPosition(Transform targetTransform)
     {
         Vector3 snapPosition = targetTransform.position;
-        snapPosition.y = transform.position.y - 0.4f;
-        snapPosition.x = transform.position.x;
+        Debug.Log("Snapping to " + targetTransform.name + " at position " + snapPosition);
         transform.position = snapPosition;
-
+        //rotation for the mount to be mounted correctly
         transform.rotation = targetTransform.rotation * Quaternion.Euler(90, 0, 0);
         transform.SetParent(targetTransform);
         rb.isKinematic = true;
