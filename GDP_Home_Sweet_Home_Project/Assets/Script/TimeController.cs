@@ -224,7 +224,7 @@ public class TimeController : MonoBehaviour
         {
             timeGoBy += Time.deltaTime;
 
-            LoadingBarTimer.value = Mathf.Clamp01(timeGoBy / loadingTime);
+            LoadingBarTimer.value = Mathf.Clamp01(timeGoBy / loadingTime); //update the value to the slider and use clamp 01 to clamp the value between 0 and 1 
             yield return null;
 
         }

@@ -81,27 +81,28 @@ public class ThirdPersonCameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = player.position - offset + Vector3.up * heightValue;
-        transform.rotation = Quaternion.Euler(playerRotationOffset);
+        //set the position of the player to follow
+        transform.position = player.position - offset + Vector3.up * heightValue; 
+        //set the rotation of the camera, can be change in the inspector
+        transform.rotation = Quaternion.Euler(playerRotationOffset); 
 
+        //check if the player is inside the neighbour box collider if it is, it will give the snapping effect
         if (playerInSherrylNeighbourBox)
         {
-            //transform.position = Vector3.Lerp(transform.position, targetPos.position, pLerp);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, targetPos.rotation, rLerp);
-
+            //set the camera to the position of sherryl camera holder position
             transform.position = SherrylCamHolder.position - sherrylOffset + Vector3.up * neighbourHeighValue;
             //transform.rotation = SherrylCamHolder.rotation * rotationOffset;
-            transform.rotation = Quaternion.Euler(rotationOffset);
+            transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
 
 
         }
         else if (playerInHakimNeighbourBox)
         {
+            //set the camera to the position of hakim camera holder position
             transform.position = HakimCamHolder.position - HakimneighbourOffSet + Vector3.up * neighbourHeighValue;
             //transform.rotation = HakimCamHolder.rotation * rotationOffset;
-            transform.rotation = Quaternion.Euler(rotationOffset);
+            transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
         }
-
 
 
         else if (neighbourEndConvo)
