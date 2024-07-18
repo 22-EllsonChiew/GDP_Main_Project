@@ -20,5 +20,61 @@
 			"photo": null,
 			"isUnlocked": false
 		}
+	],
+	"conversations": [
+		{
+			"sender": "Myself",
+			"type": null,
+			"messages": [
+				{
+					"speaker": "Hakim",
+					"content": "Could you please keep it down?"
+				},
+				{
+					"speaker": "Myself",
+					"content": "Apologies, I will try to do so."
+				},
+				{
+					"speaker": "Hakim",
+					"content": "Thanks a lot."
+				}
+			]
+		},
+		{
+			"sender": "Hakim",
+			"type": "NormalComplaint"
+			"messages": [
+				{
+					"speaker": "Hakim",
+					"content": "Could you please keep it down?"
+				},
+				{
+					"speaker": "Myself",
+					"content": "Apologies, I will try to do so."
+				},
+				{
+					"speaker": "Hakim",
+					"content": "Thanks a lot."
+				}
+			]
+		},
+		{
+			"sender": "Sherryl",
+			"type": "NormalComplaint"
+			"messages": [
+				{
+					"speaker": "Sherryl",
+					"content": "Sorry, but you're too noisy."
+				},
+				{
+					"speaker": "Myself",
+					"content": "Apologies, I will try to keep it down."
+				},
+				{
+					"speaker": "Sherryl",
+					"content": "Thank you. Please keep to it."
+				}
+			]
+		}
 	]
 }

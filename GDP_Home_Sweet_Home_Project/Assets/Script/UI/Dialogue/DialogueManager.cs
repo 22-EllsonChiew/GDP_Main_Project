@@ -7,7 +7,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance;
 
     private int currentLineIndex;
-    private Conversation currentConversation;
+    private InteractionConversation currentConversation;
 
     private DialogueLoader loader;
 

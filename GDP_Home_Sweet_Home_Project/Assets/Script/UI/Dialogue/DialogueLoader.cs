@@ -41,7 +41,7 @@ public class DialogueLoader : MonoBehaviour
 
     }
 
-    public Conversation GetConversation (string name, string type)
+    public InteractionConversation GetConversation (string name, string type)
     {
         foreach (var conversation in dialogueData.conversations)
         {

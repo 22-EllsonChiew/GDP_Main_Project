@@ -11,6 +11,9 @@ public class ChatManager : MonoBehaviour
     [SerializeField]
     private ContactPanel contactPrefab;
 
+    [SerializeField]
+    private MessageLoader messageLoader;
+
     [Header("Message Screen")]
     [SerializeField] 
     private TextMeshProUGUI currentContactName;
@@ -19,6 +22,8 @@ public class ChatManager : MonoBehaviour
 
     private List<PhoneContact> allPhoneContacts;
     private List<PhoneContact> unlockedPhoneContacts;
+
+    private List<Message> currentConversation;
 
     public static ChatManager instance;
 
@@ -61,9 +66,12 @@ public class ChatManager : MonoBehaviour
         if (targetContact != null) 
         {
             currentContactName.text = contactName;
-            // load message data for each contact
+            
+            // set message data 
+            // instantiate message box prefabs
         }
     }
+
 
     public void UnlockContact(string contactName)
     {
