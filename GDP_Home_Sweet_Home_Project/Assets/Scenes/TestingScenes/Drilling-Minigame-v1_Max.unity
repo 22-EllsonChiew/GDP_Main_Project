@@ -580,9 +580,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCamera: {fileID: 66555452}
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
   hoverHeight: 0.4
   snapRange: 0.5
 --- !u!65 &425743627
@@ -947,59 +944,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
   m_PrefabInstance: {fileID: 862017192}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &931225490
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 931225492}
-  - component: {fileID: 931225491}
-  m_Layer: 0
-  m_Name: Mount Slot (1)
-  m_TagString: NailSlot
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &931225491
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931225490}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.528516, z: 0.7386129}
-  m_Center: {x: 0, y: 0.7642573, z: 0.13068877}
---- !u!4 &931225492
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931225490}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.45402163, y: 0, z: 0, w: 0.8909907}
-  m_LocalPosition: {x: 2.5, y: -3.33, z: 2.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -54.004, y: 0, z: 0}
 --- !u!1 &944003647 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6903218835465474114, guid: 4f7f2ea11b03bb84ea49ba24b200f5ff, type: 3}
@@ -1018,9 +962,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCamera: {fileID: 66555452}
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
   hoverHeight: 4
   snapRange: 0.5
 --- !u!54 &944003651
@@ -1071,7 +1012,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.00021018453, y: 0.0018289292, z: 0.0015972811}
   m_Center: {x: -0.003404831, y: -0.00080937205, z: -0.0002245193}
---- !u!1 &1001798649
+--- !u!1 &1038703532
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1079,51 +1020,60 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1001798650}
-  - component: {fileID: 1001798651}
+  - component: {fileID: 1038703533}
   m_Layer: 0
-  m_Name: Mount Slot
+  m_Name: Right Nail Slot
   m_TagString: NailSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1001798650
+--- !u!4 &1038703533
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001798649}
+  m_GameObject: {fileID: 1038703532}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.45402163, y: 0, z: 0, w: 0.8909907}
-  m_LocalPosition: {x: -2.5, y: -3.33, z: 2.2}
+  m_LocalRotation: {x: -0.45399043, y: 0, z: 0, w: 0.8910066}
+  m_LocalPosition: {x: 3.01, y: -2.71, z: 1.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -54.004, y: 0, z: 0}
---- !u!65 &1001798651
-BoxCollider:
+  m_LocalEulerAnglesHint: {x: -54, y: 0, z: 0}
+--- !u!1 &1052285062
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001798649}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.533862, z: 0.7386129}
-  m_Center: {x: 0, y: 0.7669308, z: 0.13068935}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1052285063}
+  m_Layer: 0
+  m_Name: Left Nail Slot
+  m_TagString: NailSlot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1052285063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052285062}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.45399043, y: 0, z: 0, w: 0.8910066}
+  m_LocalPosition: {x: -3.01, y: -2.71, z: 1.94}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -54, y: 0, z: 0}
 --- !u!1 &1542603337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,6 +1359,6 @@ SceneRoots:
   - {fileID: 2051261196}
   - {fileID: 1542603341}
   - {fileID: 425743621}
-  - {fileID: 1001798650}
-  - {fileID: 931225492}
   - {fileID: 215423577}
+  - {fileID: 1038703533}
+  - {fileID: 1052285063}

@@ -8,14 +8,12 @@ public class DraggingObjects : MonoBehaviour
     private bool isDragging = false;
     private bool isAttached = false;
     private Rigidbody rb;
-    public LayerMask groundLayerMask;
     public float hoverHeight = 4f;
-    public float snapRange = 0.5f; // Range to check for snapping
+    public float snapRange = 16f; // Range to check for snapping
 
     private List<Transform> nailSlotTransforms = new List<Transform>(); // List to hold NailSlots
     private Vector3 originalPos;
     private Quaternion originalRotation;
-    private Transform currentNailSlot = null; // Keep track of the current slot
 
     void Start()
     {
@@ -30,7 +28,7 @@ public class DraggingObjects : MonoBehaviour
         {
             nailSlotTransforms.Add(slot.transform);
         }
-        Debug.Log("number of slots = " + slots.Length);
+        Debug.Log("Number of slots = " + slots.Length);
     }
 
     void OnMouseDown()
@@ -76,24 +74,44 @@ public class DraggingObjects : MonoBehaviour
 
     void CheckForSnap()
     {
-        if (currentNailSlot != null)
+        Transform closestSlot = GetClosestSlot();
+        if (closestSlot != null && Vector3.Distance(transform.position, closestSlot.position) <= snapRange)
         {
-            SnapToPosition(currentNailSlot);
-            Debug.Log("SNAPPIN");
+            SnapToPosition(closestSlot);
+            Debug.Log("SNAPPING to " + closestSlot.name);
         }
+    }
+
+    Transform GetClosestSlot()
+    {
+        Transform closestSlot = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (Transform slot in nailSlotTransforms)
+        {
+            float distance = Vector3.Distance(transform.position, slot.position);
+            Debug.Log("Distance to " + slot.name + " = " + distance);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestSlot = slot;
+            }
+        }
+
+        return closestSlot;
     }
 
     void SnapToPosition(Transform targetTransform)
     {
         Vector3 snapPosition = targetTransform.position;
-        snapPosition.y = transform.position.y - 1.1f;
+        snapPosition.y = transform.position.y - 0.4f;
+        snapPosition.x = transform.position.x;
         transform.position = snapPosition;
 
-        transform.rotation = targetTransform.rotation * Quaternion.Euler(0, 0, 180);
+        transform.rotation = targetTransform.rotation * Quaternion.Euler(90, 0, 0);
         transform.SetParent(targetTransform);
         rb.isKinematic = true;
         isAttached = true;
-        currentNailSlot = null;
     }
 
     public void ResetObject()
@@ -103,24 +121,5 @@ public class DraggingObjects : MonoBehaviour
         isAttached = false;
         transform.position = originalPos;
         transform.rotation = originalRotation;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("NailSlot"))
-        {
-            currentNailSlot = other.transform; // Set the current slot
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("NailSlot"))
-        {
-            if (other.transform == currentNailSlot)
-            {
-                currentNailSlot = null; // Clear the current slot
-            }
-        }
     }
 }
