@@ -14139,6 +14139,7 @@ MonoBehaviour:
   player: {fileID: 1790319700}
   offset: {x: 0, y: 0, z: 10.46}
   heightValue: 8.5
+  playerRotationOffset: {x: 27.578, y: 0, z: 0}
   pLerp: 0.02
   rLerp: 0.04
   lerpDuration: 1
@@ -14146,8 +14147,10 @@ MonoBehaviour:
   HakimNeighbourBox: {fileID: 899835480}
   SherrylCamHolder: {fileID: 1493613459}
   HakimCamHolder: {fileID: 294692544}
-  neighbourOffSet: {x: 0, y: 0, z: 8}
+  HakimneighbourOffSet: {x: -4, y: 5.68, z: 4}
   neighbourHeighValue: 5
+  rotationOffset: {x: 0, y: 0, z: 0}
+  sherrylOffset: {x: 2.98, y: 5.68, z: 2}
 --- !u!1 &963974031
 GameObject:
   m_ObjectHideFlags: 0

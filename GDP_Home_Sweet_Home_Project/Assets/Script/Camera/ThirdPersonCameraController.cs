@@ -10,6 +10,7 @@ public class ThirdPersonCameraController : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Vector3 offset;
     [SerializeField] private float heightValue;
+    [SerializeField] private Vector3 playerRotationOffset;
 
 
 
@@ -36,8 +37,11 @@ public class ThirdPersonCameraController : MonoBehaviour
 
     private bool learpToCamHolder = false;
 
-    [SerializeField] private Vector3 neighbourOffSet;
+    [SerializeField] private Vector3 HakimneighbourOffSet;
     [SerializeField] private float neighbourHeighValue;
+
+    [SerializeField] private Vector3 rotationOffset;
+    [SerializeField] private Vector3 sherrylOffset;
 
     private Transform targetPos;
 
@@ -54,7 +58,7 @@ public class ThirdPersonCameraController : MonoBehaviour
 
         if ((playerInSherrylNeighbourBox || playerInHakimNeighbourBox) && Input.GetKeyDown(KeyCode.E))
         {
-            learpToCamHolder = true;
+            //learpToCamHolder = true;
             if (playerInSherrylNeighbourBox)
             {
                 
@@ -78,19 +82,24 @@ public class ThirdPersonCameraController : MonoBehaviour
     private void LateUpdate()
     {
         transform.position = player.position - offset + Vector3.up * heightValue;
+        transform.rotation = Quaternion.Euler(playerRotationOffset);
 
-        if (learpToCamHolder && playerInSherrylNeighbourBox)
+        if (playerInSherrylNeighbourBox)
         {
             //transform.position = Vector3.Lerp(transform.position, targetPos.position, pLerp);
             //transform.rotation = Quaternion.Lerp(transform.rotation, targetPos.rotation, rLerp);
 
-            transform.position = SherrylCamHolder.position - neighbourOffSet + Vector3.up * neighbourHeighValue;
+            transform.position = SherrylCamHolder.position - sherrylOffset + Vector3.up * neighbourHeighValue;
+            //transform.rotation = SherrylCamHolder.rotation * rotationOffset;
+            transform.rotation = Quaternion.Euler(rotationOffset);
 
 
         }
-        else if (learpToCamHolder && playerInHakimNeighbourBox)
+        else if (playerInHakimNeighbourBox)
         {
-            transform.position = HakimCamHolder.position - neighbourOffSet + Vector3.up * neighbourHeighValue;
+            transform.position = HakimCamHolder.position - HakimneighbourOffSet + Vector3.up * neighbourHeighValue;
+            //transform.rotation = HakimCamHolder.rotation * rotationOffset;
+            transform.rotation = Quaternion.Euler(rotationOffset);
         }
 
 
@@ -99,6 +108,7 @@ public class ThirdPersonCameraController : MonoBehaviour
         {
 
             transform.position = Vector3.Lerp(transform.position, player.position - offset + Vector3.up * heightValue, pLerp);
+            transform.rotation = Quaternion.Euler(playerRotationOffset);
 
 
         }
