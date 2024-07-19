@@ -6,7 +6,7 @@
 			"isUnlocked": false
 		},
 		{
-			"name": "Mother"
+			"name": "Mother",
 			"photo": null,
 			"isUnlocked": false
 		},
@@ -42,7 +42,7 @@
 		},
 		{
 			"sender": "Hakim",
-			"type": "NormalComplaint"
+			"type": "NormalComplaint",
 			"messages": [
 				{
 					"speaker": "Hakim",
@@ -60,7 +60,7 @@
 		},
 		{
 			"sender": "Sherryl",
-			"type": "NormalComplaint"
+			"type": "NormalComplaint",
 			"messages": [
 				{
 					"speaker": "Sherryl",
