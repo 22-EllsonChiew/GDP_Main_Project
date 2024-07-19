@@ -19,7 +19,7 @@ public class NeighbourAngerBar : MonoBehaviour
     public void HeardNoise(float amount)
     {
         currentHappiness -= amount;
-        currentHappiness = Mathf.Clamp(currentHappiness - amount, 0, maxHappyBar);
+        currentHappiness = Mathf.Clamp(currentHappiness, 0, maxHappyBar);
 
         angerBarManager.UpdateHappinessBar();
     }

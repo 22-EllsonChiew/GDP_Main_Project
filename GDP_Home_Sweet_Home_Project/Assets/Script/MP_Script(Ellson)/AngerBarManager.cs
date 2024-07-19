@@ -40,8 +40,12 @@ public class AngerBarManager : MonoBehaviour
 
         HappinessBar.value = happinessLevel;
 
-        if(happinessLevel == 1)
+        Debug.Log($"Happiness Level: {happinessLevel}");
+
+
+        if (happinessLevel >= 0.90)
         {
+            Debug.Log("Happiness Level is less than or equal to 0.95. Loading Lose Scene...");
             SceneManager.LoadScene(loseScene);
         }
     }
