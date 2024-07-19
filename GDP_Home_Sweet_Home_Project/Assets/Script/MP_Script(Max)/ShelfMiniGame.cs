@@ -5,7 +5,6 @@ using UnityEngine;
 public class ShelfMiniGame : MonoBehaviour
 {
     private Vector3 offset;
-    public Camera gameCamera;
     private bool isDragging = false;
     private bool isAttached = false;
     private Rigidbody rb;
@@ -20,14 +19,11 @@ public class ShelfMiniGame : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        gameCamera = GameObject.FindGameObjectWithTag("MinigameCam").GetComponent<Camera>();
         DisableAllChildren();
 
         originalPos = transform.position;
         originalRotation = transform.rotation;
-
     }
-
 
     void OnMouseDown()
     {
@@ -35,48 +31,33 @@ public class ShelfMiniGame : MonoBehaviour
         if (!isAttached)
         {
             isDragging = true;
-
         }
     }
+
     void Update()
     {
         if (isDragging)
         {
-            // Update the object's position based on the mouse movement
             Vector3 newPosition = GetMouseWorldPosition() + offset;
-
             newPosition.y = 0f;
 
-            // Cast a ray from the mouse position to the ground
-            Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = ShelfMiniGameManager.Instance.gameCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayerMask))
             {
-                // Set the object's position to the intersection point with the ground
-
                 newPosition.y = hit.point.y + hoverHeight;
-
-
-
-                //transform.position = newPosition;
             }
 
             transform.position = newPosition;
-
-            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 10f * Time.deltaTime);
-
             transform.rotation = Quaternion.identity;
-
         }
-
     }
 
     Vector3 GetMouseWorldPosition()
     {
-        // Get the mouse position in screen space and convert it to world space
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = gameCamera.transform.position.y; // Set the Z position based on the camera angle
-        return gameCamera.ScreenToWorldPoint(mousePosition);
+        mousePosition.z = ShelfMiniGameManager.Instance.gameCamera.transform.position.y;
+        return ShelfMiniGameManager.Instance.gameCamera.ScreenToWorldPoint(mousePosition);
     }
 
     void OnMouseUp()
@@ -85,32 +66,26 @@ public class ShelfMiniGame : MonoBehaviour
         SnapToTrigger();
     }
 
-
-
     void SnapToTrigger()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f); // Adjust the radius as needed
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f);
 
         foreach (Collider col in colliders)
         {
-            // Check if the collider is a trigger
             if (col.isTrigger && !isAttached)
             {
                 if (col.gameObject.CompareTag(targetSlot))
                 {
-                    // Snap the object to the trigger's position
                     Vector3 snapPosition = col.transform.position;
-                    //snapPosition.y = transform.position.y; // Keep the original Y position
                     transform.position = snapPosition;
-                    transform.rotation = Quaternion.identity;
+                    transform.rotation = Quaternion.identity * Quaternion.Euler(110, 0, 0);
                     transform.SetParent(col.transform);
                     rb.isKinematic = true;
-                    isAttached = true; // You might want to set isAttached to true here or wherever is appropriate in your logic
+                    isAttached = true;
                     EnableAllChildren();
-
                     StartCoroutine(DeleteWithDelay());
-
-                    break; // Stop checking for triggers after snapping to the first one
+                    ShelfMiniGameManager.Instance.IncrementMountCount();
+                    break;
                 }
             }
             else
@@ -119,7 +94,6 @@ public class ShelfMiniGame : MonoBehaviour
                 {
                     rb.isKinematic = false;
                 }
-
             }
         }
     }
@@ -127,19 +101,14 @@ public class ShelfMiniGame : MonoBehaviour
     public void ResetObject()
     {
         transform.SetParent(null);
-
         rb.isKinematic = false;
-
         isAttached = false;
-
         transform.position = originalPos;
         transform.rotation = originalRotation;
     }
 
-
     void DisableAllChildren()
     {
-        // Iterate through all children and disable them
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);
@@ -151,17 +120,11 @@ public class ShelfMiniGame : MonoBehaviour
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(true);
-
-            // Get the ParticleSystem component from the instantiated GameObject
-
-            // Check if ParticleSystem component exists
         }
-
     }
 
     IEnumerator DeleteWithDelay()
     {
         yield return new WaitForSeconds(1.5f);
     }
-
 }
