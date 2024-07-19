@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Instruction.unity
     guid: 051f53c50e50ecf49983fb3fe133b8d3
   - enabled: 1
-    path: Assets/Scenes/Main Game.unity
+    path: Assets/Scenes/Main Game( Can delete soon).unity
     guid: 042175db80f60114cb30a4abe8fc232b
   - enabled: 1
     path: Assets/Scenes/Win Scene.unity
@@ -28,5 +28,8 @@ EditorBuildSettings:
     guid: 9c2c04cf35cb8164c945adbebec448ac
   - enabled: 1
     path: Assets/Scenes/Days/Main Game 1.unity
-    guid: 804325d60e3ecba4dad07059ef7354f5
+    guid: 2cc8bcb6ce8df744c869f843cf61275f
+  - enabled: 1
+    path: Assets/Scenes/Main Game.unity
+    guid: cf1435d927d66a044ae1511c0175222f
   m_configObjects: {}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AngerBarManager : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class AngerBarManager : MonoBehaviour
     public NeighbourAngerBar neighbour2;
 
     public Slider HappinessBar;
+
+    private string loseScene = "Lose Scene";
     // Start is called before the first frame update
     void Start()
     {
         UpdateHappinessBar();
+        //HappinessBar.value = 1f;
     }
 
    
@@ -25,6 +29,9 @@ public class AngerBarManager : MonoBehaviour
 
         float maxHappiness = (neighbour1.maxHappyBar + neighbour2.maxHappyBar) / 2; // value will be 100f
 
+        Debug.Log($"Average Happiness Decrease: {averageHappinessDecrease}");
+        Debug.Log($"Max Happiness: {maxHappiness}");
+
         UpdateHappinessGauge(averageHappinessDecrease, maxHappiness);
 
        
@@ -35,6 +42,13 @@ public class AngerBarManager : MonoBehaviour
         //calculate happiness level based on the average  happiness decrease and the max happiness  
         float happinessLevel = 1 - (averageHappinessDecrease / maxHappiness);
 
+        Debug.Log($"Happiness Level: {happinessLevel}");
+
         HappinessBar.value = happinessLevel;
+
+        if(happinessLevel == 1)
+        {
+            SceneManager.LoadScene(loseScene);
+        }
     }
 }

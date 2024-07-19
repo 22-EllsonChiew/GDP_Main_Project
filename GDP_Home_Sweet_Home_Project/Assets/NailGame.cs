@@ -58,9 +58,12 @@ public class NailGame : MonoBehaviour
     public GameObject bottomCorner;
     private GameObject instantiatedChair;
 
-    public AngerBar clickHandlerReferenceBottomRight;
+    //public AngerBar clickHandlerReferenceBottomRight;
 
-    public AngerBar clickHandlerReferenceTopRight;
+    //public AngerBar clickHandlerReferenceTopRight;
+
+    public GameObject clickHandlerReferenceBottomRight;
+    public GameObject clickHandlerReferenceTopRight;
 
     public NeighbourAngerBar neighbourSheryl;
     public NeighbourAngerBar neighbourHakim;
@@ -271,7 +274,7 @@ public class NailGame : MonoBehaviour
                     if (IsPlayerInsideGameObject(player, topCorner))
                     {
                         Debug.Log("im angry2");
-                        clickHandlerReferenceTopRight.DecreaseAnger();
+                        //clickHandlerReferenceTopRight.DecreaseAnger();
                         neighbourHakim.HeardNoise(decreaseNoise);
 
                         //clickHandlerReferenceTopRight.PromiseRoute();
