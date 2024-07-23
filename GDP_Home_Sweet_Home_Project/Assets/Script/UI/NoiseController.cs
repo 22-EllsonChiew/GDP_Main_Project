@@ -18,11 +18,32 @@ public class NoiseController : MonoBehaviour
     public Image noiseColourFill;
     public Gradient noiseGradient;
 
+
+    [Header("Neighbours")]
+    [SerializeField] private Transform player;
+    public NeighbourAngerBar neighbourSheryl;
+    public NeighbourAngerBar neighbourHakim;
+
+    public BoxCollider sherylSideCollider;
+    public BoxCollider HakimSideCollider;
+
+    private bool playerInSherrylSide;
+    private bool playerInHakimSide;
+
+    [Header("Player Inside Collider")]
+    
+    [SerializeField] private GameObject closedWindow;
+
+    [Header("Scripts")]
+
+    public WindowController windowControllers;
+
     public static NoiseController instance;
 
     // Start is called before the first frame update
     void Start()
     {
+
         if (instance == null)
         {
             instance = this;
@@ -38,10 +59,38 @@ public class NoiseController : MonoBehaviour
     {
         UpdateBar();
 
-        if (Input.GetKeyUp(KeyCode.E)) 
+        NeighbourBoxCollider();
+
+        if (playerInSherrylSide && windowControllers.leftWindowIsClose())
         {
-            MakeNoise(0.35f);
+            if(Input.GetKeyUp(KeyCode.E))
+            {
+                MakeNoise(0.25f);
+            }
+            
         }
+        else if(playerInSherrylSide && Input.GetKeyUp(KeyCode.E))
+        {
+            MakeNoise(0.55f);
+        }
+        else if(Input.GetKeyUp(KeyCode.E))
+        {
+            MakeNoise(0.75f);
+        }
+
+        if(playerInHakimSide && windowControllers.rightWindowIsClose())
+        {
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                MakeNoise(0.25f);
+            }
+        }
+        else if (playerInHakimSide && Input.GetKeyUp(KeyCode.E))
+        {
+            MakeNoise(0.55f);
+        }
+        
+
     }
 
     void UpdateBar()
@@ -64,5 +113,11 @@ public class NoiseController : MonoBehaviour
     public void MakeNoise(float noise)
     {
         currentNoise = Mathf.Min(currentNoise + noise, noiseThreshold);
+    }
+
+    public void NeighbourBoxCollider()
+    {
+        playerInSherrylSide = sherylSideCollider.bounds.Contains(player.position);
+        playerInHakimSide = HakimSideCollider.bounds.Contains(player.position);
     }
 }

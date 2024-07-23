@@ -41,6 +41,7 @@ public class WindowController : MonoBehaviour
 
     public void ToggleLeftPanels()
     {
+        
         if (isOpenleft)
         {
             Debug.Log("Closing left panels.");
@@ -52,6 +53,8 @@ public class WindowController : MonoBehaviour
             animatorLeft.SetTrigger("OpenAllPanels"); // Trigger for opening all panels
             isOpenleft = true;
         }
+        
+        
     }
 
     public void ToggleRightPanels()
@@ -67,5 +70,15 @@ public class WindowController : MonoBehaviour
             animatorRight.SetTrigger("OpenAllPanels"); // Trigger for opening all panels
             isOpenRight = true;
         }
+    }
+
+    public bool leftWindowIsClose()
+    {
+        return isOpenleft;
+    }
+
+    public bool rightWindowIsClose()
+    {
+        return isOpenRight;
     }
 }
