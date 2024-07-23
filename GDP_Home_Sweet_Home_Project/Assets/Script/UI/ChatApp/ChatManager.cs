@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,6 +32,7 @@ public class ChatManager : MonoBehaviour
     private List<PhoneContact> unlockedPhoneContacts;
     private DialogueLine[] _receivedMessages;
 
+    private PhoneContact currentContact;
     private MessageConversation currentConversation;
 
     public static ChatManager instance;
@@ -49,10 +51,10 @@ public class ChatManager : MonoBehaviour
 
         allPhoneContacts = new List<PhoneContact>()
         {
-            new PhoneContact() {name = "Myself", photo = null, isUnlocked = false, receivedMessages = new DialogueLine[0]},
-            new PhoneContact() {name = "Hakim", photo = null, isUnlocked = false, receivedMessages = new DialogueLine[0]},
-            new PhoneContact() {name = "Sherryl", photo = null, isUnlocked = false, receivedMessages = new DialogueLine[0]},
-            new PhoneContact() {name = "Mother", photo= null, isUnlocked = false, receivedMessages = new DialogueLine[0]},
+            new PhoneContact() {name = "Myself", photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
+            new PhoneContact() {name = "Hakim", photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
+            new PhoneContact() {name = "Sherryl", photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
+            new PhoneContact() {name = "Mother", photo= null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
         };
 
         unlockedPhoneContacts = new List<PhoneContact>();
@@ -60,14 +62,20 @@ public class ChatManager : MonoBehaviour
         UnlockContact("Myself");
         UnlockContact("Mother");
         UnlockContact("Hakim");
+        UnlockContact("Sherryl");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ReceiveMessage("Hakim", "NormalComplaint");
+            ReceiveComplaint("Hakim");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ReceiveComplaint("Sherryl");
         }
     }
 
@@ -79,12 +87,13 @@ public class ChatManager : MonoBehaviour
         {
             currentContactName.text = contactName;
 
-            DisplayCurrentMessages(targetContact);
+            RefreshCurrentMessages(targetContact);
             
+            currentContact = targetContact;
         }
     }
 
-    public void DisplayCurrentMessages(PhoneContact currentContact)
+    public void RefreshCurrentMessages(PhoneContact currentContact)
     {
         foreach (Transform child in chatListParent)
         {
@@ -106,22 +115,73 @@ public class ChatManager : MonoBehaviour
         }
     }
 
-    public void ReceiveMessage(string name, string type)
+    public void ReceiveComplaint(string name)
     {
-        PhoneContact targetContact = unlockedPhoneContacts.Find(contact => contact.name == name);
-        MessageConversation conversationToAdd = messageLoader.GetMessageConversation(name, type);
+        //PhoneContact targetContact = unlockedPhoneContacts.Find(contact => contact.name == name);
 
-        if (conversationToAdd != null)
+        if (currentContact.isUnlocked && currentContact != null)
         {
-            DialogueLine[] linesToAdd = conversationToAdd.messages;
-            DialogueLine[] updatedMessages = new DialogueLine[targetContact.receivedMessages.Length + linesToAdd.Length];
-            targetContact.receivedMessages.CopyTo(updatedMessages, 0);
-            linesToAdd.CopyTo(updatedMessages, targetContact.receivedMessages.Length);
+            MessageConversation conversationToAdd = messageLoader.GetMessageConversation(name, "NormalComplaint");
 
-            targetContact.receivedMessages = updatedMessages;
+            if (conversationToAdd != null)
+            {
+                currentConversation = conversationToAdd;
+
+                DialogueLine lineToAdd = conversationToAdd.messages[0];
+                DialogueLine[] updatedMessages = new DialogueLine[currentContact.receivedMessages.Length + 1];
+                updatedMessages[currentContact.receivedMessages.Length] = lineToAdd;
+                currentContact.receivedMessages.CopyTo(updatedMessages, 0);
+
+                currentContact.receivedMessages = updatedMessages;
+                currentContact.isAwaitingReply = true;
+
+                RefreshCurrentMessages(currentContact);
+            }
+        }
+        else
+        {
+            Debug.Log("Disturbed neighbour angered but unable to contact player");
+        }
+    }
+
+    public void SendReply()
+    {
+        Debug.Log("Sending reply");
+
+        if (currentContact == null)
+        {
+            Debug.LogWarning("No current contact. Is this intended?");
+            return;
         }
 
+        if (currentContact.isAwaitingReply)
+        {
+            Debug.Log("Reply by player sent");
+            DialogueLine lineToAdd = currentConversation.messages[1];
+            DialogueLine[] updatedMessages = new DialogueLine[currentContact.receivedMessages.Length + 1];
+            updatedMessages[currentContact.receivedMessages.Length] = lineToAdd;
+            currentContact.receivedMessages.CopyTo(updatedMessages, 0);
 
+            currentContact.receivedMessages = updatedMessages;
+
+            RefreshCurrentMessages(currentContact);
+            StartCoroutine(ReceiveNeighbourReply());
+        }
+    }
+
+    private IEnumerator ReceiveNeighbourReply()
+    {
+        yield return new WaitForSeconds(0.6f);
+
+        DialogueLine lineToAdd = currentConversation.messages[2];
+        DialogueLine[] updatedMessages = new DialogueLine[currentContact.receivedMessages.Length + 1];
+        updatedMessages[currentContact.receivedMessages.Length] = lineToAdd;
+        currentContact.receivedMessages.CopyTo(updatedMessages, 0);
+
+        currentContact.receivedMessages = updatedMessages;
+
+        currentContact.isAwaitingReply = false;
+        RefreshCurrentMessages(currentContact);
     }
 
     public void UnlockContact(string contactName)
