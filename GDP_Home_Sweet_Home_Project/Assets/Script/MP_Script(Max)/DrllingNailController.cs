@@ -11,13 +11,22 @@ public class DrillingNailController : MonoBehaviour
     public GameObject gameManager;
 
     private DrillingMiniGame drillingMiniGame;
+    public int currentClicks;
 
     void Start()
     {
-        // Ensure the gameManager reference is assigned
         if (gameManager != null)
         {
-            drillingMiniGame = GetComponent<DrillingMiniGame>();
+            Debug.Log("Game Manager assigned: " + gameManager.name);
+            drillingMiniGame = gameManager.GetComponent<DrillingMiniGame>();
+            if (drillingMiniGame == null)
+            {
+                Debug.LogError("DrillingMiniGame component not found on Game Manager.");
+            }
+            else
+            {
+                Debug.Log("DrillingMiniGame component successfully assigned.");
+            }
         }
         else
         {
@@ -38,8 +47,8 @@ public class DrillingNailController : MonoBehaviour
                 {
                     if (drillingMiniGame != null)
                     {
+                        Debug.Log("Starting Minigame...");
                         drillingMiniGame.StartMinigame(gameObject);
-                        Debug.Log("Starting Hammering");
                     }
                     else
                     {
@@ -48,5 +57,11 @@ public class DrillingNailController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ResetCount()
+    {
+        Debug.Log("Reset count");
+        currentClicks = 0;
     }
 }

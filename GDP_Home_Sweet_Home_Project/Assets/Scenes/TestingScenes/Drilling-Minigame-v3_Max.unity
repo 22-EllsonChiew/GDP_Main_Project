@@ -708,6 +708,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gameManager: {fileID: 1183819772}
+  currentClicks: 0
 --- !u!1001 &617320370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1982,6 +1983,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gameManager: {fileID: 1183819772}
+  currentClicks: 0
 --- !u!1 &1510993445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,6 +2491,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gameManager: {fileID: 1183819772}
+  currentClicks: 0
 --- !u!1001 &1869091710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2615,6 +2618,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gameManager: {fileID: 1183819772}
+  currentClicks: 0
 --- !u!1 &2019534887
 GameObject:
   m_ObjectHideFlags: 0

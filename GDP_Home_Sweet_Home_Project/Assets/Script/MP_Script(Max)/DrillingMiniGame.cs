@@ -65,7 +65,7 @@ public class DrillingMiniGame : MonoBehaviour
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            currentClicks = currentNail.GetComponent<NailObjectController>().currentClicks;
+            currentClicks = currentNail.GetComponent<DrillingNailController>().currentClicks;
             progress.value = currentClicks;
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))
@@ -88,16 +88,17 @@ public class DrillingMiniGame : MonoBehaviour
             currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
             noise.value = (noiseThreshold != 0f) ? currentNoise / noiseThreshold : 0f;
             fill.color = gradient.Evaluate(currentNoise);
+            Debug.Log(currentClicks);
         }
     }
 
     public void StartMinigame(GameObject nailPrefab)
     {
-        if (HasHammer() && !isMuffled)
-        {
-            noiseIncreaseRate *= 0.5f;
-            isMuffled = true;
-        }
+        //if (HasHammer() && !isMuffled)
+        //{
+        //    noiseIncreaseRate *= 0.5f;
+        //    isMuffled = true;
+        //}
 
         if (nailPrefab == null)
         {
@@ -112,7 +113,7 @@ public class DrillingMiniGame : MonoBehaviour
 
         if (currentNail != null)
         {
-            currentClicks = currentNail.GetComponent<NailObjectController>().currentClicks;
+            currentClicks = currentNail.GetComponent<DrillingNailController>().currentClicks;
         }
         Debug.Log("Minigame started");
     }
@@ -137,7 +138,7 @@ public class DrillingMiniGame : MonoBehaviour
     {
         if (currentClicks < clicksNeeded)
         {
-            currentNail.GetComponent<NailObjectController>().currentClicks++;
+            currentNail.GetComponent<DrillingNailController>().currentClicks++;
 
             if (hitParticles != null)
             {
@@ -148,6 +149,7 @@ public class DrillingMiniGame : MonoBehaviour
 
             if (currentClicks >= clicksNeeded)
             {
+                Debug.Log("Finished building the bombaclat");
                 EndMinigame();
                 BuildObject();
             }
@@ -189,10 +191,10 @@ public class DrillingMiniGame : MonoBehaviour
         resetLeg.Invoke();
     }
 
-    public bool HasHammer()
-    {
-        return InventoryManager.Instance.invItems.Contains(rubberHammer);
-    }
+    //public bool HasHammer()
+    //{
+    //    return InventoryManager.Instance.invItems.Contains(rubberHammer);
+    //}
 
     void OnMouseDown()
     {
