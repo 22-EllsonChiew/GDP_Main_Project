@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using JetBrains.Annotations;
 
 public class NetManager : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class NetManager : MonoBehaviour
     [SerializeField]
     private Image currentPostPhoto;
 
+    [SerializeField]
+    private PostLoader postLoader;
+
     public static NetManager instance;
 
     // Start is called before the first frame update
@@ -37,20 +41,21 @@ public class NetManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        allForumPosts = new List<Post>()
-        {
-            new Post() {title = "Neighbourliness 101", subtitle = "How to be a good neighbour", image = null},
-            new Post() {title = "Post 2", subtitle = "Dummy post 2", image= null},
-            new Post() {title = "Post 3", subtitle = "Dummy post 3", image = null}
-        };
-
-        PopulateThread(2);
+        SetForumPosts();
+        PopulateThread();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void SetForumPosts()
+    {
+        Post[] posts = postLoader.postData.posts;
+
+        allForumPosts = new List<Post>(posts);
     }
 
     public void ViewPost(string postName)
@@ -61,15 +66,21 @@ public class NetManager : MonoBehaviour
         {
             currentPostTitle.text = targetPost.title;
             currentPostSubtitle.text = targetPost.subtitle;
+            currentPostContent.text = targetPost.content;
         }
     }
 
-    public void PopulateThread(int postCount)
+    public void PopulateThread()
     {
-        for (int i = 0; i < postCount; i++)
+        foreach (Transform child in postListParent)
         {
-            Post randomPost = allForumPosts[Random.Range(0, allForumPosts.Count)];
-            AddPost(randomPost);
+            Destroy(child.gameObject);
+        }
+
+        for (int i = 0; i < allForumPosts.Count; i++)
+        {
+            AddPost(allForumPosts[i]);
+            Debug.Log(allForumPosts.Count);
         }
     }
 
