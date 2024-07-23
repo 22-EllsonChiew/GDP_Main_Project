@@ -75,7 +75,7 @@ public class ThirdPersonCameraController : MonoBehaviour
         if(neighbourUI.endInteraction == true)
         {
             neighbourEndConvo = true;
-            Debug.Log("Neighbour shut up");
+            //Debug.Log("Neighbour shut up");
         }
     }
 

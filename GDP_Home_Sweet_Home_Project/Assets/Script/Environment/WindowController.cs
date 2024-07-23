@@ -2,33 +2,70 @@ using UnityEngine;
 
 public class WindowController : MonoBehaviour
 {
-    private Animator animator;
-    private bool isOpen = false;
+    [SerializeField] private Animator animatorLeft;
+    [SerializeField] private Animator animatorRight;
+    private bool isOpenleft = false;
+    private bool isOpenRight = false;
+
+    [SerializeField] private Transform player;
+
+    [SerializeField] private BoxCollider leftWindow;
+    [SerializeField] private BoxCollider rightWindow;
+
+     private bool playerInLeftWindow;
+     private bool playerInRightWindow;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        /*animatorLeft = GetComponentInChildren<Animator>();
+        animatorRight = GetComponentInChildren<Animator>();*/
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O)) // Replace with your preferred key
+        playerInLeftWindow = leftWindow.bounds.Contains(player.position);
+        playerInRightWindow = rightWindow.bounds.Contains(player.position);
+
+        if (playerInLeftWindow && Input.GetKeyDown(KeyCode.E))// Replace with your preferred key
         {
-            TogglePanels();
+            Debug.Log("Time to close");
+            ToggleLeftPanels();
+        }
+        else if (playerInRightWindow && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Time to close right side");
+            ToggleRightPanels();
         }
     }
+    
 
-    public void TogglePanels()
+    public void ToggleLeftPanels()
     {
-        if (isOpen)
+        if (isOpenleft)
         {
-            animator.SetTrigger("CloseAllPanels"); // Trigger for closing all panels
-            isOpen = false;
+            Debug.Log("Closing left panels.");
+            animatorLeft.SetTrigger("CloseAllPanels"); // Trigger for closing all panels
+            isOpenleft = false;
         }
         else
         {
-            animator.SetTrigger("OpenAllPanels"); // Trigger for opening all panels
-            isOpen = true;
+            animatorLeft.SetTrigger("OpenAllPanels"); // Trigger for opening all panels
+            isOpenleft = true;
+        }
+    }
+
+    public void ToggleRightPanels()
+    {
+        if (isOpenRight)
+        {
+            Debug.Log("Closing right panels.");
+            animatorRight.SetTrigger("CloseAllPanels"); // Trigger for closing all panels
+            isOpenRight = false;
+        }
+        else
+        {
+            animatorRight.SetTrigger("OpenAllPanels"); // Trigger for opening all panels
+            isOpenRight = true;
         }
     }
 }
