@@ -18,11 +18,11 @@ public class BedSystem : MonoBehaviour
         if (playerInBed && Input.GetKey(KeyCode.E))
         {
             SceneManager.LoadScene("Main Game 1");
-            SpawnPackage();
+            //SpawnPackage();
         }
     }
 
-    private void SpawnPackage()
+    /*private void SpawnPackage()
     {
         if(spawnPoint != null && spawnPoint2 != null)
         {
@@ -31,7 +31,7 @@ public class BedSystem : MonoBehaviour
             Instantiate(packagePrefab, spawnPoint2.position, spawnPoint.rotation);
         }
         
-    }
+    }*/
 
     
     private void OnTriggerStay(Collider other)

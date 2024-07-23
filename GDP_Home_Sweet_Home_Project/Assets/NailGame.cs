@@ -271,7 +271,7 @@ public class NailGame : MonoBehaviour
                     if (IsPlayerInsideGameObject(player, topCorner))
                     {
                         Debug.Log("im angry2");
-                        clickHandlerReferenceTopRight.DecreaseAnger();
+                        //clickHandlerReferenceTopRight.DecreaseAnger();
                         neighbourHakim.HeardNoise(decreaseNoise);
 
                         //clickHandlerReferenceTopRight.PromiseRoute();
