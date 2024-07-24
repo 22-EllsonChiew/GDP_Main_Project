@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class DoorControl : MonoBehaviour
 {
-    private Animator doorAnimator;
-    // Start is called before the first frame update
-    void Start()
-    {
-        doorAnimator = GetComponent<Animator>();
-    }
-
+    public Animator animator;
     private bool isOpen = false;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) // Replace KeyCode.E with the key you want to use
         {
-            isOpen = !isOpen;
-            doorAnimator.SetBool("isOpen", isOpen);
+            if (!isOpen)
+            {
+                animator.SetTrigger("Open");
+                isOpen = true;
+            }
+            else
+            {
+                animator.SetTrigger("Close");
+                isOpen = false;
+            }
         }
     }
 }
