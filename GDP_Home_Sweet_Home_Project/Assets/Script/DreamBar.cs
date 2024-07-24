@@ -68,6 +68,10 @@ public class DreamBar : MonoBehaviour
             //call fucntion to remove the tick image from the checkbox
             DestroyTickImage(changedCheckbox); 
         }
+        if(current == 2)
+        {
+            SceneManager.LoadScene("Main Game 1");
+        }
     }
 
     void DestroyTickImage(Toggle changedCheckbox)
