@@ -12,6 +12,7 @@ public class DrillingNailController : MonoBehaviour
 
     private DrillingMiniGame drillingMiniGame;
     public int currentClicks;
+    public float currentTimeClicked;
 
     void Start()
     {

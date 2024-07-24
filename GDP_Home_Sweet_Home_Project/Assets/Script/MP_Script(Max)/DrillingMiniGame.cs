@@ -6,7 +6,9 @@ using UnityEngine.Events;
 public class DrillingMiniGame : MonoBehaviour
 {
     public int clicksNeeded = 25;
+    public int timeNeeded = 20;
     private int currentClicks = 0;
+    private float currentTimeHeld = 0f;
 
     public float noiseThreshold = 0.7f;
     private float currentNoise = 0f;
@@ -33,8 +35,8 @@ public class DrillingMiniGame : MonoBehaviour
     private GameObject currentNail;
     private bool isMuffled = false;
 
-    public AudioSource hammeringAudio;
-    public AudioClip hammerSound;
+    public AudioSource drillingAudio;
+    public AudioClip drillSound;
 
     public Camera mainCam;
     public LayerMask nailLayer;
@@ -52,8 +54,8 @@ public class DrillingMiniGame : MonoBehaviour
         progress.maxValue = clicksNeeded;
         noise.maxValue = noiseThreshold;
 
-        hammeringAudio = GetComponent<AudioSource>();
-        hammeringAudio.clip = hammerSound;
+        drillingAudio = GetComponent<AudioSource>();
+        drillingAudio.clip = drillSound;
 
         newChairPos = oldChair.transform;
     }
@@ -73,10 +75,15 @@ public class DrillingMiniGame : MonoBehaviour
                 Cursor.visible = false;
                 uiCursor.ShowCursor();
 
-                if (Input.GetMouseButtonDown(0))
+                //if (Input.GetMouseButtonDown(0))
+                //{
+                //    hammeringAudio.PlayOneShot(hammerSound);
+                //    HandleClick();
+                //}
+                if (Input.GetMouseButton(0))
                 {
-                    hammeringAudio.PlayOneShot(hammerSound);
-                    HandleClick();
+                    drillingAudio.PlayOneShot(drillSound);
+                    HandleHoldClick();
                 }
             }
             else
@@ -88,7 +95,7 @@ public class DrillingMiniGame : MonoBehaviour
             currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
             noise.value = (noiseThreshold != 0f) ? currentNoise / noiseThreshold : 0f;
             fill.color = gradient.Evaluate(currentNoise);
-            Debug.Log(currentClicks);
+            Debug.Log(currentTimeHeld);
         }
     }
 
@@ -147,12 +154,28 @@ public class DrillingMiniGame : MonoBehaviour
 
             currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
 
-            if (currentClicks >= clicksNeeded)
-            {
-                Debug.Log("Finished building the bombaclat");
-                EndMinigame();
-                BuildObject();
-            }
+            
+        }
+        if (currentClicks >= clicksNeeded)
+        {
+            Debug.Log("Finished building");
+            EndMinigame();
+            BuildObject();
+        }
+    }
+
+    public void HandleHoldClick()
+    {
+        currentTimeHeld += Time.deltaTime;
+        if (currentTimeHeld < timeNeeded)
+        {
+            currentNail.GetComponent<DrillingNailController>().currentTimeClicked += Mathf.FloorToInt(currentTimeHeld);
+        }
+        if (currentTimeHeld >= timeNeeded)
+        {
+            Debug.Log("FINISHED");
+            EndMinigame();
+            BuildObject();
         }
     }
 
