@@ -35,6 +35,17 @@ public class ChatManager : MonoBehaviour
     private PhoneContact currentContact;
     private MessageConversation currentConversation;
 
+    [Header("Neighbour")]
+
+    public NeighbourAngerBar neighbourSherryl;
+    public NeighbourAngerBar neighbourHakim;
+
+    public float noiseThreshold = 60f;
+    public float noiseThresholdSherryl = 60f;
+
+    private bool hakimSentedComplaint = false;
+    private bool sherrylSentedComplaint = false;
+
     public static ChatManager instance;
 
     // Start is called before the first frame update
@@ -117,7 +128,10 @@ public class ChatManager : MonoBehaviour
 
     public void ReceiveComplaint(string name)
     {
+        
         //PhoneContact targetContact = unlockedPhoneContacts.Find(contact => contact.name == name);
+       
+        currentContact = unlockedPhoneContacts.Find(contact => contact.name == name);
 
         if (currentContact.isUnlocked && currentContact != null)
         {
@@ -142,6 +156,29 @@ public class ChatManager : MonoBehaviour
         {
             Debug.Log("Disturbed neighbour angered but unable to contact player");
         }
+            
+    }
+
+    public void CheckNeighbourHappinessValue()
+    {
+        if(neighbourHakim.currentHappiness < noiseThreshold)
+        {
+            Debug.Log($"Hakim's happiness: {neighbourHakim.currentHappiness}, threshold: {noiseThreshold}");
+            ReceiveComplaint("Hakim");
+            hakimSentedComplaint = true;
+        }
+        if(neighbourSherryl.currentHappiness < noiseThresholdSherryl)
+        {
+            Debug.Log($"Sherryl's happiness: {neighbourSherryl.currentHappiness}, threshold: {noiseThresholdSherryl}");
+            ReceiveComplaint("Sherryl");
+            sherrylSentedComplaint = true;
+        }
+    }
+
+    public void ResetComplaint()
+    {
+        hakimSentedComplaint = false;
+        sherrylSentedComplaint = false;
     }
 
     public void SendReply()

@@ -66,28 +66,29 @@ public class NoiseController : MonoBehaviour
             if(Input.GetKeyUp(KeyCode.E))
             {
                 MakeNoise(0.25f);
+                HandleNoise();
             }
             
         }
         else if(playerInSherrylSide && Input.GetKeyUp(KeyCode.E))
         {
             MakeNoise(0.55f);
+            HandleNoise();
         }
-        else if(Input.GetKeyUp(KeyCode.E))
-        {
-            MakeNoise(0.75f);
-        }
+        
 
         if(playerInHakimSide && windowControllers.rightWindowIsClose())
         {
             if (Input.GetKeyUp(KeyCode.E))
             {
                 MakeNoise(0.25f);
+                HandleNoise();
             }
         }
         else if (playerInHakimSide && Input.GetKeyUp(KeyCode.E))
         {
             MakeNoise(0.55f);
+            HandleNoise();
         }
         
 
@@ -104,9 +105,16 @@ public class NoiseController : MonoBehaviour
 
     void HandleNoise()
     {
-        if (currentNoise > 0.65f)
+        if (currentNoise > 0.50f)
         {
-            // interact with neighbour logic
+            if(playerInHakimSide)
+            {
+                neighbourHakim.HeardNoise(noiseDecreaseRate);
+            }
+            else if(playerInSherrylSide)
+            {
+                neighbourSheryl.HeardNoise(noiseDecreaseRate);
+            }
         }
     }
 
