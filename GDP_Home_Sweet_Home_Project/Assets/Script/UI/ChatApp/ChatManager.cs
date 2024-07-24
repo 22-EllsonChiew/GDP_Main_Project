@@ -117,11 +117,12 @@ public class ChatManager : MonoBehaviour
 
     public void ReceiveComplaint(string name)
     {
-        //PhoneContact targetContact = unlockedPhoneContacts.Find(contact => contact.name == name);
+        PhoneContact targetContact = unlockedPhoneContacts.Find(contact => contact.name == name);
 
-        if (currentContact.isUnlocked && currentContact != null)
+        if (targetContact.isUnlocked && targetContact != null)
         {
-            MessageConversation conversationToAdd = messageLoader.GetMessageConversation(name, "NormalComplaint");
+            currentContact = targetContact;
+            MessageConversation conversationToAdd = messageLoader.GetMessageConversation(currentContact.name, "NormalComplaint");
 
             if (conversationToAdd != null)
             {

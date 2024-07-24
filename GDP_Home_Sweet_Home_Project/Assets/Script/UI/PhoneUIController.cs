@@ -30,6 +30,7 @@ public class PhoneUIController : MonoBehaviour
     private Vector2 targetPos;
     private bool isMoving;
 
+    [Header("Navigation Buttons")]
     [SerializeField]
     private Button homeBtn;
     [SerializeField]
@@ -38,9 +39,9 @@ public class PhoneUIController : MonoBehaviour
     private Button netBtn;
     [SerializeField] 
     private Button backBtn;
-    
 
 
+    [Header("App Screens")]
     [SerializeField]
     private GameObject homeScreen;
     [SerializeField]
@@ -51,6 +52,18 @@ public class PhoneUIController : MonoBehaviour
     private GameObject netApp;
     [SerializeField]
     private GameObject netApp_Post;
+    [SerializeField]
+    private GameObject notificationClock;
+
+    [Header("Phone Wallpapers")]
+    [SerializeField]
+    private Sprite homeBG;
+    [SerializeField]
+    private Sprite chatAppBG;
+    [SerializeField]
+    private Sprite netAppBG;
+    [SerializeField]
+    private Image phoneBG;
 
     private Dictionary<PhoneApp, GameObject> appScreens;
     private Stack<PhoneApp> navigationHistory;
@@ -104,9 +117,45 @@ public class PhoneUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        UpdateWallpaper();
+        HandleNotificationClock();
+
         if (Input.GetKeyDown(KeyCode.Tab) && !isMoving) 
         {
            TogglePhone();
+        }
+    }
+
+    public void HandleNotificationClock()
+    {
+        if (currentApp == PhoneApp.Home && phoneTransform.anchoredPosition.y == upperY)
+        {
+            notificationClock.SetActive(false);
+            // set notification bar decoration
+        }
+        else
+        {
+            notificationClock.SetActive(true);
+            // set notification bar decoration
+        }
+    }
+
+    void UpdateWallpaper()
+    {
+        if (currentApp == PhoneApp.Home)
+        {
+            phoneBG.sprite = homeBG;
+        }
+
+        if (currentApp == PhoneApp.NetApp)
+        {
+            phoneBG.sprite = netAppBG;
+        }
+
+        if (currentApp == PhoneApp.ChatApp)
+        {
+            phoneBG.sprite = chatAppBG;
         }
     }
 
@@ -181,7 +230,6 @@ public class PhoneUIController : MonoBehaviour
 
     private IEnumerator MovePhone(Vector2 target)
     {
-        isPhoneActive = true;
         isMoving = true;
         Vector2 startPos = phoneTransform.anchoredPosition;
         float elapsedTime = 0f;
@@ -194,7 +242,6 @@ public class PhoneUIController : MonoBehaviour
         }
 
         phoneTransform.anchoredPosition = target;
-        isPhoneActive = true;
         isMoving = false;
 
     }
