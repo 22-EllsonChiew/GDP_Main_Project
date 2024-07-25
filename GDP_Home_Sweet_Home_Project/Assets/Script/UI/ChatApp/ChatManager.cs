@@ -28,6 +28,9 @@ public class ChatManager : MonoBehaviour
     [SerializeField]
     private MessagePanel chatResponsePrefab;
 
+    [SerializeField]
+    private Button playerReplyBtn;
+
     private List<PhoneContact> allPhoneContacts;
     private List<PhoneContact> unlockedPhoneContacts;
     private DialogueLine[] _receivedMessages;
@@ -59,6 +62,8 @@ public class ChatManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        playerReplyBtn.onClick.AddListener(() => SendReply());
 
         allPhoneContacts = new List<PhoneContact>()
         {
