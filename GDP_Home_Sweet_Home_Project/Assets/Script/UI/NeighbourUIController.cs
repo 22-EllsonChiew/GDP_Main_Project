@@ -16,7 +16,7 @@ public class NeighbourUIController : MonoBehaviour
     private GameObject playerObj;
 
     [SerializeField]
-    private GameObject phoneUIGroup;
+    private GameObject mainUIGroup;
 
     public bool endInteraction = false; //New implement
 
