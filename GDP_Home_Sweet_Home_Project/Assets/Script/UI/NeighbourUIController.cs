@@ -65,7 +65,7 @@ public class NeighbourUIController : MonoBehaviour
 
     public void StartInteraction(string name, string type)
     {
-        phoneUIGroup.SetActive(false);
+        mainUIGroup.SetActive(false);
         neighbourUIGroup.SetActive(true);
 
         PlayerMovement.dialogue = true;
@@ -86,7 +86,7 @@ public class NeighbourUIController : MonoBehaviour
     {
         PlayerMovement.dialogue = false;
 
-        phoneUIGroup.SetActive(true);
+        mainUIGroup.SetActive(true);
         neighbourUIGroup.SetActive(false);
 
         endInteraction = true;
