@@ -1646,6 +1646,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83633083}
   m_CullTransparentMesh: 1
+--- !u!1 &83885883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 83885884}
+  m_Layer: 0
+  m_Name: CarryPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &83885884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83885883}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.49, y: -0.33, z: 0.506}
+  m_LocalScale: {x: 0.30994534, y: 0.30994534, z: 0.30994534}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1790319700}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &84374814
 GameObject:
   m_ObjectHideFlags: 0
@@ -31597,6 +31628,7 @@ GameObject:
   - component: {fileID: 1790319702}
   - component: {fileID: 1790319704}
   - component: {fileID: 1790319703}
+  - component: {fileID: 1790319705}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -31651,6 +31683,7 @@ Transform:
   - {fileID: 741690195}
   - {fileID: 1207225138}
   - {fileID: 311828038}
+  - {fileID: 83885884}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1790319701
@@ -31735,6 +31768,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 1207225137}
   particleDuration: 1
+--- !u!114 &1790319705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790319697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a925c6d8235eee4aa5c12a448805085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1790319697}
+  carryPos: {fileID: 83885884}
+  checkRadius: 2
 --- !u!1 &1805444736
 GameObject:
   m_ObjectHideFlags: 0
@@ -40591,7 +40639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &6946830126014889173
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40985,11 +41033,11 @@ GameObject:
   - component: {fileID: 8018982988566521768}
   m_Layer: 0
   m_Name: Cardboard
-  m_TagString: Object
+  m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &7508333269228701603
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -41663,7 +41711,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
