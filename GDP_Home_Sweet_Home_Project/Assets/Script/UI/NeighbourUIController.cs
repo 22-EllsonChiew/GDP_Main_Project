@@ -65,6 +65,7 @@ public class NeighbourUIController : MonoBehaviour
 
     public void StartInteraction(string name, string type)
     {
+        playerObj.SetActive(false);
         mainUIGroup.SetActive(false);
         neighbourUIGroup.SetActive(true);
 
@@ -86,6 +87,7 @@ public class NeighbourUIController : MonoBehaviour
     {
         PlayerMovement.dialogue = false;
 
+        playerObj.SetActive(true);
         mainUIGroup.SetActive(true);
         neighbourUIGroup.SetActive(false);
 
