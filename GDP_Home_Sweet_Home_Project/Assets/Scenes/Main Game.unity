@@ -1469,7 +1469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &82129607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1550,7 +1550,7 @@ Transform:
   m_GameObject: {fileID: 82129606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 3.48, z: -1.948}
+  m_LocalPosition: {x: 6.62, y: 3.48, z: -1.948}
   m_LocalScale: {x: 5.7248235, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8577,7 +8577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueLoader: {fileID: 557129286}
   playerObj: {fileID: 0}
-  phoneUIGroup: {fileID: 0}
+  mainUIGroup: {fileID: 0}
   endInteraction: 0
   neighbourUIGroup: {fileID: 1914656842}
   neighbourUIName: {fileID: 894986680}
@@ -24838,6 +24838,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1227027951}
+  - component: {fileID: 1227027952}
   m_Layer: 5
   m_Name: NotificationBar
   m_TagString: Untagged
@@ -24867,6 +24868,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 390, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1227027952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227027950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a7b0ec49755c043a654d1df46e9d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadingScreenObj: {fileID: 513372641}
+  timeText: {fileID: 45942351}
 --- !u!1 &1231702174
 GameObject:
   m_ObjectHideFlags: 0
@@ -38194,7 +38209,7 @@ Transform:
   m_GameObject: {fileID: 6946830126014889172}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 3.0660563, y: 0.67937016, z: -14.66}
+  m_LocalPosition: {x: 4.2899995, y: 0.67937016, z: -33.6}
   m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39762,7 +39777,7 @@ Transform:
   m_GameObject: {fileID: 7470096489571948214}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -6.823943, y: 0.67937016, z: -14.66}
+  m_LocalPosition: {x: -5.6, y: 0.67937016, z: -33.6}
   m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40653,7 +40668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &6946830126014889173
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41051,7 +41066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &7508333269228701603
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -41217,7 +41232,7 @@ MonoBehaviour:
   nightIntensity: 0.2
   eveningIntensity: 0.5
   transitionSpeed: 0.1
-  timeUI: {fileID: 0}
+  timeUI: {fileID: 1227027952}
   LoadingScreenObj: {fileID: 513372641}
   LoadingBarTimer: {fileID: 84374816}
 --- !u!82 &7565215745276000208
