@@ -40,7 +40,7 @@ public class AngerBarManager : MonoBehaviour
 
         HappinessBar.value = happinessLevel;
 
-        Debug.Log($"Happiness Level: {happinessLevel}");
+        //Debug.Log($"Happiness Level: {happinessLevel}");
 
 
         if (happinessLevel >= 0.90)

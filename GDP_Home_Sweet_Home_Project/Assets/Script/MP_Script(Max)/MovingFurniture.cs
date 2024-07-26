@@ -10,7 +10,7 @@ public class MovingFurniture : MonoBehaviour
     public Transform dragPos;
     //radius to check for draggable objects
     public float checkRadius = 2f; 
-    private GameObject carriedObject = null; 
+    public GameObject carriedObject = null; 
     //height offset from the ground
     public float heightOffset = 0.5f; 
 

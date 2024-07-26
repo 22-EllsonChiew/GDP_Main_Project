@@ -8,8 +8,9 @@ public class NoiseController : MonoBehaviour
 {
     [Header("Noise Parameters")]
     private float currentNoise;
-    private float noiseThreshold = 1f;
+    public float noiseThreshold = 1f;
     public float noiseDecreaseRate;
+    private float noiseMultiplier = 0.001f;
 
 
 
@@ -38,6 +39,8 @@ public class NoiseController : MonoBehaviour
 
     public WindowController windowControllers;
     //public NailGame nailGameController;
+    public PlayerMovement playerMovementController;
+    public MovingFurniture movingFurnitureController;
 
     public static NoiseController instance;
 
@@ -106,7 +109,7 @@ public class NoiseController : MonoBehaviour
 
     public void HandleNoise()
     {
-        if (currentNoise > 0.50f)
+        if (currentNoise > 0.60f)
         {
             if(playerInHakimSide)
             {
@@ -121,6 +124,11 @@ public class NoiseController : MonoBehaviour
 
     public void MakeNoise(float noise)
     {
+        if(playerMovementController.isWalking && movingFurnitureController.carriedObject != null)
+        {
+            noise += playerMovementController.speed * noiseMultiplier;
+        }
+
         currentNoise = Mathf.Min(currentNoise + noise, noiseThreshold);
     }
 

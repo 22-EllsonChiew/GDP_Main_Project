@@ -36,10 +36,13 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
 
     Animator animator;
-    private bool isWalking;
+    public bool isWalking;
 
     static public bool dialogue = false;
     public bool isMinigameStarted = false;
+
+    [Header("Scripts")]
+    public NoiseController noiseController;
  
 
     // Start is called before the first frame update
@@ -107,6 +110,9 @@ public class PlayerMovement : MonoBehaviour
         if (isWalking)
         {
             animator.SetTrigger("WalkTrigger");
+
+            noiseController.MakeNoise(noiseController.noiseThreshold * Time.deltaTime);
+            noiseController.HandleNoise();
         }
 
     }

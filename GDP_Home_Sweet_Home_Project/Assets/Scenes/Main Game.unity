@@ -8096,8 +8096,9 @@ MonoBehaviour:
   currentContactPhoto: {fileID: 1276619053}
   errorMessage: {fileID: 0}
   chatListParent: {fileID: 1475797094}
-  chatResponsePrefab: {fileID: 5425624041799691553, guid: 4297cd3c3d9e57848ad8710e91c17b3d, type: 3}
   playerReplyBtn: {fileID: 907741760}
+  npcResponsePrefab: {fileID: 0}
+  playerResponsePrefab: {fileID: 0}
   neighbourSherryl: {fileID: 168400368}
   neighbourHakim: {fileID: 899835484}
   noiseThreshold: 60
@@ -8521,6 +8522,8 @@ MonoBehaviour:
   playerResponse1: {fileID: 2119106033}
   playerResponse2: {fileID: 1093514149}
   playerResponse3: {fileID: 987282371}
+  hakimObj: {fileID: 0}
+  sherrylObj: {fileID: 0}
 --- !u!114 &557129286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15972,6 +15975,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972303455}
   m_Mesh: {fileID: 1430382068462944183, guid: 3744f7f1e6f2afc49bc1229f3254f7b9, type: 3}
+--- !u!1 &979977607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 979977608}
+  m_Layer: 0
+  m_Name: dragPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &979977608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979977607}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.044, y: -0.9499999, z: 0.787}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1790319700}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &981293470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 876717153998231280, guid: c01e0bc7a52f8b94d86ac2f707793070, type: 3}
@@ -31752,6 +31786,7 @@ Transform:
   - {fileID: 1207225138}
   - {fileID: 311828038}
   - {fileID: 83885884}
+  - {fileID: 979977608}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1790319701
@@ -31779,7 +31814,9 @@ MonoBehaviour:
   sprintFunction: 304
   turnSmoothTime: 0.1
   turnSmoothVelocity: 0
+  isWalking: 0
   isMinigameStarted: 0
+  noiseController: {fileID: 7565215745276000209}
 --- !u!114 &1790319702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31849,8 +31886,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1790319697}
-  carryPos: {fileID: 83885884}
+  playerMovement: {fileID: 1790319701}
+  dragPos: {fileID: 979977608}
   checkRadius: 2
+  carriedObject: {fileID: 0}
+  heightOffset: 0.5
 --- !u!1 &1805444736
 GameObject:
   m_ObjectHideFlags: 0
@@ -41178,6 +41218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56eaf3770ccb43242b5876e524c7e7c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseThreshold: 1
   noiseDecreaseRate: 1.5
   noiseBar: {fileID: 734049401}
   noiseColourFill: {fileID: 1628124018}
@@ -41218,6 +41259,8 @@ MonoBehaviour:
   HakimSideCollider: {fileID: 1645684919}
   closedWindow: {fileID: 0}
   windowControllers: {fileID: 399596233}
+  playerMovementController: {fileID: 1790319701}
+  movingFurnitureController: {fileID: 1790319705}
 --- !u!114 &7565215745276000210
 MonoBehaviour:
   m_ObjectHideFlags: 0
