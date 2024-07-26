@@ -13,6 +13,9 @@ public class NailObjectController : MonoBehaviour
 
     public int currentClicks;
 
+    public NoiseController noiseController;
+    public WindowController windowControllers;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,18 @@ public class NailObjectController : MonoBehaviour
                 {
                     gameStart.Invoke(gameObject);
                     Debug.Log("Starting Hammering");
+                    
+
+                    if(windowControllers.rightWindowIsClose() || windowControllers.leftWindowIsClose())
+                    {
+                        noiseController.MakeNoise(0.25f);
+                        noiseController.HandleNoise();
+                    }
+                    else
+                    {
+                        noiseController.MakeNoise(0.55f);
+                        noiseController.HandleNoise();
+                    }
 
                 }
             }
