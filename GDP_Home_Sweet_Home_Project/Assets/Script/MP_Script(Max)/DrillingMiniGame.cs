@@ -80,10 +80,19 @@ public class DrillingMiniGame : MonoBehaviour
                 //    hammeringAudio.PlayOneShot(hammerSound);
                 //    HandleClick();
                 //}
+                if (Input.GetMouseButtonDown(0))
+                {
+                    drillingAudio.Play();
+                }
+
                 if (Input.GetMouseButton(0))
                 {
-                    drillingAudio.PlayOneShot(drillSound);
                     HandleHoldClick();
+                }
+
+                if (Input.GetMouseButtonUp(0))
+                {
+                    drillingAudio.Stop();
                 }
             }
             else
@@ -170,6 +179,7 @@ public class DrillingMiniGame : MonoBehaviour
         if (currentTimeHeld < timeNeeded)
         {
             currentNail.GetComponent<DrillingNailController>().currentTimeClicked += Mathf.FloorToInt(currentTimeHeld);
+            currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
         }
         if (currentTimeHeld >= timeNeeded)
         {

@@ -1614,8 +1614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba94327b141d638439bb6f36bb26b29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicksNeeded: 25
-  timeNeeded: 20
+  clicksNeeded: 5
+  timeNeeded: 5
   noiseThreshold: 0.7
   noiseIncreaseRate: 0.1
   noiseDecreaseRate: 0
@@ -1659,7 +1659,7 @@ MonoBehaviour:
   oldChair: {fileID: 919132149155446097, guid: 4f7f2ea11b03bb84ea49ba24b200f5ff, type: 3}
   newChair: {fileID: 919132149155446097, guid: 4f7f2ea11b03bb84ea49ba24b200f5ff, type: 3}
   drillingAudio: {fileID: 1183819777}
-  drillSound: {fileID: 8300000, guid: 2b57a16b0bb8d1d41ab8bd337396596c, type: 3}
+  drillSound: {fileID: 8300000, guid: b3a792cb3f73b594ab8fbe544a4a708a, type: 3}
   mainCam: {fileID: 525000631}
   nailLayer:
     serializedVersion: 2
@@ -1682,9 +1682,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.069
+  m_Volume: 0.019
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
