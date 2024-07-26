@@ -2,25 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorControl : MonoBehaviour
+public class NeighbourDoor: MonoBehaviour
 {
-    public Animator animator;
-    private bool isOpen = false;
+    private Animator animator;
+    public bool isOpen { get; private set; }
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        isOpen = false;
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) // Replace KeyCode.E with the key you want to use
+
+    }
+
+    public void ToggleDoor()
+    {
+        isOpen = !isOpen;
+
+        if (isOpen)
         {
-            if (!isOpen)
-            {
-                animator.SetTrigger("Open");
-                isOpen = true;
-            }
-            else
-            {
-                animator.SetTrigger("Close");
-                isOpen = false;
-            }
+            animator.SetTrigger("Open");
+            isOpen = true;
+            Debug.Log("Opened door: " + gameObject.name);
+        }
+        else
+        {
+            animator.SetTrigger("Close");
+            isOpen = false;
+            Debug.Log("Closed door: " + gameObject.name);
         }
     }
 }
