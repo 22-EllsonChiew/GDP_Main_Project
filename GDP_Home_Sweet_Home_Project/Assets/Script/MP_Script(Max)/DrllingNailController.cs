@@ -7,12 +7,10 @@ public class DrillingNailController : MonoBehaviour
     public Camera gameCamera;
     public LayerMask nailLayer;
 
-    // Add this field to reference the Game Manager
     public GameObject gameManager;
 
     private DrillingMiniGame drillingMiniGame;
-    public int currentClicks;
-    public float currentTimeClicked;
+    public float currentProgress;
 
     void Start()
     {
@@ -63,6 +61,6 @@ public class DrillingNailController : MonoBehaviour
     public void ResetCount()
     {
         Debug.Log("Reset count");
-        currentClicks = 0;
+        currentProgress = 0;
     }
 }

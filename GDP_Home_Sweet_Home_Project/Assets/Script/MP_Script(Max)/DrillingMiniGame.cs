@@ -5,9 +5,7 @@ using UnityEngine.Events;
 
 public class DrillingMiniGame : MonoBehaviour
 {
-    public int clicksNeeded = 25;
-    public int timeNeeded = 20;
-    private int currentClicks = 0;
+    public int timeNeeded = 5;
     private float currentTimeHeld = 0f;
 
     public float noiseThreshold = 0.7f;
@@ -32,8 +30,7 @@ public class DrillingMiniGame : MonoBehaviour
     public GameObject oldChair;
     public GameObject newChair;
 
-    private GameObject currentNail;
-    private bool isMuffled = false;
+    private DrillingNailController currentNail;
 
     public AudioSource drillingAudio;
     public AudioClip drillSound;
@@ -41,17 +38,13 @@ public class DrillingMiniGame : MonoBehaviour
     public Camera mainCam;
     public LayerMask nailLayer;
 
-    private GameObject instantiatedChair;
     private Transform newChairPos;
 
     public UnityEvent<bool> taskCompleted;
     public UnityEvent resetLeg;
 
-    InventoryManager.AllItems rubberHammer = InventoryManager.AllItems.RubberCover;
-
     void Start()
     {
-        progress.maxValue = clicksNeeded;
         noise.maxValue = noiseThreshold;
 
         drillingAudio = GetComponent<AudioSource>();
@@ -67,23 +60,30 @@ public class DrillingMiniGame : MonoBehaviour
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            currentClicks = currentNail.GetComponent<DrillingNailController>().currentClicks;
-            progress.value = currentClicks;
-
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))
             {
                 Cursor.visible = false;
                 uiCursor.ShowCursor();
 
-                //if (Input.GetMouseButtonDown(0))
-                //{
-                //    hammeringAudio.PlayOneShot(hammerSound);
-                //    HandleClick();
-                //}
+                if (Input.GetMouseButtonDown(0))
+                {
+                    drillingAudio.Play();
+                }
+
                 if (Input.GetMouseButton(0))
                 {
-                    drillingAudio.PlayOneShot(drillSound);
                     HandleHoldClick();
+                }
+
+                if (Input.GetMouseButtonUp(0))
+                {
+                    drillingAudio.Stop();
+                }
+
+                // Update the progress slider
+                if (currentNail != null)
+                {
+                    progress.value = currentNail.currentProgress;
                 }
             }
             else
@@ -101,12 +101,6 @@ public class DrillingMiniGame : MonoBehaviour
 
     public void StartMinigame(GameObject nailPrefab)
     {
-        //if (HasHammer() && !isMuffled)
-        //{
-        //    noiseIncreaseRate *= 0.5f;
-        //    isMuffled = true;
-        //}
-
         if (nailPrefab == null)
         {
             Debug.LogError("nailPrefab is null.");
@@ -115,51 +109,35 @@ public class DrillingMiniGame : MonoBehaviour
 
         noiseDecreaseRate = noiseIncreaseRate * 2.25f;
         isMinigameActive = true;
-        currentNail = nailPrefab;
+        currentNail = nailPrefab.GetComponent<DrillingNailController>();
         minigameUI.SetActive(true);
 
-        if (currentNail != null)
-        {
-            currentClicks = currentNail.GetComponent<DrillingNailController>().currentClicks;
-        }
         Debug.Log("Minigame started");
+
+        // Set the max value of the progress slider
+        progress.maxValue = timeNeeded;
     }
 
     public void EndMinigame()
     {
+        drillingAudio.Stop();
         isMinigameActive = false;
         minigameUI.SetActive(false);
 
         if (currentNail != null)
         {
-            currentNail.SetActive(false);
+            Destroy(currentNail.gameObject);
         }
 
         currentNail = null;
         Cursor.visible = true;
 
         Debug.Log("Minigame ended");
-    }
 
-    public void HandleClick()
-    {
-        if (currentClicks < clicksNeeded)
+        // Check if all nails are drilled in
+        GameObject[] nails = GameObject.FindGameObjectsWithTag("Nail");
+        if (nails.Length == 0)
         {
-            currentNail.GetComponent<DrillingNailController>().currentClicks++;
-
-            if (hitParticles != null)
-            {
-                Instantiate(hitParticles, currentNail.transform.position, Quaternion.identity);
-            }
-
-            currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
-
-            
-        }
-        if (currentClicks >= clicksNeeded)
-        {
-            Debug.Log("Finished building");
-            EndMinigame();
             BuildObject();
         }
     }
@@ -167,15 +145,16 @@ public class DrillingMiniGame : MonoBehaviour
     public void HandleHoldClick()
     {
         currentTimeHeld += Time.deltaTime;
-        if (currentTimeHeld < timeNeeded)
+        if (currentNail != null)
         {
-            currentNail.GetComponent<DrillingNailController>().currentTimeClicked += Mathf.FloorToInt(currentTimeHeld);
-        }
-        if (currentTimeHeld >= timeNeeded)
-        {
-            Debug.Log("FINISHED");
-            EndMinigame();
-            BuildObject();
+            currentNail.currentProgress += Time.deltaTime;
+            currentNoise = Mathf.Min(currentNoise + noiseIncreaseRate, noiseThreshold);
+
+            if (currentNail.currentProgress >= timeNeeded)
+            {
+                Debug.Log("Finished drilling current nail");
+                EndMinigame();
+            }
         }
     }
 
@@ -202,7 +181,7 @@ public class DrillingMiniGame : MonoBehaviour
 
         oldChair.SetActive(false);
 
-        instantiatedChair = Instantiate(newChair, new Vector3(newChairPos.position.x, newChairPos.position.y - 1f, newChairPos.position.z), transform.rotation);
+        var instantiatedChair = Instantiate(newChair, new Vector3(newChairPos.position.x, newChairPos.position.y - 1f, newChairPos.position.z), transform.rotation);
 
         yield return new WaitForSeconds(2f);
 
@@ -213,11 +192,6 @@ public class DrillingMiniGame : MonoBehaviour
 
         resetLeg.Invoke();
     }
-
-    //public bool HasHammer()
-    //{
-    //    return InventoryManager.Instance.invItems.Contains(rubberHammer);
-    //}
 
     void OnMouseDown()
     {

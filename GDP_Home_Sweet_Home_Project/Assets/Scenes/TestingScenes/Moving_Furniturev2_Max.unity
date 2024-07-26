@@ -6957,7 +6957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 764a2d72aa512544dafaafbe0fe4d695, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.4713972
+      value: -5.74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 764a2d72aa512544dafaafbe0fe4d695, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6965,7 +6965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 764a2d72aa512544dafaafbe0fe4d695, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.177
+      value: -20.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 764a2d72aa512544dafaafbe0fe4d695, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10750,6 +10750,16 @@ MonoBehaviour:
   mMinPitch: -30
   mMaxPitch: 30
   mRotationSpeed: 50
+  camHolder: {fileID: 0}
+  pLerp: 0.02
+  rLerp: 0.04
+  playerColi: {fileID: 0}
+  lerpDuration: 1
+  onStayDuration: 1
+  SherrylNeighbourBox: {fileID: 0}
+  HakimNeighbourBox: {fileID: 0}
+  SherrylCamHolder: {fileID: 0}
+  HakimCamHolder: {fileID: 0}
   mCameraType: 0
 --- !u!114 &963194230
 MonoBehaviour:
@@ -10776,8 +10786,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camHolder: {fileID: 311828038}
+  playerColi: {fileID: 0}
+  player: {fileID: 0}
+  SherrylNeighbourBox: {fileID: 0}
+  HakimNeighbourBox: {fileID: 0}
+  SherrylCamHolder: {fileID: 0}
+  HakimCamHolder: {fileID: 0}
   pLerp: 0.02
   rLerp: 1
+  lerpDuration: 1
+  onStayDuration: 10
 --- !u!1 &963974031
 GameObject:
   m_ObjectHideFlags: 0
@@ -11681,6 +11699,37 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1052967558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1052967559}
+  m_Layer: 0
+  m_Name: dragPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1052967559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052967558}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.95, z: 0.782}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1790319700}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1069519387 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4989112957858899362, guid: 7d723b96c24647f439008bd3fa83a09c, type: 3}
@@ -20943,7 +20992,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingScreenObj: {fileID: 513372641}
-  timeText: {fileID: 1805528109}
+  timeText_NotificationBar: {fileID: 0}
+  timeText_HomeScreen: {fileID: 0}
 --- !u!1 &1571989529
 GameObject:
   m_ObjectHideFlags: 0
@@ -22878,6 +22928,7 @@ Transform:
   - {fileID: 1207225138}
   - {fileID: 311828038}
   - {fileID: 415686719}
+  - {fileID: 1052967559}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1790319701
@@ -22975,8 +23026,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1790319697}
-  carryPos: {fileID: 415686719}
+  playerMovement: {fileID: 1790319701}
+  dragPos: {fileID: 1052967559}
   checkRadius: 2
+  heightOffset: 1
 --- !u!1 &1805444736
 GameObject:
   m_ObjectHideFlags: 0
@@ -26644,6 +26697,9 @@ MonoBehaviour:
   bottomCorner: {fileID: 0}
   clickHandlerReferenceBottomRight: {fileID: 0}
   clickHandlerReferenceTopRight: {fileID: 0}
+  neighbourSheryl: {fileID: 0}
+  neighbourHakim: {fileID: 0}
+  decreaseNoise: 5
   mainCam: {fileID: 0}
   minigameCam: {fileID: 0}
   camRay: {fileID: 0}
@@ -29481,6 +29537,9 @@ MonoBehaviour:
   bottomCorner: {fileID: 982778012}
   clickHandlerReferenceBottomRight: {fileID: 982778014}
   clickHandlerReferenceTopRight: {fileID: 1645684918}
+  neighbourSheryl: {fileID: 0}
+  neighbourHakim: {fileID: 0}
+  decreaseNoise: 5
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}
   camRay: {fileID: 1649021141}
@@ -29515,6 +29574,7 @@ MonoBehaviour:
   transitionSpeed: 0.1
   timeUI: {fileID: 0}
   LoadingScreenObj: {fileID: 513372641}
+  LoadingBarTimer: {fileID: 0}
 --- !u!82 &7565215745276000208
 AudioSource:
   m_ObjectHideFlags: 0
