@@ -36,6 +36,12 @@ public class NeighbourUIController : MonoBehaviour
     [SerializeField]
     private Button playerResponse3;
 
+    [Header("Neighbour Models")]
+    [SerializeField]
+    private Transform hakimObj;
+    [SerializeField]
+    private Transform sherrylObj;
+
 
     private InteractionConversation currentConversation;
     private string currentNeighbourName;
@@ -53,7 +59,7 @@ public class NeighbourUIController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        playerResponse2.onClick.AddListener(() => StartInteraction(currentNeighbourName, "Happy"));
+        playerResponse2.onClick.AddListener(() => ShowInteractionDialogue(currentNeighbourName, "Happy"));
         playerResponse3.onClick.AddListener(() => EndInteraction());
 
     }
@@ -73,6 +79,25 @@ public class NeighbourUIController : MonoBehaviour
 
         currentNeighbourName = name;
 
+        if (currentNeighbourName == "Sherryl")
+        {
+            DoorController.instance.ToggleSherrylDoor();
+            sherrylObj.Translate(Vector3.forward * 5);
+        }
+        else if (currentNeighbourName == "Hakim")
+        {
+            DoorController.instance.ToggleHakimDoor();
+            hakimObj.Translate(Vector3.forward * 5);
+        }
+
+
+
+        ShowInteractionDialogue(name, type);
+        
+    }
+
+    public void ShowInteractionDialogue(string name, string type)
+    {
         var conversation = dialogueLoader.GetConversation(name, type);
         if (conversation != null)
         {
@@ -87,6 +112,17 @@ public class NeighbourUIController : MonoBehaviour
     {
         PlayerMovement.dialogue = false;
 
+        if (currentNeighbourName == "Sherryl")
+        {
+            DoorController.instance.ToggleSherrylDoor();
+            sherrylObj.Translate(Vector3.forward * -5);
+        }
+        else if (currentNeighbourName == "Hakim")
+        {
+            DoorController.instance.ToggleHakimDoor();
+            hakimObj.Translate(Vector3.forward * -5);
+        }
+
         playerObj.SetActive(true);
         mainUIGroup.SetActive(true);
         neighbourUIGroup.SetActive(false);
@@ -96,6 +132,10 @@ public class NeighbourUIController : MonoBehaviour
 
     }
 
+    public void ToggleHakimPosition()
+    {
+
+    }
    
 
 }
