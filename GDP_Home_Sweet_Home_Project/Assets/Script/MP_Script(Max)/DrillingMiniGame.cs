@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class DrillingMiniGame : MonoBehaviour
 {
     public int clicksNeeded = 25;
-    public int timeNeeded = 20;
+    public int timeNeeded = 5;
     private int currentClicks = 0;
     private float currentTimeHeld = 0f;
 
@@ -122,6 +122,19 @@ public class DrillingMiniGame : MonoBehaviour
             return;
         }
 
+        GameObject[] nails = GameObject.FindGameObjectsWithTag("Nail");
+
+        foreach (GameObject nail in nails)
+        {
+            DrillingNailController nailScript = nail.GetComponent<DrillingNailController>();
+
+            if (nailScript != null)
+            {
+                Debug.Log("hehe");
+                resetLeg.AddListener(() => nailScript.ResetCount());
+            }
+        }
+
         noiseDecreaseRate = noiseIncreaseRate * 2.25f;
         isMinigameActive = true;
         currentNail = nailPrefab;
@@ -136,9 +149,21 @@ public class DrillingMiniGame : MonoBehaviour
 
     public void EndMinigame()
     {
+        drillingAudio.Stop();
         isMinigameActive = false;
         minigameUI.SetActive(false);
+        GameObject[] nails = GameObject.FindGameObjectsWithTag("Nail");
 
+        foreach (GameObject nail in nails)
+        {
+            DrillingNailController nailScript = nail.GetComponent<DrillingNailController>();
+
+            if (nailScript != null)
+            {
+                Debug.Log("RESET");
+                resetLeg.AddListener(() => nailScript.ResetCount());
+            }
+        }
         if (currentNail != null)
         {
             currentNail.SetActive(false);

@@ -64,5 +64,6 @@ public class DrillingNailController : MonoBehaviour
     {
         Debug.Log("Reset count");
         currentClicks = 0;
+        currentTimeClicked = 0;
     }
 }
