@@ -68,7 +68,7 @@ public class DrillingMiniGame : MonoBehaviour
             RaycastHit hit;
 
             currentClicks = currentNail.GetComponent<DrillingNailController>().currentClicks;
-            progress.value = currentClicks;
+            progress.value = currentTimeHeld;
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))
             {
@@ -145,6 +145,7 @@ public class DrillingMiniGame : MonoBehaviour
         GameObject[] nails = GameObject.FindGameObjectsWithTag("Nail");
         if (nails.Length == 0)
         {
+            Debug.Log("ALL DONE");
             BuildObject();
         }
     }
