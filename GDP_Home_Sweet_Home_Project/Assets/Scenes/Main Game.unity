@@ -2752,8 +2752,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0456744, y: 1, z: 1}
+  m_Center: {x: -0.37322265, y: 0, z: 0}
 --- !u!23 &168400365
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5682,6 +5682,37 @@ RectTransform:
   m_AnchoredPosition: {x: 38.51, y: 10.43}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &334040273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 334040274}
+  m_Layer: 0
+  m_Name: Sherryl Secondary Cam Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &334040274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334040273}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.3555971, y: -0, z: -0, w: 0.93463933}
+  m_LocalPosition: {x: -34.09, y: 12.95, z: -48.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &335213092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6455,6 +6486,127 @@ Transform:
   - {fileID: 873846891}
   m_Father: {fileID: 367606660}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1001 &374659051
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2292305774014434901, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_TagString
+      value: ChairBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349426102239235682, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 1649021141}
+    - target: {fileID: 4349426102239235682, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: nailPrompt
+      value: 
+      objectReference: {fileID: 1616737822}
+    - target: {fileID: 5211774964989288529, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211774964989288529, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211774964989288529, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -121.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211774964989288529, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211774964989288529, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211774964989288529, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211774964989288529, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211774964989288529, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211774964989288529, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211774964989288529, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691850608127544520, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 1649021141}
+    - target: {fileID: 6691850608127544520, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: nailPrompt
+      value: 
+      objectReference: {fileID: 1616737822}
+    - target: {fileID: 7925090189367629794, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000017107419
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925090189367629794, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01093
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925090189367629794, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00535
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925090189367629794, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00009379257
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925090189367629794, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.008573562
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925090189367629794, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.010938228
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925090189367629794, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.99990344
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925090189367629794, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -178.747
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925090189367629794, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925090189367629794, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.022003174
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596792118411545967, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_Name
+      value: MP_Table_Asset
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596792118411545967, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3b6ab56262117e041a05c44c07ca6b4a, type: 3}
 --- !u!1 &382300106
 GameObject:
   m_ObjectHideFlags: 0
@@ -14542,8 +14694,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0172019, y: 1, z: 1}
+  m_Center: {x: 0.49195042, y: 0, z: 0}
 --- !u!23 &899835481
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15810,14 +15962,20 @@ MonoBehaviour:
   pLerp: 0.02
   rLerp: 0.04
   lerpDuration: 1
+  cameraForwardOffset: 0.5
   SherrylNeighbourBox: {fileID: 168400364}
   HakimNeighbourBox: {fileID: 899835480}
   SherrylCamHolder: {fileID: 1493613459}
   HakimCamHolder: {fileID: 294692544}
-  HakimneighbourOffSet: {x: -4, y: 5.68, z: 4}
+  sherrylOutsideCamHolder: {fileID: 334040274}
+  HakimOutsideCamHolder: {fileID: 1456575349}
+  HakimneighbourOffSet: {x: -8.5, y: 5.68, z: 12}
   neighbourHeighValue: 5
   rotationOffset: {x: 0, y: 0, z: 0}
-  sherrylOffset: {x: 2.98, y: 5.68, z: 2}
+  sherrylOffset: {x: 8, y: 5.68, z: 12}
+  HakimOutsideCamHolderOffset: {x: 0, y: 0, z: 0}
+  SherrylOutsideCamHolderOffset: {x: 0, y: 0, z: 0}
+  rotationOutsideOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &963974031
 GameObject:
   m_ObjectHideFlags: 0
@@ -27789,6 +27947,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452073968}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1456575348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1456575349}
+  m_Layer: 0
+  m_Name: Hakim Secondary Cam Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1456575349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456575348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.3555971, y: -0, z: -0, w: 0.93463933}
+  m_LocalPosition: {x: 32.79, y: 12.95, z: -48.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1463290297
 GameObject:
   m_ObjectHideFlags: 0
@@ -36651,6 +36840,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minigame_Update
       objectReference: {fileID: 0}
+    - target: {fileID: 6120752689837624132, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6670344082968517397, guid: 59c01ceca519e85419409980fb4dda63, type: 3}
       propertyPath: gameCamera
       value: 
@@ -38204,7 +38397,7 @@ Transform:
   m_GameObject: {fileID: 6946830126014889172}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 4.2899995, y: 0.67937016, z: -33.6}
+  m_LocalPosition: {x: 4.2899995, y: 0.67937016, z: -22.3}
   m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42870,3 +43063,6 @@ SceneRoots:
   - {fileID: 82129610}
   - {fileID: 690383062}
   - {fileID: 1653540009}
+  - {fileID: 374659051}
+  - {fileID: 1456575349}
+  - {fileID: 334040274}

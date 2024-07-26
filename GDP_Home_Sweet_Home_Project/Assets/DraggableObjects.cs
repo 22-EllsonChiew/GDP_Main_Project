@@ -68,7 +68,9 @@ public class DraggableObjects : MonoBehaviour
 
             //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 10f * Time.deltaTime);
 
-            transform.rotation = Quaternion.identity;
+            //transform.rotation = Quaternion.identity;
+
+            transform.rotation = Quaternion.Euler(0, 0, 0);
 
         }
 
@@ -103,12 +105,11 @@ public class DraggableObjects : MonoBehaviour
                 {
                     // Snap the object to the trigger's position
                     Vector3 snapPosition = col.transform.position;
-                    //snapPosition.y = transform.position.y; // Keep the original Y position
                     transform.position = snapPosition;
-                    transform.rotation = Quaternion.identity;
+                    transform.rotation = Quaternion.Euler(0, 0, 0); // Reset rotation to zero on snap
                     transform.SetParent(col.transform);
                     rb.isKinematic = true;
-                    isAttached = true; // You might want to set isAttached to true here or wherever is appropriate in your logic
+                    isAttached = true;
                     EnableAllChildren();
 
                     nailPrompt.SetActive(true);
@@ -123,7 +124,6 @@ public class DraggableObjects : MonoBehaviour
                 {
                     rb.isKinematic = false;
                 }
-                
             }
         }
     }

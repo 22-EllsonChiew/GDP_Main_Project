@@ -23,7 +23,7 @@ public class ThirdPersonCameraController : MonoBehaviour
 
     private bool neighbourEndConvo = false;
 
-
+    public float cameraForwardOffset = 0f;
 
     [Header("Neighbour")]
     public BoxCollider SherrylNeighbourBox;
@@ -32,16 +32,30 @@ public class ThirdPersonCameraController : MonoBehaviour
     public Transform SherrylCamHolder;
     public Transform HakimCamHolder;
 
+    public Transform sherrylOutsideCamHolder;
+    public Transform HakimOutsideCamHolder;
+
     private bool playerInSherrylNeighbourBox;
     private bool playerInHakimNeighbourBox;
 
     private bool learpToCamHolder = false;
+
+    private bool isInsideSherrylCollider = false;
+    private bool isInsidHakimCollider = false;
+
+    private bool goToHakimCamHolder = false;
+    private bool goToSherrylCamHolder = false;
 
     [SerializeField] private Vector3 HakimneighbourOffSet;
     [SerializeField] private float neighbourHeighValue;
 
     [SerializeField] private Vector3 rotationOffset;
     [SerializeField] private Vector3 sherrylOffset;
+
+
+    [SerializeField] private Vector3 HakimOutsideCamHolderOffset;
+    [SerializeField] private Vector3 SherrylOutsideCamHolderOffset;
+    [SerializeField] private Vector3 rotationOutsideOffset;
 
     private Transform targetPos;
 
@@ -70,7 +84,43 @@ public class ThirdPersonCameraController : MonoBehaviour
                 targetPos = HakimCamHolder;
             }
 
+            cameraForwardOffset = 5f;
+
         }
+
+        /*if(Input.GetKeyDown(KeyCode.E))
+        {
+            isInsidHakimCollider = false;
+            isInsideSherrylCollider = false;
+
+
+
+            if (isInsidHakimCollider)
+            {
+                Debug.Log("Change Pos");
+                goToHakimCamHolder = true;
+                targetPos = HakimCamHolder;
+            }
+            if(isInsideSherrylCollider)
+            {
+                goToSherrylCamHolder = true;
+                targetPos = SherrylCamHolder;
+            }
+        }*/
+
+        /*if((playerInSherrylNeighbourBox || playerInHakimNeighbourBox))
+        {
+            if(playerInHakimNeighbourBox)
+            {
+                targetPos = sherrylOutsideCamHolder;
+                isInsidHakimCollider = true;
+            }
+            if(playerInSherrylNeighbourBox)
+            {
+                targetPos = HakimOutsideCamHolder;
+                isInsideSherrylCollider = true;
+            }
+        }*/
 
         if(neighbourUI.endInteraction == true)
         {
@@ -90,7 +140,7 @@ public class ThirdPersonCameraController : MonoBehaviour
         if (playerInSherrylNeighbourBox)
         {
             //set the camera to the position of sherryl camera holder position
-            transform.position = SherrylCamHolder.position - sherrylOffset + Vector3.up * neighbourHeighValue;
+            transform.position = SherrylCamHolder.position - sherrylOffset + Vector3.up * neighbourHeighValue + Vector3.forward * cameraForwardOffset;
             //transform.rotation = SherrylCamHolder.rotation * rotationOffset;
             transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
 
@@ -99,17 +149,37 @@ public class ThirdPersonCameraController : MonoBehaviour
         else if (playerInHakimNeighbourBox)
         {
             //set the camera to the position of hakim camera holder position
-            transform.position = HakimCamHolder.position - HakimneighbourOffSet + Vector3.up * neighbourHeighValue;
+            transform.position = HakimCamHolder.position - HakimneighbourOffSet + Vector3.up * neighbourHeighValue + Vector3.forward * cameraForwardOffset;
             //transform.rotation = HakimCamHolder.rotation * rotationOffset;
             transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
         }
 
 
-        else if (neighbourEndConvo)
+        /*if (playerInSherrylNeighbourBox)
+        {
+            //set the camera to the position of sherryl camera holder position
+            transform.position = sherrylOutsideCamHolder.position - SherrylOutsideCamHolderOffset + Vector3.up * neighbourHeighValue;
+            //transform.rotation = SherrylCamHolder.rotation * rotationOffset;
+            transform.rotation = Quaternion.Euler(rotationOutsideOffset); //set the rotation of the camera, can be change in the inspector
+
+
+        }
+        else if (playerInHakimNeighbourBox)
+        {
+            //set the camera to the position of hakim camera holder position
+            transform.position = HakimOutsideCamHolder.position - HakimOutsideCamHolderOffset + Vector3.up * neighbourHeighValue;
+            //transform.rotation = HakimCamHolder.rotation * rotationOffset;
+            transform.rotation = Quaternion.Euler(rotationOutsideOffset); //set the rotation of the camera, can be change in the inspector
+        }*/
+
+
+        else if (neighbourEndConvo || isInsideSherrylCollider == false || isInsidHakimCollider == false)
         {
 
             transform.position = Vector3.Lerp(transform.position, player.position - offset + Vector3.up * heightValue, pLerp);
             transform.rotation = Quaternion.Euler(playerRotationOffset);
+
+            cameraForwardOffset = 0f;
 
 
         }
