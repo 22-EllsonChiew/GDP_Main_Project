@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,6 +37,7 @@ public class NoiseController : MonoBehaviour
     [Header("Scripts")]
 
     public WindowController windowControllers;
+    //public NailGame nailGameController;
 
     public static NoiseController instance;
 
@@ -103,7 +104,7 @@ public class NoiseController : MonoBehaviour
         noiseColourFill.color = noiseGradient.Evaluate(currentNoise);
     }
 
-    void HandleNoise()
+    public void HandleNoise()
     {
         if (currentNoise > 0.50f)
         {

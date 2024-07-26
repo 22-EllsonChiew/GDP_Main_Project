@@ -86,14 +86,14 @@ public class NailGame : MonoBehaviour
         
         minigameCam.SetActive(false);
 
-        progress.maxValue = clicksNeeded;
-        noise.maxValue = noiseThreshold;
+        //progress.maxValue = clicksNeeded;
+        //noise.maxValue = noiseThreshold;
         //noiseDecreaseRate = noiseIncreaseRate;
 
         hammeringAudio = GetComponent<AudioSource>();
         hammeringAudio.clip = hammerSound;
 
-        taskCompleted.AddListener(isTaskComplete => GameObject.FindGameObjectWithTag("MainProgressBar").GetComponent<ProgressBar>().OnTaskCompletion(isTaskComplete));
+        //taskCompleted.AddListener(isTaskComplete => GameObject.FindGameObjectWithTag("MainProgressBar").GetComponent<ProgressBar>().OnTaskCompletion(isTaskComplete));
         //taskCompleted.AddListener(isTaskComplete => GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().MinigameCompleted(isTaskComplete));
         GameObject[] draggableObjects = GameObject.FindGameObjectsWithTag("Draggable");
         
@@ -119,10 +119,10 @@ public class NailGame : MonoBehaviour
     
         newChairPos = oldChair.transform;
 
-        sceneTransition = FindObjectOfType<SceneTransition>();
+        //sceneTransition = FindObjectOfType<SceneTransition>();
 
-        AngerBar clickHandlerReferenceBottomRight = GetComponent<AngerBar>();
-        AngerBar clickHandlerReferenceTopRight = GetComponent<AngerBar>();
+        //AngerBar clickHandlerReferenceBottomRight = GetComponent<AngerBar>();
+        //AngerBar clickHandlerReferenceTopRight = GetComponent<AngerBar>();
     }
 
     // Update is called once per frame
@@ -131,16 +131,7 @@ public class NailGame : MonoBehaviour
         RaycastHit hit;
         Ray ray = camRay.ScreenPointToRay(Input.mousePosition);
 
-        //if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))
-        //{
-        //    Cursor.visible = false;
-        //    uiCursor.ShowCursor();
-        //}
-        //else if (isMinigameActive)
-        //{
-        //    uiCursor.HideCursor();
-        //    Cursor.visible = true;
-        //}
+      
 
         if (isMinigameActive)
         {
@@ -169,11 +160,11 @@ public class NailGame : MonoBehaviour
             }
 
 
-            currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
+            //currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
 
-            noise.value = (noiseThreshold != 0f) ? currentNoise / noiseThreshold : 0f;
+            //noise.value = (noiseThreshold != 0f) ? currentNoise / noiseThreshold : 0f;
 
-            fill.color = gradient.Evaluate(currentNoise);
+            //fill.color = gradient.Evaluate(currentNoise);
 
         }
 
@@ -196,11 +187,11 @@ public class NailGame : MonoBehaviour
 
         if (HasHammer() && !isMuffled)
         {
-            noiseIncreaseRate *= 0.5f;
+            //noiseIncreaseRate *= 0.5f;
             isMuffled = true;
         }
 
-        noiseDecreaseRate = noiseIncreaseRate * 2.25f;
+        //noiseDecreaseRate = noiseIncreaseRate * 2.25f;
         isMinigameActive = true;
         currentNail = nailPrefab;
         minigameUI.SetActive(true);
@@ -253,7 +244,7 @@ public class NailGame : MonoBehaviour
         {
             currentNail.GetComponent<NailObjectController>().currentClicks++;
 
-            if (hitParticles != null)
+            /*if (hitParticles != null)
             {
                 Instantiate(hitParticles, currentNail.transform.position, Quaternion.identity);
             }
@@ -284,7 +275,7 @@ public class NailGame : MonoBehaviour
 
                     }
 
-                }
+                }*/
             
         }
 
@@ -367,15 +358,7 @@ public class NailGame : MonoBehaviour
         return cornerCollider.bounds.Contains(player.transform.position);
     }
 
-    /*private bool ClickNailsInToLeg(Vector3 clickPosition)
-    {
-        Ray ray = Camera.main.ScreenPointToRay(clickPosition);
-        RaycastHit hit;
-
-        int layerMask = LayerMask.GetMask("Nails");
-
-        return Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);
-    }*/
+   
 
 }
 
