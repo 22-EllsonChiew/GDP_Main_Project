@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 7452106177514998811}
   - component: {fileID: 5425624041799691553}
   m_Layer: 5
-  m_Name: Response_NPC
+  m_Name: Response_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5a944e28510e64f4aa72f19a706863d7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96baef29a44bca1459b725ae159bea53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

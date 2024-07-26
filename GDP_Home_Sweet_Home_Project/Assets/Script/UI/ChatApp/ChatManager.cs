@@ -26,10 +26,13 @@ public class ChatManager : MonoBehaviour
     [SerializeField]
     private Transform chatListParent;
     [SerializeField]
-    private MessagePanel chatResponsePrefab;
-
-    [SerializeField]
     private Button playerReplyBtn;
+
+    [Header("Chat Bubble Prefabs")]
+    [SerializeField]
+    private MessagePanel npcResponsePrefab;
+    [SerializeField]
+    private MessagePanel playerResponsePrefab;
 
     private List<PhoneContact> allPhoneContacts;
     private List<PhoneContact> unlockedPhoneContacts;
@@ -120,8 +123,18 @@ public class ChatManager : MonoBehaviour
         {
             foreach (var message in currentContact.receivedMessages)
             {
-                MessagePanel newChatResponse = Instantiate(chatResponsePrefab, chatListParent);
-                newChatResponse.SetMessage(message.content);
+
+                if (message.speaker == "Myself")
+                {
+                    MessagePanel newChatResponse = Instantiate(playerResponsePrefab, chatListParent);
+                    newChatResponse.SetMessage(message.content);
+                }
+                else
+                {
+                    MessagePanel newChatResponse = Instantiate(npcResponsePrefab, chatListParent);
+                    newChatResponse.SetMessage(message.content);
+                }
+
             }
         }
         else
