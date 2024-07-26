@@ -23027,9 +23027,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1790319697}
   playerMovement: {fileID: 1790319701}
-  carryPos: {fileID: 415686719}
   dragPos: {fileID: 1052967559}
   checkRadius: 2
+  heightOffset: 1
 --- !u!1 &1805444736
 GameObject:
   m_ObjectHideFlags: 0
