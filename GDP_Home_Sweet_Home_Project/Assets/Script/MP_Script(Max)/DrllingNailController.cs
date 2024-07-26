@@ -7,7 +7,6 @@ public class DrillingNailController : MonoBehaviour
     public Camera gameCamera;
     public LayerMask nailLayer;
 
-    // Add this field to reference the Game Manager
     public GameObject gameManager;
 
     private DrillingMiniGame drillingMiniGame;
