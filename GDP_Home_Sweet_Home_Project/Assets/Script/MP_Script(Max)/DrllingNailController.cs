@@ -10,8 +10,7 @@ public class DrillingNailController : MonoBehaviour
     public GameObject gameManager;
 
     private DrillingMiniGame drillingMiniGame;
-    public int currentClicks;
-    public float currentTimeClicked;
+    public float currentProgress;
 
     void Start()
     {
@@ -62,7 +61,6 @@ public class DrillingNailController : MonoBehaviour
     public void ResetCount()
     {
         Debug.Log("Reset count");
-        currentClicks = 0;
-        currentTimeClicked = 0;
+        currentProgress = 0;
     }
 }
