@@ -317,7 +317,7 @@ public class NailGame : MonoBehaviour
 
         oldChair.SetActive(false);
 
-        instantiatedChair = Instantiate(newChair, new Vector3(newChairPos.position.x, newChairPos.position.y - 1f, newChairPos.position.z), transform.rotation);
+        instantiatedChair = Instantiate(newChair, new Vector3(newChairPos.position.x, newChairPos.position.y, newChairPos.position.z), newChair.transform.rotation);
 
         yield return new WaitForSeconds(2f);
 

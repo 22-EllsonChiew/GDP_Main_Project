@@ -103,7 +103,7 @@ public class Interaction : MonoBehaviour
             mainCam.SetActive(false);
 
             Destroy(confirmedCollider.gameObject);
-            Instantiate(builtChair, confirmedCollider.gameObject.transform.position, Quaternion.Euler(0f, 180f, 0f));
+            Instantiate(builtChair, new Vector3(confirmedCollider.gameObject.transform.position.x, builtChair.transform.position.y, confirmedCollider.gameObject.transform.position.z), builtChair.transform.rotation);
 
         }
         //call function for minigame
