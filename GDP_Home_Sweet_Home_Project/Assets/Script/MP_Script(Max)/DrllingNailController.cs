@@ -29,7 +29,7 @@ public class DrillingNailController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Game Manager is not assigned.");
+            Debug.LogError("Game Manager is not assigned." + this.name);
         }
     }
 
