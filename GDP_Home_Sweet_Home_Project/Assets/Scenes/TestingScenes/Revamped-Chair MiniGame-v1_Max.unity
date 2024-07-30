@@ -2602,9 +2602,9 @@ GameObject:
   - component: {fileID: 7456963960399301995}
   - component: {fileID: 3575125397873176927}
   - component: {fileID: 7404908562730736388}
-  - component: {fileID: 7456963960399301996}
   - component: {fileID: 7456963960399301998}
   - component: {fileID: 7456963960399301997}
+  - component: {fileID: 7456963960399301999}
   m_Layer: 0
   m_Name: Chair_Leg_1
   m_TagString: Untagged
@@ -2733,9 +2733,9 @@ GameObject:
   - component: {fileID: 30641002696821775}
   - component: {fileID: 6674968878514048866}
   - component: {fileID: 4743074453692210111}
-  - component: {fileID: 6674968878514048867}
   - component: {fileID: 6674968878514048869}
   - component: {fileID: 6674968878514048868}
+  - component: {fileID: 6674968878514048870}
   m_Layer: 0
   m_Name: Chair_Leg_2
   m_TagString: Untagged
@@ -2751,23 +2751,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5847165396815726300}
   m_Mesh: {fileID: 4719177768313787800, guid: 764a2d72aa512544dafaafbe0fe4d695, type: 3}
---- !u!114 &6674968878514048867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5847165396815726300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3313ff04a8bdd4e90736bf265de1f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  hoverHeight: 1.5
-  targetSlot: NailSlot
 --- !u!54 &6674968878514048868
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2816,6 +2799,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0007787445, y: 0.0029381877, z: 0.002916611}
   m_Center: {x: 0.000035930865, y: 5.219977e-10, z: 0.0003767202}
+--- !u!114 &6674968878514048870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5847165396815726300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f82589792a28924c9fbde6c3422c5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  hoverHeight: 1.5
+  targetSlot: NailSlot
 --- !u!4 &7099114024269779406
 Transform:
   m_ObjectHideFlags: 0
@@ -2927,23 +2927,6 @@ Transform:
   - {fileID: 260925078}
   m_Father: {fileID: 255012775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7456963960399301996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593480541252158181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3313ff04a8bdd4e90736bf265de1f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  hoverHeight: 1.5
-  targetSlot: NailSlot
 --- !u!54 &7456963960399301997
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2992,6 +2975,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.00037173863, y: 0.0029381877, z: 0.0029221864}
   m_Center: {x: -0.0000000034086634, y: 5.2188925e-10, z: 0.00037734}
+--- !u!114 &7456963960399301999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593480541252158181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f82589792a28924c9fbde6c3422c5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  hoverHeight: 1.5
+  targetSlot: NailSlot
 --- !u!1 &7535101189610808181
 GameObject:
   m_ObjectHideFlags: 0
