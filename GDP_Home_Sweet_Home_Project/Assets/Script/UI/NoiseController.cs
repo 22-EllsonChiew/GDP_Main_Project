@@ -41,6 +41,7 @@ public class NoiseController : MonoBehaviour
     //public NailGame nailGameController;
     public PlayerMovement playerMovementController;
     public MovingFurniture movingFurnitureController;
+    public PackageRaycast packageRaycast;
 
     public static NoiseController instance;
 
@@ -65,33 +66,11 @@ public class NoiseController : MonoBehaviour
 
         NeighbourBoxCollider();
 
-        if (playerInSherrylSide && windowControllers.leftWindowIsClose())
-        {
-            if(Input.GetKeyUp(KeyCode.E))
-            {
-                MakeNoise(0.25f);
-                HandleNoise();
-            }
-            
-        }
-        else if(playerInSherrylSide && Input.GetKeyUp(KeyCode.E))
-        {
-            MakeNoise(0.55f);
-            HandleNoise();
-        }
-        
 
-        if(playerInHakimSide && windowControllers.rightWindowIsClose())
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyUp(KeyCode.E))
-            {
-                MakeNoise(0.25f);
-                HandleNoise();
-            }
-        }
-        else if (playerInHakimSide && Input.GetKeyUp(KeyCode.E))
-        {
-            MakeNoise(0.55f);
+            CheckIfPlayerInNeighboursSides();
+            //CheckIfPackageOnCarpet();
             HandleNoise();
         }
         
@@ -115,7 +94,7 @@ public class NoiseController : MonoBehaviour
             {
                 neighbourHakim.HeardNoise(noiseDecreaseRate);
             }
-            else if(playerInSherrylSide)
+            if(playerInSherrylSide)
             {
                 neighbourSheryl.HeardNoise(noiseDecreaseRate);
             }
@@ -136,5 +115,29 @@ public class NoiseController : MonoBehaviour
     {
         playerInSherrylSide = sherylSideCollider.bounds.Contains(player.position);
         playerInHakimSide = HakimSideCollider.bounds.Contains(player.position);
+    }
+
+    public void CheckIfPlayerInNeighboursSides()
+    {
+        if(playerInSherrylSide)
+        {
+            MakeNoise(windowControllers.leftWindowIsClose() ? 0.25f : 0.55f);
+        }
+        else if(playerInHakimSide)
+        {
+            MakeNoise(windowControllers.rightWindowIsClose() ? 0.25f : 0.55f);
+        }
+    }
+
+    public void CheckIfPackageOnCarpet()
+    {
+        if(playerInSherrylSide)
+        {
+            MakeNoise(packageRaycast.OnCarpet() ? 0.35f : 0.55f);
+        }
+        else if(playerInHakimSide)
+        {
+            MakeNoise(packageRaycast.OnCarpet() ? 0.35f : 0.55f);
+        }
     }
 }

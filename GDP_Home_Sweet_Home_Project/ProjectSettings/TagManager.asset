@@ -20,6 +20,7 @@ TagManager:
   - Nail
   - LoadingScreen
   - NeighbourInteractionCollider
+  - Carpet
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - Water
   - UI
   - Nails
-  - 
+  - Carpet
   - 
   - 
   - 
