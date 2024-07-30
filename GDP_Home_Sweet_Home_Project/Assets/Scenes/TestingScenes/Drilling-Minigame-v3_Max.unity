@@ -708,8 +708,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gameManager: {fileID: 1183819772}
-  currentClicks: 0
-  currentTimeClicked: 0
+  currentProgress: 0
 --- !u!1001 &617320370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1614,7 +1613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba94327b141d638439bb6f36bb26b29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicksNeeded: 5
   timeNeeded: 5
   noiseThreshold: 0.7
   noiseIncreaseRate: 0.1
@@ -1670,6 +1668,8 @@ MonoBehaviour:
   resetLeg:
     m_PersistentCalls:
       m_Calls: []
+  debugBuild: 0
+  shelfObject: {fileID: 2053331023}
 --- !u!82 &1183819777
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1903,8 +1903,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gameManager: {fileID: 1183819772}
-  currentClicks: 0
-  currentTimeClicked: 0
+  currentProgress: 0
 --- !u!1 &1510993445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,8 +2411,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gameManager: {fileID: 1183819772}
-  currentClicks: 0
-  currentTimeClicked: 0
+  currentProgress: 0
 --- !u!1001 &1869091710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2540,8 +2538,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gameManager: {fileID: 1183819772}
-  currentClicks: 0
-  currentTimeClicked: 0
+  currentProgress: 0
 --- !u!1 &2019534887
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,6 +43,9 @@ public class DrillingMiniGame : MonoBehaviour
     public UnityEvent<bool> taskCompleted;
     public UnityEvent resetLeg;
 
+    public bool debugBuild = false;
+    public GameObject shelfObject;
+
     void Start()
     {
         noise.maxValue = noiseThreshold;
@@ -95,7 +98,11 @@ public class DrillingMiniGame : MonoBehaviour
             currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
             noise.value = (noiseThreshold != 0f) ? currentNoise / noiseThreshold : 0f;
             fill.color = gradient.Evaluate(currentNoise);
-            Debug.Log(currentTimeHeld);
+            //Debug.Log(currentTimeHeld);
+            GameObject[] nails = GameObject.FindGameObjectsWithTag("Nail");
+            Debug.Log("Nails left = " + nails.Length);
+
+            CheckDebugBuild();
         }
     }
 
@@ -136,7 +143,7 @@ public class DrillingMiniGame : MonoBehaviour
 
         // Check if all nails are drilled in
         GameObject[] nails = GameObject.FindGameObjectsWithTag("Nail");
-        if (nails.Length == 0)
+        if (nails.Length == 1)
         {
             BuildObject();
         }
@@ -158,10 +165,42 @@ public class DrillingMiniGame : MonoBehaviour
         }
     }
 
-    void BuildObject()
+    void CheckDebugBuild()
     {
-        StartCoroutine(DestroyDelay());
+        if (debugBuild)
+        {
+            BuildObject();
+            debugBuild = false; // Reset the debugBuild flag
+        }
+    }
+
+        void BuildObject()
+    {
+        Debug.Log("BUILDING");
+        //StartCoroutine(DestroyDelay());
+        StartCoroutine(RotatingNew());
         taskCompleted.Invoke(true);
+    }
+
+    IEnumerator RotatingNew()
+    {
+        //yield return new WaitForSeconds(2f);
+        //determining rotation for object
+        Quaternion targetRotation = Quaternion.Euler(-36.897f, 0f, 0f);
+        //determining position for object
+        Vector3 startPosition = shelfObject.transform.position;
+        Vector3 targetPosition = startPosition + Vector3.up * 1f;
+        float elapsedTime = 0f;
+        float rotationTime = 3f;
+
+        while (elapsedTime < rotationTime)
+        {
+            //lerp rotation and position of shelfObject
+            shelfObject.transform.rotation = Quaternion.Lerp(shelfObject.transform.rotation, targetRotation, elapsedTime / rotationTime);
+            shelfObject.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / rotationTime); 
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 
     IEnumerator DestroyDelay()
@@ -181,7 +220,7 @@ public class DrillingMiniGame : MonoBehaviour
 
         oldChair.SetActive(false);
 
-        var instantiatedChair = Instantiate(newChair, new Vector3(newChairPos.position.x, newChairPos.position.y - 1f, newChairPos.position.z), transform.rotation);
+        var instantiatedChair = Instantiate(newChair, new Vector3(newChairPos.position.x, newChairPos.position.y, newChairPos.position.z), transform.rotation);
 
         yield return new WaitForSeconds(2f);
 
