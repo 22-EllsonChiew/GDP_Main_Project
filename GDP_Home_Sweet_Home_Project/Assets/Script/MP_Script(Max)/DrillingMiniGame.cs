@@ -35,7 +35,9 @@ public class DrillingMiniGame : MonoBehaviour
     public AudioSource drillingAudio;
     public AudioClip drillSound;
 
-    public Camera mainCam;
+    public GameObject mainCam;
+    public GameObject miniGameCam;
+    public Camera camRay;
     public LayerMask nailLayer;
 
     private Transform newChairPos;
@@ -46,9 +48,18 @@ public class DrillingMiniGame : MonoBehaviour
     public bool debugBuild = false;
     public GameObject shelfObject;
 
+    [Header("Noise Controller")]
+    public NoiseController noiseController;
+
+    private float maxNoiseIncreaseRate = 0.2f; // Maximum rate of noise increase
+    private float holdTime = 0f; // Time the button is held
+
+
     void Start()
     {
-        noise.maxValue = noiseThreshold;
+        miniGameCam.SetActive(false);
+
+        //noise.maxValue = noiseThreshold;
 
         drillingAudio = GetComponent<AudioSource>();
         drillingAudio.clip = drillSound;
@@ -60,7 +71,7 @@ public class DrillingMiniGame : MonoBehaviour
     {
         if (isMinigameActive)
         {
-            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = camRay.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))
@@ -71,22 +82,33 @@ public class DrillingMiniGame : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     drillingAudio.Play();
+                    holdTime = 0f;
+
                 }
 
                 if (Input.GetMouseButton(0))
                 {
+                    holdTime += Time.deltaTime;
+
+                    float noiseLevel = Mathf.Lerp(noiseIncreaseRate, maxNoiseIncreaseRate, holdTime);
+                    noiseController.MakeNoise(noiseLevel);
+                    noiseController.HandleNoise();
+
                     HandleHoldClick();
+
                 }
 
                 if (Input.GetMouseButtonUp(0))
                 {
                     drillingAudio.Stop();
+                    holdTime = 0f;
+
                 }
 
                 // Update the progress slider
                 if (currentNail != null)
                 {
-                    progress.value = currentNail.currentProgress;
+                    //progress.value = currentNail.currentProgress;
                 }
             }
             else
@@ -95,9 +117,9 @@ public class DrillingMiniGame : MonoBehaviour
                 Cursor.visible = true;
             }
 
-            currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
+            /*currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
             noise.value = (noiseThreshold != 0f) ? currentNoise / noiseThreshold : 0f;
-            fill.color = gradient.Evaluate(currentNoise);
+            fill.color = gradient.Evaluate(currentNoise);*/
             //Debug.Log(currentTimeHeld);
             GameObject[] nails = GameObject.FindGameObjectsWithTag("Nail");
             Debug.Log("Nails left = " + nails.Length);
@@ -118,6 +140,10 @@ public class DrillingMiniGame : MonoBehaviour
         isMinigameActive = true;
         currentNail = nailPrefab.GetComponent<DrillingNailController>();
         minigameUI.SetActive(true);
+
+        miniGameCam.SetActive(true);
+        mainCam.SetActive(false);
+        
 
         Debug.Log("Minigame started");
 
@@ -140,6 +166,9 @@ public class DrillingMiniGame : MonoBehaviour
         Cursor.visible = true;
 
         Debug.Log("Minigame ended");
+
+        //miniGameCam.SetActive(false);
+        //mainCam.SetActive(true);
 
         // Check if all nails are drilled in
         GameObject[] nails = GameObject.FindGameObjectsWithTag("Nail");
@@ -201,6 +230,9 @@ public class DrillingMiniGame : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
+        miniGameCam.SetActive(false);
+        mainCam.SetActive(true);
     }
 
     IEnumerator DestroyDelay()
@@ -236,7 +268,7 @@ public class DrillingMiniGame : MonoBehaviour
     {
         if (!isMinigameActive)
         {
-            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = camRay.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))

@@ -10,6 +10,7 @@ public class DrillingNailController : MonoBehaviour
     public GameObject gameManager;
 
     private DrillingMiniGame drillingMiniGame;
+    public NoiseController noiseController;
     public float currentProgress;
 
     void Start()
@@ -48,6 +49,8 @@ public class DrillingNailController : MonoBehaviour
                     {
                         Debug.Log("Starting Minigame...");
                         drillingMiniGame.StartMinigame(gameObject);
+                        //noiseController.MakeNoise(0.1f);
+                        //noiseController.HandleNoise();
                     }
                     else
                     {
