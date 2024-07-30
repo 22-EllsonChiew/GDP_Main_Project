@@ -15,6 +15,7 @@ public class NailObjectController : MonoBehaviour
 
     public NoiseController noiseController;
     public WindowController windowControllers;
+    public PackageRaycast packageRaycast;
 
     // Start is called before the first frame update
     void Start()
@@ -40,18 +41,37 @@ public class NailObjectController : MonoBehaviour
                 {
                     gameStart.Invoke(gameObject);
                     Debug.Log("Starting Hammering");
-                    
 
-                    if(windowControllers.rightWindowIsClose() || windowControllers.leftWindowIsClose())
+
+                    /*if(windowControllers.rightWindowIsClose() || windowControllers.leftWindowIsClose())
                     {
-                        noiseController.MakeNoise(0.25f);
+
+                        if(packageRaycast.OnCarpet())
+                        {
+                            Debug.Log("building on carpet with window close");
+                            noiseController.MakeNoise(0.20f);
+                           
+                        }
+                        else
+                        {
+                            noiseController.MakeNoise(0.35f);
+                            
+                        }
+                        noiseController.HandleNoise();
+                    }
+                    else if(packageRaycast.OnCarpet())
+                    {
+                        Debug.Log("On Carpet but window is open");
+                        noiseController.MakeNoise(0.40f);
                         noiseController.HandleNoise();
                     }
                     else
                     {
                         noiseController.MakeNoise(0.55f);
                         noiseController.HandleNoise();
-                    }
+                    }*/
+
+                    HammeringNoise();
 
                 }
             }
@@ -63,6 +83,38 @@ public class NailObjectController : MonoBehaviour
     {
         Debug.Log("Reset count");
         currentClicks = 0;
+    }
+
+
+    public void HammeringNoise()
+    {
+        if (windowControllers.rightWindowIsClose() || windowControllers.leftWindowIsClose())
+        {
+
+            if (packageRaycast.OnCarpet())
+            {
+                Debug.Log("building on carpet with window close");
+                noiseController.MakeNoise(0.20f);
+
+            }
+            else
+            {
+                noiseController.MakeNoise(0.35f);
+
+            }
+            noiseController.HandleNoise();
+        }
+        else if (packageRaycast.OnCarpet())
+        {
+            Debug.Log("On Carpet but window is open");
+            noiseController.MakeNoise(0.40f);
+            noiseController.HandleNoise();
+        }
+        else
+        {
+            noiseController.MakeNoise(0.55f);
+            noiseController.HandleNoise();
+        }
     }
 
 
