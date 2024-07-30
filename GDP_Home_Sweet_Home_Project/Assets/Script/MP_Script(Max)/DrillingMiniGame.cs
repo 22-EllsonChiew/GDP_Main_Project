@@ -95,7 +95,9 @@ public class DrillingMiniGame : MonoBehaviour
             currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
             noise.value = (noiseThreshold != 0f) ? currentNoise / noiseThreshold : 0f;
             fill.color = gradient.Evaluate(currentNoise);
-            Debug.Log(currentTimeHeld);
+            //Debug.Log(currentTimeHeld);
+            GameObject[] nails = GameObject.FindGameObjectsWithTag("Nail");
+            Debug.Log("Nails left = " + nails.Length);
         }
     }
 
@@ -136,7 +138,7 @@ public class DrillingMiniGame : MonoBehaviour
 
         // Check if all nails are drilled in
         GameObject[] nails = GameObject.FindGameObjectsWithTag("Nail");
-        if (nails.Length == 0)
+        if (nails.Length == 1)
         {
             BuildObject();
         }
@@ -160,6 +162,7 @@ public class DrillingMiniGame : MonoBehaviour
 
     void BuildObject()
     {
+        Debug.Log("BUILDING");
         StartCoroutine(DestroyDelay());
         taskCompleted.Invoke(true);
     }
