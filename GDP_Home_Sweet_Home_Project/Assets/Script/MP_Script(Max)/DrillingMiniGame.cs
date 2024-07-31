@@ -96,6 +96,7 @@ public class DrillingMiniGame : MonoBehaviour
                     HandleHoldClick();
                     if (screenShake != null)
                     {
+                        //trigger camera shake
                         screenShake.TriggerShake();
                     }
                 }
