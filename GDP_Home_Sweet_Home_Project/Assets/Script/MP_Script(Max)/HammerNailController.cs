@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrillingNailController : MonoBehaviour
+public class HammerNailController : MonoBehaviour
 {
     public Camera gameCamera;
     public LayerMask nailLayer;
 
     public GameObject gameManager;
 
-    private DrillingMiniGame drillingMiniGame;
-    public NoiseController noiseController;
+    private RevampedNailGame hammerMiniGame;
     public float currentProgress;
     public int currentClicks;
 
@@ -19,8 +18,8 @@ public class DrillingNailController : MonoBehaviour
         if (gameManager != null)
         {
             Debug.Log("Game Manager assigned: " + gameManager.name);
-            drillingMiniGame = gameManager.GetComponent<DrillingMiniGame>();
-            if (drillingMiniGame == null)
+            hammerMiniGame = gameManager.GetComponent<RevampedNailGame>();
+            if (hammerMiniGame == null)
             {
                 Debug.LogError("DrillingMiniGame component not found on Game Manager.");
             }
@@ -47,12 +46,10 @@ public class DrillingNailController : MonoBehaviour
                 if (hit.collider != null && hit.collider.gameObject == gameObject)
                 {
                     Debug.Log("Hit smth");
-                    if (drillingMiniGame != null)
+                    if (hammerMiniGame != null)
                     {
                         Debug.Log("Starting Minigame...");
-                        drillingMiniGame.StartMinigame(gameObject);
-                        //noiseController.MakeNoise(0.1f);
-                        //noiseController.HandleNoise();
+                        hammerMiniGame.StartMinigame(gameObject);
                     }
                     else
                     {
