@@ -7,8 +7,10 @@ public class RevampedNailGame : MonoBehaviour
 {
     public int timeNeeded = 5;
     private float currentTimeHeld = 0f;
+    //number of clicks for each nail
     public int clicksNeeded = 5;
     private int currentClicks = 0;
+    //number of nails needed to be hit into place
     public int nailsNeeded = 4;
     private int currentNails = 0;
 
@@ -19,7 +21,7 @@ public class RevampedNailGame : MonoBehaviour
     public float noiseDecreaseRate;
 
     public bool isMinigameActive = false;
-
+    //the hammer sprite cursor
     public UICursor uiCursor;
 
     public GameObject minigameUI;
@@ -47,6 +49,8 @@ public class RevampedNailGame : MonoBehaviour
     public bool debugBuild = false;
     public GameObject chairObject;
 
+    public ScreenShake screenShake;
+    public float downwardIncrement = 0.05f;
     void Start()
     {
         noise.maxValue = noiseThreshold;
@@ -55,6 +59,20 @@ public class RevampedNailGame : MonoBehaviour
         hammerAudio.clip = hammerSound;
 
         //newChairPos = oldChair.transform;
+        GameObject minigameCameraObject = GameObject.FindWithTag("MinigameCam");
+        if (minigameCameraObject != null)
+        {
+            screenShake = minigameCameraObject.GetComponent<ScreenShake>();
+
+            if (screenShake == null)
+            {
+                Debug.LogError("ScreenShake component not found on the MinigameCam.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Camera with tag 'MinigameCam' not found.");
+        }
     }
 
     void Update()
@@ -78,9 +96,14 @@ public class RevampedNailGame : MonoBehaviour
                 }
                 if (Input.GetMouseButtonDown(0))
                 {
+                    screenShake.EnableShake(true);
                     Debug.Log("GOES INTO UPDATE");
                     hammerAudio.PlayOneShot(hammerSound);
                     HandleClick();
+                    if (screenShake != null)
+                    {
+                        screenShake.TriggerShake();
+                    }
                 }
 
                 // Update the progress slider
@@ -154,10 +177,14 @@ public class RevampedNailGame : MonoBehaviour
         Debug.Log("GOES INTO HANDLECLICK()");
         if (currentClicks < clicksNeeded)
         {
+            //have the nail go downward a certain amount everytime it is hit
+            currentNail.transform.position -= new Vector3(0, downwardIncrement, 0);
+            //every click increments currentClicks
             currentNail.GetComponent<HammerNailController>().currentClicks++;
+            //acts as an animation for hammering in nails
             StartCoroutine(HammerRotation());
         }
-
+        //when currentClicks is more than or equal to the clicks needed, ends minigame for that nail
         if (currentClicks >= clicksNeeded)
         {
             currentNails++;
@@ -167,6 +194,7 @@ public class RevampedNailGame : MonoBehaviour
 
     IEnumerator HammerRotation()
     {
+        //rotates hammer sprite by 45 to simulate knocking and snap it back to original rotation
         Quaternion originalRotation = uiCursor.transform.rotation;
         Quaternion targetRotation = Quaternion.Euler(0f, 0f, 45f);
         float timeElapsed = 0f;
@@ -220,6 +248,7 @@ public class RevampedNailGame : MonoBehaviour
         //determining position for object
         Vector3 startPosition = chairObject.transform.position;
         Vector3 targetPosition = startPosition + Vector3.up * 1f;
+        //determine position of camera for lerping
         Vector3 currentCamPosition = mainCam.transform.position;
         Vector3 newCamPosition = currentCamPosition + (Vector3.back * 2f) + (Vector3.up * 1f);
         float elapsedTime = 0f;
@@ -232,6 +261,7 @@ public class RevampedNailGame : MonoBehaviour
             chairObject.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / rotationTime);
             elapsedTime += Time.deltaTime;
             yield return null;
+            //lerp position of the camera to go backward
             mainCam.transform.position = Vector3.Lerp(currentCamPosition, newCamPosition, elapsedTime / rotationTime);
         }
     }
