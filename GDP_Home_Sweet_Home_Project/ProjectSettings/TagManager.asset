@@ -21,6 +21,7 @@ TagManager:
   - LoadingScreen
   - NeighbourInteractionCollider
   - Carpet
+  - Drilling
   layers:
   - Default
   - TransparentFX

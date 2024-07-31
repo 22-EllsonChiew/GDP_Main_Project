@@ -14,8 +14,12 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject ChestUI;
     public Animator animator;
 
+    [Header("Camera")]
     public GameObject mainCam;
     public GameObject minigameCam;
+
+    [SerializeField] private GameObject mainCamera;
+    [SerializeField] private GameObject miniGameCamDrill;
 
     public GameObject builtChair;
 
@@ -25,6 +29,8 @@ public class Interaction : MonoBehaviour
     public bool CanInteractWithNeighbour {  get; private set; }
 
     public UnityEvent<bool> isGameStarting;
+
+    [SerializeField] private string tagName;
 
 
     private void Start()
@@ -83,7 +89,12 @@ public class Interaction : MonoBehaviour
             ChestUI.SetActive(true);
             animator.SetTrigger("chestOpen");
         }
-
+        if(other.CompareTag(tagName) && Input.GetKey(KeyCode.E))
+        {
+            confirmationWindow.gameObject.SetActive(true);
+            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClickedDrillGame(other)); ;
+            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+        }
         
 
         currentCollider = other;
@@ -107,6 +118,20 @@ public class Interaction : MonoBehaviour
 
         }
         //call function for minigame
+    }
+
+    private void ConfirmClickedDrillGame(Collider drillConfirmedCollider)
+    {
+        confirmationWindow.gameObject.SetActive(false);
+
+        if(drillConfirmedCollider != null)
+        {
+            mainCamera.SetActive(false);
+            miniGameCamDrill.SetActive(true);
+
+            Destroy(drillConfirmedCollider.gameObject);
+
+        }
     }
 
     private void ExitClicked()
