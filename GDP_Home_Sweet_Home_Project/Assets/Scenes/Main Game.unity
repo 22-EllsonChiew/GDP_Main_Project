@@ -2310,9 +2310,9 @@ Transform:
   m_GameObject: {fileID: 197020504}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.8, y: -1.2665906, z: 5.5}
-  m_LocalScale: {x: 10.21, y: 10.21, z: 10.21}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 10.38, y: -4.99, z: -24.32}
+  m_LocalScale: {x: 2.29, y: 2.29, z: 2.29}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1402697500}
   - {fileID: 1456575349}
@@ -12733,10 +12733,10 @@ MonoBehaviour:
   HakimCamHolder: {fileID: 1402697500}
   sherrylOutsideCamHolder: {fileID: 334040274}
   HakimOutsideCamHolder: {fileID: 1456575349}
-  HakimneighbourOffSet: {x: -8.5, y: 5.68, z: 12}
+  HakimneighbourOffSet: {x: -1.55, y: 4.96, z: 3.08}
   neighbourHeighValue: 5
   rotationOffset: {x: 10, y: 0, z: 0}
-  sherrylOffset: {x: 8, y: 5.68, z: 12}
+  sherrylOffset: {x: 2.18, y: 5.57, z: 3.08}
   HakimOutsideCamHolderOffset: {x: 0, y: 0, z: 0}
   SherrylOutsideCamHolderOffset: {x: 0, y: 0, z: 0}
   rotationOutsideOffset: {x: 0, y: 0, z: 0}
@@ -23467,7 +23467,7 @@ Transform:
   m_GameObject: {fileID: 1493673120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.97, y: 0.2, z: 0.25}
+  m_LocalPosition: {x: 0.97, y: 0.2, z: -0.023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25470,6 +25470,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -4680316273888602709, guid: 8cd54236b9563994ea5c316f6bf1f41c, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 97e1a763f27a58040a4b6453d9a5d787, type: 2}
+    - target: {fileID: -4680316273888602709, guid: 8cd54236b9563994ea5c316f6bf1f41c, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 97e1a763f27a58040a4b6453d9a5d787, type: 2}
     - target: {fileID: -3985865724252050623, guid: 8cd54236b9563994ea5c316f6bf1f41c, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -25485,6 +25493,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8cd54236b9563994ea5c316f6bf1f41c, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037904977850342832, guid: 8cd54236b9563994ea5c316f6bf1f41c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.529
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037904977850342832, guid: 8cd54236b9563994ea5c316f6bf1f41c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.362
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037904977850342832, guid: 8cd54236b9563994ea5c316f6bf1f41c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.106
       objectReference: {fileID: 0}
     - target: {fileID: 7699299651279224875, guid: 8cd54236b9563994ea5c316f6bf1f41c, type: 3}
       propertyPath: m_Layer
