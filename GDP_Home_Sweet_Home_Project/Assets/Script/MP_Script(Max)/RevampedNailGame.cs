@@ -170,7 +170,7 @@ public class RevampedNailGame : MonoBehaviour
         Quaternion originalRotation = uiCursor.transform.rotation;
         Quaternion targetRotation = Quaternion.Euler(0f, 0f, 45f);
         float timeElapsed = 0f;
-        float hammerRotationTime = 0.3f;
+        float hammerRotationTime = 0.2f;
         while (timeElapsed < hammerRotationTime)
         {
             timeElapsed += Time.deltaTime;
