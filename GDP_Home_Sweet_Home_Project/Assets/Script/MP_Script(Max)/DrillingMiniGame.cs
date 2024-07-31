@@ -190,6 +190,8 @@ public class DrillingMiniGame : MonoBehaviour
         //determining position for object
         Vector3 startPosition = shelfObject.transform.position;
         Vector3 targetPosition = startPosition + Vector3.up * 1f;
+        Vector3 currentCamPosition = mainCam.transform.position;
+        Vector3 newCamPosition = currentCamPosition + (Vector3.back * 2f) + (Vector3.up * 1f);
         float elapsedTime = 0f;
         float rotationTime = 3f;
 
@@ -200,6 +202,7 @@ public class DrillingMiniGame : MonoBehaviour
             shelfObject.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / rotationTime); 
             elapsedTime += Time.deltaTime;
             yield return null;
+            mainCam.transform.position = Vector3.Lerp(currentCamPosition, newCamPosition, elapsedTime / rotationTime);
         }
     }
 

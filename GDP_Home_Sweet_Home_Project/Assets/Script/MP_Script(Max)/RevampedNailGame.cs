@@ -31,9 +31,6 @@ public class RevampedNailGame : MonoBehaviour
     public Image fill;
     public Gradient gradient;
 
-    public GameObject oldChair;
-    public GameObject newChair;
-
     private HammerNailController currentNail;
 
     public AudioSource hammerAudio;
@@ -201,7 +198,6 @@ public class RevampedNailGame : MonoBehaviour
     void BuildObject()
     {
         Debug.Log("BUILDING");
-        //StartCoroutine(DestroyDelay());
         StartCoroutine(RotatingNew());
         taskCompleted.Invoke(true);
     }
@@ -210,7 +206,7 @@ public class RevampedNailGame : MonoBehaviour
     {
         //yield return new WaitForSeconds(2f);
         //determining rotation for object
-        Quaternion targetRotation = Quaternion.Euler(180f, 0f, 0f);
+        Quaternion targetRotation = Quaternion.Euler(200f, 0f, 0f);
         //determining position for object
         Vector3 startPosition = chairObject.transform.position;
         Vector3 targetPosition = startPosition + Vector3.up * 1f;
@@ -228,35 +224,6 @@ public class RevampedNailGame : MonoBehaviour
             yield return null;
             mainCam.transform.position = Vector3.Lerp(currentCamPosition, newCamPosition, elapsedTime / rotationTime);
         }
-    }
-
-    IEnumerator DestroyDelay()
-    {
-        yield return new WaitForSeconds(1.25f);
-
-        Quaternion targetRotation = Quaternion.Euler(0f, 0f, 180f);
-        float elapsedTime = 0f;
-        float rotationTime = 2f;
-
-        while (elapsedTime < rotationTime)
-        {
-            oldChair.transform.rotation = Quaternion.Lerp(oldChair.transform.rotation, targetRotation, elapsedTime / rotationTime);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        oldChair.SetActive(false);
-
-        var instantiatedChair = Instantiate(newChair, new Vector3(newChairPos.position.x, newChairPos.position.y, newChairPos.position.z), transform.rotation);
-
-        yield return new WaitForSeconds(2f);
-
-        Destroy(instantiatedChair);
-
-        oldChair.SetActive(true);
-        oldChair.transform.rotation = Quaternion.identity;
-
-        resetLeg.Invoke();
     }
 
     void OnMouseDown()
