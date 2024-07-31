@@ -77,7 +77,7 @@ public class ChairMiniGame : MonoBehaviour
                 if (col.gameObject.CompareTag(targetSlot))
                 {
                     //EDIT TO ACCOMODATE FOR Z AXIS POSITION 
-                    Vector3 snapPosition = col.transform.position + Vector3.up * 1.1f;
+                    Vector3 snapPosition = col.transform.position;
                     transform.position = snapPosition;
                     transform.rotation = Quaternion.identity * Quaternion.Euler(70, 0, 0);
                     transform.SetParent(col.transform);

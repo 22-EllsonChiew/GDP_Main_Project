@@ -44,6 +44,7 @@ public class DrillingNailController : MonoBehaviour
             {
                 if (hit.collider != null && hit.collider.gameObject == gameObject)
                 {
+                    Debug.Log("Hit smth");
                     if (drillingMiniGame != null)
                     {
                         Debug.Log("Starting Minigame...");
