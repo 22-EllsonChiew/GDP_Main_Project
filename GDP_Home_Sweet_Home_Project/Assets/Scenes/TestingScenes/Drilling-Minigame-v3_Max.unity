@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 525000632}
   - component: {fileID: 525000631}
   - component: {fileID: 525000630}
+  - component: {fileID: 525000633}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MinigameCam
@@ -582,6 +583,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 68.95, y: 0, z: 0}
+--- !u!114 &525000633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525000629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009822373eeef07458456a98125781f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0.1
+  shakeAmount: 0.05
+  decreaseFactor: 1
 --- !u!1001 &555271632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,6 +725,7 @@ MonoBehaviour:
     m_Bits: 64
   gameManager: {fileID: 1183819772}
   currentProgress: 0
+  currentClicks: 0
 --- !u!1001 &617320370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1670,6 +1687,8 @@ MonoBehaviour:
       m_Calls: []
   debugBuild: 0
   shelfObject: {fileID: 2053331023}
+  screenShake: {fileID: 525000633}
+  downwardIncrement: 0.05
 --- !u!82 &1183819777
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1904,6 +1923,7 @@ MonoBehaviour:
     m_Bits: 64
   gameManager: {fileID: 1183819772}
   currentProgress: 0
+  currentClicks: 0
 --- !u!1 &1510993445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,6 +2432,7 @@ MonoBehaviour:
     m_Bits: 64
   gameManager: {fileID: 1183819772}
   currentProgress: 0
+  currentClicks: 0
 --- !u!1001 &1869091710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2539,6 +2560,7 @@ MonoBehaviour:
     m_Bits: 64
   gameManager: {fileID: 1183819772}
   currentProgress: 0
+  currentClicks: 0
 --- !u!1 &2019534887
 GameObject:
   m_ObjectHideFlags: 0

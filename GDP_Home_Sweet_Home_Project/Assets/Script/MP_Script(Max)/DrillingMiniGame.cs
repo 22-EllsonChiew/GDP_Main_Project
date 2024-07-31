@@ -46,6 +46,8 @@ public class DrillingMiniGame : MonoBehaviour
     public bool debugBuild = false;
     public GameObject shelfObject;
 
+    public ScreenShake screenShake;
+    public float downwardIncrement = 0.05f;
     void Start()
     {
         noise.maxValue = noiseThreshold;
@@ -54,6 +56,21 @@ public class DrillingMiniGame : MonoBehaviour
         drillingAudio.clip = drillSound;
 
         newChairPos = oldChair.transform;
+
+        GameObject minigameCameraObject = GameObject.FindWithTag("MinigameCam");
+        if (minigameCameraObject != null)
+        {
+            screenShake = minigameCameraObject.GetComponent<ScreenShake>();
+
+            if (screenShake == null)
+            {
+                Debug.LogError("ScreenShake component not found on the MinigameCam.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Camera with tag 'MinigameCam' not found.");
+        }
     }
 
     void Update()
@@ -71,11 +88,16 @@ public class DrillingMiniGame : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     drillingAudio.Play();
+                    screenShake.EnableShake(true);
                 }
 
                 if (Input.GetMouseButton(0))
                 {
                     HandleHoldClick();
+                    if (screenShake != null)
+                    {
+                        screenShake.TriggerShake();
+                    }
                 }
 
                 if (Input.GetMouseButtonUp(0))
