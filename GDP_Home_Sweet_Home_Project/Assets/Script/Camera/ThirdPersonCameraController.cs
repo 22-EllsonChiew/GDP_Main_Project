@@ -6,15 +6,28 @@ public class ThirdPersonCameraController : MonoBehaviour
 {
 
     public NeighbourUIController neighbourUI;
-
+    [Header("Player Camera")]
     [SerializeField] private Transform player;
     [SerializeField] private Vector3 offset;
     [SerializeField] private float heightValue;
     [SerializeField] private Vector3 playerRotationOffset;
 
+    [SerializeField] private Transform playerSecondaryCamHolder;
+    [SerializeField] private Vector3 secondaryOffset;
+    [SerializeField] private Vector3 playerSecondaryRotationOffset;
+    [SerializeField] private float heightValueSecondary;
 
-
+    private bool playerWalkOutOfHouse = false;
+    private bool playerInsideHouse = true;
     
+    private bool playerInHouseCamOn = false;
+
+    public BoxCollider playerCorridor;
+    public BoxCollider playerHousing;
+
+
+
+
     public float pLerp = 1f;
     public float rLerp = .04f;
     
@@ -24,6 +37,8 @@ public class ThirdPersonCameraController : MonoBehaviour
     private bool neighbourEndConvo = false;
 
     public float cameraForwardOffset = 0f;
+
+    
 
     [Header("Neighbour")]
     public BoxCollider SherrylNeighbourBox;
@@ -67,8 +82,7 @@ public class ThirdPersonCameraController : MonoBehaviour
     }
     void Update()
     {
-        playerInSherrylNeighbourBox = SherrylNeighbourBox.bounds.Contains(player.position);
-        playerInHakimNeighbourBox = HakimNeighbourBox.bounds.Contains(player.position);
+        BoxCollider();
 
         if ((playerInSherrylNeighbourBox || playerInHakimNeighbourBox) && Input.GetKeyDown(KeyCode.E))
         {
@@ -154,24 +168,15 @@ public class ThirdPersonCameraController : MonoBehaviour
             transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
         }
 
-
-        /*if (playerInSherrylNeighbourBox)
+       else if(playerWalkOutOfHouse)
         {
-            //set the camera to the position of sherryl camera holder position
-            transform.position = sherrylOutsideCamHolder.position - SherrylOutsideCamHolderOffset + Vector3.up * neighbourHeighValue;
-            //transform.rotation = SherrylCamHolder.rotation * rotationOffset;
-            transform.rotation = Quaternion.Euler(rotationOutsideOffset); //set the rotation of the camera, can be change in the inspector
+            transform.position = player.position - secondaryOffset + Vector3.up * heightValueSecondary;
+            transform.rotation = Quaternion.Euler(playerSecondaryRotationOffset);
+            playerInsideHouse = false;
 
-
+            
         }
-        else if (playerInHakimNeighbourBox)
-        {
-            //set the camera to the position of hakim camera holder position
-            transform.position = HakimOutsideCamHolder.position - HakimOutsideCamHolderOffset + Vector3.up * neighbourHeighValue;
-            //transform.rotation = HakimCamHolder.rotation * rotationOffset;
-            transform.rotation = Quaternion.Euler(rotationOutsideOffset); //set the rotation of the camera, can be change in the inspector
-        }*/
-
+       
 
         else if (neighbourEndConvo || isInsideSherrylCollider == false || isInsidHakimCollider == false)
         {
@@ -186,6 +191,15 @@ public class ThirdPersonCameraController : MonoBehaviour
         
     
         //transform.position = player.position - offset + Vector3.up * heightValue;
+
+    }
+
+    public void BoxCollider()
+    {
+        playerInSherrylNeighbourBox = SherrylNeighbourBox.bounds.Contains(player.position);
+        playerInHakimNeighbourBox = HakimNeighbourBox.bounds.Contains(player.position);
+        playerWalkOutOfHouse = playerCorridor.bounds.Contains(player.position);
+        playerInsideHouse = playerHousing.bounds.Contains(player.position);
 
     }
 }
