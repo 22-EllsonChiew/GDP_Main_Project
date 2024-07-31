@@ -67,26 +67,21 @@ public class RevampedNailGame : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))
             {
-                //Debug.Log("SHOWS CURSOR");
-                //Cursor.visible = false;
-                //uiCursor.ShowCursor();
-
+                if (uiCursor != null)
+                {
+                    //Cursor.visible = false;
+                    uiCursor.ShowCursor();
+                }
+                else
+                {
+                    Debug.LogError("uiCursor is not assigned.");
+                }
                 if (Input.GetMouseButtonDown(0))
                 {
                     Debug.Log("GOES INTO UPDATE");
                     hammerAudio.PlayOneShot(hammerSound);
                     HandleClick();
                 }
-
-                //if (Input.GetMouseButton(0))
-                //{
-                //    HandleHoldClick();
-                //}
-
-                //if (Input.GetMouseButtonUp(0))
-                //{
-                //    hammerAudio.Stop();
-                //}
 
                 // Update the progress slider
                 if (currentNail != null)
