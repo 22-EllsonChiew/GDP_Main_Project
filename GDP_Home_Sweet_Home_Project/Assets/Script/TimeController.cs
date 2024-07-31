@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,25 +12,9 @@ public class TimeController : MonoBehaviour
 
     public static int Minute { get; private set; }
     public static int Hour { get; private set; }
-    public static int CurrentDay { get; private set; }
-
-    public static bool isPaused { get; private set; }
 
     private float minuteToRealTime = 0.75f;
     private float timer;
-
-    [SerializeField]
-    private int endDay;
-
-    [SerializeField]
-    private int startHour;
-    [SerializeField]
-    private int startMinute;
-
-    [SerializeField]
-    private int midHour;
-    [SerializeField]
-    private int midMinute;
 
     [SerializeField]
     private float endHour;
@@ -68,9 +51,9 @@ public class TimeController : MonoBehaviour
     
     void Start()
     {
-        CurrentDay = 1;
-        SetTime(startHour, startMinute);
-        isPaused = false;
+        DayTime();
+        isNight = false;
+        isNight = true;
         LoadingScreenObj.SetActive(false);
     }
 
@@ -80,8 +63,10 @@ public class TimeController : MonoBehaviour
     void Update()
     {
        
-        HandleTime();
+        DayTimmerController();
         
+       
+
     }
 
     private void UpdateDirectionalLight()
@@ -115,171 +100,118 @@ public class TimeController : MonoBehaviour
         UpdateDirectionalLight();
     }
 
-
-    private void SetTime(int hour, int minute)
+    private void DayTime()
     {
-        Minute = minute;
-        Hour = hour;
+        Minute = 00;
+        Hour = 06;
 
         UpdateDirectionalLight();
     }
 
-    private void HandleTime()
+    private void NightTimmerController()
     {
+        // Check if the current time matches the specified end hour and minute
         if (Hour == endHour && Minute == endMinute)
         {
-            if (CurrentDay == endDay)
-            {
-                Debug.Log("Total game days reached!");
-                // move to end scene
-                // housewarming party!
-            }
-
-            Debug.Log("Day finished");
-            // load into day end scene
-            // possibly make use of dream scene here
+            // Log a message indicating it's sleep time
+            Debug.Log("Sleep time");
+            // Load the scene named "Sleep Scene"
+            SceneManager.LoadScene("Sleep Scene");
         }
-        else if (!isPaused)
+        else
         {
+            // Decrease the timer by the time elapsed since the last frame
             timer -= Time.deltaTime;
+
+            // If the timer has reached zero or less, increment the minute
             if (timer <= 0)
             {
+                // Increment the minute
                 Minute++;
 
+                // Invoke the OnMinuteChanged event 
                 OnMinuteChanged?.Invoke();
 
+                // Check if the minute has reached 60, indicating an hour has passed
                 if (Minute >= 60)
                 {
+                    // Increment the hour
                     Hour++;
 
-                    if (Hour == 8)
-                    {
-                        StartCoroutine(LoadingScreenSync());
-                        SetTime(17, 30);
-                    }
-
+                    // If the hour has reached 24, reset it to 0 (midnight)
                     if (Hour == 24)
                     {
-                        CurrentDay++;
                         Hour = 00;
                     }
-
+                    
+                    
+                    // Reset the minute to 0
                     Minute = 0;
-                    OnHourChanged?.Invoke();
-                }
+                    OnHourChanged?.Invoke(); // Invoke the OnHourChanged event
 
+                }
+                // Reset the timer to the duration of one minute in real time
                 timer = minuteToRealTime;
                 UpdateDirectionalLight();
             }
         }
-
     }
 
-    //private void NightTimmerController()
-    //{
-    //    // Check if the current time matches the specified end hour and minute
-    //    if (Hour == endHour && Minute == endMinute)
-    //    {
-    //        // Log a message indicating it's sleep time
-    //        Debug.Log("Sleep time");
-    //        // Load the scene named "Sleep Scene"
-    //        SceneManager.LoadScene("Sleep Scene");
-    //    }
-    //    else
-    //    {
-    //        // Decrease the timer by the time elapsed since the last frame
-    //        timer -= Time.deltaTime;
+    private void DayTimmerController()
+    {
+        // Check if the current time matches the specified end hour and minute
+        if (Hour == endHour && Minute == endMinute)
+        {
+            // Log a message indicating it's sleep time
+            Debug.Log("Sleep time");
+            // Load the scene named "Sleep Scene"
+            SceneManager.LoadScene("Sleep Scene");
+        }
+        else
+        {
+            // Decrease the timer by the time elapsed since the last frame
+            timer -= Time.deltaTime;
 
-    //        // If the timer has reached zero or less, increment the minute
-    //        if (timer <= 0)
-    //        {
-    //            // Increment the minute
-    //            Minute++;
+            // If the timer has reached zero or less, increment the minute
+            if (timer <= 0)
+            {
+                // Increment the minute
+                Minute++;
 
-    //            // Invoke the OnMinuteChanged event 
-    //            OnMinuteChanged?.Invoke();
+                // Invoke the OnMinuteChanged event 
+                OnMinuteChanged?.Invoke();
 
-    //            // Check if the minute has reached 60, indicating an hour has passed
-    //            if (Minute >= 60)
-    //            {
-    //                // Increment the hour
-    //                Hour++;
+                // Check if the minute has reached 60, indicating an hour has passed
+                if (Minute >= 60)
+                {
+                    // Increment the hour
+                    Hour++;
 
-    //                // If the hour has reached 24, reset it to 0 (midnight)
-    //                if (Hour == 24)
-    //                {
-    //                    Hour = 00;
-    //                }
-                    
-                    
-    //                // Reset the minute to 0
-    //                Minute = 0;
-    //                OnHourChanged?.Invoke(); // Invoke the OnHourChanged event
+                    // If the hour has reached 8, reset it to 0 (midnight)
+                    if (Hour == 8)
+                    {
+                        Hour = 00;
 
-    //            }
-    //            // Reset the timer to the duration of one minute in real time
-    //            timer = minuteToRealTime;
-    //            UpdateDirectionalLight();
-    //        }
-    //    }
-    //}
+                        StartCoroutine(LoadingScreenSync());
+                        //LoadingScreenObj.SetActive(true);
+                        NightTime();
+                        NightTimmerController();
 
-    //private void DayTimmerController()
-    //{
-    //    // Check if the current time matches the specified end hour and minute
-    //    if (Hour == endHour && Minute == endMinute)
-    //    {
-    //        // Log a message indicating it's sleep time
-    //        Debug.Log("Sleep time");
-    //        // Load the scene named "Sleep Scene"
-    //        SceneManager.LoadScene("Sleep Scene");
-    //    }
-    //    else
-    //    {
-    //        // Decrease the timer by the time elapsed since the last frame
-    //        timer -= Time.deltaTime;
+                    }
+                    // Reset the minute to 0
+                    Minute = 0;
+                    OnHourChanged?.Invoke(); // Invoke the OnHourChanged event
 
-    //        // If the timer has reached zero or less, increment the minute
-    //        if (timer <= 0)
-    //        {
-    //            // Increment the minute
-    //            Minute++;
-
-    //            // Invoke the OnMinuteChanged event 
-    //            OnMinuteChanged?.Invoke();
-
-    //            // Check if the minute has reached 60, indicating an hour has passed
-    //            if (Minute >= 60)
-    //            {
-    //                // Increment the hour
-    //                Hour++;
-
-    //                // If the hour has reached 8, reset it to 0 (midnight)
-    //                if (Hour == 8)
-    //                {
-    //                    Hour = 00;
-
-    //                    StartCoroutine(LoadingScreenSync());
-    //                    //LoadingScreenObj.SetActive(true);
-    //                    NightTime();
-    //                    NightTimmerController();
-
-    //                }
-    //                // Reset the minute to 0
-    //                Minute = 0;
-    //                OnHourChanged?.Invoke(); // Invoke the OnHourChanged event
-
-    //            }
-    //            // Reset the timer to the duration of one minute in real time
-    //            timer = minuteToRealTime;
-    //            UpdateDirectionalLight();
-    //        }   
-    //    }
-    //}
+                }
+                // Reset the timer to the duration of one minute in real time
+                timer = minuteToRealTime;
+                UpdateDirectionalLight();
+            }
+        }
+    }
 
     public IEnumerator LoadingScreenSync()
     {
-        isPaused = true;
 
         Debug.Log("Loading...");
         LoadingScreenObj.SetActive(true);
@@ -297,11 +229,13 @@ public class TimeController : MonoBehaviour
 
         }
 
+
         //yield return new WaitForSecondsRealtime(10f);
         LoadingScreenObj.SetActive(false);
-
-        isPaused = false;
         
+       
+
+        NightTimmerController();
     }
 }
 

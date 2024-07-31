@@ -32219,11 +32219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf66f42689b48da45ba5a38628dfdf10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endDay: 2
-  startHour: 7
-  startMinute: 50
-  midHour: 8
-  midMinute: 0
   endHour: 1
   endMinute: 30
   directionalLight: {fileID: 705507994}
