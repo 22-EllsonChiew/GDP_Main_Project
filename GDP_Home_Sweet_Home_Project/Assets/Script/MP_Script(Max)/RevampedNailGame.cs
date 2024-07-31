@@ -91,8 +91,8 @@ public class RevampedNailGame : MonoBehaviour
             }
             else
             {
-                //uiCursor.HideCursor();
-                //Cursor.visible = true;
+                uiCursor.HideCursor();
+                Cursor.visible = true;
             }
 
             currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
@@ -155,6 +155,7 @@ public class RevampedNailGame : MonoBehaviour
         if (currentClicks < clicksNeeded)
         {
             currentNail.GetComponent<HammerNailController>().currentClicks++;
+            StartCoroutine(HammerRotation());
         }
 
         if (currentClicks >= clicksNeeded)
@@ -162,7 +163,21 @@ public class RevampedNailGame : MonoBehaviour
             currentNails++;
             EndMinigame();
         }
+    }
 
+    IEnumerator HammerRotation()
+    {
+        Quaternion originalRotation = uiCursor.transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, 45f);
+        float timeElapsed = 0f;
+        float hammerRotationTime = 0.3f;
+        while (timeElapsed < hammerRotationTime)
+        {
+            timeElapsed += Time.deltaTime;
+            uiCursor.transform.rotation = Quaternion.Lerp(uiCursor.transform.rotation, targetRotation, hammerRotationTime / timeElapsed);
+            yield return null;
+        }
+        uiCursor.transform.rotation = originalRotation;
     }
 
     public void HandleHoldClick()
