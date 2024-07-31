@@ -22,7 +22,9 @@ public class Interaction : MonoBehaviour
     private Collider currentCollider;
     private string currentNeighbourCollider;
 
-    public bool CanInteractWithNeighbour {  get; private set; }
+    public static Neighbour currentNeighbour;
+
+    public static bool CanInteractWithNeighbour {  get; private set; }
 
     public UnityEvent<bool> isGameStarting;
 
@@ -48,14 +50,7 @@ public class Interaction : MonoBehaviour
     {
         if (CanInteractWithNeighbour && Input.GetKeyDown(KeyCode.E))
         {
-            if (currentNeighbourCollider == "SherrylCollider")
-            {
-                NeighbourUIController.instance.StartInteraction("Sherryl", "HappyGreet");
-            }
-            else if (currentNeighbourCollider == "HakimCollider")
-            {
-                NeighbourUIController.instance.StartInteraction("Hakim", "HappyGreet");
-            }
+            NeighbourUIController.instance.StartInteraction(currentNeighbour.name, "HappyGreet");
         }
     }
 
@@ -64,7 +59,6 @@ public class Interaction : MonoBehaviour
         if (other.CompareTag("NeighbourInteractionCollider"))
         {
             CanInteractWithNeighbour = true;
-            currentNeighbourCollider = other.gameObject.name;
         }
     }
 
@@ -117,7 +111,5 @@ public class Interaction : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         CanInteractWithNeighbour = false;
-        currentNeighbourCollider = null;
-        currentCollider = null;
     }
 }

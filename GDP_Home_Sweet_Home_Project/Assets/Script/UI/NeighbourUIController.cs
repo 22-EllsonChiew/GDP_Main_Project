@@ -36,16 +36,17 @@ public class NeighbourUIController : MonoBehaviour
     [SerializeField]
     private Button playerResponse3;
 
-    [Header("Neighbour Models")]
-    [SerializeField]
-    private Transform hakimObj;
-    [SerializeField]
-    private Transform sherrylObj;
 
+    [Header("Neighbour Reference")]
+    [SerializeField]
+    private Neighbour neighbourHakim;
+    [SerializeField]
+    private Neighbour neighbourSherryl;
 
     private InteractionConversation currentConversation;
     private string currentNeighbourName;
 
+    private float neighbourGreeting_MoveDistance = 5f;
     private float neighbourGreeting_MoveDuration = 0.5f;
     private float neighbourGreeting_MoveDelay = 1.25f;
     private bool isNeighbourGreetingPlayer = false;
@@ -84,16 +85,7 @@ public class NeighbourUIController : MonoBehaviour
 
         isNeighbourGreetingPlayer = true;
 
-        if (currentNeighbourName == "Sherryl")
-        {
-            DoorController.instance.ToggleSherrylDoor();
-            StartCoroutine(MoveNeighbour(sherrylObj, -5));
-        }
-        else if (currentNeighbourName == "Hakim")
-        {
-            DoorController.instance.ToggleHakimDoor();
-            StartCoroutine(MoveNeighbour(hakimObj, -5));
-        }
+        HandleInteractionAnimations(isNeighbourGreetingPlayer);
 
         neighbourUIGroup.SetActive(true);
 
@@ -118,16 +110,7 @@ public class NeighbourUIController : MonoBehaviour
         PlayerMovement.dialogue = false;
         isNeighbourGreetingPlayer = false;
 
-        if (currentNeighbourName == "Sherryl")
-        {
-            DoorController.instance.ToggleSherrylDoor();
-            StartCoroutine(MoveNeighbour(sherrylObj, 5));
-        }
-        else if (currentNeighbourName == "Hakim")
-        {
-            DoorController.instance.ToggleHakimDoor();
-            StartCoroutine(MoveNeighbour(hakimObj, 5));
-        }
+        HandleInteractionAnimations(isNeighbourGreetingPlayer);
 
         playerObj.SetActive(true);
         mainUIGroup.SetActive(true);
@@ -138,15 +121,37 @@ public class NeighbourUIController : MonoBehaviour
 
     }
 
-    IEnumerator MoveNeighbour(Transform neighbourTransform, float dir)
+    private void HandleInteractionAnimations(bool isNeighbourGreeting)
     {
+        if (Interaction.currentNeighbour = neighbourHakim)
+        {
+            DoorController.instance.ToggleHakimDoor();
+        }
+        else if (Interaction.currentNeighbour = neighbourSherryl)
+        {
+            DoorController.instance.ToggleSherrylDoor();
+        }
+
+        StartCoroutine(MoveNeighbour());
+    }
+
+    IEnumerator MoveNeighbour()
+    {
+        Transform neighbourTransform = Interaction.currentNeighbour.neighbourTransform;
+        float moveDirection = neighbourGreeting_MoveDistance;
+
         if (isNeighbourGreetingPlayer)
         {
             yield return new WaitForSeconds(neighbourGreeting_MoveDelay);
+            moveDirection *= -1;
+        }
+        else
+        {
+            moveDirection *= 1;
         }
 
         Vector3 startPos = neighbourTransform.position;
-        Vector3 endPos = neighbourTransform.position + transform.forward * dir;
+        Vector3 endPos = neighbourTransform.position + transform.forward * moveDirection;
 
         float elapsedTime = 0;
 
