@@ -70,14 +70,14 @@ public class RevampedNailGame : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))
             {
-                Debug.Log("SHOWS CURSOR");
-                Cursor.visible = false;
-                uiCursor.ShowCursor();
+                //Debug.Log("SHOWS CURSOR");
+                //Cursor.visible = false;
+                //uiCursor.ShowCursor();
 
                 if (Input.GetMouseButtonDown(0))
                 {
                     Debug.Log("GOES INTO UPDATE");
-                    hammerAudio.Play();
+                    hammerAudio.PlayOneShot(hammerSound);
                     HandleClick();
                 }
 
@@ -99,8 +99,8 @@ public class RevampedNailGame : MonoBehaviour
             }
             else
             {
-                uiCursor.HideCursor();
-                Cursor.visible = true;
+                //uiCursor.HideCursor();
+                //Cursor.visible = true;
             }
 
             currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
@@ -210,10 +210,12 @@ public class RevampedNailGame : MonoBehaviour
     {
         //yield return new WaitForSeconds(2f);
         //determining rotation for object
-        Quaternion targetRotation = Quaternion.Euler(-36.897f, 0f, 0f);
+        Quaternion targetRotation = Quaternion.Euler(180f, 0f, 0f);
         //determining position for object
         Vector3 startPosition = chairObject.transform.position;
         Vector3 targetPosition = startPosition + Vector3.up * 1f;
+        Vector3 currentCamPosition = mainCam.transform.position;
+        Vector3 newCamPosition = currentCamPosition + (Vector3.back * 2f) + (Vector3.up * 1f);
         float elapsedTime = 0f;
         float rotationTime = 3f;
 
@@ -224,6 +226,7 @@ public class RevampedNailGame : MonoBehaviour
             chairObject.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / rotationTime);
             elapsedTime += Time.deltaTime;
             yield return null;
+            mainCam.transform.position = Vector3.Lerp(currentCamPosition, newCamPosition, elapsedTime / rotationTime);
         }
     }
 
