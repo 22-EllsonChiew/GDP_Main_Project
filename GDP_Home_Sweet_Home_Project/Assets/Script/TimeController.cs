@@ -29,11 +29,6 @@ public class TimeController : MonoBehaviour
     private int startMinute;
 
     [SerializeField]
-    private int midHour;
-    [SerializeField]
-    private int midMinute;
-
-    [SerializeField]
     private float endHour;
     [SerializeField]
     private float endMinute;
@@ -154,6 +149,9 @@ public class TimeController : MonoBehaviour
 
                     if (Hour == 8)
                     {
+                        // stop time here, make player move to elevator to proceed day
+                        // possibly make use of Interact script, prevent player from building/interacting etc.
+                        // for now, force a loading screen
                         StartCoroutine(LoadingScreenSync());
                         SetTime(17, 30);
                     }

@@ -56,7 +56,7 @@ public class Interaction : MonoBehaviour
     {
         if (CanInteractWithNeighbour && Input.GetKeyDown(KeyCode.E))
         {
-            NeighbourUIController.instance.StartInteraction(currentNeighbour.name, "HappyGreet");
+            NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, "HappyGreet");
         }
     }
 
