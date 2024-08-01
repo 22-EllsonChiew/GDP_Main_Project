@@ -85,7 +85,7 @@ public class NeighbourUIController : MonoBehaviour
 
         isNeighbourGreetingPlayer = true;
 
-        HandleInteractionAnimations(isNeighbourGreetingPlayer);
+        HandleInteractionAnimations();
 
         neighbourUIGroup.SetActive(true);
 
@@ -110,7 +110,7 @@ public class NeighbourUIController : MonoBehaviour
         PlayerMovement.dialogue = false;
         isNeighbourGreetingPlayer = false;
 
-        HandleInteractionAnimations(isNeighbourGreetingPlayer);
+        HandleInteractionAnimations();
 
         playerObj.SetActive(true);
         mainUIGroup.SetActive(true);
@@ -121,13 +121,13 @@ public class NeighbourUIController : MonoBehaviour
 
     }
 
-    private void HandleInteractionAnimations(bool isNeighbourGreeting)
+    private void HandleInteractionAnimations()
     {
-        if (Interaction.currentNeighbour = neighbourHakim)
+        if (Interaction.currentNeighbour.neighbourName == neighbourHakim.neighbourName)
         {
             DoorController.instance.ToggleHakimDoor();
         }
-        else if (Interaction.currentNeighbour = neighbourSherryl)
+        else if (Interaction.currentNeighbour.neighbourName == neighbourSherryl.neighbourName)
         {
             DoorController.instance.ToggleSherrylDoor();
         }
