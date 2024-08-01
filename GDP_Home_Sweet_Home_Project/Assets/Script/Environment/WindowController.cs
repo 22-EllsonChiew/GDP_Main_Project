@@ -4,8 +4,8 @@ public class WindowController : MonoBehaviour
 {
     [SerializeField] private Animator animatorLeft;
     [SerializeField] private Animator animatorRight;
-    private bool isOpenleft = false;
-    private bool isOpenRight = false;
+    private bool isOpenleft = true;
+    private bool isOpenRight = true;
 
     [SerializeField] private Transform player;
 
@@ -28,7 +28,7 @@ public class WindowController : MonoBehaviour
 
         if (playerInLeftWindow && Input.GetKeyDown(KeyCode.E))// Replace with your preferred key
         {
-            Debug.Log("Time to close");
+            Debug.Log("Time to close left side");
             ToggleLeftPanels();
         }
         else if (playerInRightWindow && Input.GetKeyDown(KeyCode.E))
@@ -45,12 +45,12 @@ public class WindowController : MonoBehaviour
         if (isOpenleft)
         {
             Debug.Log("Closing left panels.");
-            animatorLeft.SetTrigger("CloseAllPanels"); // Trigger for closing all panels
+            animatorLeft.SetTrigger("Close"); // Trigger for closing all panels
             isOpenleft = false;
         }
         else
         {
-            animatorLeft.SetTrigger("OpenAllPanels"); // Trigger for opening all panels
+            animatorLeft.SetTrigger("Open"); // Trigger for opening all panels
             isOpenleft = true;
         }
         
@@ -62,12 +62,12 @@ public class WindowController : MonoBehaviour
         if (isOpenRight)
         {
             Debug.Log("Closing right panels.");
-            animatorRight.SetTrigger("CloseAllPanels"); // Trigger for closing all panels
+            animatorRight.SetTrigger("Close"); // Trigger for closing all panels
             isOpenRight = false;
         }
         else
         {
-            animatorRight.SetTrigger("OpenAllPanels"); // Trigger for opening all panels
+            animatorRight.SetTrigger("Open"); // Trigger for opening all panels
             isOpenRight = true;
         }
     }

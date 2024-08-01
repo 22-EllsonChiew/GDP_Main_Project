@@ -38,7 +38,9 @@ public class RevampedNailGame : MonoBehaviour
     public AudioSource hammerAudio;
     public AudioClip hammerSound;
 
-    public Camera mainCam;
+    public GameObject mainCam;
+    public GameObject minigameCam;
+    public Camera camRay;
     public LayerMask nailLayer;
 
     private Transform newChairPos;
@@ -53,7 +55,9 @@ public class RevampedNailGame : MonoBehaviour
     public float downwardIncrement = 0.05f;
     void Start()
     {
-        noise.maxValue = noiseThreshold;
+        //noise.maxValue = noiseThreshold;
+
+        minigameCam.SetActive(false);
 
         hammerAudio = GetComponent<AudioSource>();
         hammerAudio.clip = hammerSound;
@@ -69,17 +73,14 @@ public class RevampedNailGame : MonoBehaviour
                 Debug.LogError("ScreenShake component not found on the MinigameCam.");
             }
         }
-        else
-        {
-            Debug.LogError("Camera with tag 'MinigameCam' not found.");
-        }
+       
     }
 
     void Update()
     {
         if (isMinigameActive)
         {
-            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = camRay.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             currentClicks = currentNail.GetComponent<HammerNailController>().currentClicks;
 
@@ -118,9 +119,9 @@ public class RevampedNailGame : MonoBehaviour
                 Cursor.visible = true;
             }
 
-            currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
-            noise.value = (noiseThreshold != 0f) ? currentNoise / noiseThreshold : 0f;
-            fill.color = gradient.Evaluate(currentNoise);
+            //currentNoise = Mathf.Max(0f, currentNoise - noiseDecreaseRate * Time.deltaTime);
+            //noise.value = (noiseThreshold != 0f) ? currentNoise / noiseThreshold : 0f;
+            //fill.color = gradient.Evaluate(currentNoise);
             //Debug.Log(currentTimeHeld);
             GameObject[] nails = GameObject.FindGameObjectsWithTag("Nail");
             Debug.Log("Nails left = " + nails.Length);
@@ -141,6 +142,9 @@ public class RevampedNailGame : MonoBehaviour
         isMinigameActive = true;
         currentNail = nailPrefab.GetComponent<HammerNailController>();
         minigameUI.SetActive(true);
+
+        minigameCam.SetActive(true);
+        mainCam.SetActive(false);
 
         Debug.Log("Minigame started");
 
@@ -254,6 +258,8 @@ public class RevampedNailGame : MonoBehaviour
         float elapsedTime = 0f;
         float rotationTime = 3f;
 
+       
+
         while (elapsedTime < rotationTime)
         {
             //lerp rotation and position of shelfObject
@@ -264,13 +270,16 @@ public class RevampedNailGame : MonoBehaviour
             //lerp position of the camera to go backward
             mainCam.transform.position = Vector3.Lerp(currentCamPosition, newCamPosition, elapsedTime / rotationTime);
         }
+
+        minigameCam.SetActive(false);
+        mainCam.SetActive(true);
     }
 
     void OnMouseDown()
     {
         if (!isMinigameActive)
         {
-            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = camRay.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))
