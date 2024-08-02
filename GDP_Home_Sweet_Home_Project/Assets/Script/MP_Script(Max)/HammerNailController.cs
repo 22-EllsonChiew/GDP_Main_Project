@@ -13,6 +13,11 @@ public class HammerNailController : MonoBehaviour
     public float currentProgress;
     public int currentClicks;
 
+    [Header("Script")]
+    public NoiseController noiseController;
+    public WindowController windowControllers;
+    public PackageRaycast packageRaycast;
+
     void Start()
     {
         if (gameManager != null)
@@ -48,6 +53,7 @@ public class HammerNailController : MonoBehaviour
                     Debug.Log("Hit smth");
                     if (hammerMiniGame != null)
                     {
+                        HammeringNoise();
                         Debug.Log("Starting Minigame...");
                         hammerMiniGame.StartMinigame(gameObject);
                     }
@@ -65,5 +71,36 @@ public class HammerNailController : MonoBehaviour
         Debug.Log("Reset count");
         currentProgress = 0;
         currentClicks = 0;
+    }
+
+    public void HammeringNoise()
+    {
+        if (windowControllers.rightWindowIsClose() || windowControllers.leftWindowIsClose())
+        {
+
+            if (packageRaycast.OnCarpet())
+            {
+                Debug.Log("building on carpet with window close");
+                noiseController.MakeNoise(0.20f);
+
+            }
+            else
+            {
+                noiseController.MakeNoise(0.35f);
+
+            }
+            noiseController.HandleNoise();
+        }
+        else if (packageRaycast.OnCarpet())
+        {
+            Debug.Log("On Carpet but window is open");
+            noiseController.MakeNoise(0.40f);
+            noiseController.HandleNoise();
+        }
+        else
+        {
+            noiseController.MakeNoise(0.55f);
+            noiseController.HandleNoise();
+        }
     }
 }
