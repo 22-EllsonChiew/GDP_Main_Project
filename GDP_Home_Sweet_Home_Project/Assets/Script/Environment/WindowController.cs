@@ -4,8 +4,8 @@ public class WindowController : MonoBehaviour
 {
     [SerializeField] private Animator animatorLeft;
     [SerializeField] private Animator animatorRight;
-    private bool isOpenleft = true;
-    private bool isOpenRight = true;
+    private bool isCloseleft = false;
+    private bool isCloseRight = false;
 
     [SerializeField] private Transform player;
 
@@ -42,16 +42,19 @@ public class WindowController : MonoBehaviour
     public void ToggleLeftPanels()
     {
         
-        if (isOpenleft)
+        if (isCloseleft)
         {
             Debug.Log("Closing left panels.");
-            animatorLeft.SetTrigger("Close"); // Trigger for closing all panels
-            isOpenleft = false;
+            animatorLeft.SetTrigger("Open"); // Trigger for opening all panels
+            isCloseleft = false;
         }
         else
         {
-            animatorLeft.SetTrigger("Open"); // Trigger for opening all panels
-            isOpenleft = true;
+
+            
+            animatorLeft.SetTrigger("Close"); // Trigger for closing all panels
+            isCloseleft = true;
+            
         }
         
         
@@ -59,26 +62,27 @@ public class WindowController : MonoBehaviour
 
     public void ToggleRightPanels()
     {
-        if (isOpenRight)
+        if (isCloseRight)
         {
-            Debug.Log("Closing right panels.");
-            animatorRight.SetTrigger("Close"); // Trigger for closing all panels
-            isOpenRight = false;
+            animatorRight.SetTrigger("Open"); // Trigger for opening all panels
+            isCloseRight = false;
         }
         else
         {
-            animatorRight.SetTrigger("Open"); // Trigger for opening all panels
-            isOpenRight = true;
+            Debug.Log("Closing right panels.");
+            animatorRight.SetTrigger("Close"); // Trigger for closing all panels
+            isCloseRight = true;
+            
         }
     }
 
     public bool leftWindowIsClose()
     {
-        return isOpenleft;
+        return isCloseleft;
     }
 
     public bool rightWindowIsClose()
     {
-        return isOpenRight;
+        return isCloseRight;
     }
 }
