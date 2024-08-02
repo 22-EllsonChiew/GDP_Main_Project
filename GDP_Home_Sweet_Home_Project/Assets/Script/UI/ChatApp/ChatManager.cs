@@ -48,9 +48,9 @@ public class ChatManager : MonoBehaviour
 
     public float noiseThreshold = 60f;
     public float noiseThresholdSherryl = 60f;
-
-    private bool hakimSentedComplaint = false;
-    private bool sherrylSentedComplaint = false;
+        
+    public bool hakimSentedComplaint = false;
+    public bool sherrylSentedComplaint = false;
 
     public static ChatManager instance;
 
@@ -179,13 +179,13 @@ public class ChatManager : MonoBehaviour
 
     public void CheckNeighbourHappinessValue()
     {
-        if(neighbourHakim.currentHappiness < noiseThreshold)
+        if(neighbourHakim.currentHappiness < noiseThreshold && !hakimSentedComplaint)
         {
             Debug.Log($"Hakim's happiness: {neighbourHakim.currentHappiness}, threshold: {noiseThreshold}");
             ReceiveComplaint("Hakim");
             hakimSentedComplaint = true;
         }
-        if(neighbourSherryl.currentHappiness < noiseThresholdSherryl)
+        if(neighbourSherryl.currentHappiness < noiseThresholdSherryl && !sherrylSentedComplaint)
         {
             Debug.Log($"Sherryl's happiness: {neighbourSherryl.currentHappiness}, threshold: {noiseThresholdSherryl}");
             ReceiveComplaint("Sherryl");
