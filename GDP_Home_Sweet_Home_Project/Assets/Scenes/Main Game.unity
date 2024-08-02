@@ -6507,7 +6507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 73a80dcca67f14749b240cbcb78d7a62, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.678
+      value: -17.641998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 73a80dcca67f14749b240cbcb78d7a62, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13052,7 +13052,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.76, y: 19.16, z: -38.36}
+  m_LocalPosition: {x: -0.15, y: 2.31, z: -67.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13126,17 +13126,17 @@ MonoBehaviour:
   pLerp: 0.02
   rLerp: 0.04
   lerpDuration: 1
-  cameraForwardOffset: 0.5
+  cameraForwardOffset: 0.05
   SherrylNeighbourBox: {fileID: 1433182855}
   HakimNeighbourBox: {fileID: 197020507}
   SherrylCamHolder: {fileID: 1493673121}
   HakimCamHolder: {fileID: 1402697500}
   sherrylOutsideCamHolder: {fileID: 334040274}
   HakimOutsideCamHolder: {fileID: 1456575349}
-  HakimneighbourOffSet: {x: -2.23, y: 4.96, z: 7.57}
+  HakimneighbourOffSet: {x: -2.23, y: 4.96, z: 3.9}
   neighbourHeighValue: 5
   rotationOffset: {x: 10, y: 0, z: 0}
-  sherrylOffset: {x: 1.27, y: 5.57, z: 6.93}
+  sherrylOffset: {x: 1.27, y: 5.57, z: 3.9}
   HakimOutsideCamHolderOffset: {x: 0, y: 0, z: 0}
   SherrylOutsideCamHolderOffset: {x: 0, y: 0, z: 0}
   rotationOutsideOffset: {x: 0, y: 0, z: 0}
@@ -21425,7 +21425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9096f729875a7c4694d627e5cc64cd1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.924
+      value: -17.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9096f729875a7c4694d627e5cc64cd1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22075,7 +22075,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306070108}
   m_LocalRotation: {x: -0.0012335716, y: 0.24838772, z: -0.0033213203, w: 0.9686542}
-  m_LocalPosition: {x: 0, y: 0, z: 10.12}
+  m_LocalPosition: {x: 0, y: 0, z: -29.21}
   m_LocalScale: {x: 0.011666973, y: 0.008166881, z: 0.07816871}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22084,7 +22084,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -0.042, y: 28.765, z: -0.404}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -55.55, y: -1.58}
+  m_AnchoredPosition: {x: -13.35, y: -1.58}
   m_SizeDelta: {x: 580, y: 326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306070110
