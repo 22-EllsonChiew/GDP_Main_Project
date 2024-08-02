@@ -16,7 +16,7 @@ public class Neighbour : MonoBehaviour
     {
         routines = new List<NeighbourRoutines>()
         {
-            new NeighbourRoutines() {day = 1, routineStartHour = 18, routineStartMinute = 30, routineEndHour = 20, routineEndMinute = 0, routineType = RoutineType.NotHome }
+            new NeighbourRoutines() {day = 1, routineStartHour = 18, routineStartMinute = 50, routineEndHour = 20, routineEndMinute = 0, routineType = RoutineType.NotHome }
         };
         neighbourTransform = transform;
     }
@@ -27,16 +27,20 @@ public class Neighbour : MonoBehaviour
         // check if neighbour has a routine at specified time
         foreach (var routine in routines)
         {
-            if (routine.routineStartHour == TimeController.Hour && routine.routineStartMinute == TimeController.Minute) 
+            if (routine.day == TimeController.CurrentDay)
             {
-                IsNeighbourInRoutine = true;
-                currentRoutine = routine;
+                if (routine.routineStartHour == TimeController.Hour && routine.routineStartMinute == TimeController.Minute)
+                {
+                    IsNeighbourInRoutine = true;
+                    currentRoutine = routine;
+                }
+                else if (routine.routineEndHour == TimeController.Hour && routine.routineEndMinute == TimeController.Minute)
+                {
+                    IsNeighbourInRoutine = false;
+                    currentRoutine = null;
+                }
             }
-            else if (routine.routineEndHour == TimeController.Hour && routine.routineEndMinute == TimeController.Minute)
-            {
-                IsNeighbourInRoutine = false;
-                currentRoutine = null;
-            }
+            
         }
     }
 }
