@@ -51,8 +51,10 @@ public class NeighbourAngerBar : MonoBehaviour
 
     private void CheckForSherrylComplainMessage()
     {
+        //check if player is in sherryl collider side and check if the sherryl current happiness less then the threshold from ChatManger script and check if sherryl has send complain to the player
         if (complaintMessage.neighbourSherryl.CheckPlayerInColliderSherryl() && complaintMessage.neighbourSherryl.currentHappiness < complaintMessage.noiseThresholdSherryl && !complaintMessage.sherrylSentedComplaint)
         {
+            //send complaint message and set sherryl send complaint to true so it will not send or dup another message
             // Send complaint from Sherryl
             complaintMessage.ReceiveComplaint("Sherryl");
             complaintMessage.sherrylSentedComplaint = true;
@@ -61,8 +63,10 @@ public class NeighbourAngerBar : MonoBehaviour
 
     private void CheckForHakimComplainMessage()
     {
+        //check if player is in hakim collider side and check if the hakim current happiness less then the threshold from ChatManger script and check if hakim has send complain to the player
         if (complaintMessage.neighbourHakim.CheckPlayerInColliderHakim() && complaintMessage.neighbourHakim.currentHappiness < complaintMessage.noiseThreshold && !complaintMessage.hakimSentedComplaint)
         {
+            //send complaint message and set hakim send complaint to true so it will not send or dup another message
             // Send complaint from Hakim
             complaintMessage.ReceiveComplaint("Hakim");
             complaintMessage.hakimSentedComplaint = true;
