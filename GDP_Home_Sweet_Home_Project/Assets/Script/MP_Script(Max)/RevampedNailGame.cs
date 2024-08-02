@@ -108,10 +108,10 @@ public class RevampedNailGame : MonoBehaviour
                 }
 
                 // Update the progress slider
-                if (currentNail != null)
+                /*if (currentNail != null)
                 {
                     progress.value = currentClicks;
-                }
+                }*/
             }
             else
             {
@@ -149,7 +149,7 @@ public class RevampedNailGame : MonoBehaviour
         Debug.Log("Minigame started");
 
         // Set the max value of the progress slider
-        progress.maxValue = clicksNeeded;
+        //progress.maxValue = clicksNeeded;
     }
 
     public void EndMinigame()

@@ -90,6 +90,7 @@ public class Interaction : MonoBehaviour
             confirmationWindow.gameObject.SetActive(true);
             confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClickedDrillGame(other)); ;
             confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+            drillGame = true;
         }
         
 
