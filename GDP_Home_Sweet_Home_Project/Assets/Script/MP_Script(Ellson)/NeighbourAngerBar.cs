@@ -12,8 +12,13 @@ public class NeighbourAngerBar : MonoBehaviour
 
     public ChatManager complaintMessage;
 
-    
-    
+    public BoxCollider sherrylSideCollider;
+    public BoxCollider hakimSideCollider;
+    public Transform player;
+
+    private bool hakimComplained = false;
+    private bool sherrylComplained = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,15 +32,28 @@ public class NeighbourAngerBar : MonoBehaviour
 
         angerBarManager.UpdateHappinessBar();
 
-        if(complaintMessage.neighbourHakim.currentHappiness < complaintMessage.noiseThreshold)
+        if (complaintMessage.neighbourHakim.CheckPlayerInColliderHakim() && complaintMessage.neighbourHakim.currentHappiness < complaintMessage.noiseThreshold)
         {
             //Debug.Log($"Hakim's happiness: {complaintMessage.neighbourHakim.currentHappiness}, threshold: {complaintMessage.noiseThreshold}");
             complaintMessage.ReceiveComplaint("Hakim");
-            
+            hakimComplained = true;
+
+
         }
-        if(complaintMessage.neighbourSherryl.currentHappiness < complaintMessage.noiseThreshold)
+        else if (complaintMessage.neighbourSherryl.CheckPlayerInColliderSherryl() && complaintMessage.neighbourSherryl.currentHappiness < complaintMessage.noiseThreshold && !hakimComplained)
         {
             //Debug.Log($"Sherryl's happiness: {complaintMessage.neighbourSherryl.currentHappiness}, threshold: {complaintMessage.noiseThreshold}");
+            complaintMessage.ReceiveComplaint("Sherryl");
+            sherrylComplained = true;
+        }
+
+        // Only send a complaint message to the other NPC if the first NPC didn't complain
+        if (!hakimComplained && complaintMessage.neighbourHakim.CheckPlayerInColliderHakim() && complaintMessage.neighbourHakim.currentHappiness < complaintMessage.noiseThreshold)
+        {
+            complaintMessage.ReceiveComplaint("Hakim");
+        }
+        else if (!sherrylComplained && complaintMessage.neighbourSherryl.CheckPlayerInColliderSherryl() && complaintMessage.neighbourSherryl.currentHappiness < complaintMessage.noiseThreshold)
+        {
             complaintMessage.ReceiveComplaint("Sherryl");
         }
         else
@@ -43,8 +61,7 @@ public class NeighbourAngerBar : MonoBehaviour
             Debug.Log("Neighbour Happy");
         }
 
-        //complaintMessgae.ReceiveComplaint("Hakim");
-        //complaintMessgae.ReceiveComplaint("Sherryl");
+
 
         complaintMessage.CheckNeighbourHappinessValue();
     }
@@ -61,4 +78,14 @@ public class NeighbourAngerBar : MonoBehaviour
             complaintMessage.ResetComplaint();
         }
     }*/
+
+    public bool CheckPlayerInColliderSherryl()
+    {
+        return sherrylSideCollider.bounds.Contains(player.transform.position);
+    }
+
+    public bool CheckPlayerInColliderHakim()
+    {
+        return hakimSideCollider.bounds.Contains(player.transform.position);
+    }
 }
