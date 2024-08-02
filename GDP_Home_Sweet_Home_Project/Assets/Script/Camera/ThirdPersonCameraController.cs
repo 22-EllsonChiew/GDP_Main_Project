@@ -36,7 +36,7 @@ public class ThirdPersonCameraController : MonoBehaviour
 
     private bool neighbourEndConvo = false;
 
-    public float cameraForwardOffset = 0f;
+    public float cameraForwardOffset;
 
     
 
@@ -86,69 +86,53 @@ public class ThirdPersonCameraController : MonoBehaviour
 
         if ((playerInSherrylNeighbourBox || playerInHakimNeighbourBox) && Input.GetKeyDown(KeyCode.E))
         {
-            //learpToCamHolder = true;
+            
             if (playerInSherrylNeighbourBox)
             {
                 
                 targetPos = SherrylCamHolder;
+                cameraForwardOffset = 2f;
             }
             if (playerInHakimNeighbourBox)
             {
                 
                 targetPos = HakimCamHolder;
+                cameraForwardOffset = 2f;
             }
 
-            cameraForwardOffset = 5f;
+            
 
         }
-
-        /*if(Input.GetKeyDown(KeyCode.E))
-        {
-            isInsidHakimCollider = false;
-            isInsideSherrylCollider = false;
-
-
-
-            if (isInsidHakimCollider)
-            {
-                Debug.Log("Change Pos");
-                goToHakimCamHolder = true;
-                targetPos = HakimCamHolder;
-            }
-            if(isInsideSherrylCollider)
-            {
-                goToSherrylCamHolder = true;
-                targetPos = SherrylCamHolder;
-            }
-        }*/
-
-        /*if((playerInSherrylNeighbourBox || playerInHakimNeighbourBox))
-        {
-            if(playerInHakimNeighbourBox)
-            {
-                targetPos = sherrylOutsideCamHolder;
-                isInsidHakimCollider = true;
-            }
-            if(playerInSherrylNeighbourBox)
-            {
-                targetPos = HakimOutsideCamHolder;
-                isInsideSherrylCollider = true;
-            }
-        }*/
 
         if(neighbourUI.endInteraction == true)
         {
             neighbourEndConvo = true;
-            //Debug.Log("Neighbour shut up");
+            
         }
     }
 
     private void LateUpdate()
     {
-        //set the position of the player to follow
-        transform.position = player.position - offset + Vector3.up * heightValue; 
-        //set the rotation of the camera, can be change in the inspector
-        transform.rotation = Quaternion.Euler(playerRotationOffset); 
+
+        CorridorCameraFunction();
+
+        //transform.position = player.position - offset + Vector3.up * heightValue;
+
+    }
+
+    public void BoxCollider()
+    {
+        playerInSherrylNeighbourBox = SherrylNeighbourBox.bounds.Contains(player.position);
+        playerInHakimNeighbourBox = HakimNeighbourBox.bounds.Contains(player.position);
+        playerWalkOutOfHouse = playerCorridor.bounds.Contains(player.position);
+        playerInsideHouse = playerHousing.bounds.Contains(player.position);
+
+    }
+
+    public void CorridorCameraFunction()
+    {
+
+
 
         //check if the player is inside the neighbour box collider if it is, it will give the snapping effect
         if (playerInSherrylNeighbourBox)
@@ -167,16 +151,16 @@ public class ThirdPersonCameraController : MonoBehaviour
             //transform.rotation = HakimCamHolder.rotation * rotationOffset;
             transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
         }
-
-       else if(playerWalkOutOfHouse)
+        else if (playerWalkOutOfHouse)
         {
             transform.position = player.position - secondaryOffset + Vector3.up * heightValueSecondary;
             transform.rotation = Quaternion.Euler(playerSecondaryRotationOffset);
             playerInsideHouse = false;
 
-            
+            cameraForwardOffset = 0f;
         }
-       
+
+
 
         else if (neighbourEndConvo || isInsideSherrylCollider == false || isInsidHakimCollider == false)
         {
@@ -188,18 +172,5 @@ public class ThirdPersonCameraController : MonoBehaviour
 
 
         }
-        
-    
-        //transform.position = player.position - offset + Vector3.up * heightValue;
-
-    }
-
-    public void BoxCollider()
-    {
-        playerInSherrylNeighbourBox = SherrylNeighbourBox.bounds.Contains(player.position);
-        playerInHakimNeighbourBox = HakimNeighbourBox.bounds.Contains(player.position);
-        playerWalkOutOfHouse = playerCorridor.bounds.Contains(player.position);
-        playerInsideHouse = playerHousing.bounds.Contains(player.position);
-
     }
 }
