@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NeighbourRoutines : MonoBehaviour
+public enum RoutineType
 {
-    
+    NoNoise,
+    NotHome
+}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class NeighbourRoutines
+{
+    public int day;
+    public int routineStartHour;
+    public int routineStartMinute;
+    public int routineEndHour;
+    public int routineEndMinute;
+    public RoutineType routineType;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

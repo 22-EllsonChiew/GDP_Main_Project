@@ -32410,8 +32410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endDay: 0
-  startHour: 0
-  startMinute: 0
+  startHour: 18
+  startMinute: 20
   endHour: 1
   endMinute: 30
   directionalLight: {fileID: 705507994}
