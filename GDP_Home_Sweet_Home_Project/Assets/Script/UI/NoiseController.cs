@@ -67,12 +67,12 @@ public class NoiseController : MonoBehaviour
         NeighbourBoxCollider();
 
 
-        /*if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E))
         {
             CheckIfPlayerInNeighboursSides();
             //CheckIfPackageOnCarpet();
             HandleNoise();
-        }*/
+        }
 
         
 

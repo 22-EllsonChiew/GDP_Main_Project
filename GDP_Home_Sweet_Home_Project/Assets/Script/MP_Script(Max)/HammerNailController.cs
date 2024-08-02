@@ -53,14 +53,12 @@ public class HammerNailController : MonoBehaviour
                     Debug.Log("Hit smth");
                     if (hammerMiniGame != null)
                     {
-                        HammeringNoise();
+                        
                         Debug.Log("Starting Minigame...");
                         hammerMiniGame.StartMinigame(gameObject);
+                        HammeringNoise();
                     }
-                    else
-                    {
-                        Debug.LogError("DrillingMiniGame component is not assigned.");
-                    }
+                    
                 }
             }
         }
@@ -75,7 +73,14 @@ public class HammerNailController : MonoBehaviour
 
     public void HammeringNoise()
     {
-        if (windowControllers.rightWindowIsClose() || windowControllers.leftWindowIsClose())
+        Debug.Log("Time to make some noise!");
+
+
+        bool windowsClosed = windowControllers.rightWindowIsClose() || windowControllers.leftWindowIsClose();
+        bool onCarpet = packageRaycast.OnCarpet();
+
+        Debug.Log($"Windows closed: {windowsClosed}, On carpet: {onCarpet}");
+        if (windowsClosed)
         {
 
             if (packageRaycast.OnCarpet())
@@ -91,7 +96,7 @@ public class HammerNailController : MonoBehaviour
             }
             noiseController.HandleNoise();
         }
-        else if (packageRaycast.OnCarpet())
+        else if (onCarpet)
         {
             Debug.Log("On Carpet but window is open");
             noiseController.MakeNoise(0.40f);
@@ -99,6 +104,7 @@ public class HammerNailController : MonoBehaviour
         }
         else
         {
+            Debug.Log("No noise dempening used");
             noiseController.MakeNoise(0.55f);
             noiseController.HandleNoise();
         }
