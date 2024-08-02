@@ -66,15 +66,18 @@ public class NoiseController : MonoBehaviour
 
         NeighbourBoxCollider();
 
+        // handle noise here
+        // make sure that neighbour affected is based on the side of home player is making noise
+        // 
 
-        /*if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             CheckIfPlayerInNeighboursSides();
             //CheckIfPackageOnCarpet();
             HandleNoise();
-        }*/
+        }
 
-        
+
 
 
     }
