@@ -22,6 +22,7 @@ TagManager:
   - NeighbourInteractionCollider
   - Carpet
   - Drilling
+  - MinigameCamPos
   layers:
   - Default
   - TransparentFX

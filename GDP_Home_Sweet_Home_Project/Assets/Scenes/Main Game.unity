@@ -6596,7 +6596,7 @@ GameObject:
   - component: {fileID: 495474680}
   m_Layer: 0
   m_Name: Camera2Pos
-  m_TagString: Untagged
+  m_TagString: MinigameCamPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21635,6 +21635,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 300623712}
     m_Modifications:
+    - target: {fileID: 102570045136642219, guid: 8c17e941c8b0a924686d9c2343ccc4cd, type: 3}
+      propertyPath: m_TagString
+      value: MinigameCamPos
+      objectReference: {fileID: 0}
     - target: {fileID: 806792136269004733, guid: 8c17e941c8b0a924686d9c2343ccc4cd, type: 3}
       propertyPath: m_Name
       value: ChairMiniGame 1
@@ -27371,9 +27375,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790319697}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.104, y: 0.99, z: -61.791}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.104, y: 0.98999834, z: -61.791}
+  m_LocalScale: {x: 0.9, y: 0.90000004, z: 0.90000004}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 85153585}
@@ -27440,6 +27444,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   tagName: Drilling
+  drillGame: 0
+  hammerGame: 0
 --- !u!95 &1790319703
 Animator:
   serializedVersion: 5
@@ -27604,6 +27610,11 @@ MonoBehaviour:
   currentPostContent: {fileID: 889468776}
   currentPostPhoto: {fileID: 1082402252}
   postLoader: {fileID: 690383064}
+--- !u!4 &1813876984 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6149716249967571177, guid: 8c17e941c8b0a924686d9c2343ccc4cd, type: 3}
+  m_PrefabInstance: {fileID: 1292429340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1823705589
 GameObject:
   m_ObjectHideFlags: 0
@@ -35008,6 +35019,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf66f42689b48da45ba5a38628dfdf10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endDay: 0
+  startHour: 0
+  startMinute: 0
   endHour: 1
   endMinute: 30
   directionalLight: {fileID: 705507994}
@@ -35296,8 +35310,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c27ce1748ae78147ac108ba36b03a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameCamera: {fileID: 1918765104}
-  camera2Pos: {fileID: 495474680}
+  gameCamera: {fileID: 0}
+  drillCamera: {fileID: 1918765104}
+  hammerCamera: {fileID: 1649021141}
+  camera2Pos: {fileID: 0}
+  drillCamera2Pos: {fileID: 495474680}
+  hammerCamera2Pos: {fileID: 1813876984}
+  interaction: {fileID: 1790319702}
 --- !u!114 &7565215745276000216
 MonoBehaviour:
   m_ObjectHideFlags: 0

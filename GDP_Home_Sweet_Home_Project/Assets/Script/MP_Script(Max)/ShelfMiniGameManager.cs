@@ -6,7 +6,12 @@ public class ShelfMiniGameManager : MonoBehaviour
     public static ShelfMiniGameManager Instance;
 
     public Camera gameCamera;
+    public Camera drillCamera;
+    public Camera hammerCamera;
     public Transform camera2Pos;
+    public Transform drillCamera2Pos;
+    public Transform hammerCamera2Pos;
+    public Interaction interaction;
     private int mountCount = 0;
 
     private void Awake()
@@ -20,6 +25,11 @@ public class ShelfMiniGameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Update()
+    {
+        CheckCamera();
     }
 
     public void IncrementMountCount()
@@ -45,5 +55,45 @@ public class ShelfMiniGameManager : MonoBehaviour
         }
         gameCamera.transform.position = end;
         gameCamera.transform.rotation = endRotation;
+    }
+    private void FindNearestCameraPosition()
+    {
+        GameObject[] positions = GameObject.FindGameObjectsWithTag("MinigameCamPos");
+        float closestDistance = Mathf.Infinity;
+        Transform closestTransform = null;
+
+        foreach (GameObject position in positions)
+        {
+            float distance = Vector3.Distance(transform.position, position.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestTransform = position.transform;
+            }
+        }
+
+        if (closestTransform != null)
+        {
+            camera2Pos = closestTransform;
+        }
+        else
+        {
+            Debug.LogWarning("No GameObject with tag 'MinigameCamPos' found.");
+        }
+    }
+
+    public void CheckCamera()
+    {
+        if (interaction.hammerGame == true)
+        {
+            gameCamera = hammerCamera;
+            camera2Pos = hammerCamera2Pos;
+        }
+
+        if (interaction.drillGame == true)
+        {
+            gameCamera = drillCamera;
+            camera2Pos = drillCamera2Pos;
+        }
     }
 }

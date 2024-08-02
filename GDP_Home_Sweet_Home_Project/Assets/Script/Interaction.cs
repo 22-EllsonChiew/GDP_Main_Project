@@ -34,7 +34,8 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] private string tagName;
 
-
+    public bool drillGame = false;
+    public bool hammerGame = false;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -75,6 +76,7 @@ public class Interaction : MonoBehaviour
             confirmationWindow.gameObject.SetActive(true);
             confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClicked(other)); ;
             confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+            hammerGame = true;
         }
 
         if (other.CompareTag("Chest") && Input.GetKey(KeyCode.E))
