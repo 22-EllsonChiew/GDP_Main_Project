@@ -8,9 +8,11 @@ public class ShelfMiniGameManager : MonoBehaviour
     public Camera gameCamera;
     public Camera drillCamera;
     public Camera hammerCamera;
+    public Camera tableCamera;
     public Transform camera2Pos;
     public Transform drillCamera2Pos;
     public Transform hammerCamera2Pos;
+    public Transform tableCamera2Pos;
     public Interaction interaction;
     private int mountCount = 0;
 
@@ -94,6 +96,12 @@ public class ShelfMiniGameManager : MonoBehaviour
         {
             gameCamera = drillCamera;
             camera2Pos = drillCamera2Pos;
+        }
+
+        if (interaction.tableDrilling == true)
+        {
+            gameCamera = tableCamera;
+            camera2Pos = tableCamera2Pos;
         }
     }
 }
