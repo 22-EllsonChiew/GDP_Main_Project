@@ -20,6 +20,7 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject miniGameCamDrill;
+    [SerializeField] private GameObject miniGameCamTable;
 
     public GameObject builtChair;
 
@@ -36,6 +37,7 @@ public class Interaction : MonoBehaviour
 
     public bool drillGame = false;
     public bool hammerGame = false;
+    public bool tableDrilling = false;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -94,7 +96,14 @@ public class Interaction : MonoBehaviour
             confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
             drillGame = true;
         }
-        
+        if (other.CompareTag("TableDrilling") && Input.GetKey(KeyCode.E))
+        {
+            confirmationWindow.gameObject.SetActive(true);
+            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClickedTableGame(other)); ;
+            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+            tableDrilling = true;
+        }
+
 
         currentCollider = other;
     }
@@ -129,6 +138,20 @@ public class Interaction : MonoBehaviour
             miniGameCamDrill.SetActive(true);
 
             Destroy(drillConfirmedCollider.gameObject);
+
+        }
+    }
+
+    private void ConfirmClickedTableGame(Collider tableConfirmedCollider)
+    {
+        confirmationWindow.gameObject.SetActive(false);
+
+        if (tableConfirmedCollider != null)
+        {
+            mainCamera.SetActive(false);
+            miniGameCamTable.SetActive(true);
+
+            Destroy(tableConfirmedCollider.gameObject);
 
         }
     }

@@ -23,6 +23,7 @@ TagManager:
   - Carpet
   - Drilling
   - MinigameCamPos
+  - TableDrilling
   layers:
   - Default
   - TransparentFX
