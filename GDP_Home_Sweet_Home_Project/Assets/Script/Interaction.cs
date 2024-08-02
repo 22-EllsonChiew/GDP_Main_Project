@@ -65,7 +65,9 @@ public class Interaction : MonoBehaviour
     {
         if (other.CompareTag("NeighbourInteractionCollider"))
         {
+            
             CanInteractWithNeighbour = true;
+            Debug.Log(CanInteractWithNeighbour);
         }
     }
 
@@ -138,6 +140,10 @@ public class Interaction : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        CanInteractWithNeighbour = false;
+        if (other.CompareTag("NeighbourInteractionCollider"))
+        {
+            CanInteractWithNeighbour = false;
+        }
+        
     }
 }

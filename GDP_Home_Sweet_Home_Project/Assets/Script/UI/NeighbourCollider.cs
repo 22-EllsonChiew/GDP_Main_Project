@@ -21,7 +21,9 @@ public class NeighbourCollider : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            
             Interaction.currentNeighbour = neighbour;
+            Debug.Log(Interaction.currentNeighbour.neighbourName);
         }
     }
 
