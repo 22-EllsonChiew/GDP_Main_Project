@@ -35,6 +35,8 @@ public class NeighbourUIController : MonoBehaviour
     private Button playerResponse2;
     [SerializeField]
     private Button playerResponse3;
+    //[SerializeField]
+    //private TextMeshProUGUI playerResponse3Text;
 
 
     [Header("Neighbour Reference")]
@@ -44,7 +46,8 @@ public class NeighbourUIController : MonoBehaviour
     private Neighbour neighbourSherryl;
 
     private InteractionConversation currentConversation;
-    private string currentNeighbourName;
+
+    private bool isInteractionUIActive;
 
     private float neighbourGreeting_MoveDistance = 5f;
     private float neighbourGreeting_MoveDuration = 0.5f;
@@ -55,6 +58,8 @@ public class NeighbourUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isInteractionUIActive = false;
+
         if (instance == null)
         {
             instance = this;
@@ -64,7 +69,7 @@ public class NeighbourUIController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        playerResponse2.onClick.AddListener(() => ShowInteractionDialogue(currentNeighbourName, "Happy"));
+        playerResponse2.onClick.AddListener(() => ShowInteractionDialogue(Interaction.currentNeighbour.neighbourName, "Happy"));
         playerResponse3.onClick.AddListener(() => EndInteraction());
 
     }
@@ -72,22 +77,22 @@ public class NeighbourUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
     }
 
     public void StartInteraction(string name, string type)
     {
-        playerObj.SetActive(false);
-        mainUIGroup.SetActive(false);
 
         PlayerMovement.dialogue = true;
-
-        currentNeighbourName = name;
-
-        isNeighbourGreetingPlayer = true;
-
-        HandleInteractionAnimations();
-
-        neighbourUIGroup.SetActive(true);
+        
+        if (!Interaction.currentNeighbour.IsNeighbourInRoutine)
+        {
+            isNeighbourGreetingPlayer = true;
+            HandleInteractionAnimations();
+        }
+        
+        ToggleInteractionUI();
 
         ShowInteractionDialogue(name, type);
         
@@ -95,26 +100,39 @@ public class NeighbourUIController : MonoBehaviour
 
     public void ShowInteractionDialogue(string name, string type)
     {
-        var conversation = dialogueLoader.GetConversation(name, type);
-        if (conversation != null)
+
+        if (Interaction.currentNeighbour.IsNeighbourInRoutine)
         {
-            currentConversation = conversation;
-            var line = currentConversation.lines[0];
-            neighbourUIName.text = line.speaker;
-            neighbourUIDialogue.text = line.content;
+            neighbourUIName.text = Interaction.currentNeighbour.neighbourName;
+            neighbourUIDialogue.text = "Neighbour is currently busy";
+            playerResponse2.interactable = false;
         }
+        else
+        {
+            var conversation = dialogueLoader.GetConversation(name, type);
+            if (conversation != null)
+            {
+                playerResponse2.interactable = true;
+                currentConversation = conversation;
+                var line = currentConversation.lines[0];
+                neighbourUIName.text = line.speaker;
+                neighbourUIDialogue.text = line.content;
+            }
+        }
+        
     }
 
     public void EndInteraction()
     {
         PlayerMovement.dialogue = false;
-        isNeighbourGreetingPlayer = false;
 
-        HandleInteractionAnimations();
+        if (!Interaction.currentNeighbour.IsNeighbourInRoutine)
+        {
+            isNeighbourGreetingPlayer = false;
+            HandleInteractionAnimations();
+        }
 
-        playerObj.SetActive(true);
-        mainUIGroup.SetActive(true);
-        neighbourUIGroup.SetActive(false);
+        ToggleInteractionUI();
 
         endInteraction = true;
         
@@ -139,6 +157,7 @@ public class NeighbourUIController : MonoBehaviour
     {
         Transform neighbourTransform = Interaction.currentNeighbour.neighbourTransform;
         float moveDirection = neighbourGreeting_MoveDistance;
+        playerResponse3.interactable = false;
 
         if (isNeighbourGreetingPlayer)
         {
@@ -157,12 +176,32 @@ public class NeighbourUIController : MonoBehaviour
 
         while (elapsedTime < neighbourGreeting_MoveDuration)
         {
+            
             neighbourTransform.position = Vector3.Lerp(startPos, endPos, elapsedTime / neighbourGreeting_MoveDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
+
         neighbourTransform.position = endPos;
+        playerResponse3.interactable = true;
+    }
+
+    private void ToggleInteractionUI()
+    {
+        isInteractionUIActive = !isInteractionUIActive;
+        if (isInteractionUIActive)
+        {
+            neighbourUIGroup.SetActive(true);
+            playerObj.SetActive(false);
+            mainUIGroup.SetActive(false);
+        }
+        else
+        {
+            neighbourUIGroup.SetActive(false);
+            playerObj.SetActive(true);
+            mainUIGroup.SetActive(true);
+        }
     }
 
 }
