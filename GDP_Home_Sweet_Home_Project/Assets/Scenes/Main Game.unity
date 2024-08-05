@@ -7258,6 +7258,8 @@ MonoBehaviour:
   neighbourHakim: {fileID: 197020506}
   noiseThreshold: 60
   noiseThresholdSherryl: 60
+  hakimSentedComplaint: 0
+  sherrylSentedComplaint: 0
 --- !u!1 &545439420
 GameObject:
   m_ObjectHideFlags: 0
@@ -21787,7 +21789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f421461a80d0f14f94ec1261aa361b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neighbourName: Sheryl
+  neighbourName: Sherryl
   neighbourTransform: {fileID: 1240785116}
 --- !u!1 &1257129132
 GameObject:

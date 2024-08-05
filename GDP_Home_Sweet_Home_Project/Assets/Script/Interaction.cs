@@ -30,6 +30,8 @@ public class Interaction : MonoBehaviour
     public static Neighbour currentNeighbour;
 
     public static bool CanInteractWithNeighbour {  get; private set; }
+    private bool IsAtElevator;
+    private bool IsAtBed;
 
     public UnityEvent<bool> isGameStarting;
 
@@ -61,52 +63,48 @@ public class Interaction : MonoBehaviour
         {
             NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, "HappyGreet");
         }
+
+        if (IsAtElevator && Input.GetKeyDown(KeyCode.E))
+        {
+
+            if (TimeController.currentTimePhase == TimePhase.Morning)
+            {
+                if (!TimeController.hasCompletedTimeSegment)
+                {
+                    // prompt player for confirmation
+                    // pop up UI confirmation
+                }
+                else
+                {
+                    // immediately jump to next time phase
+                    TimeController.EndMorningPhase();
+                }
+
+            }
+
+        }
+
+        if (IsAtBed && Input.GetKeyDown(KeyCode.E))
+        {
+            // same as elevator interaction
+            if (TimeController.currentTimePhase == TimePhase.Evening)
+            {
+                if (!TimeController.hasCompletedTimeSegment)
+                {
+                    // prompt player for confirmation
+                    // pop up UI confirmation
+                }
+                else
+                {
+                    // immediately jump to next time phase
+                    TimeController.EndMorningPhase();
+                }
+
+            }
+        }
+
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("NeighbourInteractionCollider"))
-        {
-            
-            CanInteractWithNeighbour = true;
-            Debug.Log(CanInteractWithNeighbour);
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Object") && Input.GetKey(KeyCode.E)) //check if tag of the object colliding with player is "object"
-        {
-            confirmationWindow.gameObject.SetActive(true);
-            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClicked(other)); ;
-            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
-            hammerGame = true;
-        }
-
-        if (other.CompareTag("Chest") && Input.GetKey(KeyCode.E))
-        {
-            Debug.Log("Opening chest");
-            ChestUI.SetActive(true);
-            animator.SetTrigger("chestOpen");
-        }
-        if(other.CompareTag(tagName) && Input.GetKey(KeyCode.E))
-        {
-            confirmationWindow.gameObject.SetActive(true);
-            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClickedDrillGame(other)); ;
-            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
-            drillGame = true;
-        }
-        if (other.CompareTag("TableDrilling") && Input.GetKey(KeyCode.E))
-        {
-            confirmationWindow.gameObject.SetActive(true);
-            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClickedTableGame(other)); ;
-            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
-            tableDrilling = true;
-        }
-
-
-        currentCollider = other;
-    }
 
     private void ConfirmClicked(Collider confirmedCollider)
     {
@@ -161,11 +159,78 @@ public class Interaction : MonoBehaviour
         confirmationWindow.gameObject.SetActive(false);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("NeighbourInteractionCollider"))
+        {
+            CanInteractWithNeighbour = true;
+            Debug.Log(CanInteractWithNeighbour);
+        }
+
+        if (other.CompareTag("Environment_Elevator"))
+        {
+            IsAtElevator = true;
+            Debug.Log("Player @ elevator");
+        }
+
+        if (other.CompareTag("Environment_Bed"))
+        {
+            IsAtBed = true;
+            Debug.Log("Player @ bed");
+        }
+
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Object") && Input.GetKey(KeyCode.E)) //check if tag of the object colliding with player is "object"
+        {
+            confirmationWindow.gameObject.SetActive(true);
+            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClicked(other)); ;
+            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+            hammerGame = true;
+        }
+
+        if (other.CompareTag("Chest") && Input.GetKey(KeyCode.E))
+        {
+            Debug.Log("Opening chest");
+            ChestUI.SetActive(true);
+            animator.SetTrigger("chestOpen");
+        }
+        if (other.CompareTag(tagName) && Input.GetKey(KeyCode.E))
+        {
+            confirmationWindow.gameObject.SetActive(true);
+            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClickedDrillGame(other)); ;
+            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+            drillGame = true;
+        }
+        if (other.CompareTag("TableDrilling") && Input.GetKey(KeyCode.E))
+        {
+            confirmationWindow.gameObject.SetActive(true);
+            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClickedTableGame(other)); ;
+            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+            tableDrilling = true;
+        }
+
+
+        currentCollider = other;
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("NeighbourInteractionCollider"))
         {
             CanInteractWithNeighbour = false;
+        }
+
+        if (other.CompareTag("Environment_Elevator"))
+        {
+
+        }
+
+        if (other.CompareTag("Environment_Bed"))
+        {
+            
         }
         
     }
