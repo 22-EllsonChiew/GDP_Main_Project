@@ -7258,8 +7258,12 @@ MonoBehaviour:
   neighbourHakim: {fileID: 197020506}
   noiseThreshold: 60
   noiseThresholdSherryl: 60
+  policeCallThresholdSherryl: 60
+  policeCallThresholdHakim: 60
   hakimSentedComplaint: 0
   sherrylSentedComplaint: 0
+  hakimCallPolice: 0
+  sherrylCallPolice: 0
 --- !u!1 &545439420
 GameObject:
   m_ObjectHideFlags: 0
@@ -28091,6 +28095,7 @@ MonoBehaviour:
   mainCamera: {fileID: 963194225}
   miniGameCamDrill: {fileID: 1918765102}
   miniGameCamTable: {fileID: 1565027436}
+  timeControllerUI: {fileID: 1227027950}
   builtChair: {fileID: 3328864769067510818, guid: 1a2ff1f08a4b39c4da382204912196bd, type: 3}
   isGameStarting:
     m_PersistentCalls:
