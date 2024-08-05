@@ -14,6 +14,8 @@ public enum TimePhase
 
 public class TimeController : MonoBehaviour
 {
+    public static TimeController instance;
+
     public static Action OnMinuteChanged;
     public static Action OnHourChanged;
 
@@ -21,10 +23,9 @@ public class TimeController : MonoBehaviour
     public static int Hour { get; private set; }
     public static int CurrentDay { get; private set; }
 
-    public static bool isPaused { get; private set; }
+    public bool isPaused { get; private set; }
 
-    public static TimePhase currentTimePhase { get; private set; }
-    public static bool hasCompletedTimeSegment { get; private set; }
+    public TimePhase currentTimePhase { get; private set; }
     private float minuteToRealTime = 0.75f;
     private float timer;
 
@@ -62,36 +63,36 @@ public class TimeController : MonoBehaviour
 
     public GameObject LoadingScreenObj;
 
-    private bool isNight = false;
-
-    private bool isDay = false;
-
     [SerializeField] private Slider LoadingBarTimer;
 
-    
+
     void Start()
     {
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         CurrentDay = 1;
         SetTime(startHour, startMinute);
         isPaused = false;
-        hasCompletedTimeSegment = false;
         LoadingScreenObj.SetActive(false);
     }
 
-    
+
 
     // Update is called once per frame
     void Update()
     {
-       
-        if (hasCompletedTimeSegment)
-        {
-            isPaused = true;
-        }
 
         currentTimePhase = DetermineCurrentTimePhase();
         HandleTime();
-        
+
     }
 
     private void UpdateDirectionalLight()
@@ -117,20 +118,24 @@ public class TimeController : MonoBehaviour
 
     }
 
-    public static void EndMorningPhase()
+    public void AdvanceTimePhase()
     {
         // immediately end the morning phase
         // call to loading screen
         // set time to evening start time
-    }
 
-    public static void EndEveningPhase()
-    {
-        // immediately end evening phase
-        // end current day and move to next
-        // set time to next morning
+        if (currentTimePhase == TimePhase.Morning)
+        {
+            StartCoroutine(LoadingScreenSync());
+            SetTime(17, 30);
+        }
 
-        CurrentDay++;
+        if (currentTimePhase == TimePhase.Evening)
+        {
+            CurrentDay++;
+        }
+
+        
     }
 
     private void SetTime(int hour, int minute)
@@ -143,7 +148,7 @@ public class TimeController : MonoBehaviour
 
     private TimePhase DetermineCurrentTimePhase()
     {
-        if (Hour >= 6 && Hour == 8)
+        if (Hour >= 6 && Hour <= 8)
         {
             return TimePhase.Morning;
         }
@@ -164,7 +169,7 @@ public class TimeController : MonoBehaviour
                 // housewarming party!
             }
 
-            hasCompletedTimeSegment = true;
+            isPaused = true;
             // load into day end scene
             // possibly make use of dream scene here
         }
@@ -183,7 +188,8 @@ public class TimeController : MonoBehaviour
 
                     if (Hour == 8)
                     {
-                        hasCompletedTimeSegment = true;
+                        isPaused = true;
+                        Debug.Log("Time to go to work");
                     }
 
                     if (Hour == 24)

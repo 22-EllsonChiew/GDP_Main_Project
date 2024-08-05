@@ -22,6 +22,8 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject miniGameCamDrill;
     [SerializeField] private GameObject miniGameCamTable;
 
+    [SerializeField] private GameObject timeControllerUI;
+
     public GameObject builtChair;
 
     private Collider currentCollider;
@@ -42,6 +44,7 @@ public class Interaction : MonoBehaviour
     public bool tableDrilling = false;
     private void Start()
     {
+        timeControllerUI.SetActive(false);
         animator = GetComponent<Animator>();
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
@@ -59,47 +62,16 @@ public class Interaction : MonoBehaviour
 
     private void Update()
     {
-        if (CanInteractWithNeighbour && Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E)) 
         {
-            NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, "HappyGreet");
-        }
-
-        if (IsAtElevator && Input.GetKeyDown(KeyCode.E))
-        {
-
-            if (TimeController.currentTimePhase == TimePhase.Morning)
+            if (CanInteractWithNeighbour)
             {
-                if (!TimeController.hasCompletedTimeSegment)
-                {
-                    // prompt player for confirmation
-                    // pop up UI confirmation
-                }
-                else
-                {
-                    // immediately jump to next time phase
-                    TimeController.EndMorningPhase();
-                }
-
+                NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, "HappyGreet");
             }
 
-        }
-
-        if (IsAtBed && Input.GetKeyDown(KeyCode.E))
-        {
-            // same as elevator interaction
-            if (TimeController.currentTimePhase == TimePhase.Evening)
+            if (IsAtElevator || IsAtBed)
             {
-                if (!TimeController.hasCompletedTimeSegment)
-                {
-                    // prompt player for confirmation
-                    // pop up UI confirmation
-                }
-                else
-                {
-                    // immediately jump to next time phase
-                    TimeController.EndMorningPhase();
-                }
-
+                timeControllerUI.SetActive(true);
             }
         }
 
@@ -164,7 +136,7 @@ public class Interaction : MonoBehaviour
         if (other.CompareTag("NeighbourInteractionCollider"))
         {
             CanInteractWithNeighbour = true;
-            Debug.Log(CanInteractWithNeighbour);
+            Debug.Log("Player @ neighbour door");
         }
 
         if (other.CompareTag("Environment_Elevator"))
@@ -173,7 +145,7 @@ public class Interaction : MonoBehaviour
             Debug.Log("Player @ elevator");
         }
 
-        if (other.CompareTag("Environment_Bed"))
+        if (other.CompareTag("Bed"))
         {
             IsAtBed = true;
             Debug.Log("Player @ bed");
@@ -228,7 +200,7 @@ public class Interaction : MonoBehaviour
 
         }
 
-        if (other.CompareTag("Environment_Bed"))
+        if (other.CompareTag("Bed"))
         {
             
         }
