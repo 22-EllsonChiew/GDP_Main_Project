@@ -27,44 +27,55 @@ public class NeighbourAngerBar : MonoBehaviour
 
     public void HeardNoise(float amount)
     {
+        UpdateNeighbourHappinessBar(amount);
+        CheckForSherrylComplainMessage();
+        CheckForHakimComplainMessage();
+
+        // If no complaints were received, log that neighbors are happy
+        if (!complaintMessage.hakimSentedComplaint && !complaintMessage.sherrylSentedComplaint)
+        {
+            Debug.Log("Neighbours are happy.");
+        }
+
+        //Check neighbour happiness value
+        //complaintMessage.CheckNeighbourHappinessValue();
+    }
+
+    private void UpdateNeighbourHappinessBar(float amount)
+    {
         currentHappiness -= amount;
         currentHappiness = Mathf.Clamp(currentHappiness, 0, maxHappyBar);
-
         angerBarManager.UpdateHappinessBar();
 
-        if (complaintMessage.neighbourHakim.CheckPlayerInColliderHakim() && complaintMessage.neighbourHakim.currentHappiness < complaintMessage.noiseThreshold)
-        {
-            //Debug.Log($"Hakim's happiness: {complaintMessage.neighbourHakim.currentHappiness}, threshold: {complaintMessage.noiseThreshold}");
-            complaintMessage.ReceiveComplaint("Hakim");
-            hakimComplained = true;
-
-
-        }
-        else if (complaintMessage.neighbourSherryl.CheckPlayerInColliderSherryl() && complaintMessage.neighbourSherryl.currentHappiness < complaintMessage.noiseThreshold && !hakimComplained)
-        {
-            //Debug.Log($"Sherryl's happiness: {complaintMessage.neighbourSherryl.currentHappiness}, threshold: {complaintMessage.noiseThreshold}");
-            complaintMessage.ReceiveComplaint("Sherryl");
-            sherrylComplained = true;
-        }
-
-        // Only send a complaint message to the other NPC if the first NPC didn't complain
-        if (!hakimComplained && complaintMessage.neighbourHakim.CheckPlayerInColliderHakim() && complaintMessage.neighbourHakim.currentHappiness < complaintMessage.noiseThreshold)
-        {
-            complaintMessage.ReceiveComplaint("Hakim");
-        }
-        else if (!sherrylComplained && complaintMessage.neighbourSherryl.CheckPlayerInColliderSherryl() && complaintMessage.neighbourSherryl.currentHappiness < complaintMessage.noiseThreshold)
-        {
-            complaintMessage.ReceiveComplaint("Sherryl");
-        }
-        else
-        {
-            Debug.Log("Neighbour Happy");
-        }
-
-
-
-        complaintMessage.CheckNeighbourHappinessValue();
     }
+
+    private void CheckForSherrylComplainMessage()
+    {
+        //check if player is in sherryl collider side and check if the sherryl current happiness less then the threshold from ChatManger script and check if sherryl has send complain to the player
+        if (complaintMessage.neighbourSherryl.CheckPlayerInColliderSherryl() && complaintMessage.neighbourSherryl.currentHappiness < complaintMessage.noiseThresholdSherryl && !complaintMessage.sherrylSentedComplaint)
+        {
+            //send complaint message and set sherryl send complaint to true so it will not send or dup another message
+            // Send complaint from Sherryl
+            complaintMessage.ReceiveComplaint("Sherryl");
+            complaintMessage.sherrylSentedComplaint = true;
+        }
+    }
+
+    private void CheckForHakimComplainMessage()
+    {
+        //check if player is in hakim collider side and check if the hakim current happiness less then the threshold from ChatManger script and check if hakim has send complain to the player
+        if (complaintMessage.neighbourHakim.CheckPlayerInColliderHakim() && complaintMessage.neighbourHakim.currentHappiness < complaintMessage.noiseThreshold && !complaintMessage.hakimSentedComplaint)
+        {
+            //send complaint message and set hakim send complaint to true so it will not send or dup another message
+            // Send complaint from Hakim
+            complaintMessage.ReceiveComplaint("Hakim");
+            complaintMessage.hakimSentedComplaint = true;
+        }
+    }
+
+
+
+
 
     /*public void RestoreComplaint(float amount)
     {
