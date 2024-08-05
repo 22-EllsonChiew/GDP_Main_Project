@@ -24,6 +24,9 @@ TagManager:
   - Drilling
   - MinigameCamPos
   - TableDrilling
+  - Neighbour
+  - Environment_Elevator
+  - Bed
   layers:
   - Default
   - TransparentFX
