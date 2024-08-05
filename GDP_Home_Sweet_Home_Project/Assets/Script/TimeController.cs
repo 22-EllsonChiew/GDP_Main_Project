@@ -132,6 +132,7 @@ public class TimeController : MonoBehaviour
 
         if (currentTimePhase == TimePhase.Evening)
         {
+            SetTime(startHour,startMinute);
             CurrentDay++;
         }
 
