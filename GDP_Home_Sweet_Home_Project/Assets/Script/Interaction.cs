@@ -31,6 +31,8 @@ public class Interaction : MonoBehaviour
 
     public static Neighbour currentNeighbour;
 
+    private bool ConfirmButtonClickOnce = false;
+
     public static bool CanInteractWithNeighbour {  get; private set; }
     private bool IsAtElevator;
     private bool IsAtBed;
@@ -80,6 +82,7 @@ public class Interaction : MonoBehaviour
 
     private void ConfirmClicked(Collider confirmedCollider)
     {
+        Debug.Log("ConfirmClicked called with: " + confirmedCollider);
         //isGameStarting.Invoke(true);
 
         confirmationWindow.gameObject.SetActive(false);
@@ -157,10 +160,14 @@ public class Interaction : MonoBehaviour
     {
         if (other.CompareTag("Object") && Input.GetKey(KeyCode.E)) //check if tag of the object colliding with player is "object"
         {
-            confirmationWindow.gameObject.SetActive(true);
-            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClicked(other)); ;
-            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
-            hammerGame = true;
+            if (!ConfirmButtonClickOnce)
+            {
+                confirmationWindow.gameObject.SetActive(true);
+                confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClicked(other));
+                confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+                ConfirmButtonClickOnce = true;
+                hammerGame = true;
+            }
         }
 
         if (other.CompareTag("Chest") && Input.GetKey(KeyCode.E))

@@ -8,7 +8,7 @@ public class NoiseController : MonoBehaviour
 {
     [Header("Noise Parameters")]
     private float currentNoise;
-    public float noiseThreshold = 1f;
+    public float noiseThreshold = 100f;
     public float noiseDecreaseRate;
     private float noiseMultiplier = 0.001f;
 
