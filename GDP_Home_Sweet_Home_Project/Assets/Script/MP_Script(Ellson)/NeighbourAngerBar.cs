@@ -31,6 +31,9 @@ public class NeighbourAngerBar : MonoBehaviour
         CheckForSherrylComplainMessage();
         CheckForHakimComplainMessage();
 
+        
+        
+
         // If no complaints were received, log that neighbors are happy
         if (!complaintMessage.hakimSentedComplaint && !complaintMessage.sherrylSentedComplaint)
         {
@@ -59,6 +62,11 @@ public class NeighbourAngerBar : MonoBehaviour
             complaintMessage.ReceiveComplaint("Sherryl");
             complaintMessage.sherrylSentedComplaint = true;
         }
+        else if(complaintMessage.neighbourSherryl.CheckPlayerInColliderSherryl() && complaintMessage.neighbourSherryl.currentHappiness < complaintMessage.policeCallThresholdSherryl && complaintMessage.PlayerRepliedToNeighbour("Sherryl") && !complaintMessage.sherrylCallPolice)
+        {
+            complaintMessage.ReceiveComplaint("Sherryl");
+            complaintMessage.sherrylCallPolice = true;
+        }
     }
 
     private void CheckForHakimComplainMessage()
@@ -71,10 +79,15 @@ public class NeighbourAngerBar : MonoBehaviour
             complaintMessage.ReceiveComplaint("Hakim");
             complaintMessage.hakimSentedComplaint = true;
         }
+        else if(complaintMessage.neighbourHakim.CheckPlayerInColliderHakim() && complaintMessage.neighbourHakim.currentHappiness < complaintMessage.policeCallThresholdHakim && complaintMessage.PlayerRepliedToNeighbour("Hakim") && !complaintMessage.hakimCallPolice)
+        {
+            complaintMessage.ReceiveComplaint("Hakim");
+            complaintMessage.hakimCallPolice = true;
+        }
     }
 
-
-
+   
+   
 
 
     /*public void RestoreComplaint(float amount)

@@ -46,11 +46,19 @@ public class ChatManager : MonoBehaviour
     public NeighbourAngerBar neighbourSherryl;
     public NeighbourAngerBar neighbourHakim;
 
-    public float noiseThreshold = 60f;
-    public float noiseThresholdSherryl = 60f;
+    public float noiseThreshold = 40f;
+    public float noiseThresholdSherryl = 40f;
+
+    public float policeCallThresholdSherryl = 60f;
+    public float policeCallThresholdHakim = 60f;
         
     public bool hakimSentedComplaint = false;
     public bool sherrylSentedComplaint = false;
+
+    public bool hakimCallPolice = false;
+    public bool sherrylCallPolice = false;
+
+    
 
     public static ChatManager instance;
 
@@ -191,6 +199,16 @@ public class ChatManager : MonoBehaviour
             ReceiveComplaint("Sherryl");
             sherrylSentedComplaint = true;
         }
+        if(neighbourSherryl.currentHappiness < policeCallThresholdSherryl && !sherrylCallPolice)
+        {
+            ReceiveComplaint("Sherryl");
+            sherrylCallPolice = true;
+        }
+        if(neighbourHakim.currentHappiness < policeCallThresholdHakim && !hakimCallPolice)
+        {
+            ReceiveComplaint("Hakim");
+            hakimCallPolice = true;
+        }
     }
 
     public void ResetComplaint()
@@ -237,6 +255,11 @@ public class ChatManager : MonoBehaviour
 
         currentContact.isAwaitingReply = false;
         RefreshCurrentMessages(currentContact);
+    }
+
+    public bool PlayerRepliedToNeighbour(string name)
+    {
+        return currentContact != null && currentContact.name == name && !currentContact.isAwaitingReply;
     }
 
     public void UnlockContact(string contactName)

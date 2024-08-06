@@ -45,7 +45,7 @@ public class MovingFurniture : MonoBehaviour
                 if (hitCollider.CompareTag("Draggable"))
                 {
                     carriedObject = hitCollider.gameObject;
-                    playerMovement.speed = 4f;
+                    playerMovement.speed = 2f;
                     break;
                 }
             }
@@ -78,7 +78,7 @@ public class MovingFurniture : MonoBehaviour
             carriedObject.transform.SetParent(null);
             carriedObject = null;
             //player movement speed set back to original speed
-            playerMovement.speed = 10f;
+            playerMovement.speed = 3f;
         }
     }
 }

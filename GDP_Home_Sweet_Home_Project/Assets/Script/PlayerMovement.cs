@@ -109,9 +109,9 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isWalking", isWalking);
         if (isWalking)
         {
-            animator.SetTrigger("WalkTrigger");
+            //animator.SetTrigger("WalkTrigger");
 
-            noiseController.MakeNoise(noiseController.noiseThreshold * Time.deltaTime);
+            noiseController.MakeNoise(2f * Time.deltaTime);
             noiseController.HandleNoise();
         }
 
@@ -178,15 +178,5 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        
-        if (other.gameObject.CompareTag("NewSceneTrigger"))
-        {
-            other.gameObject.GetComponent<SceneTransition>().ChangeToNewScene();
-        }
-        
-    }*/
 
 }
