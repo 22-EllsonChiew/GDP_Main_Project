@@ -1511,7 +1511,7 @@ GameObject:
   - component: {fileID: 98928841}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Draggable
+  m_TagString: Drilling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1610,7 +1610,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98928836}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -11724,7 +11724,7 @@ Transform:
   m_GameObject: {fileID: 1052967558}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.95, z: 0.782}
+  m_LocalPosition: {x: 0, y: -0.95, z: 1.619}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22956,7 +22956,9 @@ MonoBehaviour:
   sprintFunction: 304
   turnSmoothTime: 0.1
   turnSmoothVelocity: 0
+  isWalking: 0
   isMinigameStarted: 0
+  noiseController: {fileID: 0}
 --- !u!114 &1790319702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22974,10 +22976,18 @@ MonoBehaviour:
   animator: {fileID: 1633611348}
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}
+  mainCamera: {fileID: 0}
+  miniGameCamDrill: {fileID: 0}
+  miniGameCamTable: {fileID: 0}
+  timeControllerUI: {fileID: 0}
   builtChair: {fileID: 460021114550735343, guid: 01a2665f7980516498936001b2e4bd41, type: 3}
   isGameStarting:
     m_PersistentCalls:
       m_Calls: []
+  tagName: 
+  drillGame: 0
+  hammerGame: 0
+  tableDrilling: 0
 --- !u!95 &1790319703
 Animator:
   serializedVersion: 5
@@ -23029,7 +23039,9 @@ MonoBehaviour:
   playerMovement: {fileID: 1790319701}
   dragPos: {fileID: 1052967559}
   checkRadius: 2
+  carriedObject: {fileID: 0}
   heightOffset: 1
+  maxDistance: 2
 --- !u!1 &1805444736
 GameObject:
   m_ObjectHideFlags: 0
@@ -29565,6 +29577,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf66f42689b48da45ba5a38628dfdf10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endDay: 0
+  startHour: 0
+  startMinute: 0
   endHour: 1
   endMinute: 30
   directionalLight: {fileID: 705507994}
