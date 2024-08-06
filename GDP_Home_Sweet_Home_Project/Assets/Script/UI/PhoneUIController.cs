@@ -193,8 +193,6 @@ public class PhoneUIController : MonoBehaviour
             if (hasReceivedNotification && app == PhoneApp.ChatApp)
             {
                 chatNotification.SetActive(false);
-                notificationBell.SetActive(false);
-                hasReceivedNotification = false;
             }
 
             if (currentApp != PhoneApp.Stowed)
@@ -233,14 +231,24 @@ public class PhoneUIController : MonoBehaviour
 
     public void ReceiveChatNotification()
     {
-        if (!notificationBell.gameObject.activeSelf)
+        if (currentApp != PhoneApp.ChatApp || currentApp != PhoneApp.ChatApp_Messages)
         {
-            notificationBell.gameObject.SetActive(true);
+            chatNotification.SetActive(true);
         }
+
+        notificationBell.gameObject.SetActive(true);
         // play notification sound
-        chatNotification.SetActive(true);
+
+        
         hasReceivedNotification = true;
 
+    }
+
+    public void ReadChatNotification()
+    {
+        chatNotification.SetActive(false);
+        notificationBell.SetActive(false);
+        hasReceivedNotification = false;
     }
 
     public void BackBtn()

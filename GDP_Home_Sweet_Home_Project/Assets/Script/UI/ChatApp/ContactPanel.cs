@@ -12,10 +12,6 @@ public class ContactPanel : MonoBehaviour
     public Image contactPhoto;
     public GameObject notificationIcon;
 
-    private void Start()
-    {
-        notificationIcon.SetActive(false);
-    }
 
     public void SetContactName(string _contactName)
     {
@@ -39,17 +35,22 @@ public class ContactPanel : MonoBehaviour
 
     public void OnClick()
     {
-        if (notificationIcon.gameObject.activeSelf)
-        {
-            notificationIcon.gameObject.SetActive(false);
-        }
+
+        PhoneUIController.instance.ReadChatNotification();
+
 
         PhoneUIController.instance.OpenMessages();
         ChatManager.instance.OpenMessages(GetContactName());
     }
 
-    public void ReceiveNotification()
+    public void DisplayUnreadNotification()
     {
         notificationIcon.SetActive(true);
     }
+    
+    public void ClearNotification()
+    {
+        notificationIcon.SetActive(false);
+    }
+
 }

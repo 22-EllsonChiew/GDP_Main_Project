@@ -38,7 +38,7 @@ public class ChatManager : MonoBehaviour
     private List<PhoneContact> unlockedPhoneContacts;
     private DialogueLine[] _receivedMessages;
 
-    private PhoneContact currentContact;
+    public PhoneContact currentContact { get; private set; }
     private MessageConversation currentConversation;
 
     [Header("Neighbour")]
@@ -177,11 +177,15 @@ public class ChatManager : MonoBehaviour
                 {
                     RefreshCurrentMessages();
                 }
+                else
+                {
+                    PhoneUIController.instance.ReceiveChatNotification();
+                }
 
                 MoveContactToTop(targetContact);
                 UpdateContactList();
 
-                PhoneUIController.instance.ReceiveChatNotification();
+                
             }
         }
         else
@@ -260,6 +264,7 @@ public class ChatManager : MonoBehaviour
         currentContact.receivedMessages = updatedMessages;
 
         currentContact.isAwaitingReply = false;
+        UpdateContactList();
         RefreshCurrentMessages();
     }
 
@@ -306,7 +311,12 @@ public class ChatManager : MonoBehaviour
         ContactPanel newContactPanel = Instantiate(contactPrefab, contactListParent);
         if (contact.isAwaitingReply)
         {
-            newContactPanel.ReceiveNotification();
+            newContactPanel.DisplayUnreadNotification();
+        }
+        else
+        {
+            newContactPanel.ClearNotification();
+            Debug.Log("clearing notification");
         }
         newContactPanel.SetContactName(contact.name);
         newContactPanel.SetContactImage(contact.photo);
