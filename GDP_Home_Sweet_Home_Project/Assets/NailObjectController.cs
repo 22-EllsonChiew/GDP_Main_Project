@@ -88,34 +88,27 @@ public class NailObjectController : MonoBehaviour
 
     public void HammeringNoise()
     {
-        if (windowControllers.rightWindowIsClose() || windowControllers.leftWindowIsClose())
+        if (packageRaycast.OnCarpet())
         {
-
-            if (packageRaycast.OnCarpet())
-            {
-                Debug.Log("building on carpet with window close");
-                noiseController.MakeNoise(0.20f);
-
-            }
-            else
-            {
-                noiseController.MakeNoise(0.35f);
-
-            }
+           
+            Debug.Log("building on carpet with window close");
+            noiseController.MakeNoise(windowControllers.NoiseLevel() - 0.15f);
             noiseController.HandleNoise();
+            
         }
         else if (packageRaycast.OnCarpet())
         {
             Debug.Log("On Carpet but window is open");
-            noiseController.MakeNoise(0.40f);
+            noiseController.MakeNoise(windowControllers.NoiseLevel());
             noiseController.HandleNoise();
         }
         else
         {
-            noiseController.MakeNoise(0.55f);
+            noiseController.MakeNoise(windowControllers.NoiseLevel());
             noiseController.HandleNoise();
         }
     }
-
-
 }
+
+
+

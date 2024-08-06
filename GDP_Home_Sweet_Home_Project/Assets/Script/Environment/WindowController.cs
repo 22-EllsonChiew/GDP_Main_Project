@@ -126,13 +126,13 @@ public class WindowController : MonoBehaviour
     {
         if (isCloseKitchen)
         {
-            animatorRight.SetTrigger("Open"); // Trigger for opening all panels
+            animatorKitchen.SetTrigger("Open"); // Trigger for opening all panels
             isCloseKitchen = false;
         }
         else
         {
-            Debug.Log("Closing right panels.");
-            animatorRight.SetTrigger("Close"); // Trigger for closing all panels
+            Debug.Log("Closing Kitchen panels.");
+            animatorKitchen.SetTrigger("Close"); // Trigger for closing all panels
             isCloseKitchen = true;
 
         }
@@ -142,13 +142,13 @@ public class WindowController : MonoBehaviour
     {
         if (isCloseBedRoom)
         {
-            animatorRight.SetTrigger("Open"); // Trigger for opening all panels
+            animatorBedRoom.SetTrigger("Open"); // Trigger for opening all panels
             isCloseBedRoom = false;
         }
         else
         {
             Debug.Log("Closing right panels.");
-            animatorRight.SetTrigger("Close"); // Trigger for closing all panels
+            animatorBedRoom.SetTrigger("Close"); // Trigger for closing all panels
             isCloseBedRoom = true;
 
         }
