@@ -112,14 +112,13 @@ public class ChatManager : MonoBehaviour
         if (targetContact != null) 
         {
             currentContactName.text = contactName;
-
-            RefreshCurrentMessages(targetContact);
-            
             currentContact = targetContact;
+
+            RefreshCurrentMessages();
         }
     }
 
-    public void RefreshCurrentMessages(PhoneContact currentContact)
+    public void RefreshCurrentMessages()
     {
         foreach (Transform child in chatListParent)
         {
@@ -156,9 +155,9 @@ public class ChatManager : MonoBehaviour
         
         //PhoneContact targetContact = unlockedPhoneContacts.Find(contact => contact.name == name);
        
-        currentContact = unlockedPhoneContacts.Find(contact => contact.name == name);
+        PhoneContact targetContact = unlockedPhoneContacts.Find(contact => contact.name == name);
 
-        if (currentContact.isUnlocked && currentContact != null)
+        if (targetContact.isUnlocked && targetContact != null)
         {
             MessageConversation conversationToAdd = messageLoader.GetMessageConversation(name, "NormalComplaint");
 
@@ -167,14 +166,21 @@ public class ChatManager : MonoBehaviour
                 currentConversation = conversationToAdd;
 
                 DialogueLine lineToAdd = conversationToAdd.messages[0];
-                DialogueLine[] updatedMessages = new DialogueLine[currentContact.receivedMessages.Length + 1];
-                updatedMessages[currentContact.receivedMessages.Length] = lineToAdd;
-                currentContact.receivedMessages.CopyTo(updatedMessages, 0);
+                DialogueLine[] updatedMessages = new DialogueLine[targetContact.receivedMessages.Length + 1];
+                updatedMessages[targetContact.receivedMessages.Length] = lineToAdd;
+                targetContact.receivedMessages.CopyTo(updatedMessages, 0);
 
-                currentContact.receivedMessages = updatedMessages;
-                currentContact.isAwaitingReply = true;
+                targetContact.receivedMessages = updatedMessages;
+                targetContact.isAwaitingReply = true;
 
-                RefreshCurrentMessages(currentContact);
+                if(currentContact == targetContact)
+                {
+                    RefreshCurrentMessages();
+                }
+
+                MoveContactToTop(targetContact);
+                UpdateContactList();
+
                 PhoneUIController.instance.ReceiveChatNotification();
             }
         }
@@ -237,7 +243,7 @@ public class ChatManager : MonoBehaviour
 
             currentContact.receivedMessages = updatedMessages;
 
-            RefreshCurrentMessages(currentContact);
+            RefreshCurrentMessages();
             StartCoroutine(ReceiveNeighbourReply());
         }
     }
@@ -254,7 +260,7 @@ public class ChatManager : MonoBehaviour
         currentContact.receivedMessages = updatedMessages;
 
         currentContact.isAwaitingReply = false;
-        RefreshCurrentMessages(currentContact);
+        RefreshCurrentMessages();
     }
 
     public bool PlayerRepliedToNeighbour(string name)
@@ -274,13 +280,37 @@ public class ChatManager : MonoBehaviour
         }
     }
 
+    void MoveContactToTop(PhoneContact contact)
+    {
+        if (contact != null)
+        {
+            unlockedPhoneContacts.Remove(contact);
+            unlockedPhoneContacts.Insert(0, contact);
+        }
+    }
+    void UpdateContactList()
+    {
+        foreach (Transform child in contactListParent)
+        {
+            Destroy(child.gameObject);
+        }
 
+        foreach (PhoneContact contact in unlockedPhoneContacts)
+        {
+            AddContact(contact);
+        }
+    }
 
     public void AddContact(PhoneContact contact)
     {
         ContactPanel newContactPanel = Instantiate(contactPrefab, contactListParent);
+        if (contact.isAwaitingReply)
+        {
+            newContactPanel.ReceiveNotification();
+        }
         newContactPanel.SetContactName(contact.name);
         newContactPanel.SetContactImage(contact.photo);
+        
     }
 
 }
