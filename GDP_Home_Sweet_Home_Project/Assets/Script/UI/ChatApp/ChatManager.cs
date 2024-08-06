@@ -86,7 +86,6 @@ public class ChatManager : MonoBehaviour
 
         unlockedPhoneContacts = new List<PhoneContact>();
 
-        UnlockContact("Myself");
         UnlockContact("Mother");
         UnlockContact("Hakim");
         UnlockContact("Sherryl");
@@ -176,6 +175,7 @@ public class ChatManager : MonoBehaviour
                 currentContact.isAwaitingReply = true;
 
                 RefreshCurrentMessages(currentContact);
+                PhoneUIController.instance.ReceiveChatNotification();
             }
         }
         else
