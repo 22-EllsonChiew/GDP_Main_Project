@@ -2197,9 +2197,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorLeft: {fileID: 157919619}
   animatorRight: {fileID: 3107494560700173171}
+  animatorKitchen: {fileID: 0}
+  animatorBedRoom: {fileID: 0}
   player: {fileID: 1790319700}
   leftWindow: {fileID: 323599927}
   rightWindow: {fileID: 1036620911}
+  kitchenWindow: {fileID: 0}
+  bedRoomWindow: {fileID: 0}
+  windowClosedCount: 0
 --- !u!95 &157919619
 Animator:
   serializedVersion: 5
@@ -4986,7 +4991,7 @@ GameObject:
   - component: {fileID: 323599928}
   - component: {fileID: 323599927}
   m_Layer: 0
-  m_Name: Left_Window_Collider
+  m_Name: Kitchen_Window_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6226,8 +6231,8 @@ Transform:
   - {fileID: 1355370380}
   - {fileID: 836772535265057983}
   - {fileID: 836078303302256465}
-  - {fileID: 157919617}
   - {fileID: 1722115414}
+  - {fileID: 157919617}
   m_Father: {fileID: 367606660}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &399596233
@@ -6244,9 +6249,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorLeft: {fileID: 3109314639344095389}
   animatorRight: {fileID: 3107494560700173171}
+  animatorKitchen: {fileID: 157919619}
+  animatorBedRoom: {fileID: 1722115416}
   player: {fileID: 1790319700}
   leftWindow: {fileID: 650975966}
   rightWindow: {fileID: 1036620911}
+  kitchenWindow: {fileID: 323599927}
+  bedRoomWindow: {fileID: 1872139492}
+  windowClosedCount: 0
 --- !u!1 &402180371 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7272911518199237601, guid: 07d21360cbdd2f24685af74138df70be, type: 3}
@@ -11918,9 +11928,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorLeft: {fileID: 0}
   animatorRight: {fileID: 0}
+  animatorKitchen: {fileID: 0}
+  animatorBedRoom: {fileID: 0}
   player: {fileID: 1790319700}
   leftWindow: {fileID: 1070994305}
   rightWindow: {fileID: 774327602}
+  kitchenWindow: {fileID: 0}
+  bedRoomWindow: {fileID: 0}
+  windowClosedCount: 0
 --- !u!95 &836477002
 Animator:
   serializedVersion: 5
@@ -16889,9 +16904,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorLeft: {fileID: 0}
   animatorRight: {fileID: 0}
+  animatorKitchen: {fileID: 0}
+  animatorBedRoom: {fileID: 0}
   player: {fileID: 1790319700}
   leftWindow: {fileID: 664264606}
   rightWindow: {fileID: 774327602}
+  kitchenWindow: {fileID: 0}
+  bedRoomWindow: {fileID: 0}
+  windowClosedCount: 0
 --- !u!95 &1176898968
 Animator:
   serializedVersion: 5
@@ -23600,9 +23620,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorLeft: {fileID: 0}
   animatorRight: {fileID: 0}
+  animatorKitchen: {fileID: 0}
+  animatorBedRoom: {fileID: 0}
   player: {fileID: 1790319700}
   leftWindow: {fileID: 688075744}
   rightWindow: {fileID: 774327602}
+  kitchenWindow: {fileID: 0}
+  bedRoomWindow: {fileID: 0}
+  windowClosedCount: 0
 --- !u!95 &1355370382
 Animator:
   serializedVersion: 5
@@ -28205,7 +28230,7 @@ GameObject:
   - component: {fileID: 1722115416}
   - component: {fileID: 1722115415}
   m_Layer: 0
-  m_Name: MP_Main_Window_OpenedState_Kitchen(Left) (1)
+  m_Name: MP_Main_Window_OpenedState_BedRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28244,9 +28269,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorLeft: {fileID: 1722115416}
   animatorRight: {fileID: 3107494560700173171}
+  animatorKitchen: {fileID: 0}
+  animatorBedRoom: {fileID: 0}
   player: {fileID: 1790319700}
   leftWindow: {fileID: 1872139492}
   rightWindow: {fileID: 1036620911}
+  kitchenWindow: {fileID: 0}
+  bedRoomWindow: {fileID: 0}
+  windowClosedCount: 0
 --- !u!95 &1722115416
 Animator:
   serializedVersion: 5
@@ -29896,7 +29926,7 @@ GameObject:
   - component: {fileID: 1872139493}
   - component: {fileID: 1872139492}
   m_Layer: 0
-  m_Name: Left_Window_Collider
+  m_Name: BedRoom_Window_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34746,9 +34776,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorLeft: {fileID: 3109314639344095389}
   animatorRight: {fileID: 3107494560700173171}
+  animatorKitchen: {fileID: 0}
+  animatorBedRoom: {fileID: 0}
   player: {fileID: 1790319700}
   leftWindow: {fileID: 650975966}
   rightWindow: {fileID: 1036620911}
+  kitchenWindow: {fileID: 0}
+  bedRoomWindow: {fileID: 0}
+  windowClosedCount: 0
 --- !u!95 &3109314639344095389
 Animator:
   serializedVersion: 5
@@ -34784,9 +34819,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorLeft: {fileID: 3109314639344095389}
   animatorRight: {fileID: 3107494560700173171}
+  animatorKitchen: {fileID: 0}
+  animatorBedRoom: {fileID: 0}
   player: {fileID: 1790319700}
   leftWindow: {fileID: 650975966}
   rightWindow: {fileID: 1036620911}
+  kitchenWindow: {fileID: 0}
+  bedRoomWindow: {fileID: 0}
+  windowClosedCount: 0
 --- !u!33 &3260616448705870963
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -35324,9 +35364,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorLeft: {fileID: 0}
   animatorRight: {fileID: 0}
+  animatorKitchen: {fileID: 0}
+  animatorBedRoom: {fileID: 0}
   player: {fileID: 1790319700}
   leftWindow: {fileID: 688075744}
   rightWindow: {fileID: 774327602}
+  kitchenWindow: {fileID: 0}
+  bedRoomWindow: {fileID: 0}
+  windowClosedCount: 0
 --- !u!33 &4544245656218048458
 MeshFilter:
   m_ObjectHideFlags: 0

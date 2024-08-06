@@ -24,6 +24,8 @@ public class WindowController : MonoBehaviour
     private bool playerInKitchenWindow;
     private bool playerInBedRoomWindow;
 
+    public int windowClosedCount = 0;
+
     private KeyCode interactWindow = KeyCode.E;
 
 
@@ -41,21 +43,44 @@ public class WindowController : MonoBehaviour
         {
             Debug.Log("Time to close left side");
             ToggleLeftPanels();
+            windowClosedCount++;
         }
         else if (playerInRightWindow && Input.GetKeyDown(interactWindow))
         {
             Debug.Log("Time to close right side");
             ToggleRightPanels();
+            windowClosedCount++;
         }
         else if(playerInKitchenWindow && Input.GetKeyDown(interactWindow))
         {
             Debug.Log("Time to close Kitchen side");
             ToggleKitchenWindow();
+            windowClosedCount++;
         }
         else if(playerInBedRoomWindow && Input.GetKeyDown(interactWindow))
         {
             Debug.Log("Time to close BedRoom side");
             ToggleBedRoomWindow();
+            windowClosedCount++;
+        }
+    }
+
+    public float NoiseLevel()
+    {
+        switch(windowClosedCount)
+        {
+            case 0:
+                return 0.60f;
+            case 1:
+                return 0.55f;
+            case 2:
+                return 0.45f;
+            case 3:
+                return 0.35f;
+            case 4:
+                return 0.25f;
+            default:
+                return 0.55f;
         }
     }
     

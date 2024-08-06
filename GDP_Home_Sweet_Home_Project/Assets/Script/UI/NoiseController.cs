@@ -126,11 +126,13 @@ public class NoiseController : MonoBehaviour
     {
         if(playerInSherrylSide)
         {
-            MakeNoise(windowControllers.leftWindowIsClose() ? 0.25f : 0.55f);
+            //MakeNoise(windowControllers.leftWindowIsClose() ? 0.25f : 0.55f);
+            MakeNoise(windowControllers.NoiseLevel());
         }
         else if(playerInHakimSide)
         {
-            MakeNoise(windowControllers.rightWindowIsClose() ? 0.25f : 0.55f);
+            //MakeNoise(windowControllers.rightWindowIsClose() ? 0.25f : 0.55f);
+            MakeNoise(windowControllers.NoiseLevel());
         }
     }
 
