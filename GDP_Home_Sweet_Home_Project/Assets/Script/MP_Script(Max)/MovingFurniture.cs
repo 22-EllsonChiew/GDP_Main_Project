@@ -12,6 +12,7 @@ public class MovingFurniture : MonoBehaviour
     public float heightOffset = 0.5f;
     public float maxDistance = 3f; // Maximum distance the object can be from the player
     public float forceStrength = 1f; // Strength of the impulse force
+    public GameObject snapPos;
 
     private void Start()
     {
