@@ -43,6 +43,7 @@ public class MovingFurniture : MonoBehaviour
 
     void CheckForDraggableObject()
     {
+        //might have to change to only check for area in front of player
         Debug.Log("INTO CHECKFORDRAGGABLE");
         Collider[] hitColliders = Physics.OverlapSphere(player.transform.position, checkRadius);
         foreach (var hitCollider in hitColliders)
@@ -91,12 +92,18 @@ public class MovingFurniture : MonoBehaviour
             {
                 rb.constraints = RigidbodyConstraints.None;
             }
-            carriedObject.transform.SetParent(null);
-            carriedObject = null;
             playerMovement.speed = 10f;
+            StartCoroutine(Dropping());
         }
     }
 
+    IEnumerator Dropping()
+    {
+        //wait for a small amount of time so the object can snap before carriedObject is set to null
+        yield return new WaitForSeconds(0.2f);
+        carriedObject.transform.SetParent(null);
+        carriedObject = null;
+    }
     void SnapPosition()
     {
         Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, snapRadius);
@@ -105,11 +112,11 @@ public class MovingFurniture : MonoBehaviour
             if (hitCollider.CompareTag("SnapPosition"))
             {
                 Debug.Log("can SNAP");
-                carriedObject.transform.position = hitCollider.transform.position;
+                //carriedObject.transform.position = hitCollider.transform.position;
                 if (canSnap == true)
                 {
                     Debug.Log("SNAPPIN");
-                    //carriedObject.transform.position = hitCollider.transform.position;
+                    carriedObject.transform.position = hitCollider.transform.position;
                 }
             }
         }
