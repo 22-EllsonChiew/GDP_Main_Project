@@ -6,6 +6,12 @@ public class Neighbour : MonoBehaviour
 {
     public string neighbourName;
     public Transform neighbourTransform;
+
+    public float maxHappiness;
+
+    public float happinessThreshold_FirstComplaint {  get; private set; }
+    public float happinessThreshold_FinalComplaint { get; private set; }
+    public float currentHappiness { get; private set; }
     public bool IsNeighbourInRoutine {  get; private set; }
 
     private List<NeighbourRoutines> routines;
@@ -14,6 +20,10 @@ public class Neighbour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentHappiness = maxHappiness;
+        happinessThreshold_FirstComplaint = maxHappiness * 0.65f;
+        happinessThreshold_FinalComplaint = maxHappiness * 0.35f;
+
         routines = new List<NeighbourRoutines>()
         {
             new NeighbourRoutines() {day = 1, routineStartHour = 18, routineStartMinute = 50, routineEndHour = 20, routineEndMinute = 0, routineType = RoutineType.NotHome }
@@ -43,4 +53,11 @@ public class Neighbour : MonoBehaviour
             
         }
     }
+
+    public void ReduceHappiness(float amount)
+    {
+        currentHappiness -= amount;
+        currentHappiness = Mathf.Clamp(currentHappiness, 0, maxHappiness);
+    }
+
 }
