@@ -19,6 +19,24 @@
 			]
 		},
 		{
+			"sender": "Hakim",
+			"type": "Complaint_Angry",
+			"messages" : [
+				{
+					"speaker": "Hakim",
+					"content": "This is my final warning, man. You're way too noisy."
+				},
+				{
+					"speaker": "Myself",
+					"content": "Im sorry, I won't do it again."
+				},
+				{
+					"speaker": "Hakim",
+					"content": "You better not. I've reached the limits of my kindness."
+				}
+			]
+		},
+		{
 			"sender": "Sherryl",
 			"type": "Complaint_Normal",
 			"messages": [
@@ -35,6 +53,24 @@
 					"content": "Thank you. Please keep to it."
 				}
 			]
-		}
+		},
+		{
+			"sender": "Sherryl",
+			"type": "Complaint_Angry",
+			"messages" : [
+				{
+					"speaker": "Sherryl",
+					"content": "I thought you said you'll keep it down?"
+				},
+				{
+					"speaker": "Myself",
+					"content": "Im sorry, I didn't mean it."
+				},
+				{
+					"speaker": "Sherryl",
+					"content": "One more time, and I'll personally go down there to tell you off."
+				}
+			]
+		},
 	]
 }
