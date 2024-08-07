@@ -10,6 +10,7 @@ public class ContactPanel : MonoBehaviour
 
     public TextMeshProUGUI contactName;
     public Image contactPhoto;
+    public GameObject notificationIcon;
 
 
     public void SetContactName(string _contactName)
@@ -34,7 +35,22 @@ public class ContactPanel : MonoBehaviour
 
     public void OnClick()
     {
+
+        PhoneUIController.instance.ReadChatNotification();
+
+
         PhoneUIController.instance.OpenMessages();
         ChatManager.instance.OpenMessages(GetContactName());
     }
+
+    public void DisplayUnreadNotification()
+    {
+        notificationIcon.SetActive(true);
+    }
+    
+    public void ClearNotification()
+    {
+        notificationIcon.SetActive(false);
+    }
+
 }
