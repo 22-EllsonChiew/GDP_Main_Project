@@ -7,7 +7,7 @@ public class MovingFurniture : MonoBehaviour
     public GameObject player;
     public PlayerMovement playerMovement;
     public Transform dragPos;
-    public float checkRadius = 4f;
+    public float checkRadius = 2f;
     public float snapRadius = 1f;
     public GameObject carriedObject = null;
     public float heightOffset = 0.5f;
@@ -44,8 +44,9 @@ public class MovingFurniture : MonoBehaviour
     void CheckForDraggableObject()
     {
         //might have to change to only check for area in front of player
+        Vector3 spherePosition = player.transform.position + player.transform.forward * (checkRadius);
         Debug.Log("INTO CHECKFORDRAGGABLE");
-        Collider[] hitColliders = Physics.OverlapSphere(player.transform.position, checkRadius);
+        Collider[] hitColliders = Physics.OverlapSphere(spherePosition, checkRadius);
         foreach (var hitCollider in hitColliders)
         {
             if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling"))
@@ -119,6 +120,16 @@ public class MovingFurniture : MonoBehaviour
                     carriedObject.transform.position = hitCollider.transform.position;
                 }
             }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (player != null)
+        {
+            Vector3 spherePosition = player.transform.position + player.transform.forward * (checkRadius);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(spherePosition, checkRadius);
         }
     }
 }

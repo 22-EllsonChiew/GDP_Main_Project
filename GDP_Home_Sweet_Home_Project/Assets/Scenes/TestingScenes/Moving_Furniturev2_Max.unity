@@ -23126,7 +23126,8 @@ MonoBehaviour:
   player: {fileID: 1790319697}
   playerMovement: {fileID: 1790319701}
   dragPos: {fileID: 1052967559}
-  checkRadius: 4
+  checkRadius: 2
+  snapRadius: 1
   carriedObject: {fileID: 0}
   heightOffset: 1
   maxDistance: 3
