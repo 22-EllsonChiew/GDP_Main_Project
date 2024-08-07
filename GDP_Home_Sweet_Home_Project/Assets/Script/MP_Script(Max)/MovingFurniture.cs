@@ -38,7 +38,7 @@ public class MovingFurniture : MonoBehaviour
         }
 
         UpdateCarriedObjectPosition();
-        SnapPosition();
+        //SnapPosition();
     }
 
     void CheckForDraggableObject()
@@ -101,27 +101,27 @@ public class MovingFurniture : MonoBehaviour
     IEnumerator Dropping()
     {
         //wait for a small amount of time so the object can snap before carriedObject is set to null
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         carriedObject.transform.SetParent(null);
         carriedObject = null;
     }
-    void SnapPosition()
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, snapRadius);
-        foreach (var hitCollider in hitColliders)
-        {
-            if (hitCollider.CompareTag("SnapPosition"))
-            {
-                Debug.Log("can SNAP");
-                //carriedObject.transform.position = hitCollider.transform.position;
-                if (canSnap == true)
-                {
-                    Debug.Log("SNAPPIN");
-                    carriedObject.transform.position = hitCollider.transform.position;
-                }
-            }
-        }
-    }
+    //void SnapPosition()
+    //{
+    //    Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, snapRadius);
+    //    foreach (var hitCollider in hitColliders)
+    //    {
+    //        if (hitCollider.CompareTag("SnapPosition"))
+    //        {
+    //            Debug.Log("can SNAP");
+    //            //carriedObject.transform.position = hitCollider.transform.position;
+    //            if (canSnap == true)
+    //            {
+    //                Debug.Log("SNAPPIN");
+    //                carriedObject.transform.position = hitCollider.transform.position;
+    //            }
+    //        }
+    //    }
+    //}
 
     private void OnDrawGizmos()
     {
