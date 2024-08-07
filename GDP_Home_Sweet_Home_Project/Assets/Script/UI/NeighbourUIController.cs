@@ -109,7 +109,7 @@ public class NeighbourUIController : MonoBehaviour
         }
         else
         {
-            var conversation = dialogueLoader.GetConversation(name, type);
+            var conversation = dialogueLoader.GetConversation(name, DialogueType.Complaint_Normal);
             if (conversation != null)
             {
                 playerResponse2.interactable = true;

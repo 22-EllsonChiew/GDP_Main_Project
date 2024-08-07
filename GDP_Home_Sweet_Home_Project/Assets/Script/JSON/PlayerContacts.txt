@@ -1,26 +1,8 @@
 {
 	"conversations": [
 		{
-			"sender": "Myself",
-			"type": "SelfNote",
-			"messages": [
-				{
-					"speaker": "Hakim",
-					"content": "Could you please keep it down?"
-				},
-				{
-					"speaker": "Myself",
-					"content": "Apologies, I will try to do so."
-				},
-				{
-					"speaker": "Hakim",
-					"content": "Thanks a lot."
-				}
-			]
-		},
-		{
 			"sender": "Hakim",
-			"type": "NormalComplaint",
+			"type": "Complaint_Normal",
 			"messages": [
 				{
 					"speaker": "Hakim",
@@ -38,7 +20,7 @@
 		},
 		{
 			"sender": "Sherryl",
-			"type": "NormalComplaint",
+			"type": "Complaint_Normal",
 			"messages": [
 				{
 					"speaker": "Sherryl",

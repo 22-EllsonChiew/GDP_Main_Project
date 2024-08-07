@@ -1,6 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+public enum DialogueType
+{
+    Greet_Happy,
+    Greet_Angry,
+    Mood_Happy,
+    Mood_Angry,
+    Complaint_Normal,
+    Complaint_Angry
+}
+
 
 [System.Serializable]
 public class DialogueLine
@@ -14,7 +27,8 @@ public class DialogueLine
 public class InteractionConversation
 {
     public string name;
-    public string type;
+    [JsonConverter(typeof(StringEnumConverter))]
+    public DialogueType type;
     public DialogueLine[] lines;
 }
 
@@ -22,7 +36,8 @@ public class InteractionConversation
 public class MessageConversation 
 {
     public string sender;
-    public string type;
+    [JsonConverter(typeof(StringEnumConverter))]
+    public DialogueType type;
     public DialogueLine[] messages;
 }
 
