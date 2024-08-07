@@ -6,6 +6,12 @@ public class Neighbour : MonoBehaviour
 {
     public string neighbourName;
     public Transform neighbourTransform;
+
+    public float maxHappiness;
+    public float noiseThreshold_FirstComplaint;
+    public float noiseThreshold_FinalComplaint;
+
+    public float currentHappiness { get; private set; }
     public bool IsNeighbourInRoutine {  get; private set; }
 
     private List<NeighbourRoutines> routines;

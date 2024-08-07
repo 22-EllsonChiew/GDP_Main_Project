@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NeighbourAngerBar : MonoBehaviour
 {
-
+    // work on this
     public float maxHappyBar = 100f;
     public float currentHappiness;
 
@@ -12,8 +12,13 @@ public class NeighbourAngerBar : MonoBehaviour
 
     public ChatManager complaintMessage;
 
+    [Header("Neighbour References")]
+    public Neighbour neighbour_Hakim;
+    public Neighbour neighbour_Sherryl;
     public BoxCollider sherrylSideCollider;
     public BoxCollider hakimSideCollider;
+
+
     public Transform player;
 
     private bool hakimComplained = false;
@@ -86,7 +91,10 @@ public class NeighbourAngerBar : MonoBehaviour
         }
     }
 
-   
+    void SendComplaint(Neighbour neighbour)
+    {
+
+    }
    
 
 
@@ -111,5 +119,20 @@ public class NeighbourAngerBar : MonoBehaviour
     public bool CheckPlayerInColliderHakim()
     {
         return hakimSideCollider.bounds.Contains(player.transform.position);
+    }
+
+    private Neighbour DetermineDisturbedNeighbour()
+    {
+        if (sherrylSideCollider.bounds.Contains(player.transform.position)) 
+        { 
+            return neighbour_Sherryl; 
+        }
+        else if (hakimSideCollider.bounds.Contains(player.transform.position)) 
+        { 
+            return neighbour_Hakim;}
+        else
+        {
+            return null;
+        }
     }
 }
