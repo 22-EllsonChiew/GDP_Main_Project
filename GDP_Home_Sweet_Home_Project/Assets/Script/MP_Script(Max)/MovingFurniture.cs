@@ -8,11 +8,13 @@ public class MovingFurniture : MonoBehaviour
     public PlayerMovement playerMovement;
     public Transform dragPos;
     public float checkRadius = 4f;
+    public float snapRadius = 1f;
     public GameObject carriedObject = null;
     public float heightOffset = 0.5f;
     public float maxDistance = 3f; // Maximum distance the object can be from the player
     public float forceStrength = 1f; // Strength of the impulse force
     public GameObject snapPos;
+    public bool canSnap = false;
 
     private void Start()
     {
@@ -26,14 +28,17 @@ public class MovingFurniture : MonoBehaviour
             if (carriedObject != null)
             {
                 DropObject();
+                canSnap = true;
             }
             else
             {
                 CheckForDraggableObject();
+                canSnap = false;
             }
         }
 
         UpdateCarriedObjectPosition();
+        SnapPosition();
     }
 
     void CheckForDraggableObject()
@@ -89,6 +94,24 @@ public class MovingFurniture : MonoBehaviour
             carriedObject.transform.SetParent(null);
             carriedObject = null;
             playerMovement.speed = 10f;
+        }
+    }
+
+    void SnapPosition()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, snapRadius);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("SnapPosition"))
+            {
+                Debug.Log("can SNAP");
+                carriedObject.transform.position = hitCollider.transform.position;
+                if (canSnap == true)
+                {
+                    Debug.Log("SNAPPIN");
+                    //carriedObject.transform.position = hitCollider.transform.position;
+                }
+            }
         }
     }
 }
