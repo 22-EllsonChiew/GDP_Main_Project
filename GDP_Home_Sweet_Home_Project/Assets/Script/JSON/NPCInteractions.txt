@@ -2,56 +2,56 @@
     "conversations": [
         {
             "name": "Hakim",
-            "type": "HappyGreet",
+            "type": "Greet_Happy",
             "lines": [
                 {"speaker": "Hakim", "content": "Hey, what's up."}
             ]
         },
         {
             "name": "Hakim",
-            "type": "AngryGreet",
+            "type": "Greet_Angry",
             "lines": [
                 {"speaker": "Hakim", "content": "What do you want?"}
             ]
         },
         {
             "name": "Hakim",
-            "type": "Happy",
+            "type": "Mood_Happy",
             "lines": [
                 {"speaker": "Hakim", "content": "I'm doing great!"}
             ]
         },
         {
             "name": "Hakim",
-            "type": "Angry",
+            "type": "Mood_Angry",
             "lines": [
                 {"speaker": "Hakim", "content": "You're really asking that?"}
             ]
         },
         {
             "name": "Sherryl",
-            "type": "HappyGreet",
+            "type": "Greet_Happy",
             "lines": [
                 {"speaker": "Sherryl", "content": "What can I help you with, sweetheart?"}
             ]
         },
         {
             "name": "Sherryl",
-            "type": "AngryGreet",
+            "type": "Greet_Angry",
             "lines": [
                 {"speaker": "Sherryl", "content": "Make it quick, honey."}
             ]
         },
         {
             "name": "Sherryl",
-            "type": "Happy",
+            "type": "Mood_Happy",
             "lines": [
                 {"speaker": "Sherryl", "content": "I'm all right"}
             ]
         },
         {
             "name": "Sherryl",
-            "type": "Angry",
+            "type": "Mood_Angry",
             "lines": [
                 {"speaker": "Sherryl", "content": "Thanks to you, it could be much better."}
             ]

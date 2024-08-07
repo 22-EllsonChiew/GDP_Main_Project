@@ -159,7 +159,7 @@ public class ChatManager : MonoBehaviour
 
         if (targetContact.isUnlocked && targetContact != null)
         {
-            MessageConversation conversationToAdd = messageLoader.GetMessageConversation(name, "NormalComplaint");
+            MessageConversation conversationToAdd = messageLoader.GetMessageConversation(name, DialogueType.Complaint_Normal);
 
             if (conversationToAdd != null)
             {

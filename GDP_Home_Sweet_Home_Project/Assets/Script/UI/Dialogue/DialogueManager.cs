@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    public void StartConversation(string name, string type)
+    public void StartConversation(string name, DialogueType type)
     {
         var conversation = loader.GetConversation(name, type);
         if (conversation != null)
