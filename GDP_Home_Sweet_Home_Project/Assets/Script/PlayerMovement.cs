@@ -113,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
             noiseController.MakeNoise(2f * Time.deltaTime);
             noiseController.HandleNoise();
+            
         }
 
     }

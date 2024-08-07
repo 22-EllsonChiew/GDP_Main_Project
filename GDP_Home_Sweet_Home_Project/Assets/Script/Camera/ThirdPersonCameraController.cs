@@ -17,18 +17,24 @@ public class ThirdPersonCameraController : MonoBehaviour
     [SerializeField] private Vector3 playerSecondaryRotationOffset;
     [SerializeField] private float heightValueSecondary;
 
+    [SerializeField] private Transform elevatorCamHolder;
+    [SerializeField] private Vector3 elevatorOffset;
+    [SerializeField] private Vector3 elevatorRotationOffset;
+
     private bool playerWalkOutOfHouse = false;
     private bool playerInsideHouse = true;
     
     private bool playerInHouseCamOn = false;
+    private bool playerAtElevator = false;
 
     public BoxCollider playerCorridor;
     public BoxCollider playerHousing;
+    public BoxCollider elevatorCorridor;
 
 
 
 
-    public float pLerp = 1f;
+    public float pLerp = 0.5f;
     public float rLerp = .04f;
     
     
@@ -106,7 +112,9 @@ public class ThirdPersonCameraController : MonoBehaviour
 
         if(neighbourUI.endInteraction == true)
         {
+            Debug.Log("I close door");
             neighbourEndConvo = true;
+            cameraForwardOffset = 0f;
             
         }
     }
@@ -126,19 +134,18 @@ public class ThirdPersonCameraController : MonoBehaviour
         playerInHakimNeighbourBox = HakimNeighbourBox.bounds.Contains(player.position);
         playerWalkOutOfHouse = playerCorridor.bounds.Contains(player.position);
         playerInsideHouse = playerHousing.bounds.Contains(player.position);
+        playerAtElevator = elevatorCorridor.bounds.Contains(player.position);
 
     }
 
     public void CorridorCameraFunction()
     {
 
-
-
         //check if the player is inside the neighbour box collider if it is, it will give the snapping effect
         if (playerInSherrylNeighbourBox)
         {
             //set the camera to the position of sherryl camera holder position
-            transform.position = SherrylCamHolder.position - sherrylOffset + Vector3.up * neighbourHeighValue + Vector3.forward * cameraForwardOffset;
+            transform.position = Vector3.Lerp(transform.position, SherrylCamHolder.position - sherrylOffset + Vector3.up * neighbourHeighValue + Vector3.forward * cameraForwardOffset, pLerp);
             //transform.rotation = SherrylCamHolder.rotation * rotationOffset;
             transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
 
@@ -147,22 +154,26 @@ public class ThirdPersonCameraController : MonoBehaviour
         else if (playerInHakimNeighbourBox)
         {
             //set the camera to the position of hakim camera holder position
-            transform.position = HakimCamHolder.position - HakimneighbourOffSet + Vector3.up * neighbourHeighValue + Vector3.forward * cameraForwardOffset;
+            transform.position = Vector3.Lerp(transform.position, HakimCamHolder.position - HakimneighbourOffSet + Vector3.up * neighbourHeighValue + Vector3.forward * cameraForwardOffset, pLerp);
             //transform.rotation = HakimCamHolder.rotation * rotationOffset;
             transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
         }
-        else if (playerWalkOutOfHouse)
+        else if (neighbourEndConvo == true || playerWalkOutOfHouse)
         {
-            transform.position = player.position - secondaryOffset + Vector3.up * heightValueSecondary;
+            transform.position = Vector3.Lerp(transform.position, player.position - secondaryOffset + Vector3.up * heightValueSecondary, pLerp);
             transform.rotation = Quaternion.Euler(playerSecondaryRotationOffset);
             playerInsideHouse = false;
 
             cameraForwardOffset = 0f;
         }
+        else if(playerAtElevator)
+        {
+            transform.position = Vector3.Lerp(transform.position, player.position - elevatorOffset + Vector3.up * heightValueSecondary, pLerp);
+            transform.rotation = Quaternion.Euler(elevatorRotationOffset);
+        }
 
 
-
-        else if (neighbourEndConvo || isInsideSherrylCollider == false || isInsidHakimCollider == false)
+        else if (isInsideSherrylCollider == false || isInsidHakimCollider == false)
         {
 
             transform.position = Vector3.Lerp(transform.position, player.position - offset + Vector3.up * heightValue, pLerp);

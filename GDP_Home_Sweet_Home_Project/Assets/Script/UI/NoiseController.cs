@@ -10,7 +10,9 @@ public class NoiseController : MonoBehaviour
     private float currentNoise;
     public float noiseThreshold = 100f;
     public float noiseDecreaseRate;
-    private float noiseMultiplier = 0.0001f;
+    private float noiseMultiplier = 0.00001f;
+    private float noiseDelayTime;
+    
 
 
 
@@ -93,8 +95,10 @@ public class NoiseController : MonoBehaviour
 
     public void HandleNoise()
     {
-        if (currentNoise > 0.60f)
+        if (currentNoise > 0.60f && Time.time > noiseDelayTime + 0.3f)
         {
+            noiseDelayTime = Time.time;
+
             if(playerInHakimSide)
             {
                 neighbourHakim.HeardNoise(noiseDecreaseRate);
@@ -108,10 +112,13 @@ public class NoiseController : MonoBehaviour
 
     public void MakeNoise(float noise)
     {
+        
         if(playerMovementController.isWalking && movingFurnitureController.carriedObject != null)
         {
             noise += playerMovementController.speed * noiseMultiplier;
         }
+
+        
 
         currentNoise = Mathf.Min(currentNoise + noise, noiseThreshold);
     }

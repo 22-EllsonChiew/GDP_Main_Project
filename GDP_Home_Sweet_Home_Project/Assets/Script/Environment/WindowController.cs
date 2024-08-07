@@ -70,17 +70,17 @@ public class WindowController : MonoBehaviour
         switch(windowClosedCount)
         {
             case 0:
-                return 0.60f;
-            case 1:
                 return 0.55f;
+            case 1:
+                return 0.50f;
             case 2:
                 return 0.45f;
             case 3:
-                return 0.35f;
+                return 0.40f;
             case 4:
-                return 0.25f;
+                return 0.35f;
             default:
-                return 0.55f;
+                return 0.60f;
         }
     }
     
