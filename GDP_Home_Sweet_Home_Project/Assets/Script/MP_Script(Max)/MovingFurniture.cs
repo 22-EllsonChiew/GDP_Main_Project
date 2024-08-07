@@ -45,6 +45,7 @@ public class MovingFurniture : MonoBehaviour
     {
         //might have to change to only check for area in front of player
         Vector3 spherePosition = player.transform.position + player.transform.forward * (checkRadius);
+        spherePosition.y -= 1f;
         Debug.Log("INTO CHECKFORDRAGGABLE");
         Collider[] hitColliders = Physics.OverlapSphere(spherePosition, checkRadius);
         foreach (var hitCollider in hitColliders)
@@ -128,6 +129,7 @@ public class MovingFurniture : MonoBehaviour
         if (player != null)
         {
             Vector3 spherePosition = player.transform.position + player.transform.forward * (checkRadius);
+            spherePosition.y -= 1f;
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(spherePosition, checkRadius);
         }
