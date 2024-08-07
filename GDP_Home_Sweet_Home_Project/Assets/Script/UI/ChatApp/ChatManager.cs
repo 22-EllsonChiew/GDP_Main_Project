@@ -46,17 +46,17 @@ public class ChatManager : MonoBehaviour
     public NeighbourAngerBar neighbourSherryl;
     public NeighbourAngerBar neighbourHakim;
 
-    public float noiseThreshold = 40f;
-    public float noiseThresholdSherryl = 40f;
+    //public float noiseThreshold = 40f;
+    //public float noiseThresholdSherryl = 40f;
 
-    public float policeCallThresholdSherryl = 60f;
-    public float policeCallThresholdHakim = 60f;
+    //public float policeCallThresholdSherryl = 60f;
+    //public float policeCallThresholdHakim = 60f;
         
-    public bool hakimSentedComplaint = false;
-    public bool sherrylSentedComplaint = false;
+    //public bool hakimSentedComplaint = false;
+    //public bool sherrylSentedComplaint = false;
 
-    public bool hakimCallPolice = false;
-    public bool sherrylCallPolice = false;
+    //public bool hakimCallPolice = false;
+    //public bool sherrylCallPolice = false;
 
     
 
@@ -94,15 +94,15 @@ public class ChatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ReceiveComplaint("Hakim");
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    ReceiveComplaint("Hakim");
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ReceiveComplaint("Sherryl");
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    ReceiveComplaint("Sherryl");
+        //}
     }
 
     public void OpenMessages(string contactName)
@@ -150,16 +150,20 @@ public class ChatManager : MonoBehaviour
         }
     }
 
-    public void ReceiveComplaint(string name)
+    public void ReceiveComplaint(string name, DialogueType type)
     {
         
-        //PhoneContact targetContact = unlockedPhoneContacts.Find(contact => contact.name == name);
-       
         PhoneContact targetContact = unlockedPhoneContacts.Find(contact => contact.name == name);
 
-        if (targetContact.isUnlocked && targetContact != null)
+        if (targetContact == null)
         {
-            MessageConversation conversationToAdd = messageLoader.GetMessageConversation(name, "NormalComplaint");
+            Debug.LogWarning("Unable to find targetContact");
+            return;
+        }
+
+        if (targetContact.isUnlocked && !targetContact.isAwaitingReply)
+        {
+            MessageConversation conversationToAdd = messageLoader.GetMessageConversation(name, type);
 
             if (conversationToAdd != null)
             {
@@ -190,36 +194,36 @@ public class ChatManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Disturbed neighbour angered but unable to contact player");
+            Debug.Log("Neighbour not unlocked or is waiting for player response.");
         }
             
     }
 
-    public void CheckNeighbourHappinessValue()
-    {
-        if(neighbourHakim.currentHappiness < noiseThreshold && !hakimSentedComplaint)
-        {
-            Debug.Log($"Hakim's happiness: {neighbourHakim.currentHappiness}, threshold: {noiseThreshold}");
-            ReceiveComplaint("Hakim");
-            hakimSentedComplaint = true;
-        }
-        if(neighbourSherryl.currentHappiness < noiseThresholdSherryl && !sherrylSentedComplaint)
-        {
-            Debug.Log($"Sherryl's happiness: {neighbourSherryl.currentHappiness}, threshold: {noiseThresholdSherryl}");
-            ReceiveComplaint("Sherryl");
-            sherrylSentedComplaint = true;
-        }
-        if(neighbourSherryl.currentHappiness < policeCallThresholdSherryl && !sherrylCallPolice)
-        {
-            ReceiveComplaint("Sherryl");
-            sherrylCallPolice = true;
-        }
-        if(neighbourHakim.currentHappiness < policeCallThresholdHakim && !hakimCallPolice)
-        {
-            ReceiveComplaint("Hakim");
-            hakimCallPolice = true;
-        }
-    }
+    //public void CheckNeighbourHappinessValue()
+    //{
+    //    if(neighbourHakim.currentHappiness < noiseThreshold && !hakimSentedComplaint)
+    //    {
+    //        Debug.Log($"Hakim's happiness: {neighbourHakim.currentHappiness}, threshold: {noiseThreshold}");
+    //        ReceiveComplaint("Hakim");
+    //        hakimSentedComplaint = true;
+    //    }
+    //    if(neighbourSherryl.currentHappiness < noiseThresholdSherryl && !sherrylSentedComplaint)
+    //    {
+    //        Debug.Log($"Sherryl's happiness: {neighbourSherryl.currentHappiness}, threshold: {noiseThresholdSherryl}");
+    //        ReceiveComplaint("Sherryl");
+    //        sherrylSentedComplaint = true;
+    //    }
+    //    if(neighbourSherryl.currentHappiness < policeCallThresholdSherryl && !sherrylCallPolice)
+    //    {
+    //        ReceiveComplaint("Sherryl");
+    //        sherrylCallPolice = true;
+    //    }
+    //    if(neighbourHakim.currentHappiness < policeCallThresholdHakim && !hakimCallPolice)
+    //    {
+    //        ReceiveComplaint("Hakim");
+    //        hakimCallPolice = true;
+    //    }
+    //}
 
     public void ResetComplaint()
     {

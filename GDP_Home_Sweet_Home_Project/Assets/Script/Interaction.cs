@@ -30,6 +30,7 @@ public class Interaction : MonoBehaviour
     private string currentNeighbourCollider;
 
     public static Neighbour currentNeighbour;
+    public static Neighbour closestAffectedNeighbour;
 
     private bool ConfirmButtonClickOnce = false;
 
@@ -142,6 +143,11 @@ public class Interaction : MonoBehaviour
             Debug.Log("Player @ neighbour door");
         }
 
+        if (other.CompareTag("Neighbour"))
+        { 
+
+        }
+
         if (other.CompareTag("Environment_Elevator"))
         {
             IsAtElevator = true;
@@ -204,7 +210,7 @@ public class Interaction : MonoBehaviour
 
         if (other.CompareTag("Environment_Elevator"))
         {
-
+            
         }
 
         if (other.CompareTag("Bed"))

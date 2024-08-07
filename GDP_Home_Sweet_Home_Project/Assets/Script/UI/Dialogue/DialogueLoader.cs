@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class DialogueLoader : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class DialogueLoader : MonoBehaviour
     void LoadDialogue()
     {
 
-        dialogueData = JsonUtility.FromJson<DialogueData>(npcInteractionsJson.text);
+        dialogueData = JsonConvert.DeserializeObject<DialogueData>(npcInteractionsJson.text);
 
         if (dialogueData != null)
         {
@@ -41,7 +42,7 @@ public class DialogueLoader : MonoBehaviour
 
     }
 
-    public InteractionConversation GetConversation (string name, string type)
+    public InteractionConversation GetConversation (string name, DialogueType type)
     {
         foreach (var conversation in dialogueData.conversations)
         {
