@@ -69,7 +69,7 @@ public class NeighbourUIController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        playerResponse2.onClick.AddListener(() => ShowInteractionDialogue(Interaction.currentNeighbour.neighbourName, "Happy"));
+        playerResponse2.onClick.AddListener(() => ShowInteractionDialogue(Interaction.currentNeighbour.neighbourName, Interaction.currentNeighbour.currentMood));
         playerResponse3.onClick.AddListener(() => EndInteraction());
 
     }
@@ -81,7 +81,7 @@ public class NeighbourUIController : MonoBehaviour
 
     }
 
-    public void StartInteraction(string name, string type)
+    public void StartInteraction(string name, DialogueType type)
     {
 
         PlayerMovement.dialogue = true;
@@ -94,11 +94,24 @@ public class NeighbourUIController : MonoBehaviour
         
         ToggleInteractionUI();
 
+        if (type == DialogueType.Mood_Happy)
+        {
+            type = DialogueType.Greet_Happy;
+        }
+        else if (type == DialogueType.Mood_Normal)
+        {
+            type = DialogueType.Greet_Normal;
+        }
+        else
+        {
+            type = DialogueType.Greet_Angry;
+        }
+
         ShowInteractionDialogue(name, type);
         
     }
 
-    public void ShowInteractionDialogue(string name, string type)
+    public void ShowInteractionDialogue(string name, DialogueType type)
     {
 
         if (Interaction.currentNeighbour.IsNeighbourInRoutine)
@@ -109,7 +122,7 @@ public class NeighbourUIController : MonoBehaviour
         }
         else
         {
-            var conversation = dialogueLoader.GetConversation(name, DialogueType.Complaint_Normal);
+            var conversation = dialogueLoader.GetConversation(name, type);
             if (conversation != null)
             {
                 playerResponse2.interactable = true;

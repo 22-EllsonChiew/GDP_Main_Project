@@ -9,9 +9,11 @@ public class Neighbour : MonoBehaviour
 
     public float maxHappiness;
 
-    public float happinessThreshold_FirstComplaint {  get; private set; }
-    public float happinessThreshold_FinalComplaint { get; private set; }
+    public float happinessThreshold_Normal {  get; private set; }
+    public float happinessThreshold_Angry { get; private set; }
+    public float complaintThreshold { get; private set; }
     public float currentHappiness { get; private set; }
+    public DialogueType currentMood { get; private set; }
     public bool IsNeighbourInRoutine {  get; private set; }
 
     private List<NeighbourRoutines> routines;
@@ -21,8 +23,10 @@ public class Neighbour : MonoBehaviour
     void Start()
     {
         currentHappiness = maxHappiness;
-        happinessThreshold_FirstComplaint = maxHappiness * 0.65f;
-        happinessThreshold_FinalComplaint = maxHappiness * 0.35f;
+        happinessThreshold_Normal = maxHappiness * 0.65f;
+        happinessThreshold_Angry = maxHappiness * 0.35f;
+
+        complaintThreshold = happinessThreshold_Normal;
 
         routines = new List<NeighbourRoutines>()
         {
@@ -52,12 +56,40 @@ public class Neighbour : MonoBehaviour
             }
             
         }
+
+        CalculateCurrentMood();
+
+    }
+
+    public void EscalateNeighbourComplaint()
+    {
+        if (complaintThreshold != happinessThreshold_Angry)
+        {
+            complaintThreshold = happinessThreshold_Angry;
+            Debug.Log("neighbour has made a complaint - less forgiving to player");
+        }
     }
 
     public void ReduceHappiness(float amount)
     {
         currentHappiness -= amount;
         currentHappiness = Mathf.Clamp(currentHappiness, 0, maxHappiness);
+    }
+
+    void CalculateCurrentMood()
+    {
+        if (currentHappiness <= happinessThreshold_Angry)
+        {
+            currentMood = DialogueType.Mood_Angry;
+        }
+        else if (currentHappiness <= happinessThreshold_Normal)
+        {
+            currentMood = DialogueType.Mood_Normal;
+        }
+        else 
+        {
+            currentMood = DialogueType.Mood_Happy;
+        }
     }
 
 }

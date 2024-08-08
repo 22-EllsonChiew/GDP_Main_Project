@@ -7,8 +7,10 @@ using Newtonsoft.Json.Converters;
 public enum DialogueType
 {
     Greet_Happy,
+    Greet_Normal,
     Greet_Angry,
     Mood_Happy,
+    Mood_Normal,
     Mood_Angry,
     Complaint_Normal,
     Complaint_Angry
