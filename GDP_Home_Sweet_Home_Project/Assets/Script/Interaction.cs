@@ -69,7 +69,7 @@ public class Interaction : MonoBehaviour
         {
             if (CanInteractWithNeighbour)
             {
-                NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, "HappyGreet");
+                NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, currentNeighbour.currentMood);
             }
 
             if (IsAtElevator || IsAtBed)

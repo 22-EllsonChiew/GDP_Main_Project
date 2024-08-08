@@ -16925,16 +16925,6 @@ MonoBehaviour:
   playerReplyBtn: {fileID: 707830940}
   npcResponsePrefab: {fileID: 5425624041799691553, guid: f4f418b305fd95448a35660e83e705bf, type: 3}
   playerResponsePrefab: {fileID: 5425624041799691553, guid: 4297cd3c3d9e57848ad8710e91c17b3d, type: 3}
-  neighbourSherryl: {fileID: 0}
-  neighbourHakim: {fileID: 0}
-  noiseThreshold: 60
-  noiseThresholdSherryl: 60
-  policeCallThresholdSherryl: 60
-  policeCallThresholdHakim: 60
-  hakimSentedComplaint: 0
-  sherrylSentedComplaint: 0
-  hakimCallPolice: 0
-  sherrylCallPolice: 0
 --- !u!1 &1123017377
 GameObject:
   m_ObjectHideFlags: 0
@@ -32267,7 +32257,7 @@ MonoBehaviour:
   currentPostSubtitle: {fileID: 154960722}
   currentPostContent: {fileID: 1852436522}
   currentPostPhoto: {fileID: 650795514}
-  postLoader: {fileID: 0}
+  postLoader: {fileID: 690383064}
 --- !u!1 &1903990858
 GameObject:
   m_ObjectHideFlags: 0

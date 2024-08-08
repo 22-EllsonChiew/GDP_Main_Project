@@ -41,10 +41,10 @@ public class ChatManager : MonoBehaviour
     public PhoneContact currentContact { get; private set; }
     private MessageConversation currentConversation;
 
-    [Header("Neighbour")]
+    //[Header("Neighbour")]
 
-    public NeighbourAngerBar neighbourSherryl;
-    public NeighbourAngerBar neighbourHakim;
+    //public NeighbourAngerBar neighbourSherryl;
+    //public NeighbourAngerBar neighbourHakim;
 
     //public float noiseThreshold = 40f;
     //public float noiseThresholdSherryl = 40f;
@@ -225,11 +225,11 @@ public class ChatManager : MonoBehaviour
     //    }
     //}
 
-    public void ResetComplaint()
-    {
-        hakimSentedComplaint = false;
-        sherrylSentedComplaint = false;
-    }
+    //public void ResetComplaint()
+    //{
+    //    hakimSentedComplaint = false;
+    //    sherrylSentedComplaint = false;
+    //}
 
     public void SendReply()
     {
