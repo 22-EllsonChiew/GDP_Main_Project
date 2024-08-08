@@ -161,7 +161,7 @@ public class ChatManager : MonoBehaviour
             return;
         }
 
-        if (targetContact.isUnlocked && !targetContact.isAwaitingReply)
+        if (targetContact.isUnlocked)
         {
             MessageConversation conversationToAdd = messageLoader.GetMessageConversation(name, type);
 
