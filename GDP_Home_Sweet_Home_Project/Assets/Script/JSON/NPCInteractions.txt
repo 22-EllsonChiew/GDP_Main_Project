@@ -4,7 +4,7 @@
             "name": "Hakim",
             "type": "Greet_Happy",
             "lines": [
-                {"speaker": "Hakim", "content": "Hey, what's up."}
+                {"speaker": "Hakim", "content": "Hey, what's up!"}
             ]
         },
         {
@@ -23,6 +23,13 @@
         },
         {
             "name": "Hakim",
+            "type": "Mood_Normal",
+            "lines": [
+                {"speaker": "Hakim", "content": "I'm okay."}
+            ]
+        },
+        {
+            "name": "Hakim",
             "type": "Mood_Angry",
             "lines": [
                 {"speaker": "Hakim", "content": "You're really asking that?"}
@@ -32,21 +39,35 @@
             "name": "Sherryl",
             "type": "Greet_Happy",
             "lines": [
-                {"speaker": "Sherryl", "content": "What can I help you with, sweetheart?"}
+                {"speaker": "Sherryl", "content": "Ah, how nice to see you!"}
+            ]
+        },
+        {
+            "name": "Sherryl",
+            "type": "Greet_Normal",
+            "lines": [
+                {"speaker": "Sherryl", "content": "How can I help you?"}
             ]
         },
         {
             "name": "Sherryl",
             "type": "Greet_Angry",
             "lines": [
-                {"speaker": "Sherryl", "content": "Make it quick, honey."}
+                {"speaker": "Sherryl", "content": "Whatever you want, make it quick."}
             ]
         },
         {
             "name": "Sherryl",
             "type": "Mood_Happy",
             "lines": [
-                {"speaker": "Sherryl", "content": "I'm all right"}
+                {"speaker": "Sherryl", "content": "I'm doing quite well, thanks for asking."}
+            ]
+        },
+        {
+            "name": "Sherryl",
+            "type": "Mood_Normal",
+            "lines": [
+                {"speaker": "Sherryl", "content": "I'm fine."}
             ]
         },
         {
