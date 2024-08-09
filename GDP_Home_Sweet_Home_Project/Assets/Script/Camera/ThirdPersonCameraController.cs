@@ -90,27 +90,9 @@ public class ThirdPersonCameraController : MonoBehaviour
     {
         BoxCollider();
 
-        if ((playerInSherrylNeighbourBox || playerInHakimNeighbourBox) && Input.GetKeyDown(KeyCode.E))
-        {
-            
-            if (playerInSherrylNeighbourBox)
-            {
-                
-                targetPos = SherrylCamHolder;
-                cameraForwardOffset = 2f;
-            }
-            if (playerInHakimNeighbourBox)
-            {
-                
-                targetPos = HakimCamHolder;
-                cameraForwardOffset = 2f;
-            }
+        UpdatePlayerIsInNeighbourCollider();
 
-            
-
-        }
-
-        if(neighbourUI.endInteraction == true)
+        if (neighbourUI.endInteraction == true)
         {
             
             neighbourEndConvo = true;
@@ -121,11 +103,37 @@ public class ThirdPersonCameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-
         CorridorCameraFunction();
+    }
 
-        //transform.position = player.position - offset + Vector3.up * heightValue;
+    private void UpdatePlayerIsInNeighbourCollider()
+    {
+        BoxCollider();
+        if(PlayerInNeighbourCollider() && Input.GetKeyDown(KeyCode.E))
+        {
+            UpdateCamOffSet();
+        }
+    }
 
+    private void UpdateCamOffSet()
+    {
+        if (playerInSherrylNeighbourBox)
+        {
+
+            targetPos = SherrylCamHolder;
+            cameraForwardOffset = 2f;
+        }
+        if (playerInHakimNeighbourBox)
+        {
+
+            targetPos = HakimCamHolder;
+            cameraForwardOffset = 2f;
+        }
+    }
+
+    private bool PlayerInNeighbourCollider()
+    {
+        return playerInSherrylNeighbourBox || playerInHakimNeighbourBox;
     }
 
     public void BoxCollider()
@@ -171,8 +179,6 @@ public class ThirdPersonCameraController : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, player.position - elevatorOffset + Vector3.up * heightValueSecondary, pLerp);
             transform.rotation = Quaternion.Euler(elevatorRotationOffset);
         }
-
-
         else if (isInsideSherrylCollider == false || isInsidHakimCollider == false)
         {
 
@@ -180,7 +186,6 @@ public class ThirdPersonCameraController : MonoBehaviour
             transform.rotation = Quaternion.Euler(playerRotationOffset);
 
             cameraForwardOffset = 0f;
-
 
         }
     }

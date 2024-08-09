@@ -14,8 +14,6 @@ public class NoiseController : MonoBehaviour
     private float noiseDelayTime;
     
 
-
-
     [Header("UI Elements")]
     public Slider noiseBar;
     public Image noiseColourFill;
@@ -79,9 +77,6 @@ public class NoiseController : MonoBehaviour
             HandleNoise();
         }
 
-
-
-
     }
 
     void UpdateBar()
@@ -95,7 +90,7 @@ public class NoiseController : MonoBehaviour
 
     public void HandleNoise()
     {
-        if (currentNoise > 0.60f && Time.time > noiseDelayTime + 0.3f)
+        if (currentNoise > 0.60f && Time.time > noiseDelayTime + 0.25f)
         {
             noiseDelayTime = Time.time;
 
@@ -117,8 +112,6 @@ public class NoiseController : MonoBehaviour
         {
             noise += playerMovementController.speed * noiseMultiplier;
         }
-
-        
 
         currentNoise = Mathf.Min(currentNoise + noise, noiseThreshold);
     }
