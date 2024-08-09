@@ -7527,6 +7527,9 @@ MonoBehaviour:
   neighbourName: Hakim
   neighbourTransform: {fileID: 478058631}
   maxHappiness: 100
+  neighbourRoutinesJSON: {fileID: 4900000, guid: 41740c76af44d1d489ebab8632593703, type: 3}
+  routineArray:
+    routines: []
 --- !u!114 &478058633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21875,6 +21878,9 @@ MonoBehaviour:
   neighbourName: Sherryl
   neighbourTransform: {fileID: 1240785116}
   maxHappiness: 100
+  neighbourRoutinesJSON: {fileID: 4900000, guid: 249e63160ce0685448e73db686fa194b, type: 3}
+  routineArray:
+    routines: []
 --- !u!114 &1240785118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22302,7 +22308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a7b0ec49755c043a654d1df46e9d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadingScreenObj: {fileID: 513372641}
   timeText_NotificationBar: {fileID: 215105702}
   timeText_HomeScreen: {fileID: 854526111}
 --- !u!1 &1287902474
