@@ -112,7 +112,7 @@ public class ThirdPersonCameraController : MonoBehaviour
 
         if(neighbourUI.endInteraction == true)
         {
-            Debug.Log("I close door");
+            
             neighbourEndConvo = true;
             cameraForwardOffset = 0f;
             
@@ -158,7 +158,7 @@ public class ThirdPersonCameraController : MonoBehaviour
             //transform.rotation = HakimCamHolder.rotation * rotationOffset;
             transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
         }
-        else if (neighbourEndConvo == true || playerWalkOutOfHouse)
+        else if (playerWalkOutOfHouse)
         {
             transform.position = Vector3.Lerp(transform.position, player.position - secondaryOffset + Vector3.up * heightValueSecondary, pLerp);
             transform.rotation = Quaternion.Euler(playerSecondaryRotationOffset);

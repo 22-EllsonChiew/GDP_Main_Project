@@ -2700,17 +2700,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197020504}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26d7b4bef019c5644b1289e876906d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHappyBar: 100
-  currentHappiness: 100
   angerBarManager: {fileID: 7565215745276000213}
-  complaintMessage: {fileID: 1623634176}
-  sherrylSideCollider: {fileID: 982778015}
-  hakimSideCollider: {fileID: 1645684919}
+  soundCollider: {fileID: 1645684919}
   player: {fileID: 1790319700}
 --- !u!65 &197020507
 BoxCollider:
@@ -7507,6 +7503,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 73a80dcca67f14749b240cbcb78d7a62, type: 3}
       insertIndex: -1
       addedObject: {fileID: 478058632}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 73a80dcca67f14749b240cbcb78d7a62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 478058633}
   m_SourcePrefab: {fileID: 100100000, guid: 73a80dcca67f14749b240cbcb78d7a62, type: 3}
 --- !u!4 &478058631 stripped
 Transform:
@@ -7527,6 +7526,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbourName: Hakim
   neighbourTransform: {fileID: 478058631}
+  maxHappiness: 100
+--- !u!114 &478058633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197059259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7b4bef019c5644b1289e876906d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angerBarManager: {fileID: 7565215745276000213}
+  soundCollider: {fileID: 1645684919}
+  player: {fileID: 1790319700}
 --- !u!1 &487982153
 GameObject:
   m_ObjectHideFlags: 0
@@ -21836,6 +21851,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e9096f729875a7c4694d627e5cc64cd1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1240785117}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e9096f729875a7c4694d627e5cc64cd1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1240785118}
   m_SourcePrefab: {fileID: 100100000, guid: e9096f729875a7c4694d627e5cc64cd1, type: 3}
 --- !u!4 &1240785116 stripped
 Transform:
@@ -21856,6 +21874,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbourName: Sherryl
   neighbourTransform: {fileID: 1240785116}
+  maxHappiness: 100
+--- !u!114 &1240785118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103134060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7b4bef019c5644b1289e876906d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angerBarManager: {fileID: 7565215745276000213}
+  soundCollider: {fileID: 982778015}
+  player: {fileID: 1790319700}
 --- !u!1001 &1243916609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24989,17 +25023,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433182853}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26d7b4bef019c5644b1289e876906d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHappyBar: 100
-  currentHappiness: 100
   angerBarManager: {fileID: 7565215745276000213}
-  complaintMessage: {fileID: 1623634176}
-  sherrylSideCollider: {fileID: 982778015}
-  hakimSideCollider: {fileID: 1645684919}
+  soundCollider: {fileID: 982778015}
   player: {fileID: 1790319700}
 --- !u!1 &1438946601
 GameObject:
@@ -26938,16 +26968,6 @@ MonoBehaviour:
   playerReplyBtn: {fileID: 294706427}
   npcResponsePrefab: {fileID: 5425624041799691553, guid: f4f418b305fd95448a35660e83e705bf, type: 3}
   playerResponsePrefab: {fileID: 5425624041799691553, guid: 4297cd3c3d9e57848ad8710e91c17b3d, type: 3}
-  neighbourSherryl: {fileID: 1433182859}
-  neighbourHakim: {fileID: 197020506}
-  noiseThreshold: 40
-  noiseThresholdSherryl: 40
-  policeCallThresholdSherryl: 60
-  policeCallThresholdHakim: 60
-  hakimSentedComplaint: 0
-  sherrylSentedComplaint: 0
-  hakimCallPolice: 0
-  sherrylCallPolice: 0
 --- !u!1 &1623732771
 GameObject:
   m_ObjectHideFlags: 0
@@ -36200,8 +36220,8 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   player: {fileID: 1790319700}
-  neighbourSheryl: {fileID: 1433182859}
-  neighbourHakim: {fileID: 197020506}
+  neighbourSheryl: {fileID: 1240785118}
+  neighbourHakim: {fileID: 478058633}
   sherylSideCollider: {fileID: 982778015}
   HakimSideCollider: {fileID: 1645684919}
   closedWindow: {fileID: 0}
@@ -36248,8 +36268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0399dd56e2de98f4b9126257692e8873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neighbour1: {fileID: 1433182859}
-  neighbour2: {fileID: 197020506}
+  neighbour_Hakim: {fileID: 478058632}
+  neighbour_Sherryl: {fileID: 1240785117}
   HappinessBar: {fileID: 1287902476}
 --- !u!114 &7565215745276000214
 MonoBehaviour:
@@ -36323,7 +36343,7 @@ MonoBehaviour:
   debugBuild: 0
   shelfObject: {fileID: 2037064057}
   noiseController: {fileID: 7565215745276000209}
-  windowController: {fileID: 0}
+  windowController: {fileID: 399596233}
 --- !u!114 &7565215745276000215
 MonoBehaviour:
   m_ObjectHideFlags: 0
