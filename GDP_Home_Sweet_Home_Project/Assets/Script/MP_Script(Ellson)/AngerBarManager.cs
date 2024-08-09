@@ -21,8 +21,14 @@ public class AngerBarManager : MonoBehaviour
 
     private void Update()
     {
-        if (neighbour_Hakim.currentHappiness <= 0f || neighbour_Sherryl.currentHappiness <= 0f)
+        if (neighbour_Hakim.currentHappiness <= 0f)
         {
+            ScoreManager.Instance.SetAngeredNeighbour(neighbour_Hakim);
+            SceneManager.LoadScene(loseScene);
+        }
+        else if (neighbour_Sherryl.currentHappiness <= 0f)
+        {
+            ScoreManager.Instance.SetAngeredNeighbour(neighbour_Sherryl);
             SceneManager.LoadScene(loseScene);
         }
     }
