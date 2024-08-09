@@ -16,8 +16,6 @@ public class NeighbourAngerBar : MonoBehaviour
 
     public Transform player;
 
-    private bool hakimComplained = false;
-    private bool sherrylComplained = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,14 +29,14 @@ public class NeighbourAngerBar : MonoBehaviour
         {
             UpdateNeighbourHappinessBar(amount);
 
-            if (neighbour.currentHappiness <= neighbour.complaintThreshold)
+            if (neighbour.currentHappiness <= neighbour.complaintThreshold && neighbour.complaintCount < 2)
             {
-                ChatManager.instance.ReceiveComplaint(neighbour.neighbourName, DetermineComplaintType());
                 neighbour.EscalateNeighbourComplaint();
+                ChatManager.instance.ReceiveComplaint(neighbour.neighbourName, DetermineComplaintType());
             }
             else
             {
-                Debug.Log("Neighbour disturbed but not angry.");
+                Debug.Log("neighbour disturbed");
             }
         }
     }

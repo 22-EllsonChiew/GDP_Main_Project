@@ -19,7 +19,13 @@ public class AngerBarManager : MonoBehaviour
         UpdateHappinessBar();
     }
 
-   
+    private void Update()
+    {
+        if (neighbour_Hakim.currentHappiness <= 0f || neighbour_Sherryl.currentHappiness <= 0f)
+        {
+            // immediately fade to lose screen when either neighbour loses all hp
+        }
+    }
 
     public void UpdateHappinessBar()
     {
@@ -43,10 +49,5 @@ public class AngerBarManager : MonoBehaviour
         //Debug.Log($"Happiness Level: {happinessLevel}");
 
 
-        if (happinessLevel >= 0.90)
-        {
-            Debug.Log("Happiness Level is less than or equal to 0.95. Loading Lose Scene...");
-            SceneManager.LoadScene(loseScene);
-        }
     }
 }

@@ -40,26 +40,7 @@ public class ChatManager : MonoBehaviour
 
     public PhoneContact currentContact { get; private set; }
     private MessageConversation currentConversation;
-
-    //[Header("Neighbour")]
-
-    //public NeighbourAngerBar neighbourSherryl;
-    //public NeighbourAngerBar neighbourHakim;
-
-    //public float noiseThreshold = 40f;
-    //public float noiseThresholdSherryl = 40f;
-
-    //public float policeCallThresholdSherryl = 60f;
-    //public float policeCallThresholdHakim = 60f;
-        
-    //public bool hakimSentedComplaint = false;
-    //public bool sherrylSentedComplaint = false;
-
-    //public bool hakimCallPolice = false;
-    //public bool sherrylCallPolice = false;
-
     
-
     public static ChatManager instance;
 
     // Start is called before the first frame update
@@ -78,7 +59,6 @@ public class ChatManager : MonoBehaviour
 
         allPhoneContacts = new List<PhoneContact>()
         {
-            new PhoneContact() {name = "Myself", photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
             new PhoneContact() {name = "Hakim", photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
             new PhoneContact() {name = "Sherryl", photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
             new PhoneContact() {name = "Mother", photo= null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
@@ -198,38 +178,6 @@ public class ChatManager : MonoBehaviour
         }
             
     }
-
-    //public void CheckNeighbourHappinessValue()
-    //{
-    //    if(neighbourHakim.currentHappiness < noiseThreshold && !hakimSentedComplaint)
-    //    {
-    //        Debug.Log($"Hakim's happiness: {neighbourHakim.currentHappiness}, threshold: {noiseThreshold}");
-    //        ReceiveComplaint("Hakim");
-    //        hakimSentedComplaint = true;
-    //    }
-    //    if(neighbourSherryl.currentHappiness < noiseThresholdSherryl && !sherrylSentedComplaint)
-    //    {
-    //        Debug.Log($"Sherryl's happiness: {neighbourSherryl.currentHappiness}, threshold: {noiseThresholdSherryl}");
-    //        ReceiveComplaint("Sherryl");
-    //        sherrylSentedComplaint = true;
-    //    }
-    //    if(neighbourSherryl.currentHappiness < policeCallThresholdSherryl && !sherrylCallPolice)
-    //    {
-    //        ReceiveComplaint("Sherryl");
-    //        sherrylCallPolice = true;
-    //    }
-    //    if(neighbourHakim.currentHappiness < policeCallThresholdHakim && !hakimCallPolice)
-    //    {
-    //        ReceiveComplaint("Hakim");
-    //        hakimCallPolice = true;
-    //    }
-    //}
-
-    //public void ResetComplaint()
-    //{
-    //    hakimSentedComplaint = false;
-    //    sherrylSentedComplaint = false;
-    //}
 
     public void SendReply()
     {
