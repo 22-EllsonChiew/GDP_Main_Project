@@ -1,0 +1,20 @@
+{
+	"routines": [
+		{
+			"day": 1,
+			"routineStartHour": 7,
+			"routineStartMinute": 30,
+			"routineEndHour": 18,
+			"routineEndMinute": 15,
+			"routineType": "NotHome",
+		},
+		{
+			"day": 1,
+			"routineStartHour": 23,
+			"routineStartMinute": 30,
+			"routineEndHour": 1,
+			"routineEndMinute": 30,
+			"routineType": "Asleep",
+		},
+	]
+}

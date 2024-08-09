@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class TimeUI : MonoBehaviour
 {
-    public GameObject LoadingScreenObj;
     public TextMeshProUGUI timeText_NotificationBar;
     public TextMeshProUGUI timeText_HomeScreen;
 
@@ -30,7 +29,7 @@ public class TimeUI : MonoBehaviour
 
     private void Start()
     {
-       // LoadingScreenObj.SetActive(false);
+       
     }
 
 }

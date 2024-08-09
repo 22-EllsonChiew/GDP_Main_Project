@@ -23,7 +23,7 @@ public class AngerBarManager : MonoBehaviour
     {
         if (neighbour_Hakim.currentHappiness <= 0f || neighbour_Sherryl.currentHappiness <= 0f)
         {
-            // immediately fade to lose screen when either neighbour loses all hp
+            SceneManager.LoadScene(loseScene);
         }
     }
 
