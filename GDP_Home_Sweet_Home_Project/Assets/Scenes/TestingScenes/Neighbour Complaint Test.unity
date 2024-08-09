@@ -7005,8 +7005,8 @@ MonoBehaviour:
   neighbourName: Hakim
   neighbourTransform: {fileID: 478058631}
   maxHappiness: 100
-  neighbourRoutinesJSON: {fileID: 4900000, guid: 249e63160ce0685448e73db686fa194b, type: 3}
-  neighbourRoutines:
+  neighbourRoutinesJSON: {fileID: 4900000, guid: 41740c76af44d1d489ebab8632593703, type: 3}
+  routineArray:
     routines: []
 --- !u!114 &478058633
 MonoBehaviour:
@@ -23595,7 +23595,7 @@ MonoBehaviour:
   neighbourTransform: {fileID: 1240785116}
   maxHappiness: 100
   neighbourRoutinesJSON: {fileID: 4900000, guid: 249e63160ce0685448e73db686fa194b, type: 3}
-  neighbourRoutines:
+  routineArray:
     routines: []
 --- !u!114 &1240785118
 MonoBehaviour:
@@ -38533,8 +38533,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endDay: 0
-  startHour: 0
-  startMinute: 0
+  startHour: 7
+  startMinute: 30
   endHour: 1
   endMinute: 30
   directionalLight: {fileID: 705507994}
