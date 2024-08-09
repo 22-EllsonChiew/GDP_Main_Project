@@ -143,6 +143,7 @@ public class NeighbourUIController : MonoBehaviour
         {
             isNeighbourGreetingPlayer = false;
             HandleInteractionAnimations();
+            endInteraction = true;
         }
 
         ToggleInteractionUI();

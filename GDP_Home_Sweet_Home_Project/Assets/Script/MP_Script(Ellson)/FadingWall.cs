@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class FadingWall : MonoBehaviour
 {
-
+    [Header("GameObject")]
     public GameObject bombShelterWall;
     public GameObject bedRoomWall;
+    public GameObject bedRoomWall2;
+    public GameObject toiletWall;
+    public GameObject SecondFloor;
     public float fadeDura = 2.0f;
+
+    [Header("Mats")]
     private Renderer wallRender;
     private Material[] wallMaterials;
     private Color[] originalColour;
@@ -15,24 +20,33 @@ public class FadingWall : MonoBehaviour
 
     private void Start()
     {
+        SecondFloor.SetActive(false);
+
         if (bombShelterWall != null)
         {
             wallRender = bombShelterWall.GetComponent<Renderer>();
             wallRender = bedRoomWall.GetComponent<Renderer>();
+            wallRender = bedRoomWall2.GetComponent<Renderer>();
+            wallRender = toiletWall.GetComponent<Renderer>();
             wallMaterials = wallRender.materials;
             originalColour = new Color[wallMaterials.Length];
             for (int i = 0; i < wallMaterials.Length; i++)
             {
                 originalColour[i] = wallMaterials[i].color;
             }
-            fadeTime = 0.0f;
+            fadeTime = 3f;
+        }
+        else
+        {
+            Debug.Log("No Wall");
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (wallRender != null && other.CompareTag("Player"))
         {
+            
             fadeTime += Time.deltaTime;
             float alpha = Mathf.Lerp(1, 0, fadeTime / fadeDura);
 
@@ -45,8 +59,13 @@ public class FadingWall : MonoBehaviour
             if (fadeTime >= fadeDura)
             {
                 // Set the wall to inactive or do something else when the fade is complete
+                Debug.Log("Im Faded");
                 bombShelterWall.SetActive(false);
                 bedRoomWall.SetActive(false);
+                bedRoomWall2.SetActive(false);
+                toiletWall.SetActive(false);
+                SecondFloor.SetActive(false);
+
             }
         }
     }
@@ -57,7 +76,10 @@ public class FadingWall : MonoBehaviour
         {
             bombShelterWall.SetActive(true);
             bedRoomWall.SetActive(true);
-            fadeTime = 0.0f;
+            bedRoomWall2.SetActive(true);
+            toiletWall.SetActive(true);
+            SecondFloor.SetActive(true);
+            fadeTime = 3f;
             for (int i = 0; i < wallMaterials.Length; i++)
             {
                 wallMaterials[i].color = originalColour[i];
