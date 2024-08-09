@@ -60,7 +60,7 @@
 			"messages" : [
 				{
 					"speaker": "Sherryl",
-					"content": "I thought you said you'll keep it down?"
+					"content": "Did I not tell you to keep it down?"
 				},
 				{
 					"speaker": "Myself",
@@ -68,7 +68,7 @@
 				},
 				{
 					"speaker": "Sherryl",
-					"content": "One more time, and I'll personally go down there to tell you off."
+					"content": "Should I even believe what you're telling me?"
 				}
 			]
 		},

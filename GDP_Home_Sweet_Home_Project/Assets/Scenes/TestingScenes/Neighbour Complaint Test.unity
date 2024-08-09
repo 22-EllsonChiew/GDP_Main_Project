@@ -7005,6 +7005,9 @@ MonoBehaviour:
   neighbourName: Hakim
   neighbourTransform: {fileID: 478058631}
   maxHappiness: 100
+  neighbourRoutinesJSON: {fileID: 4900000, guid: 249e63160ce0685448e73db686fa194b, type: 3}
+  neighbourRoutines:
+    routines: []
 --- !u!114 &478058633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7018,8 +7021,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angerBarManager: {fileID: 7565215745276000213}
-  complaintMessage: {fileID: 0}
-  neighbour: {fileID: 478058632}
   soundCollider: {fileID: 1645684919}
   player: {fileID: 1790319700}
 --- !u!1 &495474679
@@ -23593,6 +23594,9 @@ MonoBehaviour:
   neighbourName: Sherryl
   neighbourTransform: {fileID: 1240785116}
   maxHappiness: 100
+  neighbourRoutinesJSON: {fileID: 4900000, guid: 249e63160ce0685448e73db686fa194b, type: 3}
+  neighbourRoutines:
+    routines: []
 --- !u!114 &1240785118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23606,8 +23610,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angerBarManager: {fileID: 7565215745276000213}
-  complaintMessage: {fileID: 0}
-  neighbour: {fileID: 1240785117}
   soundCollider: {fileID: 982778015}
   player: {fileID: 1790319700}
 --- !u!1 &1244235248

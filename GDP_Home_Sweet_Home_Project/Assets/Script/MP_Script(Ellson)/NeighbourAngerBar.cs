@@ -16,8 +16,6 @@ public class NeighbourAngerBar : MonoBehaviour
 
     public Transform player;
 
-    private bool hakimComplained = false;
-    private bool sherrylComplained = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,19 +25,20 @@ public class NeighbourAngerBar : MonoBehaviour
 
     public void HeardNoise(float amount)
     {
-        UpdateNeighbourHappinessBar(amount);
+        if (CheckPlayerInCollider())
+        {
+            UpdateNeighbourHappinessBar(amount);
 
-        if (neighbour.currentHappiness <= neighbour.complaintThreshold)
-        {
-            MakeComplaint();
-            neighbour.EscalateNeighbourComplaint();
+            if (neighbour.currentHappiness <= neighbour.complaintThreshold && neighbour.complaintCount < 2)
+            {
+                neighbour.EscalateNeighbourComplaint();
+                ChatManager.instance.ReceiveComplaint(neighbour.neighbourName, DetermineComplaintType());
+            }
+            else
+            {
+                Debug.Log("neighbour disturbed");
+            }
         }
-        else
-        {
-            Debug.Log("Neighbour disturbed but not angry.");
-        }
-        
-        
     }
 
     private void UpdateNeighbourHappinessBar(float amount)
@@ -47,19 +46,6 @@ public class NeighbourAngerBar : MonoBehaviour
         neighbour.ReduceHappiness(amount);
         angerBarManager.UpdateHappinessBar();
 
-    }
-
-    void MakeComplaint()
-    {
-        Debug.Log("attempting complaint");
-        if (CheckPlayerInCollider())
-        {
-            ChatManager.instance.ReceiveComplaint(neighbour.neighbourName, DetermineComplaintType());
-        }
-        else
-        {
-            Debug.Log("player not in collider");
-        }
     }
 
     DialogueType DetermineComplaintType()
