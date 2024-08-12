@@ -30,6 +30,9 @@ public class Interaction : MonoBehaviour
     private string currentNeighbourCollider;
 
     public static Neighbour currentNeighbour;
+    public static Neighbour closestAffectedNeighbour;
+
+    private bool ConfirmButtonClickOnce = false;
 
     public static bool CanInteractWithNeighbour {  get; private set; }
     private bool IsAtElevator;
@@ -66,7 +69,7 @@ public class Interaction : MonoBehaviour
         {
             if (CanInteractWithNeighbour)
             {
-                NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, "HappyGreet");
+                NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, currentNeighbour.currentMood);
             }
 
             if (IsAtElevator || IsAtBed)
@@ -80,6 +83,7 @@ public class Interaction : MonoBehaviour
 
     private void ConfirmClicked(Collider confirmedCollider)
     {
+        Debug.Log("ConfirmClicked called with: " + confirmedCollider);
         //isGameStarting.Invoke(true);
 
         confirmationWindow.gameObject.SetActive(false);
@@ -139,6 +143,11 @@ public class Interaction : MonoBehaviour
             Debug.Log("Player @ neighbour door");
         }
 
+        if (other.CompareTag("Neighbour"))
+        { 
+
+        }
+
         if (other.CompareTag("Environment_Elevator"))
         {
             IsAtElevator = true;
@@ -157,10 +166,14 @@ public class Interaction : MonoBehaviour
     {
         if (other.CompareTag("Object") && Input.GetKey(KeyCode.E)) //check if tag of the object colliding with player is "object"
         {
-            confirmationWindow.gameObject.SetActive(true);
-            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClicked(other)); ;
-            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
-            hammerGame = true;
+            if (!ConfirmButtonClickOnce)
+            {
+                confirmationWindow.gameObject.SetActive(true);
+                confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClicked(other));
+                confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+                ConfirmButtonClickOnce = true;
+                hammerGame = true;
+            }
         }
 
         if (other.CompareTag("Chest") && Input.GetKey(KeyCode.E))
@@ -197,7 +210,7 @@ public class Interaction : MonoBehaviour
 
         if (other.CompareTag("Environment_Elevator"))
         {
-
+            
         }
 
         if (other.CompareTag("Bed"))

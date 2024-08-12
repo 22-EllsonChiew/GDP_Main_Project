@@ -50,6 +50,7 @@ public class DrillingMiniGame : MonoBehaviour
 
     [Header("Noise Controller")]
     public NoiseController noiseController;
+    public WindowController windowController;
 
     private float maxNoiseIncreaseRate = 0.2f; // Maximum rate of noise increase
     private float holdTime = 0f; // Time the button is held
@@ -91,7 +92,7 @@ public class DrillingMiniGame : MonoBehaviour
                     holdTime += Time.deltaTime;
 
                     float noiseLevel = Mathf.Lerp(noiseIncreaseRate, maxNoiseIncreaseRate, holdTime);
-                    noiseController.MakeNoise(noiseLevel);
+                    noiseController.MakeNoise(windowController.NoiseLevel());
                     noiseController.HandleNoise();
 
                     HandleHoldClick();

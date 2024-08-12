@@ -4,99 +4,65 @@ using UnityEngine;
 
 public class NeighbourAngerBar : MonoBehaviour
 {
-
-    public float maxHappyBar = 100f;
-    public float currentHappiness;
+    // work on this
+    //public float maxHappyBar = 100f;
+    //public float currentHappiness;
 
     public AngerBarManager angerBarManager;
 
-    public ChatManager complaintMessage;
 
-    public BoxCollider sherrylSideCollider;
-    public BoxCollider hakimSideCollider;
+    private Neighbour neighbour;
+    public BoxCollider soundCollider;
+
     public Transform player;
 
-    private bool hakimComplained = false;
-    private bool sherrylComplained = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHappiness = maxHappyBar;
+        neighbour = GetComponent<Neighbour>();
     }
 
     public void HeardNoise(float amount)
     {
-        UpdateNeighbourHappinessBar(amount);
-        CheckForSherrylComplainMessage();
-        CheckForHakimComplainMessage();
-
-        // If no complaints were received, log that neighbors are happy
-        if (!complaintMessage.hakimSentedComplaint && !complaintMessage.sherrylSentedComplaint)
+        if (CheckPlayerInCollider())
         {
-            Debug.Log("Neighbours are happy.");
-        }
+            UpdateNeighbourHappinessBar(amount);
 
-        //Check neighbour happiness value
-        //complaintMessage.CheckNeighbourHappinessValue();
+            if (neighbour.currentHappiness <= neighbour.complaintThreshold && neighbour.complaintCount < 2)
+            {
+                neighbour.EscalateNeighbourComplaint();
+                ChatManager.instance.ReceiveComplaint(neighbour.neighbourName, DetermineComplaintType());
+            }
+            else
+            {
+                Debug.Log("neighbour disturbed");
+            }
+        }
     }
 
     private void UpdateNeighbourHappinessBar(float amount)
     {
-        currentHappiness -= amount;
-        currentHappiness = Mathf.Clamp(currentHappiness, 0, maxHappyBar);
+        neighbour.ReduceHappiness(amount);
         angerBarManager.UpdateHappinessBar();
 
     }
 
-    private void CheckForSherrylComplainMessage()
+    DialogueType DetermineComplaintType()
     {
-        //check if player is in sherryl collider side and check if the sherryl current happiness less then the threshold from ChatManger script and check if sherryl has send complain to the player
-        if (complaintMessage.neighbourSherryl.CheckPlayerInColliderSherryl() && complaintMessage.neighbourSherryl.currentHappiness < complaintMessage.noiseThresholdSherryl && !complaintMessage.sherrylSentedComplaint)
+        if (neighbour.currentHappiness <= neighbour.happinessThreshold_Angry)
         {
-            //send complaint message and set sherryl send complaint to true so it will not send or dup another message
-            // Send complaint from Sherryl
-            complaintMessage.ReceiveComplaint("Sherryl");
-            complaintMessage.sherrylSentedComplaint = true;
+            return DialogueType.Complaint_Angry;
+        }
+        else
+        {
+            return DialogueType.Complaint_Normal;
         }
     }
 
-    private void CheckForHakimComplainMessage()
+    public bool CheckPlayerInCollider()
     {
-        //check if player is in hakim collider side and check if the hakim current happiness less then the threshold from ChatManger script and check if hakim has send complain to the player
-        if (complaintMessage.neighbourHakim.CheckPlayerInColliderHakim() && complaintMessage.neighbourHakim.currentHappiness < complaintMessage.noiseThreshold && !complaintMessage.hakimSentedComplaint)
-        {
-            //send complaint message and set hakim send complaint to true so it will not send or dup another message
-            // Send complaint from Hakim
-            complaintMessage.ReceiveComplaint("Hakim");
-            complaintMessage.hakimSentedComplaint = true;
-        }
+        return soundCollider.bounds.Contains(player.transform.position);
     }
 
-
-
-
-
-    /*public void RestoreComplaint(float amount)
-    {
-        currentHappiness += amount;
-        currentHappiness = Mathf.Clamp(currentHappiness, 0, maxHappyBar);
-
-        angerBarManager.UpdateHappinessBar();
-
-        if(currentHappiness >= complaintMessage.noiseThreshold || currentHappiness >= complaintMessage.noiseThresholdSherryl)
-        {
-            complaintMessage.ResetComplaint();
-        }
-    }*/
-
-    public bool CheckPlayerInColliderSherryl()
-    {
-        return sherrylSideCollider.bounds.Contains(player.transform.position);
-    }
-
-    public bool CheckPlayerInColliderHakim()
-    {
-        return hakimSideCollider.bounds.Contains(player.transform.position);
-    }
 }

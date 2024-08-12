@@ -76,36 +76,23 @@ public class HammerNailController : MonoBehaviour
         Debug.Log("Time to make some noise!");
 
 
-        bool windowsClosed = windowControllers.rightWindowIsClose() || windowControllers.leftWindowIsClose();
-        bool onCarpet = packageRaycast.OnCarpet();
-
-        Debug.Log($"Windows closed: {windowsClosed}, On carpet: {onCarpet}");
-        if (windowsClosed)
+        if (packageRaycast.OnCarpet())
         {
 
-            if (packageRaycast.OnCarpet())
-            {
-                Debug.Log("building on carpet with window close");
-                noiseController.MakeNoise(0.20f);
-
-            }
-            else
-            {
-                noiseController.MakeNoise(0.35f);
-
-            }
+            Debug.Log("building on carpet with window close");
+            noiseController.MakeNoise(windowControllers.NoiseLevel() - 0.15f);
             noiseController.HandleNoise();
+
         }
-        else if (onCarpet)
+        else if (packageRaycast.OnCarpet())
         {
             Debug.Log("On Carpet but window is open");
-            noiseController.MakeNoise(0.40f);
+            noiseController.MakeNoise(windowControllers.NoiseLevel());
             noiseController.HandleNoise();
         }
         else
         {
-            Debug.Log("No noise dempening used");
-            noiseController.MakeNoise(0.55f);
+            noiseController.MakeNoise(windowControllers.NoiseLevel());
             noiseController.HandleNoise();
         }
     }

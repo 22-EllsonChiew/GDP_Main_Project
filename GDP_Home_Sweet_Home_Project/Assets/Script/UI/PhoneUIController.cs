@@ -13,7 +13,8 @@ public enum PhoneApp
     ChatApp_Messages,
     NetApp,
     NetApp_Post,
-    Settings,
+    NotesApp,
+    NotesApp_Note,
     Hamburger
 }
 
@@ -52,8 +53,7 @@ public class PhoneUIController : MonoBehaviour
     private GameObject netApp;
     [SerializeField]
     private GameObject netApp_Post;
-    [SerializeField]
-    private GameObject notificationClock;
+    
 
     [Header("Phone Wallpapers")]
     [SerializeField]
@@ -65,10 +65,21 @@ public class PhoneUIController : MonoBehaviour
     [SerializeField]
     private Image phoneBG;
 
+    [Header("Notification Bar")]
+    [SerializeField]
+    private GameObject notificationBarSprites;
+    [SerializeField]
+    private GameObject notificationClock;
+    [SerializeField]
+    private GameObject notificationBell;
+    [SerializeField]
+    private GameObject chatNotification;
+
     private Dictionary<PhoneApp, GameObject> appScreens;
     private Stack<PhoneApp> navigationHistory;
 
     public bool isPhoneActive { get; private set; }
+    public bool hasReceivedNotification { get; private set; }
     public PhoneApp currentApp {  get; private set; }
 
     public static PhoneUIController instance;
@@ -125,6 +136,7 @@ public class PhoneUIController : MonoBehaviour
         {
            TogglePhone();
         }
+
     }
 
     public void HandleNotificationClock()
@@ -133,11 +145,13 @@ public class PhoneUIController : MonoBehaviour
         {
             notificationClock.SetActive(false);
             // set notification bar decoration
+            notificationBarSprites.SetActive(true);
         }
         else
         {
             notificationClock.SetActive(true);
             // set notification bar decoration
+            notificationBarSprites.SetActive(false);
         }
     }
 
@@ -176,10 +190,16 @@ public class PhoneUIController : MonoBehaviour
     {
         if (currentApp != app)
         {
+            if (hasReceivedNotification && app == PhoneApp.ChatApp)
+            {
+                chatNotification.SetActive(false);
+            }
+
             if (currentApp != PhoneApp.Stowed)
             {
                 navigationHistory.Push(currentApp);
             }
+
 
             if (currentApp != PhoneApp.Stowed && appScreens.ContainsKey(currentApp))
             {
@@ -190,6 +210,7 @@ public class PhoneUIController : MonoBehaviour
             {
                 appScreens[app].SetActive(true);
             }
+
 
             currentApp = app;
             Debug.Log("Opened app: " + app.ToString());
@@ -206,6 +227,28 @@ public class PhoneUIController : MonoBehaviour
     {
         OpenApp(PhoneApp.NetApp_Post);
         Debug.Log("Opened forum post");
+    }
+
+    public void ReceiveChatNotification()
+    {
+        if (currentApp != PhoneApp.ChatApp || currentApp != PhoneApp.ChatApp_Messages)
+        {
+            chatNotification.SetActive(true);
+        }
+
+        notificationBell.gameObject.SetActive(true);
+        // play notification sound
+
+        
+        hasReceivedNotification = true;
+
+    }
+
+    public void ReadChatNotification()
+    {
+        chatNotification.SetActive(false);
+        notificationBell.SetActive(false);
+        hasReceivedNotification = false;
     }
 
     public void BackBtn()

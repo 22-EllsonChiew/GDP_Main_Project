@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,11 +7,11 @@ public class NoiseController : MonoBehaviour
 {
     [Header("Noise Parameters")]
     private float currentNoise;
-    public float noiseThreshold = 1f;
+    public float noiseThreshold = 100f;
     public float noiseDecreaseRate;
-    private float noiseMultiplier = 0.001f;
-
-
+    private float noiseMultiplier = 0.00001f;
+    private float noiseDelayTime;
+    
 
     [Header("UI Elements")]
     public Slider noiseBar;
@@ -77,9 +76,6 @@ public class NoiseController : MonoBehaviour
             HandleNoise();
         }
 
-
-
-
     }
 
     void UpdateBar()
@@ -93,8 +89,10 @@ public class NoiseController : MonoBehaviour
 
     public void HandleNoise()
     {
-        if (currentNoise > 0.60f)
+        if (currentNoise > 0.60f && Time.time > noiseDelayTime + 0.25f)
         {
+            noiseDelayTime = Time.time;
+
             if(playerInHakimSide)
             {
                 neighbourHakim.HeardNoise(noiseDecreaseRate);
@@ -108,6 +106,7 @@ public class NoiseController : MonoBehaviour
 
     public void MakeNoise(float noise)
     {
+        
         if(playerMovementController.isWalking && movingFurnitureController.carriedObject != null)
         {
             noise += playerMovementController.speed * noiseMultiplier;
@@ -126,11 +125,13 @@ public class NoiseController : MonoBehaviour
     {
         if(playerInSherrylSide)
         {
-            MakeNoise(windowControllers.leftWindowIsClose() ? 0.25f : 0.55f);
+            //MakeNoise(windowControllers.leftWindowIsClose() ? 0.25f : 0.55f);
+            MakeNoise(windowControllers.NoiseLevel());
         }
         else if(playerInHakimSide)
         {
-            MakeNoise(windowControllers.rightWindowIsClose() ? 0.25f : 0.55f);
+            //MakeNoise(windowControllers.rightWindowIsClose() ? 0.25f : 0.55f);
+            MakeNoise(windowControllers.NoiseLevel());
         }
     }
 

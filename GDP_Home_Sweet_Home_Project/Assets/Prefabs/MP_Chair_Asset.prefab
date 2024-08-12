@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MP_Chair_Asset
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 764a2d72aa512544dafaafbe0fe4d695, type: 3}
+      propertyPath: m_TagString
+      value: Draggable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

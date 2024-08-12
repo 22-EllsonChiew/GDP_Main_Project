@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class AngerBarManager : MonoBehaviour
 {
 
-    public NeighbourAngerBar neighbour1;
-    public NeighbourAngerBar neighbour2;
+    public Neighbour neighbour_Hakim;
+    public Neighbour neighbour_Sherryl;
 
     public Slider HappinessBar;
 
@@ -19,14 +19,26 @@ public class AngerBarManager : MonoBehaviour
         UpdateHappinessBar();
     }
 
-   
+    private void Update()
+    {
+        if (neighbour_Hakim.currentHappiness <= 0f)
+        {
+            ScoreManager.Instance.SetAngeredNeighbour(neighbour_Hakim);
+            SceneManager.LoadScene(loseScene);
+        }
+        else if (neighbour_Sherryl.currentHappiness <= 0f)
+        {
+            ScoreManager.Instance.SetAngeredNeighbour(neighbour_Sherryl);
+            SceneManager.LoadScene(loseScene);
+        }
+    }
 
     public void UpdateHappinessBar()
     {
         //calculate the average happiness by taking both the neighbours indivdual happiness value and adding them then divide by 2 to give the average value for the happiness total decrease
-        float averageHappinessDecrease = (neighbour1.currentHappiness + neighbour2.currentHappiness) / 2;
+        float averageHappinessDecrease = (neighbour_Hakim.currentHappiness + neighbour_Sherryl.currentHappiness) / 2;
 
-        float maxHappiness = (neighbour1.maxHappyBar + neighbour2.maxHappyBar) / 2; // value will be 100f
+        float maxHappiness = (neighbour_Hakim.maxHappiness + neighbour_Sherryl.maxHappiness) / 2; // value will be 100f
 
         UpdateHappinessGauge(averageHappinessDecrease, maxHappiness);
 
@@ -43,10 +55,5 @@ public class AngerBarManager : MonoBehaviour
         //Debug.Log($"Happiness Level: {happinessLevel}");
 
 
-        if (happinessLevel >= 0.90)
-        {
-            Debug.Log("Happiness Level is less than or equal to 0.95. Loading Lose Scene...");
-            SceneManager.LoadScene(loseScene);
-        }
     }
 }

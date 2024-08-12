@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class MessageLoader : MonoBehaviour
 {
@@ -21,17 +22,22 @@ public class MessageLoader : MonoBehaviour
 
     void LoadMessages()
     {
-        messageData = JsonUtility.FromJson<MessageData>(messageJson.text);
+        messageData = JsonConvert.DeserializeObject<MessageData>(messageJson.text);
 
         if (messageData != null )
         {
             int totalConversations = messageData.conversations.Length;
+
+            foreach ( var conversation in messageData.conversations )
+            {
+                Debug.Log(conversation.type);
+            }
             
             Debug.Log("Total message conversations: " + totalConversations);
         }
     }
 
-    public MessageConversation GetMessageConversation(string name, string type)
+    public MessageConversation GetMessageConversation(string name, DialogueType type)
     {
         foreach (var conversation in messageData.conversations)
         {

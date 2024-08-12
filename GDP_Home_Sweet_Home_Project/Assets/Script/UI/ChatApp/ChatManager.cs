@@ -38,20 +38,9 @@ public class ChatManager : MonoBehaviour
     private List<PhoneContact> unlockedPhoneContacts;
     private DialogueLine[] _receivedMessages;
 
-    private PhoneContact currentContact;
+    public PhoneContact currentContact { get; private set; }
     private MessageConversation currentConversation;
-
-    [Header("Neighbour")]
-
-    public NeighbourAngerBar neighbourSherryl;
-    public NeighbourAngerBar neighbourHakim;
-
-    public float noiseThreshold = 60f;
-    public float noiseThresholdSherryl = 60f;
-        
-    public bool hakimSentedComplaint = false;
-    public bool sherrylSentedComplaint = false;
-
+    
     public static ChatManager instance;
 
     // Start is called before the first frame update
@@ -70,7 +59,6 @@ public class ChatManager : MonoBehaviour
 
         allPhoneContacts = new List<PhoneContact>()
         {
-            new PhoneContact() {name = "Myself", photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
             new PhoneContact() {name = "Hakim", photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
             new PhoneContact() {name = "Sherryl", photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
             new PhoneContact() {name = "Mother", photo= null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
@@ -78,7 +66,6 @@ public class ChatManager : MonoBehaviour
 
         unlockedPhoneContacts = new List<PhoneContact>();
 
-        UnlockContact("Myself");
         UnlockContact("Mother");
         UnlockContact("Hakim");
         UnlockContact("Sherryl");
@@ -87,15 +74,15 @@ public class ChatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ReceiveComplaint("Hakim");
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    ReceiveComplaint("Hakim");
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ReceiveComplaint("Sherryl");
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    ReceiveComplaint("Sherryl");
+        //}
     }
 
     public void OpenMessages(string contactName)
@@ -105,14 +92,13 @@ public class ChatManager : MonoBehaviour
         if (targetContact != null) 
         {
             currentContactName.text = contactName;
-
-            RefreshCurrentMessages(targetContact);
-            
             currentContact = targetContact;
+
+            RefreshCurrentMessages();
         }
     }
 
-    public void RefreshCurrentMessages(PhoneContact currentContact)
+    public void RefreshCurrentMessages()
     {
         foreach (Transform child in chatListParent)
         {
@@ -144,59 +130,53 @@ public class ChatManager : MonoBehaviour
         }
     }
 
-    public void ReceiveComplaint(string name)
+    public void ReceiveComplaint(string name, DialogueType type)
     {
         
-        //PhoneContact targetContact = unlockedPhoneContacts.Find(contact => contact.name == name);
-       
-        currentContact = unlockedPhoneContacts.Find(contact => contact.name == name);
+        PhoneContact targetContact = unlockedPhoneContacts.Find(contact => contact.name == name);
 
-        if (currentContact.isUnlocked && currentContact != null)
+        if (targetContact == null)
         {
-            MessageConversation conversationToAdd = messageLoader.GetMessageConversation(name, "NormalComplaint");
+            Debug.LogWarning("Unable to find targetContact");
+            return;
+        }
+
+        if (targetContact.isUnlocked)
+        {
+            MessageConversation conversationToAdd = messageLoader.GetMessageConversation(name, type);
 
             if (conversationToAdd != null)
             {
                 currentConversation = conversationToAdd;
 
                 DialogueLine lineToAdd = conversationToAdd.messages[0];
-                DialogueLine[] updatedMessages = new DialogueLine[currentContact.receivedMessages.Length + 1];
-                updatedMessages[currentContact.receivedMessages.Length] = lineToAdd;
-                currentContact.receivedMessages.CopyTo(updatedMessages, 0);
+                DialogueLine[] updatedMessages = new DialogueLine[targetContact.receivedMessages.Length + 1];
+                updatedMessages[targetContact.receivedMessages.Length] = lineToAdd;
+                targetContact.receivedMessages.CopyTo(updatedMessages, 0);
 
-                currentContact.receivedMessages = updatedMessages;
-                currentContact.isAwaitingReply = true;
+                targetContact.receivedMessages = updatedMessages;
+                targetContact.isAwaitingReply = true;
 
-                RefreshCurrentMessages(currentContact);
+                if(currentContact == targetContact)
+                {
+                    RefreshCurrentMessages();
+                }
+                else
+                {
+                    PhoneUIController.instance.ReceiveChatNotification();
+                }
+
+                MoveContactToTop(targetContact);
+                UpdateContactList();
+
+                
             }
         }
         else
         {
-            Debug.Log("Disturbed neighbour angered but unable to contact player");
+            Debug.Log("Neighbour not unlocked or is waiting for player response.");
         }
             
-    }
-
-    public void CheckNeighbourHappinessValue()
-    {
-        if(neighbourHakim.currentHappiness < noiseThreshold && !hakimSentedComplaint)
-        {
-            Debug.Log($"Hakim's happiness: {neighbourHakim.currentHappiness}, threshold: {noiseThreshold}");
-            ReceiveComplaint("Hakim");
-            hakimSentedComplaint = true;
-        }
-        if(neighbourSherryl.currentHappiness < noiseThresholdSherryl && !sherrylSentedComplaint)
-        {
-            Debug.Log($"Sherryl's happiness: {neighbourSherryl.currentHappiness}, threshold: {noiseThresholdSherryl}");
-            ReceiveComplaint("Sherryl");
-            sherrylSentedComplaint = true;
-        }
-    }
-
-    public void ResetComplaint()
-    {
-        hakimSentedComplaint = false;
-        sherrylSentedComplaint = false;
     }
 
     public void SendReply()
@@ -219,7 +199,7 @@ public class ChatManager : MonoBehaviour
 
             currentContact.receivedMessages = updatedMessages;
 
-            RefreshCurrentMessages(currentContact);
+            RefreshCurrentMessages();
             StartCoroutine(ReceiveNeighbourReply());
         }
     }
@@ -236,7 +216,13 @@ public class ChatManager : MonoBehaviour
         currentContact.receivedMessages = updatedMessages;
 
         currentContact.isAwaitingReply = false;
-        RefreshCurrentMessages(currentContact);
+        UpdateContactList();
+        RefreshCurrentMessages();
+    }
+
+    public bool PlayerRepliedToNeighbour(string name)
+    {
+        return currentContact != null && currentContact.name == name && !currentContact.isAwaitingReply;
     }
 
     public void UnlockContact(string contactName)
@@ -251,13 +237,42 @@ public class ChatManager : MonoBehaviour
         }
     }
 
+    void MoveContactToTop(PhoneContact contact)
+    {
+        if (contact != null)
+        {
+            unlockedPhoneContacts.Remove(contact);
+            unlockedPhoneContacts.Insert(0, contact);
+        }
+    }
+    void UpdateContactList()
+    {
+        foreach (Transform child in contactListParent)
+        {
+            Destroy(child.gameObject);
+        }
 
+        foreach (PhoneContact contact in unlockedPhoneContacts)
+        {
+            AddContact(contact);
+        }
+    }
 
     public void AddContact(PhoneContact contact)
     {
         ContactPanel newContactPanel = Instantiate(contactPrefab, contactListParent);
+        if (contact.isAwaitingReply)
+        {
+            newContactPanel.DisplayUnreadNotification();
+        }
+        else
+        {
+            newContactPanel.ClearNotification();
+            Debug.Log("clearing notification");
+        }
         newContactPanel.SetContactName(contact.name);
         newContactPanel.SetContactImage(contact.photo);
+        
     }
 
 }
