@@ -27,7 +27,11 @@ TagManager:
   - Neighbour
   - Environment_Elevator
   - Bed
+<<<<<<< HEAD
   - SnapPosition
+=======
+  - ScoreManager
+>>>>>>> main
   layers:
   - Default
   - TransparentFX

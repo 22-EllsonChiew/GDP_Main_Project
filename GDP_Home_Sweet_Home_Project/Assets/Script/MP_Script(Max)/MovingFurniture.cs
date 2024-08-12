@@ -59,7 +59,13 @@ public class MovingFurniture : MonoBehaviour
                 Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
+<<<<<<< HEAD
                     rb.constraints = RigidbodyConstraints.FreezeRotation;
+=======
+                    carriedObject = hitCollider.gameObject;
+                    playerMovement.speed = 2f;
+                    break;
+>>>>>>> main
                 }
                 break;
             }
@@ -89,6 +95,7 @@ public class MovingFurniture : MonoBehaviour
     {
         if (carriedObject != null)
         {
+<<<<<<< HEAD
             Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
@@ -132,6 +139,13 @@ public class MovingFurniture : MonoBehaviour
             spherePosition.y -= 1f;
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(spherePosition, checkRadius);
+=======
+            //carreid object is not parented to dragPos anymore
+            carriedObject.transform.SetParent(null);
+            carriedObject = null;
+            //player movement speed set back to original speed
+            playerMovement.speed = 3f;
+>>>>>>> main
         }
     }
 }
