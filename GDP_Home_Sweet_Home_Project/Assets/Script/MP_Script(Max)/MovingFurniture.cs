@@ -25,7 +25,7 @@ public class MovingFurniture : MonoBehaviour
 
     void Update()
     {
-        DragText();
+        //DragText();
         if (Input.GetKeyDown(KeyCode.G))
         {
             if (carriedObject != null)
@@ -72,24 +72,22 @@ public class MovingFurniture : MonoBehaviour
         }
     }
 
-    void DragText()
-    {
-        //might have to change to only check for area in front of player
-        Vector3 spherePosition = player.transform.position + player.transform.forward * (checkRadius);
-        spherePosition.y -= 1f;
-        Collider[] hitColliders = Physics.OverlapSphere(spherePosition, checkRadius);
-        foreach (var hitCollider in hitColliders)
-        {
-            if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling"))
-            {
-                carriedObject = hitCollider.gameObject;
-                Quaternion targetRotation = Quaternion.Inverse(mainCam.transform.rotation);
-                dragText.transform.position = carriedObject.transform.position;
-                dragText.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.0f);
-                break;
-            }
-        }
-    }
+    //void DragText()
+    //{
+    //    //might have to change to only check for area in front of player
+    //    Vector3 spherePosition = player.transform.position + player.transform.forward * (checkRadius);
+    //    spherePosition.y -= 1f;
+    //    Collider[] hitColliders = Physics.OverlapSphere(spherePosition, checkRadius);
+    //    foreach (var hitCollider in hitColliders)
+    //    {
+    //        if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling"))
+    //        {
+    //            Quaternion targetRotation = Quaternion.Inverse(mainCam.transform.rotation);
+    //            dragText.transform.position = carriedObject.transform.position;
+    //            dragText.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.0f);
+    //        }
+    //    }
+    //}
 
     void UpdateCarriedObjectPosition()
     {
@@ -149,14 +147,14 @@ public class MovingFurniture : MonoBehaviour
     //    }
     //}
 
-    private void OnDrawGizmos()
-    {
-        if (player != null)
-        {
-            Vector3 spherePosition = player.transform.position + player.transform.forward * (checkRadius);
-            spherePosition.y -= 1f;
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(spherePosition, checkRadius);
-        }
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    if (player != null)
+    //    {
+    //        Vector3 spherePosition = player.transform.position + player.transform.forward * (checkRadius);
+    //        spherePosition.y -= 1f;
+    //        Gizmos.color = Color.green;
+    //        Gizmos.DrawWireSphere(spherePosition, checkRadius);
+    //    }
+    //}
 }
