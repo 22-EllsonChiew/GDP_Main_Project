@@ -3,44 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Object
-  - Chest
-  - Top_Right_Corner
-  - Bottom_Right_Corner
-  - ChairLeg
-  - LegSlot
-  - NailSlot
-  - NailGameController
-  - ChairBody
-  - NewSceneTrigger
-  - MainProgressBar
-  - MinigameCam
-  - Draggable
-  - Nail
-  - LoadingScreen
-  - NeighbourInteractionCollider
-  - Carpet
-  - Drilling
-  - MinigameCamPos
-  - TableDrilling
-  - Neighbour
-  - Environment_Elevator
-  - Bed
-<<<<<<< HEAD
-  - SnapPosition
-=======
-  - ScoreManager
->>>>>>> main
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - isGround
+  - 
   - Water
   - UI
-  - Nails
-  - Carpet
+  - 
+  - 
   - 
   - 
   - 
