@@ -15,6 +15,8 @@ public class MovingFurniture : MonoBehaviour
     public float forceStrength = 1f; // Strength of the impulse force
     public GameObject snapPos;
     public bool canSnap = false;
+    public GameObject dragText;
+    public GameObject mainCam;
 
     private void Start()
     {
@@ -23,6 +25,7 @@ public class MovingFurniture : MonoBehaviour
 
     void Update()
     {
+        DragText();
         if (Input.GetKeyDown(KeyCode.G))
         {
             if (carriedObject != null)
@@ -54,6 +57,9 @@ public class MovingFurniture : MonoBehaviour
             {
                 Debug.Log("COLLIDE WITH TAG");
                 carriedObject = hitCollider.gameObject;
+                //Quaternion targetRotation = Quaternion.Inverse(mainCam.transform.rotation);
+                //dragText.transform.position = carriedObject.transform.position;
+                //dragText.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.0f);
                 playerMovement.speed = 4f;
                 // Lock rotation when object is picked up
                 Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
@@ -61,6 +67,25 @@ public class MovingFurniture : MonoBehaviour
                 {
                     rb.constraints = RigidbodyConstraints.FreezeRotation;
                 }
+                break;
+            }
+        }
+    }
+
+    void DragText()
+    {
+        //might have to change to only check for area in front of player
+        Vector3 spherePosition = player.transform.position + player.transform.forward * (checkRadius);
+        spherePosition.y -= 1f;
+        Collider[] hitColliders = Physics.OverlapSphere(spherePosition, checkRadius);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling"))
+            {
+                carriedObject = hitCollider.gameObject;
+                Quaternion targetRotation = Quaternion.Inverse(mainCam.transform.rotation);
+                dragText.transform.position = carriedObject.transform.position;
+                dragText.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.0f);
                 break;
             }
         }
