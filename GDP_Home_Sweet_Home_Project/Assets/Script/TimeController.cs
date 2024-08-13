@@ -65,6 +65,14 @@ public class TimeController : MonoBehaviour
     [SerializeField] private Slider LoadingBarTimer;
 
 
+    [Header("Game Object")]
+    [SerializeField] private GameObject firstDay;
+    [SerializeField] private GameObject secondDay;
+    [SerializeField] private GameObject thirdDay;
+
+    
+
+
     void Start()
     {
 
@@ -81,6 +89,13 @@ public class TimeController : MonoBehaviour
         SetTime(startHour, startMinute);
         isPaused = false;
         LoadingScreenObj.SetActive(false);
+
+        if (CurrentDay == 1)
+        {
+            Debug.Log("Next Morning");
+            firstDay.SetActive(true);
+        }
+
     }
 
 
@@ -91,6 +106,10 @@ public class TimeController : MonoBehaviour
 
         currentTimePhase = DetermineCurrentTimePhase();
         HandleTime();
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            AdvanceTimePhase();
+        }
 
     }
 
@@ -133,6 +152,8 @@ public class TimeController : MonoBehaviour
         {
             SetTime(startHour,startMinute);
             CurrentDay++;
+            Debug.Log("CurrentDay has advanced to: " + CurrentDay);
+            PackageSpawnerByDay();
         }
 
         
@@ -238,6 +259,16 @@ public class TimeController : MonoBehaviour
 
         isPaused = false;
         
+    }
+
+    private void PackageSpawnerByDay()
+    {
+        
+        if (CurrentDay == 2)
+        {
+            secondDay.SetActive(true);
+            Debug.Log("Day 2 baby");
+        }
     }
 }
 
