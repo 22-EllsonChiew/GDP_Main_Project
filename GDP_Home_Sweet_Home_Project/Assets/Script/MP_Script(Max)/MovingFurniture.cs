@@ -6,74 +6,140 @@ public class MovingFurniture : MonoBehaviour
 {
     public GameObject player;
     public PlayerMovement playerMovement;
-    //transform in front of player where object will be parented to
     public Transform dragPos;
-    //radius to check for draggable objects
-    public float checkRadius = 2f; 
-    public GameObject carriedObject = null; 
-    //height offset from the ground
-    public float heightOffset = 0.5f; 
+    public float checkRadius = 2f;
+    public float snapRadius = 1f;
+    public GameObject carriedObject = null;
+    public float heightOffset = 0.5f;
+    public float maxDistance = 3f; // Maximum distance the object can be from the player
+    public float forceStrength = 1f; // Strength of the impulse force
+    public GameObject snapPos;
+    public bool canSnap = false;
+    public GameObject dragText;
+    public Camera mainCam;
 
     private void Start()
     {
-        //reference player movement script
         playerMovement = player.GetComponent<PlayerMovement>();
     }
 
     void Update()
     {
-        CheckForDraggableObject();
-        UpdateCarriedObjectPosition();
-    }
-
-    void CheckForDraggableObject()
-    {
-        //press G to drag object
         if (Input.GetKeyDown(KeyCode.G))
         {
             if (carriedObject != null)
             {
                 DropObject();
-                return;
+                canSnap = true;
             }
-            //checks all colliders hit within a sphere around the player's transform
-            Collider[] hitColliders = Physics.OverlapSphere(player.transform.position, checkRadius);
-            foreach (var hitCollider in hitColliders)
+            else
             {
-                //if has tag "Draggable" then carried object is set to collided object
-                //player speed is also reduced
-                if (hitCollider.CompareTag("Draggable"))
+                CheckForDraggableObject();
+                canSnap = false;
+            }
+        }
+
+        UpdateCarriedObjectPosition();
+        //SnapPosition();
+    }
+
+    void CheckForDraggableObject()
+    {
+        //might have to change to only check for area in front of player
+        Vector3 spherePosition = player.transform.position + player.transform.forward * (checkRadius);
+        spherePosition.y -= 1f;
+        Debug.Log("INTO CHECKFORDRAGGABLE");
+        Collider[] hitColliders = Physics.OverlapSphere(spherePosition, checkRadius);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling"))
+            {
+                Debug.Log("COLLIDE WITH TAG");
+                carriedObject = hitCollider.gameObject;
+                Quaternion targetRotation = Quaternion.Inverse(mainCam.transform.rotation);
+                dragText.transform.position = carriedObject.transform.position;
+                dragText.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.0f);
+                playerMovement.speed = 4f;
+                // Lock rotation when object is picked up
+                Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
+                if (rb != null)
                 {
+                    rb.constraints = RigidbodyConstraints.FreezeRotation;
                     carriedObject = hitCollider.gameObject;
                     playerMovement.speed = 2f;
                     break;
                 }
+                break;
             }
         }
     }
 
     void UpdateCarriedObjectPosition()
     {
+        Debug.Log("INTO UPDATECARRIED");
         if (carriedObject != null)
         {
-            //shoots a ray downward and check if it hits
-            RaycastHit hit;
-            if (Physics.Raycast(dragPos.position, Vector3.down, out hit))
+            float distance = Vector3.Distance(dragPos.position, carriedObject.transform.position);
+
+            if (distance < maxDistance)
             {
-                //wherever the ray hits, set the objects position to the hit point + offset so it does not go into the ground
-                Vector3 newPosition = dragPos.position;
-                newPosition.y = hit.point.y + heightOffset;
-                carriedObject.transform.position = newPosition;
-                carriedObject.transform.rotation = Quaternion.LookRotation(player.transform.forward);
+                Vector3 direction = player.transform.forward;
+                carriedObject.GetComponent<Rigidbody>().AddForce(direction * forceStrength, ForceMode.Impulse);
+            }
+            else
+            {
+                carriedObject.GetComponent<Rigidbody>().velocity = Vector3.zero; // Stop the object
             }
         }
     }
 
     void DropObject()
     {
-        //when object is dropped
         if (carriedObject != null)
         {
+            Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.constraints = RigidbodyConstraints.None;
+            }
+            playerMovement.speed = 10f;
+            StartCoroutine(Dropping());
+        }
+    }
+
+    IEnumerator Dropping()
+    {
+        //wait for a small amount of time so the object can snap before carriedObject is set to null
+        yield return new WaitForSeconds(0.5f);
+        carriedObject.transform.SetParent(null);
+        carriedObject = null;
+    }
+    //void SnapPosition()
+    //{
+    //    Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, snapRadius);
+    //    foreach (var hitCollider in hitColliders)
+    //    {
+    //        if (hitCollider.CompareTag("SnapPosition"))
+    //        {
+    //            Debug.Log("can SNAP");
+    //            //carriedObject.transform.position = hitCollider.transform.position;
+    //            if (canSnap == true)
+    //            {
+    //                Debug.Log("SNAPPIN");
+    //                carriedObject.transform.position = hitCollider.transform.position;
+    //            }
+    //        }
+    //    }
+    //}
+
+    private void OnDrawGizmos()
+    {
+        if (player != null)
+        {
+            Vector3 spherePosition = player.transform.position + player.transform.forward * (checkRadius);
+            spherePosition.y -= 1f;
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(spherePosition, checkRadius);
             //carreid object is not parented to dragPos anymore
             carriedObject.transform.SetParent(null);
             carriedObject = null;
