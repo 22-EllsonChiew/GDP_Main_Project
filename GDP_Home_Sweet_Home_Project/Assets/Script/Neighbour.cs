@@ -24,6 +24,7 @@ public class Neighbour : MonoBehaviour
 
     
     public NeighbourRoutines currentRoutine {  get; private set; }
+    public NeighbourRoutines upcomingRoutine { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -79,19 +80,31 @@ public class Neighbour : MonoBehaviour
 
     void CheckNeighbourRoutines()
     {
+        int currentHour = TimeController.Hour;
+        int currentMinute = TimeController.Minute;
+        int currentDay = TimeController.CurrentDay;
+
         foreach (var routine in routineArray.routines)
         {
             if (routine.day == TimeController.CurrentDay)
             {
-                if (routine.routineStartHour == TimeController.Hour && routine.routineStartMinute == TimeController.Minute)
+                if (routine.routineType != RoutineType.Asleep)
+                {
+                    upcomingRoutine = routine;
+                }
+                
+                if (routine.routineStartHour > currentHour || (routine.routineStartHour == currentHour && routine.routineStartMinute >= currentMinute))
                 {
                     IsNeighbourInRoutine = true;
                     currentRoutine = routine;
+                    return;
+                    
                 }
-                else if (routine.routineEndHour == TimeController.Hour && routine.routineEndMinute == TimeController.Minute)
+                else if (routine.routineEndHour < currentHour || (routine.routineEndHour == currentHour && routine.routineEndMinute < currentMinute))
                 {
                     IsNeighbourInRoutine = false;
                     currentRoutine = null;
+                    upcomingRoutine = null;
                 }
             }
 

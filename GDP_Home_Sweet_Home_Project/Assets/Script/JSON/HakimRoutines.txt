@@ -6,7 +6,7 @@
 			"routineStartMinute": 30,
 			"routineEndHour": 18,
 			"routineEndMinute": 15,
-			"routineType": "NotHome",
+			"routineType": "NoNoise",
 		},
 		{
 			"day": 1,
