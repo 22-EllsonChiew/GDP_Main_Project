@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MovingFurniture : MonoBehaviour
 {
@@ -15,8 +16,10 @@ public class MovingFurniture : MonoBehaviour
     public float forceStrength = 1f; // Strength of the impulse force
     public GameObject snapPos;
     public bool canSnap = false;
-    public GameObject dragText;
+    public GameObject textObject;
+    public TextMeshPro dragText;
     public GameObject mainCam;
+    private bool inRange = false;
 
     private void Start()
     {
@@ -26,22 +29,12 @@ public class MovingFurniture : MonoBehaviour
     void Update()
     {
         //DragText();
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            if (carriedObject != null)
-            {
-                DropObject();
-                canSnap = true;
-            }
-            else
-            {
-                CheckForDraggableObject();
-                canSnap = false;
-            }
-        }
+        CheckForDraggableObject();
+        DropObject();
 
         UpdateCarriedObjectPosition();
         //SnapPosition();
+        Debug.Log(canSnap);
     }
 
     void CheckForDraggableObject()
@@ -55,19 +48,24 @@ public class MovingFurniture : MonoBehaviour
         {
             if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling"))
             {
-                Debug.Log("COLLIDE WITH TAG");
-                carriedObject = hitCollider.gameObject;
-                //Quaternion targetRotation = Quaternion.Inverse(mainCam.transform.rotation);
-                //dragText.transform.position = carriedObject.transform.position;
-                //dragText.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.0f);
-                playerMovement.speed = 4f;
-                // Lock rotation when object is picked up
-                Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
-                if (rb != null)
+                inRange = true;
+                if (Input.GetKeyDown(KeyCode.G) && canSnap == false)
                 {
-                    rb.constraints = RigidbodyConstraints.FreezeRotation;
+                    Debug.Log("COLLIDE WITH TAG");
+                    carriedObject = hitCollider.gameObject;
+                    canSnap = true;
+                    //Quaternion targetRotation = Quaternion.Inverse(mainCam.transform.rotation);
+                    //dragText.transform.position = carriedObject.transform.position;
+                    //dragText.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.0f);
+                    playerMovement.speed = 4f;
+                    // Lock rotation when object is picked up
+                    Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
+                    if (rb != null)
+                    {
+                        rb.constraints = RigidbodyConstraints.FreezeRotation;
+                    }
+                    break;
                 }
-                break;
             }
         }
     }
@@ -91,6 +89,18 @@ public class MovingFurniture : MonoBehaviour
 
     void UpdateCarriedObjectPosition()
     {
+        if (inRange)
+        {
+            textObject.SetActive(true);
+            if (canSnap == false)
+            {
+                dragText.SetText("Press G to drag");
+            }
+            if (canSnap == true)
+            {
+                dragText.SetText("Press G to stop dragging");
+            }
+        }
         Debug.Log("INTO UPDATECARRIED");
         if (carriedObject != null)
         {
@@ -112,13 +122,17 @@ public class MovingFurniture : MonoBehaviour
     {
         if (carriedObject != null)
         {
-            Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
-            if (rb != null)
+            if (Input.GetKeyDown(KeyCode.G) && canSnap == true)
             {
-                rb.constraints = RigidbodyConstraints.None;
+                Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.constraints = RigidbodyConstraints.None;
+                }
+                playerMovement.speed = 10f;
+                canSnap = false;
+                StartCoroutine(Dropping());
             }
-            playerMovement.speed = 10f;
-            StartCoroutine(Dropping());
         }
     }
 
