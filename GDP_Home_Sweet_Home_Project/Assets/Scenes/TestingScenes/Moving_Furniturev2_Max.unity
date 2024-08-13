@@ -1511,7 +1511,7 @@ GameObject:
   - component: {fileID: 98928841}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Draggable
+  m_TagString: Drilling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1610,7 +1610,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98928836}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1628,7 +1628,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!64 &114340513
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3858,6 +3858,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3999f1ec91fbd1d4598136faaefffaa2, type: 3}
   m_PrefabInstance: {fileID: 335213092}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &338843747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3880671835893676177, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+  m_PrefabInstance: {fileID: 7546631336596869482}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &344286298
 GameObject:
@@ -11724,7 +11729,7 @@ Transform:
   m_GameObject: {fileID: 1052967558}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.95, z: 0.782}
+  m_LocalPosition: {x: 0, y: -0.95, z: -0.051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22956,7 +22961,9 @@ MonoBehaviour:
   sprintFunction: 304
   turnSmoothTime: 0.1
   turnSmoothVelocity: 0
+  isWalking: 0
   isMinigameStarted: 0
+  noiseController: {fileID: 0}
 --- !u!114 &1790319702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22969,15 +22976,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87637b9102cfb664fb69189764eaa7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  confirmationWindow: {fileID: 803605616}
-  ChestUI: {fileID: 170469813}
-  animator: {fileID: 1633611348}
-  mainCam: {fileID: 963194225}
-  minigameCam: {fileID: 1649021139}
-  builtChair: {fileID: 460021114550735343, guid: 01a2665f7980516498936001b2e4bd41, type: 3}
-  isGameStarting:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!95 &1790319703
 Animator:
   serializedVersion: 5
@@ -23029,7 +23027,13 @@ MonoBehaviour:
   playerMovement: {fileID: 1790319701}
   dragPos: {fileID: 1052967559}
   checkRadius: 2
+  snapRadius: 1
+  carriedObject: {fileID: 0}
   heightOffset: 1
+  maxDistance: 3
+  forceStrength: 2
+  snapPos: {fileID: 338843747}
+  canSnap: 0
 --- !u!1 &1805444736
 GameObject:
   m_ObjectHideFlags: 0
@@ -29445,6 +29449,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450653370505339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7546631336596869482
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3880671835893676177, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+      propertyPath: m_Name
+      value: SnapPosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347925780121960239, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+      propertyPath: movingFurniture
+      value: 
+      objectReference: {fileID: 1790319705}
+    - target: {fileID: 7848679665749420836, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848679665749420836, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848679665749420836, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848679665749420836, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848679665749420836, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848679665749420836, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848679665749420836, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848679665749420836, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848679665749420836, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848679665749420836, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b8f21cafe94c2784aa3a1b0176bbeb6a, type: 3}
 --- !u!54 &7553569386037016217
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29565,16 +29630,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf66f42689b48da45ba5a38628dfdf10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endHour: 1
-  endMinute: 30
-  directionalLight: {fileID: 705507994}
-  dayIntensity: 1
-  nightIntensity: 0.2
-  eveningIntensity: 0.5
-  transitionSpeed: 0.1
-  timeUI: {fileID: 0}
-  LoadingScreenObj: {fileID: 513372641}
-  LoadingBarTimer: {fileID: 0}
 --- !u!82 &7565215745276000208
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30719,3 +30774,4 @@ SceneRoots:
   - {fileID: 2125716126}
   - {fileID: 98928840}
   - {fileID: 662388283}
+  - {fileID: 7546631336596869482}
