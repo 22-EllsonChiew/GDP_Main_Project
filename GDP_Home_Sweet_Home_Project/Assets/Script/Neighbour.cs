@@ -20,7 +20,6 @@ public class Neighbour : MonoBehaviour
     public DialogueType currentMood { get; private set; }
     public bool IsNeighbourInRoutine {  get; private set; }
 
-    private bool hasMadeWarning;
 
     
     public NeighbourRoutines currentRoutine {  get; private set; }
@@ -44,7 +43,7 @@ public class Neighbour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log("Neighbour Routine - " + neighbourName + IsNeighbourInRoutine);
 
         // check if neighbour has a routine at specified time
         CheckNeighbourRoutines();
@@ -82,32 +81,39 @@ public class Neighbour : MonoBehaviour
     {
         int currentHour = TimeController.Hour;
         int currentMinute = TimeController.Minute;
-        int currentDay = TimeController.CurrentDay;
+        bool foundCurrentRoutine = false;
 
         foreach (var routine in routineArray.routines)
         {
             if (routine.day == TimeController.CurrentDay)
             {
-                if (routine.routineType != RoutineType.Asleep)
+                // Check if the routine is currently active
+                if ((routine.routineStartHour < currentHour || (routine.routineStartHour == currentHour && routine.routineStartMinute <= currentMinute)) &&
+                    (routine.routineEndHour > currentHour || (routine.routineEndHour == currentHour && routine.routineEndMinute >= currentMinute)))
                 {
-                    upcomingRoutine = routine;
-                }
-                
-                if (routine.routineStartHour > currentHour || (routine.routineStartHour == currentHour && routine.routineStartMinute >= currentMinute))
-                {
+                    Debug.Log("Neighbour started routine");
                     IsNeighbourInRoutine = true;
                     currentRoutine = routine;
-                    return;
-                    
+                    foundCurrentRoutine = true;
+                    break; // No need to check further once we find the current routine
                 }
-                else if (routine.routineEndHour < currentHour || (routine.routineEndHour == currentHour && routine.routineEndMinute < currentMinute))
+                else if (routine.routineStartHour > currentHour || (routine.routineStartHour == currentHour && routine.routineStartMinute > currentMinute))
                 {
-                    IsNeighbourInRoutine = false;
-                    currentRoutine = null;
-                    upcomingRoutine = null;
+                    // Routine starts in the future, so set it as the upcoming routine if none is already set
+                    if (upcomingRoutine == null || routine.routineStartHour < upcomingRoutine.routineStartHour ||
+                        (routine.routineStartHour == upcomingRoutine.routineStartHour && routine.routineStartMinute < upcomingRoutine.routineStartMinute))
+                    {
+                        upcomingRoutine = routine;
+                    }
                 }
             }
+        }
 
+        if (!foundCurrentRoutine)
+        {
+            Debug.Log("Neighbour ended routine");
+            IsNeighbourInRoutine = false;
+            currentRoutine = null;
         }
     }
 
