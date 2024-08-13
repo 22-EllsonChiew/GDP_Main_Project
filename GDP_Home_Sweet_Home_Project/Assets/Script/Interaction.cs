@@ -10,8 +10,10 @@ public class Interaction : MonoBehaviour
     public delegate void TaskEventHandler(bool isTaskComplete);
     public event TaskEventHandler OnTaskInteract;
 
-    [SerializeField] private ConfirmationWindow confirmationWindow;
-    [SerializeField] private GameObject ChestUI;
+    [SerializeField] private ConfirmationWindow packageUI;
+    [SerializeField] private GameObject toolBoxUI;
+    [SerializeField] private GameObject timeSkipUI;
+
     public Animator animator;
 
     [Header("Camera")]
@@ -22,7 +24,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject miniGameCamDrill;
     [SerializeField] private GameObject miniGameCamTable;
 
-    [SerializeField] private GameObject timeControllerUI;
+    
 
     public GameObject builtChair;
 
@@ -47,7 +49,7 @@ public class Interaction : MonoBehaviour
     public bool tableDrilling = false;
     private void Start()
     {
-        timeControllerUI.SetActive(false);
+        timeSkipUI.SetActive(false);
         animator = GetComponent<Animator>();
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
@@ -74,7 +76,7 @@ public class Interaction : MonoBehaviour
 
             if (IsAtElevator || IsAtBed)
             {
-                timeControllerUI.SetActive(true);
+                timeSkipUI.SetActive(true);
             }
         }
 
@@ -86,7 +88,7 @@ public class Interaction : MonoBehaviour
         Debug.Log("ConfirmClicked called with: " + confirmedCollider);
         //isGameStarting.Invoke(true);
 
-        confirmationWindow.gameObject.SetActive(false);
+        packageUI.gameObject.SetActive(false);
 
         if (confirmedCollider != null) 
         {
@@ -104,7 +106,7 @@ public class Interaction : MonoBehaviour
 
     private void ConfirmClickedDrillGame(Collider drillConfirmedCollider)
     {
-        confirmationWindow.gameObject.SetActive(false);
+        packageUI.gameObject.SetActive(false);
 
         if(drillConfirmedCollider != null)
         {
@@ -118,7 +120,7 @@ public class Interaction : MonoBehaviour
 
     private void ConfirmClickedTableGame(Collider tableConfirmedCollider)
     {
-        confirmationWindow.gameObject.SetActive(false);
+        packageUI.gameObject.SetActive(false);
 
         if (tableConfirmedCollider != null)
         {
@@ -132,7 +134,7 @@ public class Interaction : MonoBehaviour
 
     private void ExitClicked()
     {
-        confirmationWindow.gameObject.SetActive(false);
+        packageUI.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -168,9 +170,9 @@ public class Interaction : MonoBehaviour
         {
             if (!ConfirmButtonClickOnce)
             {
-                confirmationWindow.gameObject.SetActive(true);
-                confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClicked(other));
-                confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+                packageUI.gameObject.SetActive(true);
+                packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(other));
+                packageUI.exitButton.onClick.AddListener(ExitClicked);
                 ConfirmButtonClickOnce = true;
                 hammerGame = true;
             }
@@ -179,21 +181,21 @@ public class Interaction : MonoBehaviour
         if (other.CompareTag("Chest") && Input.GetKey(KeyCode.E))
         {
             Debug.Log("Opening chest");
-            ChestUI.SetActive(true);
+            toolBoxUI.SetActive(true);
             animator.SetTrigger("chestOpen");
         }
         if (other.CompareTag(tagName) && Input.GetKey(KeyCode.E))
         {
-            confirmationWindow.gameObject.SetActive(true);
-            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClickedDrillGame(other)); ;
-            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+            packageUI.gameObject.SetActive(true);
+            packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedDrillGame(other)); ;
+            packageUI.exitButton.onClick.AddListener(ExitClicked);
             drillGame = true;
         }
         if (other.CompareTag("TableDrilling") && Input.GetKey(KeyCode.E))
         {
-            confirmationWindow.gameObject.SetActive(true);
-            confirmationWindow.confirmButton.onClick.AddListener(() => ConfirmClickedTableGame(other)); ;
-            confirmationWindow.exitButton.onClick.AddListener(ExitClicked);
+            packageUI.gameObject.SetActive(true);
+            packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedTableGame(other)); ;
+            packageUI.exitButton.onClick.AddListener(ExitClicked);
             tableDrilling = true;
         }
 
