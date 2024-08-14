@@ -27,6 +27,12 @@ public class NeighbourAngerBar : MonoBehaviour
     {
         if (CheckPlayerInCollider())
         {
+
+            if (neighbour.HasBeenPromised)
+            {
+                neighbour.BreakPromise();
+            }
+
             UpdateNeighbourHappinessBar(amount);
 
             if (neighbour.currentHappiness <= neighbour.complaintThreshold && neighbour.complaintCount < 2)
