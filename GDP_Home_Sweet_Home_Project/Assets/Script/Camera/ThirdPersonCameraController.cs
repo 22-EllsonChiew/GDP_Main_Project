@@ -27,6 +27,8 @@ public class ThirdPersonCameraController : MonoBehaviour
     private bool playerInHouseCamOn = false;
     private bool playerAtElevator = false;
 
+    private bool checkBulletinBoard = false;
+
     public BoxCollider playerCorridor;
     public BoxCollider playerHousing;
     public BoxCollider elevatorCorridor;
@@ -99,6 +101,11 @@ public class ThirdPersonCameraController : MonoBehaviour
             cameraForwardOffset = 0f;
             
         }
+        if (playerAtElevator && Input.GetKeyDown(KeyCode.E))
+        {
+            cameraForwardOffset = 2f;
+            checkBulletinBoard = true;
+        }
     }
 
     private void LateUpdate()
@@ -113,6 +120,7 @@ public class ThirdPersonCameraController : MonoBehaviour
         {
             UpdateCamOffSet();
         }
+        
     }
 
     private void UpdateCamOffSet()
@@ -129,6 +137,7 @@ public class ThirdPersonCameraController : MonoBehaviour
             targetPos = HakimCamHolder;
             cameraForwardOffset = 2f;
         }
+       
     }
 
     private bool PlayerInNeighbourCollider()
@@ -156,6 +165,7 @@ public class ThirdPersonCameraController : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, SherrylCamHolder.position - sherrylOffset + Vector3.up * neighbourHeighValue + Vector3.forward * cameraForwardOffset, pLerp);
             //transform.rotation = SherrylCamHolder.rotation * rotationOffset;
             transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
+            checkBulletinBoard = false;
 
 
         }
@@ -168,18 +178,19 @@ public class ThirdPersonCameraController : MonoBehaviour
         }
         else if (playerWalkOutOfHouse)
         {
-            transform.position = Vector3.Lerp(transform.position, player.position - secondaryOffset + Vector3.up * heightValueSecondary, pLerp);
+            //transform.position = Vector3.Lerp(transform.position, player.position - secondaryOffset + Vector3.up * heightValueSecondary, pLerp);
+            transform.position = player.position - secondaryOffset + Vector3.up * heightValueSecondary;
             transform.rotation = Quaternion.Euler(playerSecondaryRotationOffset);
             playerInsideHouse = false;
 
             cameraForwardOffset = 0f;
         }
-        else if(playerAtElevator)
+        else if(checkBulletinBoard == true)
         {
-            transform.position = Vector3.Lerp(transform.position, player.position - elevatorOffset + Vector3.up * heightValueSecondary, pLerp);
+            transform.position = Vector3.Lerp(transform.position, elevatorCamHolder.position - elevatorOffset + Vector3.up * heightValueSecondary, pLerp);
             transform.rotation = Quaternion.Euler(elevatorRotationOffset);
         }
-        else if (isInsideSherrylCollider == false || isInsidHakimCollider == false)
+        else if (isInsideSherrylCollider == false || isInsidHakimCollider == false || checkBulletinBoard == false)
         {
 
             transform.position = Vector3.Lerp(transform.position, player.position - offset + Vector3.up * heightValue, pLerp);
