@@ -14,13 +14,17 @@ public class AngerBarManager : MonoBehaviour
 
     private string loseScene = "Lose Scene";
     // Start is called before the first frame update
+
+    public static AngerBarManager Instance { get; private set; }
     void Start()
     {
-        UpdateHappinessBar();
+        //UpdateHappinessBar();
     }
 
     private void Update()
     {
+        UpdateHappinessBar();
+
         if (neighbour_Hakim.currentHappiness <= 0f)
         {
             ScoreManager.Instance.SetAngeredNeighbour(neighbour_Hakim);

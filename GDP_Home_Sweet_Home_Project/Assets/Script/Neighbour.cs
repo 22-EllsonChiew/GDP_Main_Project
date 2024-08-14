@@ -21,7 +21,11 @@ public class Neighbour : MonoBehaviour
     public bool IsNeighbourInRoutine {  get; private set; }
 
 
-    
+    private float happinessRegenerationRate = 1f;
+    private float regenrateWhenOnThisValue = 50f;
+    private float regenerationLimiter = 35f;
+
+    public AngerBarManager updateHappinessBar;
     public NeighbourRoutines currentRoutine {  get; private set; }
     public NeighbourRoutines upcomingRoutine { get; private set; }
 
@@ -48,6 +52,8 @@ public class Neighbour : MonoBehaviour
         // check if neighbour has a routine at specified time
         CheckNeighbourRoutines();
         CalculateCurrentMood();
+
+        RegenerationHappiness();
 
     }
 
@@ -130,6 +136,22 @@ public class Neighbour : MonoBehaviour
         else 
         {
             currentMood = DialogueType.Mood_Happy;
+        }
+    }
+
+    private void RegenerationHappiness()
+    {
+        //check if the current happiness is below the regeneration value
+        if(currentHappiness < regenrateWhenOnThisValue)
+        {
+            //lower the anger by regeneration rate multiple by delta time
+            currentHappiness += happinessRegenerationRate * Time.deltaTime;
+
+            //making sure the regeneration does not go down beyond the regenration limiter 
+            currentHappiness = Mathf.Clamp(currentHappiness, 0, regenerationLimiter);
+
+            //update the slider in the AngerBarManager
+            updateHappinessBar.UpdateHappinessBar();
         }
     }
 
