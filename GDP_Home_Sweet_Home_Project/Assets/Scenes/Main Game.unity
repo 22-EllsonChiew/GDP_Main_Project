@@ -7699,6 +7699,7 @@ MonoBehaviour:
   neighbourRoutinesJSON: {fileID: 4900000, guid: 41740c76af44d1d489ebab8632593703, type: 3}
   routineArray:
     routines: []
+  updateHappinessBar: {fileID: 7565215745276000213}
 --- !u!114 &478058633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22155,6 +22156,7 @@ MonoBehaviour:
   neighbourRoutinesJSON: {fileID: 4900000, guid: 249e63160ce0685448e73db686fa194b, type: 3}
   routineArray:
     routines: []
+  updateHappinessBar: {fileID: 7565215745276000213}
 --- !u!114 &1240785118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36615,8 +36617,8 @@ MonoBehaviour:
   timeUI: {fileID: 0}
   LoadingScreenObj: {fileID: 513372641}
   LoadingBarTimer: {fileID: 84374816}
-  packageBig: {fileID: 102246779}
-  packageSmall: {fileID: 255005995}
+  firstDay: {fileID: 102246779}
+  secondDay: {fileID: 255005995}
 --- !u!82 &7565215745276000208
 AudioSource:
   m_ObjectHideFlags: 0

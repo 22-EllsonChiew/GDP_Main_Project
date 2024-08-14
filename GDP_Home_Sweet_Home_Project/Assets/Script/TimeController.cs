@@ -68,7 +68,7 @@ public class TimeController : MonoBehaviour
     [Header("Game Object")]
     [SerializeField] private GameObject firstDay;
     [SerializeField] private GameObject secondDay;
-    [SerializeField] private GameObject thirdDay;
+    //[SerializeField] private GameObject thirdDay;
 
     
 
