@@ -8,8 +8,7 @@ using UnityEngine.UI;
 public enum TimePhase
 {
     Morning,
-    Evening,
-    QuietTime
+    Evening
 }
 
 public class TimeController : MonoBehaviour
@@ -104,7 +103,6 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentTimePhase);
 
         currentTimePhase = DetermineCurrentTimePhase();
         HandleTime();
@@ -175,13 +173,9 @@ public class TimeController : MonoBehaviour
         {
             return TimePhase.Morning;
         }
-        else if (Hour >= 8 && Hour <= 22 && Minute < 30)
-        {
-            return TimePhase.Evening;
-        }
         else
         {
-            return TimePhase.QuietTime;
+            return TimePhase.Evening;
         }
     }
 
@@ -212,7 +206,6 @@ public class TimeController : MonoBehaviour
                 if (Minute >= 60)
                 {
                     Hour++;
-
 
                     if (Hour == 8)
                     {
