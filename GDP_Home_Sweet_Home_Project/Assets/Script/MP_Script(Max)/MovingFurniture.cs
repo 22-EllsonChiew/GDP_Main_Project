@@ -8,7 +8,7 @@ public class MovingFurniture : MonoBehaviour
     public GameObject player;
     public PlayerMovement playerMovement;
     public Transform dragPos;
-    public float checkRadius = 2f;
+    public float checkRadius = 0.05f;
     public float snapRadius = 1f;
     public GameObject carriedObject = null;
     public float heightOffset = 0.5f;
@@ -47,7 +47,7 @@ public class MovingFurniture : MonoBehaviour
 
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling"))
+            if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling") || hitCollider.CompareTag("Draggable"))
             {
                 inRange = true; 
                 //set text to active and text to press G to drag
@@ -92,12 +92,12 @@ public class MovingFurniture : MonoBehaviour
 
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling"))
+            if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling") || hitCollider.CompareTag("Draggable"))
             {
                 //carried object set to the game object that is collided
                 carriedObject = hitCollider.gameObject;
                 //player speed is slower when dragging
-                playerMovement.speed = 4f;
+                playerMovement.speed = 2f;
                 canSnap = false;
 
                 //lock rotation when object is picked up
@@ -122,7 +122,7 @@ public class MovingFurniture : MonoBehaviour
                 rb.constraints = RigidbodyConstraints.None;
             }
             //player speed set back to normal
-            playerMovement.speed = 10f;
+            playerMovement.speed = 3f;
             //object can be snapped into a snap position when dropped
             canSnap = true;
             StartCoroutine(Dropping());

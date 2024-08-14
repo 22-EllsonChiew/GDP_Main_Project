@@ -23152,15 +23152,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87637b9102cfb664fb69189764eaa7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  confirmationWindow: {fileID: 0}
-  ChestUI: {fileID: 0}
+  packageUI: {fileID: 0}
+  toolBoxUI: {fileID: 0}
+  timeSkipUI: {fileID: 0}
   animator: {fileID: 0}
   mainCam: {fileID: 0}
   minigameCam: {fileID: 0}
   mainCamera: {fileID: 0}
   miniGameCamDrill: {fileID: 0}
   miniGameCamTable: {fileID: 0}
-  timeControllerUI: {fileID: 0}
   builtChair: {fileID: 0}
   isGameStarting:
     m_PersistentCalls:
@@ -29875,6 +29875,8 @@ MonoBehaviour:
   timeUI: {fileID: 0}
   LoadingScreenObj: {fileID: 0}
   LoadingBarTimer: {fileID: 0}
+  firstDay: {fileID: 0}
+  secondDay: {fileID: 0}
 --- !u!82 &7565215745276000208
 AudioSource:
   m_ObjectHideFlags: 0
