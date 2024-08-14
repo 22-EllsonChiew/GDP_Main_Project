@@ -1184,8 +1184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f69de9ef13541b4ca10645884348747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  packageBig: {fileID: 6946830126014889172}
-  packageSmall: {fileID: 7470096489571948214}
 --- !u!1 &83633083
 GameObject:
   m_ObjectHideFlags: 0
@@ -8289,6 +8287,8 @@ MonoBehaviour:
   neighbourName: Hakim
   neighbourTransform: {fileID: 478058631}
   maxHappiness: 100
+  happinessRegenAmount: 0
+  happinessRegenDuration: 0
   neighbourRoutinesJSON: {fileID: 4900000, guid: 41740c76af44d1d489ebab8632593703, type: 3}
   routineArray:
     routines: []
@@ -23880,6 +23880,8 @@ MonoBehaviour:
   neighbourName: Sherryl
   neighbourTransform: {fileID: 1240785116}
   maxHappiness: 100
+  happinessRegenAmount: 0
+  happinessRegenDuration: 0
   neighbourRoutinesJSON: {fileID: 4900000, guid: 249e63160ce0685448e73db686fa194b, type: 3}
   routineArray:
     routines: []
@@ -30459,6 +30461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417202deb8da4c847b431232a92f4f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neighbourHakim: {fileID: 478058632}
+  neighbourSherryl: {fileID: 1240785117}
   contactListParent: {fileID: 1009009300}
   contactPrefab: {fileID: 770149114913970320, guid: 008153890d8a648488b1bbb309357c4e, type: 3}
   messageLoader: {fileID: 690383063}
@@ -40411,8 +40415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endDay: 0
-  startHour: 18
-  startMinute: 30
+  startHour: 22
+  startMinute: 10
   endHour: 1
   endMinute: 30
   directionalLight: {fileID: 705507994}
@@ -40423,6 +40427,8 @@ MonoBehaviour:
   timeUI: {fileID: 0}
   LoadingScreenObj: {fileID: 513372641}
   LoadingBarTimer: {fileID: 84374816}
+  firstDay: {fileID: 0}
+  secondDay: {fileID: 0}
 --- !u!82 &7565215745276000208
 AudioSource:
   m_ObjectHideFlags: 0

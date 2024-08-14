@@ -106,6 +106,11 @@ public class NoiseController : MonoBehaviour
 
     public void MakeNoise(float noise)
     {
+        if (TimeController.instance.currentTimePhase == TimePhase.QuietTime)
+        {
+            noise *= 1.75f;
+        }
+
         
         if(playerMovementController.isWalking && movingFurnitureController.carriedObject != null)
         {
