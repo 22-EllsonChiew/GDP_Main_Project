@@ -78,7 +78,6 @@ public class NeighbourUIController : MonoBehaviour
     void Update()
     {
 
-
     }
 
     public void StartInteraction(string name, DialogueType type)
@@ -139,12 +138,9 @@ public class NeighbourUIController : MonoBehaviour
     {
         PlayerMovement.dialogue = false;
 
-        if (!Interaction.currentNeighbour.IsNeighbourInRoutine)
-        {
-            isNeighbourGreetingPlayer = false;
-            HandleInteractionAnimations();
-            endInteraction = true;
-        }
+        isNeighbourGreetingPlayer = false;
+        HandleInteractionAnimations();
+        endInteraction = true;
 
         ToggleInteractionUI();
 

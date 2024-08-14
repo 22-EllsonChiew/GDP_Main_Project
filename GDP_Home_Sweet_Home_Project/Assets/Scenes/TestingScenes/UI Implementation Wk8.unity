@@ -32764,8 +32764,13 @@ MonoBehaviour:
   playerMovement: {fileID: 1790319701}
   dragPos: {fileID: 979977608}
   checkRadius: 2
+  snapRadius: 1
   carriedObject: {fileID: 0}
   heightOffset: 0.5
+  maxDistance: 3
+  forceStrength: 1
+  snapPos: {fileID: 0}
+  canSnap: 0
 --- !u!114 &1790319706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40407,7 +40412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endDay: 0
   startHour: 18
-  startMinute: 5
+  startMinute: 30
   endHour: 1
   endMinute: 30
   directionalLight: {fileID: 705507994}
