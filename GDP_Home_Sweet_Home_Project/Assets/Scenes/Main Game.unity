@@ -33361,7 +33361,7 @@ MonoBehaviour:
   carriedObject: {fileID: 0}
   heightOffset: 0.5
   maxDistance: 3
-  forceStrength: 0.3
+  forceStrength: 0.13
   snapPos: {fileID: 3880671835399978617}
   canSnap: 0
   textObject: {fileID: 1409131348}
@@ -34095,7 +34095,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4d671e256722b6d4ab61a86de8a7f2d6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.505
+  m_Volume: 0.363
   m_Pitch: 1
   Loop: 1
   Mute: 0
