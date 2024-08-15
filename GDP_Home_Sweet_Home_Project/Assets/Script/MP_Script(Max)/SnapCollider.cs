@@ -13,6 +13,8 @@ public class SnapCollider : MonoBehaviour
 
     private MeshRenderer meshRenederer;
 
+    public Vector3 prefabRotation = new Vector3(90, 0, 181);
+
     private void Start()
     {
         snapCollider = GetComponent<Collider>();
@@ -46,8 +48,9 @@ public class SnapCollider : MonoBehaviour
                 
 
                 other.gameObject.SetActive(false);
+                Quaternion prefabQuaternion = Quaternion.Euler(prefabRotation);
 
-                GameObject preBuiltFurniture = Instantiate(cupBoardPrefab, this.transform.position, this.transform.rotation);
+                GameObject preBuiltFurniture = Instantiate(cupBoardPrefab, this.transform.position, prefabQuaternion);
 
                 snapCollider.enabled = false;
 
