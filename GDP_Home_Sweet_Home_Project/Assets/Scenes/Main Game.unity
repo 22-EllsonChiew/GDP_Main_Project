@@ -2251,7 +2251,7 @@ Transform:
   m_GameObject: {fileID: 102246779}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.60917866, y: 4.6689396, z: -62.41674}
+  m_LocalPosition: {x: 1.01, y: 4.6689396, z: -62.41674}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14602,7 +14602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a5ff7315b5bf78748b5ea9d9100a148e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.58603954
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a5ff7315b5bf78748b5ea9d9100a148e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -39857,6 +39857,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingFurniture: {fileID: 1790319705}
+  prefabRotation: {x: 90, y: 0, z: 181}
+  prefabPosition: {x: 3.636, y: 0.771, z: -58.5}
   cupBoardPrefab: {fileID: 3239890033355516691, guid: 0fc743353476a8c439d2f6cad154af62, type: 3}
 --- !u!23 &4543055761428782676
 MeshRenderer:
