@@ -28,6 +28,7 @@ TagManager:
   - Environment_Elevator
   - Bed
   - SnapPosition
+  - Elevator
   layers:
   - Default
   - TransparentFX
