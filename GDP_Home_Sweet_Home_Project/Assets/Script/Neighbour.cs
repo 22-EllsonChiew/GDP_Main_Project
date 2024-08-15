@@ -9,6 +9,10 @@ public class Neighbour : MonoBehaviour
     public Transform neighbourTransform;
 
     public float maxHappiness;
+    public float happinessRegenAmount;
+    public float happinessRegenDuration;
+    private float brokenPromisePenalty;  
+
     public TextAsset neighbourRoutinesJSON;
     public RoutineData routineArray;
 
@@ -19,13 +23,9 @@ public class Neighbour : MonoBehaviour
     public float currentHappiness { get; private set; }
     public DialogueType currentMood { get; private set; }
     public bool IsNeighbourInRoutine {  get; private set; }
+    public bool HasBeenPromised {  get; private set; } = false;
 
 
-    private float happinessRegenerationRate = 1f;
-    private float regenrateWhenOnThisValue = 50f;
-    private float regenerationLimiter = 35f;
-
-    public AngerBarManager updateHappinessBar;
     public NeighbourRoutines currentRoutine {  get; private set; }
     public NeighbourRoutines upcomingRoutine { get; private set; }
 
@@ -36,6 +36,7 @@ public class Neighbour : MonoBehaviour
         currentHappiness = maxHappiness;
         happinessThreshold_Normal = maxHappiness * 0.65f;
         happinessThreshold_Angry = maxHappiness * 0.35f;
+        brokenPromisePenalty = maxHappiness * 0.2f;
 
         complaintThreshold = happinessThreshold_Normal;
         complaintCount = 0;
@@ -47,13 +48,9 @@ public class Neighbour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Neighbour Routine - " + neighbourName + IsNeighbourInRoutine);
-
         // check if neighbour has a routine at specified time
         CheckNeighbourRoutines();
         CalculateCurrentMood();
-
-        RegenerationHappiness();
 
     }
 
@@ -81,6 +78,21 @@ public class Neighbour : MonoBehaviour
     {
         currentHappiness -= amount;
         currentHappiness = Mathf.Clamp(currentHappiness, 0, maxHappiness);
+    }
+
+    public void MakePromise()
+    {
+        HasBeenPromised = true;
+        StartCoroutine(RegenerateHappinessOverTime());
+        Debug.Log("Promise made with neighbour - regenerating happiness");
+    }
+
+    public void BreakPromise()
+    {
+        StopAllCoroutines();
+        HasBeenPromised = false;
+        ReduceHappiness(brokenPromisePenalty);
+        Debug.Log("Promise broken with neighbour - Neighbour severely angered");
     }
 
     void CheckNeighbourRoutines()
@@ -139,19 +151,17 @@ public class Neighbour : MonoBehaviour
         }
     }
 
-    private void RegenerationHappiness()
+    IEnumerator RegenerateHappinessOverTime()
     {
-        //check if the current happiness is below the regeneration value
-        if(currentHappiness < regenrateWhenOnThisValue)
+        float regenAmount = happinessRegenAmount / happinessRegenDuration;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < happinessRegenDuration)
         {
-            //lower the anger by regeneration rate multiple by delta time
-            currentHappiness += happinessRegenerationRate * Time.deltaTime;
-
-            //making sure the regeneration does not go down beyond the regenration limiter 
-            currentHappiness = Mathf.Clamp(currentHappiness, 0, regenerationLimiter);
-
-            //update the slider in the AngerBarManager
-            updateHappinessBar.UpdateHappinessBar();
+            currentHappiness += regenAmount * Time.deltaTime;
+            currentHappiness = Mathf.Clamp(currentHappiness, 0, maxHappiness);
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
     }
 

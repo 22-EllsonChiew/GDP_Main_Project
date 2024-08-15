@@ -7,6 +7,13 @@ using UnityEngine.UI;
 
 public class ChatManager : MonoBehaviour
 {
+    [Header("Neighbour References")]
+    [SerializeField]
+    private Neighbour neighbourHakim;
+    [SerializeField] 
+    private Neighbour neighbourSherryl;
+
+
     [Header("Contact List UI")]
     [SerializeField]
     private Transform contactListParent;
@@ -174,7 +181,7 @@ public class ChatManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Neighbour not unlocked or is waiting for player response.");
+            Debug.Log("Neighbour not unlocked");
         }
             
     }
@@ -199,8 +206,22 @@ public class ChatManager : MonoBehaviour
 
             currentContact.receivedMessages = updatedMessages;
 
+            MakePromiseViaText();
+
             RefreshCurrentMessages();
             StartCoroutine(ReceiveNeighbourReply());
+        }
+    }
+
+    void MakePromiseViaText()
+    {
+        if (currentContact.name == neighbourHakim.neighbourName) 
+        {
+            neighbourHakim.MakePromise();
+        }
+        else if (currentContact.name == neighbourSherryl.neighbourName)
+        {
+            neighbourSherryl.MakePromise();
         }
     }
 
