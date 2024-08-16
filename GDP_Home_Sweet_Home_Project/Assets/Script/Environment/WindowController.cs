@@ -34,8 +34,8 @@ public class WindowController : MonoBehaviour
         /*animatorLeft = GetComponentInChildren<Animator>();
         animatorRight = GetComponentInChildren<Animator>();*/
 
-        ToggleKitchenWindow();
-        ToggleBedRoomWindow();
+        //ToggleKitchenWindow();
+        //ToggleBedRoomWindow();
     }
 
     void Update()

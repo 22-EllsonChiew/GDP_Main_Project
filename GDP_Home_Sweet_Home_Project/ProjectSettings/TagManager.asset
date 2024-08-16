@@ -29,6 +29,10 @@ TagManager:
   - Bed
   - SnapPosition
   - Elevator
+  - DraggableMirror
+  - DraggableBarStool
+  - DraggableBarStool2
+  - DraggableTvTable
   layers:
   - Default
   - TransparentFX
