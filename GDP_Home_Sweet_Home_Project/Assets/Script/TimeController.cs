@@ -65,6 +65,12 @@ public class TimeController : MonoBehaviour
 
     [SerializeField] private Slider LoadingBarTimer;
 
+    [Header("Background Sound")]
+    public AudioSource audioSource;
+    public AudioClip morningPhase;
+    public AudioClip eveningPhase;
+    public AudioClip quietTimePhase;
+
 
     [Header("Game Object")]
     [SerializeField] private GameObject firstDay;
@@ -97,6 +103,7 @@ public class TimeController : MonoBehaviour
             firstDay.SetActive(true);
         }
 
+        
     }
 
 
@@ -107,12 +114,49 @@ public class TimeController : MonoBehaviour
         Debug.Log(currentTimePhase);
 
         currentTimePhase = DetermineCurrentTimePhase();
+
+        TimePhase newPhase = DetermineCurrentTimePhase();
+
         HandleTime();
         if(Input.GetKeyDown(KeyCode.M))
         {
             AdvanceTimePhase();
+            audioSource.Stop();
+            audioSource.clip = null;
+            PlayBackGroundMusic(currentTimePhase);
+
         }
 
+        if(newPhase != currentTimePhase)
+        {
+            Debug.Log("Time phase changed!");
+            audioSource.Stop();
+            audioSource.clip = null;
+            currentTimePhase = newPhase;
+            PlayBackGroundMusic(currentTimePhase);
+        }
+       
+
+    }
+
+    private void PlayBackGroundMusic(TimePhase phase)
+    {
+        switch (phase)
+        {
+            case TimePhase.Morning:
+                audioSource.clip = morningPhase;
+                break;
+            case TimePhase.Evening:
+                audioSource.clip = eveningPhase;
+                break;
+            case TimePhase.QuietTime:
+                audioSource.clip = quietTimePhase;
+                break;
+        }
+
+        // Start playing the new clip and ensure it loops
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
     private void UpdateDirectionalLight()
@@ -154,7 +198,7 @@ public class TimeController : MonoBehaviour
         {
             SetTime(startHour,startMinute);
             CurrentDay++;
-            Debug.Log("CurrentDay has advanced to: " + CurrentDay);
+            //Debug.Log("CurrentDay has advanced to: " + CurrentDay);
             PackageSpawnerByDay();
         }
 
@@ -175,7 +219,7 @@ public class TimeController : MonoBehaviour
         {
             return TimePhase.Morning;
         }
-        else if (Hour >= 8 && Hour <= 22 && Minute < 30)
+        else if (Hour >= 8 && (Hour < 22 || (Hour == 22 && Minute < 30)))
         {
             return TimePhase.Evening;
         }
