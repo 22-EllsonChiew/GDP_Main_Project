@@ -25,7 +25,7 @@ public class NeighbourAngerBar : MonoBehaviour
 
     public void HeardNoise(float amount)
     {
-        if (CheckPlayerInCollider())
+        if (CheckPlayerInCollider() && neighbour.currentRoutine.routineType != RoutineType.NotHome)
         {
 
             if (neighbour.HasBeenPromised)
