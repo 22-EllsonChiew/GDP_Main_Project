@@ -35063,7 +35063,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4d671e256722b6d4ab61a86de8a7f2d6, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.363
   m_Pitch: 1
@@ -42429,6 +42429,10 @@ MonoBehaviour:
   timeUI: {fileID: 0}
   LoadingScreenObj: {fileID: 513372641}
   LoadingBarTimer: {fileID: 84374816}
+  audioSource: {fileID: 1856731922}
+  morningPhase: {fileID: 8300000, guid: 4d671e256722b6d4ab61a86de8a7f2d6, type: 3}
+  eveningPhase: {fileID: 8300000, guid: 420f1752c98c7ae47820246ed071c2b9, type: 3}
+  quietTimePhase: {fileID: 8300000, guid: 9eecdf1b186312d4f922bb530c14e0e3, type: 3}
   firstDay: {fileID: 102246779}
   secondDay: {fileID: 255005995}
 --- !u!82 &7565215745276000208
