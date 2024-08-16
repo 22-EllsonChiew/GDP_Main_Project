@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SceneManagement : MonoBehaviour
 {
     public Button replayButton;
+    public GameObject tutorialPromptGroup;
 
     // Start is called before the first frame update
     void Start()
@@ -15,9 +16,6 @@ public class SceneManagement : MonoBehaviour
 
         Button btn = replayButton.GetComponent<Button>();
 
-        btn.onClick.AddListener(MainGameScene);
-
-       
     }
 
     private void Update()
@@ -25,14 +23,22 @@ public class SceneManagement : MonoBehaviour
         
     }
 
-    public void MainGameScene()
+    public void ToggleTutorialPrompt()
     {
+        tutorialPromptGroup.SetActive(!tutorialPromptGroup.activeSelf);
+    }
+
+
+    public void LoadMainGameScene()
+    {
+        Debug.Log("Loading Main Game");
         SceneManager.LoadScene("Main Game");
     }
 
-    public  void MainMenu()
+    public void LoadTutorialScene()
     {
-        SceneManager.LoadScene("Instruction");
+        Debug.Log("Loading Tutorial Scene");
+        //SceneManager.LoadScene("Instruction");
     }
 
     public void GameScene()
