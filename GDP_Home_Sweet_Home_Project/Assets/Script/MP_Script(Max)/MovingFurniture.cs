@@ -23,9 +23,13 @@ public class MovingFurniture : MonoBehaviour
     public GameObject mainCam;
     private bool inRange = false;
 
-    [Header("Furniture GameObject")]
+    [Header("CupBoard GameObject")]
     public GameObject cupBoardObject;
-   
+    private Vector3 cupBoardPos = new Vector3(1.3f, 0.769f, -60.66f);
+    [Header("Mirror GameObject")]
+    public GameObject mirrorObject;
+    private Vector3 mirrorPos = new Vector3(-0.53f, 0.819f, -60.77f);
+
 
     private void Start()
     {
@@ -188,7 +192,15 @@ public class MovingFurniture : MonoBehaviour
         if (other.gameObject.CompareTag("Draggable") && Input.GetKeyDown(KeyCode.E))
         {
             other.gameObject.SetActive(false);
-            
+
+            GameObject instantiatedObject = Instantiate(cupBoardObject, cupBoardPos, Quaternion.identity);
+
+        }
+        if (other.gameObject.CompareTag("DraggableMirror") && Input.GetKeyDown(KeyCode.E))
+        {
+            other.gameObject.SetActive(false);
+
+            GameObject instantiatedMirrorObject = Instantiate(mirrorObject, mirrorPos, Quaternion.identity);
         }
         
     }
