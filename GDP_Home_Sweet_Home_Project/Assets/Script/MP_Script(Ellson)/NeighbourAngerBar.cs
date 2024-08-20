@@ -25,9 +25,16 @@ public class NeighbourAngerBar : MonoBehaviour
 
     public void HeardNoise(float amount)
     {
-        if (CheckPlayerInCollider() && neighbour.currentRoutine.routineType != RoutineType.NotHome)
+
+        if (CheckPlayerInCollider())
         {
 
+            if (neighbour.currentRoutine != null && neighbour.currentRoutine.routineType == RoutineType.NotHome)
+            {
+                Debug.Log("Neighbour is not home");
+                return;
+            }
+            
             if (neighbour.HasBeenPromised)
             {
                 neighbour.BreakPromise();

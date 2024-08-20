@@ -4823,7 +4823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &557129280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7323,7 +7323,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   confirmButton: {fileID: 1314388558}
   exitButton: {fileID: 684031692}
-  messageText: {fileID: 1438946603}
+  furnitureNameField: {fileID: 0}
+  furnitureTypeField: {fileID: 0}
+  assemblyRequiredField: {fileID: 0}
+  furniturePhotoArea: {fileID: 0}
+  assemblyToolPhotoArea: {fileID: 0}
+  comicStripArea: {fileID: 0}
 --- !u!1001 &804865100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9661,7 +9666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1034810020
 Transform:
   m_ObjectHideFlags: 0
@@ -18328,7 +18333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1552140561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18399,8 +18404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a7b0ec49755c043a654d1df46e9d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadingScreenObj: {fileID: 0}
-  timeText: {fileID: 1805528109}
+  timeText_NotificationBar: {fileID: 0}
+  timeText_HomeScreen: {fileID: 0}
 --- !u!1 &1571989529
 GameObject:
   m_ObjectHideFlags: 0
@@ -20238,7 +20243,9 @@ MonoBehaviour:
   sprintFunction: 304
   turnSmoothTime: 0.1
   turnSmoothVelocity: 0
+  isWalking: 0
   isMinigameStarted: 0
+  noiseController: {fileID: 0}
 --- !u!114 &1790319702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20251,15 +20258,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87637b9102cfb664fb69189764eaa7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  confirmationWindow: {fileID: 803605616}
-  ChestUI: {fileID: 170469813}
+  packageUI: {fileID: 0}
+  toolBoxUI: {fileID: 0}
+  timeSkipUI: {fileID: 0}
   animator: {fileID: 1633611348}
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}
+  mainCamera: {fileID: 0}
+  miniGameCamDrill: {fileID: 0}
+  miniGameCamTable: {fileID: 0}
   builtChair: {fileID: 919132149155446097, guid: b5031afbf7e66a944ad0711fe436a06f, type: 3}
   isGameStarting:
     m_PersistentCalls:
       m_Calls: []
+  tagName: 
+  drillGame: 0
+  hammerGame: 0
+  tableDrilling: 0
 --- !u!95 &1790319703
 Animator:
   serializedVersion: 5
@@ -22137,7 +22152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1971813632
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25567,6 +25582,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf66f42689b48da45ba5a38628dfdf10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endDay: 0
+  startHour: 0
+  startMinute: 0
   endHour: 1
   endMinute: 30
   directionalLight: {fileID: 705507994}
@@ -25577,6 +25595,12 @@ MonoBehaviour:
   timeUI: {fileID: 1552140564}
   LoadingScreenObj: {fileID: 0}
   LoadingBarTimer: {fileID: 0}
+  audioSource: {fileID: 0}
+  morningPhase: {fileID: 0}
+  eveningPhase: {fileID: 0}
+  quietTimePhase: {fileID: 0}
+  firstDay: {fileID: 0}
+  secondDay: {fileID: 0}
 --- !u!82 &7565215745276000208
 AudioSource:
   m_ObjectHideFlags: 0

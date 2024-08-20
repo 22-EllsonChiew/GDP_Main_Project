@@ -23,6 +23,10 @@ public class MovingFurniture : MonoBehaviour
     public GameObject mainCam;
     private bool inRange = false;
 
+    [Header("Furniture GameObject")]
+    public GameObject cupBoardObject;
+   
+
     private void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
@@ -49,11 +53,12 @@ public class MovingFurniture : MonoBehaviour
         {
             if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling") || hitCollider.CompareTag("Draggable") || hitCollider.CompareTag("DraggableMirror") || hitCollider.CompareTag("DraggableBarStool") || hitCollider.CompareTag("DraggableTvTable"))
             {
-                inRange = true; 
+                inRange = true;
                 //set text to active and text to press G to drag
                 textObject.SetActive(true); 
                 dragText.SetText("Press G to drag");
                 //exit loop early if we found a valid object
+                
                 return; 
             }
         }
@@ -176,5 +181,15 @@ public class MovingFurniture : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.CompareTag("Draggable") && Input.GetKeyDown(KeyCode.E))
+        {
+            other.gameObject.SetActive(false);
+            
+        }
+        
     }
 }
