@@ -10,6 +10,7 @@ public class SnapCollider : MonoBehaviour
     private Collider snapCollider;
 
     private MeshRenderer meshRenederer;
+    public GameObject disableObjectRender;
 
 
     [Header("Cupboard")]
@@ -69,6 +70,7 @@ public class SnapCollider : MonoBehaviour
                     Quaternion prefabQuaternion = Quaternion.Euler(prefabRotation);
 
                     GameObject preBuiltFurniture = Instantiate(cupBoardPrefab, prefabPosition, prefabQuaternion);
+                    disableObjectRender.SetActive(false);
                 }
                 if(other.CompareTag("DraggableMirror"))
                 {
