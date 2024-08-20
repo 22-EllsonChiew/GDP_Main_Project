@@ -3,12 +3,17 @@ guid: 8cd54236b9563994ea5c316f6bf1f41c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor_LivingKitchen.015
+    second: {fileID: 2100000, guid: 5ed1f53b385617e44b9db8a1f608b3f8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
