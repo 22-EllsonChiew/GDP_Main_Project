@@ -29,6 +29,12 @@ public class MovingFurniture : MonoBehaviour
     [Header("Mirror GameObject")]
     public GameObject mirrorObject;
     private Vector3 mirrorPos = new Vector3(-0.53f, 0.819f, -60.77f);
+    [Header("TV Set GameObject")]
+    public GameObject tvSetTable;
+    private Vector3 tvPos = new Vector3(2.137f, 0.66f, -58.057f);
+    [Header("Bar Stool GameObject")]
+    public GameObject barStoolObject;
+    private Vector3 barStoolPos = new Vector3(2f, 0.6f, -58f);
 
 
     private void Start()
@@ -201,6 +207,19 @@ public class MovingFurniture : MonoBehaviour
             other.gameObject.SetActive(false);
 
             GameObject instantiatedMirrorObject = Instantiate(mirrorObject, mirrorPos, Quaternion.identity);
+        }
+        if(other.gameObject.CompareTag("DraggableTvTable") && Input.GetKeyDown(KeyCode.E))
+        {
+            other.gameObject.SetActive(false);
+
+            GameObject instantiatedTvSet = Instantiate(tvSetTable, tvPos, Quaternion.identity);
+
+        }
+        if(other.gameObject.CompareTag("DraggableBarStool") && Input.GetKeyDown(KeyCode.E))
+        {
+            other.gameObject.SetActive(false);
+
+
         }
         
     }

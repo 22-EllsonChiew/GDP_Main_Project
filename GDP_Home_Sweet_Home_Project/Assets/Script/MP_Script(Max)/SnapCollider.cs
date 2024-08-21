@@ -27,11 +27,13 @@ public class SnapCollider : MonoBehaviour
     public Vector3 barStoolPrefabPosition = new Vector3(0, 0, 0);
     public Vector3 barStoolPrefabRotation = new Vector3(0, 0, 0);
     public GameObject barStoolPrefab1;
+    public GameObject barStoolTranslucent;
 
     [Header("Tv Table")]
     public Vector3 tvTablePrefabPosition = new Vector3(0, 0, 0);
     public Vector3 tvTablePrefabRotation = new Vector3(0, 0, 0);
     public GameObject tvTablePrefab;
+    public GameObject translucentTVSet;
 
     private void Start()
     {
@@ -84,6 +86,7 @@ public class SnapCollider : MonoBehaviour
                 if(other.CompareTag("DraggableBarStool"))
                 {
                     other.gameObject.SetActive(false);
+                    barStoolTranslucent.SetActive(false);
                     Quaternion prefabBarStool1Quaternion = Quaternion.Euler(barStoolPrefabRotation);
 
                     GameObject prebuiltBarStool1 = Instantiate(barStoolPrefab1, barStoolPrefabPosition, prefabBarStool1Quaternion);
@@ -91,6 +94,7 @@ public class SnapCollider : MonoBehaviour
                 if(other.CompareTag("DraggableTvTable"))
                 {
                     other.gameObject.SetActive(false);
+                    translucentTVSet.SetActive(false);
                     Quaternion prefabTvTableQua = Quaternion.Euler(tvTablePrefabRotation);
                     GameObject prebuiltTvTable = Instantiate(tvTablePrefab, tvTablePrefabPosition, prefabTvTableQua);
                 }
