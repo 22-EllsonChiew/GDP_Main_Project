@@ -186,14 +186,34 @@ public class Interaction : MonoBehaviour
         }
         if (other.CompareTag(tagName) && Input.GetKey(KeyCode.E))
         {
+            Package packageData = other.GetComponent<Package>();
+
             packageUI.gameObject.SetActive(true);
+
+            packageUI.SetFurnitureName(packageData.furnitureName);
+            packageUI.SetFurnitureType(packageData.furnitureType);
+            packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
+            packageUI.SetFurniturePhoto(packageData.furniturePhoto);
+            packageUI.SetToolRequired(packageData.toolRequired);
+            packageUI.SetManualTips(packageData.comicStrip);
+
             packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedDrillGame(other)); ;
             packageUI.exitButton.onClick.AddListener(ExitClicked);
             drillGame = true;
         }
         if (other.CompareTag("TableDrilling") && Input.GetKey(KeyCode.E))
         {
+            Package packageData = other.GetComponent<Package>();
+
             packageUI.gameObject.SetActive(true);
+
+            packageUI.SetFurnitureName(packageData.furnitureName);
+            packageUI.SetFurnitureType(packageData.furnitureType);
+            packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
+            packageUI.SetFurniturePhoto(packageData.furniturePhoto);
+            packageUI.SetToolRequired(packageData.toolRequired);
+            packageUI.SetManualTips(packageData.comicStrip);
+
             packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedTableGame(other)); ;
             packageUI.exitButton.onClick.AddListener(ExitClicked);
             tableDrilling = true;
