@@ -4874,7 +4874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &255005996
 Transform:
   m_ObjectHideFlags: 0
@@ -7305,7 +7305,7 @@ Transform:
   m_GameObject: {fileID: 392261315}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0.12, y: -2.6227133, z: 5.13}
+  m_LocalPosition: {x: 1.43, y: -2.6227133, z: 9.73}
   m_LocalScale: {x: 34.08946, y: 34.08946, z: 34.08946}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34393,6 +34393,7 @@ MonoBehaviour:
   cupBoardObject: {fileID: 7994192821190247864, guid: 306f60bdf41bca349863d5b24b060b5a, type: 3}
   mirrorObject: {fileID: 9150323230364804563, guid: 76db6db0684847840abdd19c81d95b25, type: 3}
   tvSetTable: {fileID: 5165456979696676364, guid: d39429986c6a26b499599766c8ee9646, type: 3}
+  barStoolObject: {fileID: 3942116235476561658, guid: 243b33aafd74a2d4c8d9d67a4b528107, type: 3}
 --- !u!114 &1790319706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39794,7 +39795,7 @@ MonoBehaviour:
   mirrorPrefab: {fileID: 0}
   barStoolPrefabPosition: {x: -1.171, y: 0.54, z: -58.996}
   barStoolPrefabRotation: {x: -90, y: 0, z: 180}
-  barStoolPrefab1: {fileID: 2182709797741640837, guid: a4214c01e74c018448f471f9276f50cf, type: 3}
+  barStoolPrefab1: {fileID: 919132149155446097, guid: 2416b2b874ab34d40b9c67d01e435e2b, type: 3}
   barStoolTranslucent: {fileID: 1948624815444904295}
   tvTablePrefabPosition: {x: 0, y: 0, z: 0}
   tvTablePrefabRotation: {x: 0, y: 0, z: 0}

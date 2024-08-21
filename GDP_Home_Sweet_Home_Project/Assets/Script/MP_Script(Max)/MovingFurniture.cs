@@ -25,16 +25,16 @@ public class MovingFurniture : MonoBehaviour
 
     [Header("CupBoard GameObject")]
     public GameObject cupBoardObject;
-    private Vector3 cupBoardPos = new Vector3(1.3f, 0.769f, -60.66f);
+    //private Vector3 cupBoardPos = new Vector3(1.3f, 0.769f, -60.66f);
     [Header("Mirror GameObject")]
     public GameObject mirrorObject;
-    private Vector3 mirrorPos = new Vector3(-0.53f, 0.819f, -60.77f);
+    //private Vector3 mirrorPos = new Vector3(-0.53f, 0.819f, -60.77f);
     [Header("TV Set GameObject")]
     public GameObject tvSetTable;
-    private Vector3 tvPos = new Vector3(2.137f, 0.66f, -58.057f);
+    //private Vector3 tvPos = new Vector3(2.137f, 0.66f, -58.057f);
     [Header("Bar Stool GameObject")]
     public GameObject barStoolObject;
-    private Vector3 barStoolPos = new Vector3(2f, 0.6f, -58f);
+    //private Vector3 barStoolPos = new Vector3(0.31f, 0.6f, -58f);
 
 
     private void Start()
@@ -197,6 +197,7 @@ public class MovingFurniture : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Draggable") && Input.GetKeyDown(KeyCode.E))
         {
+            Vector3 cupBoardPos = other.transform.position;
             other.gameObject.SetActive(false);
 
             GameObject instantiatedObject = Instantiate(cupBoardObject, cupBoardPos, Quaternion.identity);
@@ -204,12 +205,14 @@ public class MovingFurniture : MonoBehaviour
         }
         if (other.gameObject.CompareTag("DraggableMirror") && Input.GetKeyDown(KeyCode.E))
         {
+            Vector3 mirrorPos = other.transform.position;
             other.gameObject.SetActive(false);
 
             GameObject instantiatedMirrorObject = Instantiate(mirrorObject, mirrorPos, Quaternion.identity);
         }
         if(other.gameObject.CompareTag("DraggableTvTable") && Input.GetKeyDown(KeyCode.E))
         {
+            Vector3 tvPos = other.transform.position;
             other.gameObject.SetActive(false);
 
             GameObject instantiatedTvSet = Instantiate(tvSetTable, tvPos, Quaternion.identity);
@@ -217,9 +220,10 @@ public class MovingFurniture : MonoBehaviour
         }
         if(other.gameObject.CompareTag("DraggableBarStool") && Input.GetKeyDown(KeyCode.E))
         {
+            Vector3 barStoolPos = other.transform.position;
             other.gameObject.SetActive(false);
 
-
+            GameObject instantiatedBarStool = Instantiate(barStoolObject, barStoolPos, Quaternion.identity);
         }
         
     }
