@@ -8,14 +8,14 @@ public class MovingFurniture : MonoBehaviour
     public GameObject player;
     public PlayerMovement playerMovement;
     public Transform dragPos;
-    public float checkRadius = 0.05f;
-    public float snapRadius = 1f;
+    private float checkRadius = 0.5f;
+    private float snapRadius = 1f;
     public GameObject carriedObject = null;
-    public float heightOffset = 0.5f;
+    private float heightOffset = 0.5f;
     //max distance the object can be from the player
-    public float maxDistance = 3f;
+    private float maxDistance = 3f;
     //strength of the impulse force
-    public float forceStrength = 1f;
+    private float forceStrength = 2.2f;
     public GameObject snapPos;
     public bool canSnap = false;
     public GameObject textObject;
@@ -63,6 +63,7 @@ public class MovingFurniture : MonoBehaviour
         {
             if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling") || hitCollider.CompareTag("Draggable") || hitCollider.CompareTag("DraggableMirror") || hitCollider.CompareTag("DraggableBarStool") || hitCollider.CompareTag("DraggableTvTable"))
             {
+                Debug.Log("NIGGER");
                 inRange = true;
                 //set text to active and text to press G to drag
                 textObject.SetActive(true); 
