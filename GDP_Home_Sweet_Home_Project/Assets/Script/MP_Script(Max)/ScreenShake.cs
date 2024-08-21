@@ -11,6 +11,8 @@ public class ScreenShake : MonoBehaviour
 
     private float currentShakeDuration = 0f;
     private bool canShake = false;
+    public MovingFurniture movingFurniture;
+    private Rigidbody objectCarriedSpeed;
 
     void Awake()
     {
@@ -28,11 +30,12 @@ public class ScreenShake : MonoBehaviour
         {
             camTransform.localPosition = originalLocalPos;
         }
+        objectCarriedSpeed = movingFurniture.carriedObject.GetComponent<Rigidbody>();
     }
 
     public void TriggerShake()
     {
-        if (canShake)
+        if (canShake || objectCarriedSpeed.velocity != Vector3.zero)
         {
             currentShakeDuration = shakeDuration;
             originalLocalPos = camTransform.localPosition;
