@@ -15,7 +15,7 @@ public class MovingFurniture : MonoBehaviour
     //max distance the object can be from the player
     private float maxDistance = 0.2f;
     //strength of the impulse force
-    private float forceStrength = 2.2f;
+    private float forceStrength = 1.5f;
     public GameObject snapPos;
     public bool canSnap = false;
     public GameObject textObject;
@@ -42,7 +42,7 @@ public class MovingFurniture : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         CheckForDraggableObject(); 
         HandleDragging();         
