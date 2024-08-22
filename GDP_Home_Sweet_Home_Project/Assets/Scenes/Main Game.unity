@@ -1367,7 +1367,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67721658}
   serializedVersion: 4
-  m_Mass: 5
+  m_Mass: 4
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1383,9 +1383,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &75371767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,7 +2336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &102246780
 Transform:
   m_ObjectHideFlags: 0
@@ -32652,6 +32652,7 @@ MonoBehaviour:
   shakeDuration: 0.1
   shakeAmount: 0.05
   decreaseFactor: 1
+  movingFurniture: {fileID: 0}
 --- !u!1 &1649789938
 GameObject:
   m_ObjectHideFlags: 0
@@ -34380,12 +34381,8 @@ MonoBehaviour:
   player: {fileID: 1790319697}
   playerMovement: {fileID: 1790319701}
   dragPos: {fileID: 979977608}
-  checkRadius: 0.5
-  snapRadius: 1
   carriedObject: {fileID: 0}
-  heightOffset: 0.5
-  maxDistance: 3
-  forceStrength: 0.13
+  forceStrength: 1000
   snapPos: {fileID: 0}
   canSnap: 0
   textObject: {fileID: 1409131348}
@@ -40967,7 +40964,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2402936790663478313}
   serializedVersion: 4
-  m_Mass: 5
+  m_Mass: 4
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -40983,9 +40980,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &4240605954226824087
 MonoBehaviour:
   m_ObjectHideFlags: 0

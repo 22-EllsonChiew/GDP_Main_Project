@@ -15,13 +15,15 @@ public class MovingFurniture : MonoBehaviour
     //max distance the object can be from the player
     private float maxDistance = 0.2f;
     //strength of the impulse force
-    private float forceStrength = 0.13f;
+    [SerializeField] private float forceStrength = 100f;
     public GameObject snapPos;
     public bool canSnap = false;
     public GameObject textObject;
     public TextMeshPro dragText;
     public GameObject mainCam;
     private bool inRange = false;
+
+    private Vector3 contactPoint;
 
     [Header("CupBoard GameObject")]
     public GameObject cupBoardObject;
@@ -42,12 +44,18 @@ public class MovingFurniture : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
     }
 
-    void Update()
+    private void Update()
     {
-        CheckForDraggableObject(); 
-        HandleDragging();         
-        UpdateCarriedObjectPosition();
+        CheckForDraggableObject();
+        HandleDragging();
         SnapPosition();
+    }
+
+    void FixedUpdate()
+    {
+        
+        UpdateCarriedObjectPosition();
+     
     }
 
     void CheckForDraggableObject()
@@ -89,6 +97,7 @@ public class MovingFurniture : MonoBehaviour
             {
                 //pick up object if there is not already a carriedObject
                 PickUpObject();
+                //ApplyForce();
             }
             else if (carriedObject != null)
             {
@@ -115,6 +124,8 @@ public class MovingFurniture : MonoBehaviour
                 //player speed is slower when dragging
                 playerMovement.speed = 2f;
                 canSnap = false;
+
+                contactPoint = hitCollider.ClosestPoint(player.transform.position);
 
                 //lock rotation when object is picked up
                 Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
@@ -154,7 +165,7 @@ public class MovingFurniture : MonoBehaviour
 
     void UpdateCarriedObjectPosition()
     {
-        if (carriedObject != null)
+        /*if (carriedObject != null)
         {
             float distance = Vector3.Distance(dragPos.position, carriedObject.transform.position);
 
@@ -162,7 +173,7 @@ public class MovingFurniture : MonoBehaviour
             {
                 //apply an impulse force on the object in the players forward direction
                 Vector3 direction = player.transform.forward;
-                carriedObject.GetComponent<Rigidbody>().AddForce(direction * forceStrength, ForceMode.Impulse);
+                carriedObject.GetComponent<Rigidbody>().AddForce(direction * forceStrength, ForceMode.Acceleration);
             }
             else
             {
@@ -172,9 +183,63 @@ public class MovingFurniture : MonoBehaviour
 
             //update text while carrying
             dragText.SetText("Press G to drop");
+        }*/
+
+        /*if (carriedObject != null)
+        {
+            float distance = Vector3.Distance(dragPos.position, carriedObject.transform.position);
+
+            if (distance < maxDistance)
+            {
+                // Calculate the direction from the player to the object
+                Vector3 directionToObject = (carriedObject.transform.position - player.transform.position);
+
+                // Calculate the direction from the player to the point where they are pushing the object
+                Vector3 directionToPushPoint = (dragPos.position - player.transform.position);
+
+                // Calculate the final direction as a combination of the two directions
+                Vector3 finalDirection = Vector3.Lerp(directionToObject, directionToPushPoint, 1f);
+
+               
+
+                // Apply a force to the object
+                carriedObject.GetComponent<Rigidbody>().AddForce(finalDirection * forceStrength, ForceMode.Acceleration);
+            }
+            else
+            {
+                // Stop the object
+                carriedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
+
+            // Update text while carrying
+            dragText.SetText("Press G to drop");
+        }*/
+
+        if (carriedObject != null)
+        {
+            float distance = Vector3.Distance(dragPos.position, carriedObject.transform.position);
+
+            if (distance < maxDistance)
+            {
+                // Calculate direction from the contact point to the object's center
+                Vector3 directionFromContact = (carriedObject.transform.position - contactPoint).normalized;
+
+                // Apply force based on the direction from the contact point
+                carriedObject.GetComponent<Rigidbody>().AddForce(directionFromContact * forceStrength, ForceMode.Acceleration);
+
+                // Optionally, update the contact point for continuous force application if needed
+                contactPoint = carriedObject.transform.position;
+            }
+            else
+            {
+                carriedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
+
+            dragText.SetText("Press G to drop");
         }
     }
 
+    
     void SnapPosition()
     {
         if (carriedObject == null) return;
@@ -199,6 +264,7 @@ public class MovingFurniture : MonoBehaviour
         if (other.gameObject.CompareTag("Draggable") && Input.GetKeyDown(KeyCode.E))
         {
             Vector3 cupBoardPos = other.transform.position;
+            cupBoardPos.y = 3f;
             other.gameObject.SetActive(false);
 
             GameObject instantiatedObject = Instantiate(cupBoardObject, cupBoardPos, Quaternion.identity);
