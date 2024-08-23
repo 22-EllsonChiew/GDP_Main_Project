@@ -34382,7 +34382,7 @@ MonoBehaviour:
   playerMovement: {fileID: 1790319701}
   dragPos: {fileID: 979977608}
   carriedObject: {fileID: 0}
-  forceStrength: 1000
+  forceStrength: 10
   snapPos: {fileID: 0}
   canSnap: 0
   textObject: {fileID: 1409131348}

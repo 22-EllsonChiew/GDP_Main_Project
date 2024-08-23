@@ -185,52 +185,21 @@ public class MovingFurniture : MonoBehaviour
             dragText.SetText("Press G to drop");
         }*/
 
-        /*if (carriedObject != null)
-        {
-            float distance = Vector3.Distance(dragPos.position, carriedObject.transform.position);
-
-            if (distance < maxDistance)
-            {
-                // Calculate the direction from the player to the object
-                Vector3 directionToObject = (carriedObject.transform.position - player.transform.position);
-
-                // Calculate the direction from the player to the point where they are pushing the object
-                Vector3 directionToPushPoint = (dragPos.position - player.transform.position);
-
-                // Calculate the final direction as a combination of the two directions
-                Vector3 finalDirection = Vector3.Lerp(directionToObject, directionToPushPoint, 1f);
-
-               
-
-                // Apply a force to the object
-                carriedObject.GetComponent<Rigidbody>().AddForce(finalDirection * forceStrength, ForceMode.Acceleration);
-            }
-            else
-            {
-                // Stop the object
-                carriedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            }
-
-            // Update text while carrying
-            dragText.SetText("Press G to drop");
-        }*/
-
         if (carriedObject != null)
         {
+            //Calculate the direction of the push based on the player's movement input. It uses the horizontal and vertical input axes to determine the direction of the push.
+            Vector3 pushDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+            //Apply force in the direction of the push. To control the strength of the push, the force is multiply forceStrength, use accleration as a force instead of Impulse as it create a instantaneous impulse
+            carriedObject.GetComponent<Rigidbody>().AddForce(pushDirection * forceStrength, ForceMode.Acceleration);
+
+            //Optionally, update the contact point for continuous force application if needed
+            contactPoint = carriedObject.transform.position;
+
+            //Check the distance between the drag position and the object's position
             float distance = Vector3.Distance(dragPos.position, carriedObject.transform.position);
-
-            if (distance < maxDistance)
-            {
-                // Calculate direction from the contact point to the object's center
-                Vector3 directionFromContact = (carriedObject.transform.position - contactPoint).normalized;
-
-                // Apply force based on the direction from the contact point
-                carriedObject.GetComponent<Rigidbody>().AddForce(directionFromContact * forceStrength, ForceMode.Acceleration);
-
-                // Optionally, update the contact point for continuous force application if needed
-                contactPoint = carriedObject.transform.position;
-            }
-            else
+            //If its greater then the maxDistance, it will then reset the velocity to 0, making it the object stop moving
+            if (distance > maxDistance * 2) // increase the max distance or modify the condition
             {
                 carriedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
