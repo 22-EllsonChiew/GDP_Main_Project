@@ -6,18 +6,26 @@ using UnityEngine.UI;
 public class ChestController : MonoBehaviour
 {
     public Button exitBtn;
-    public Button rubberHammer;
+    public Button rubberHammerCover;
+    public Button clothLegSock;
 
     private void Awake()
     {
         gameObject.SetActive(false);
     }
 
-    public void AddHammer()
+    public void AddRubberHammerCover()
     {
-        InventoryManager.Instance.AddItem(InventoryManager.AllItems.RubberCover);
-        rubberHammer.interactable = false;
+        InventoryManager.Instance.AddItem(InventoryManager.AllItems.RubberHammerCover);
+        rubberHammerCover.interactable = false;
         Debug.Log("Hammer Added!");
+    }
+
+    public void AddClothLegSock()
+    {
+        InventoryManager.Instance.AddItem(InventoryManager.AllItems.ClothLegSocks);
+        clothLegSock.interactable = false;
+        Debug.Log("Leg socks added!");
     }
 
     public void CloseUI()

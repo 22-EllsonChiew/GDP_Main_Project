@@ -62,46 +62,46 @@ public class HammerMinigame : MonoBehaviour
 
     //private Dictionary<string, AngerBar> tagToAngerBarMap = new Dictionary<string, AngerBar>();
 
-    InventoryManager.AllItems rubberHammer = InventoryManager.AllItems.RubberCover;
+    //InventoryManager.AllItems rubberHammer = InventoryManager.AllItems.RubberCover;
 
 
-    public void Start()
-    {
-        FindObjectOfType<Interaction>().OnTaskInteract += StartMinigame;
-        originalFOV = mainCamera.fieldOfView;
-        progress.maxValue = clicksNeeded;
-        noise.maxValue = noiseThreshold;
-        noiseDecreaseRate = noiseIncreaseRate;
+    //public void Start()
+    //{
+    //    FindObjectOfType<Interaction>().OnTaskInteract += StartMinigame;
+    //    originalFOV = mainCamera.fieldOfView;
+    //    progress.maxValue = clicksNeeded;
+    //    noise.maxValue = noiseThreshold;
+    //    noiseDecreaseRate = noiseIncreaseRate;
 
 
-        AngerBar clickHandlerReferenceBottomRight = GetComponent<AngerBar>();
-        AngerBar clickHandlerReferenceTopRight = GetComponent<AngerBar>();
-        //clickHandlerReference.Add(GetComponent<AngerBar>());
+    //    AngerBar clickHandlerReferenceBottomRight = GetComponent<AngerBar>();
+    //    AngerBar clickHandlerReferenceTopRight = GetComponent<AngerBar>();
+    //    //clickHandlerReference.Add(GetComponent<AngerBar>());
 
 
-    }
+    //}
 
-    private void StartMinigame(bool isTaskStarted)
-    {
-        if (isTaskStarted)
-        {
-            if (HasHammer() && !isMuffled)
-            {
-                noiseIncreaseRate *= 0.5f;
-                isMuffled = true;
-            }
-            isMinigameActive = true;
-            gameUI.SetActive(false);
-            minigameUI.SetActive(true);
-            ResetMinigame();
+    //private void StartMinigame(bool isTaskStarted)
+    //{
+    //    if (isTaskStarted)
+    //    {
+    //        if (HasHammer() && !isMuffled)
+    //        {
+    //            noiseIncreaseRate *= 0.5f;
+    //            isMuffled = true;
+    //        }
+    //        isMinigameActive = true;
+    //        gameUI.SetActive(false);
+    //        minigameUI.SetActive(true);
+    //        ResetMinigame();
 
-            fovChangeStartTime = Time.time;
+    //        fovChangeStartTime = Time.time;
 
-            player.GetComponent<PlayerMovement>().enabled = false;
+    //        player.GetComponent<PlayerMovement>().enabled = false;
 
-            Debug.Log("Time to build");
-        }
-    }
+    //        Debug.Log("Time to build");
+    //    }
+    //}
 
     private void ResetMinigame()
     {
@@ -239,17 +239,17 @@ public class HammerMinigame : MonoBehaviour
         HandleClick();
     }*/
 
-    public bool HasHammer()
-    {
-        if (InventoryManager.Instance.invItems.Contains(rubberHammer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    //public bool HasHammer()
+    //{
+    //    if (InventoryManager.Instance.invItems.Contains(rubberHammer))
+    //    {
+    //        return true;
+    //    }
+    //    else
+    //    {
+    //        return false;
+    //    }
+    //}
 
     
 
