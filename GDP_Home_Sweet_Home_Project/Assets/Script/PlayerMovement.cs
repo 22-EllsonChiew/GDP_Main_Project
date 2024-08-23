@@ -40,8 +40,11 @@ public class PlayerMovement : MonoBehaviour
 
     static public bool dialogue = false;
     public bool isMinigameStarted = false;
-    public AudioSource audioSoruce;
-    public AudioClip footStep;
+    public AudioSource audioSource;
+    public List<AudioClip> footstepSounds = new List<AudioClip>();
+    public AudioClip footStep1;
+    public AudioClip footStep2;
+    public AudioClip footStep3;
 
     [Header("Scripts")]
     public NoiseController noiseController;
@@ -56,6 +59,10 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         animator = GetComponent<Animator>();
+
+        footstepSounds.Add(footStep1);
+        footstepSounds.Add(footStep2);
+        footstepSounds.Add(footStep3);
     }
 
     private void FixedUpdate()
@@ -183,6 +190,11 @@ public class PlayerMovement : MonoBehaviour
 
     void PlaySound()
     {
-        audioSoruce.PlayOneShot(footStep);
+        if (footstepSounds.Count > 0)
+        {
+            int randomIndex = Random.Range(0, footstepSounds.Count);
+            AudioClip selectedClip = footstepSounds[randomIndex];
+            audioSource.PlayOneShot(selectedClip);
+        }
     }
 }

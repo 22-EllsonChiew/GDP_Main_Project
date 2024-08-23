@@ -34529,8 +34529,11 @@ MonoBehaviour:
   turnSmoothVelocity: 0
   isWalking: 0
   isMinigameStarted: 0
-  audioSoruce: {fileID: 7565215745276000208}
-  footStep: {fileID: 8300000, guid: d12139470b124634cbff3081651099db, type: 3}
+  audioSource: {fileID: 7565215745276000208}
+  footstepSounds: []
+  footStep1: {fileID: 8300000, guid: 871d8fa407f2c1643ade84e58d5e38bb, type: 3}
+  footStep2: {fileID: 8300000, guid: b8c0ca38f43b20241915e9f2e256894d, type: 3}
+  footStep3: {fileID: 8300000, guid: d12139470b124634cbff3081651099db, type: 3}
   noiseController: {fileID: 7565215745276000209}
 --- !u!114 &1790319702
 MonoBehaviour:
