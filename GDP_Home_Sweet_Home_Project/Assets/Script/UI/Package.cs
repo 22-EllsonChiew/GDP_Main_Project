@@ -3,10 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+public enum FurnitureType 
+{
+    Bar_Stool,
+    Dining_Table,
+    Dining_Chair,
+    TV_Console,
+    Mirror,
+    Large_Cabinet
+}
+
+
 public class Package : MonoBehaviour
 {
     public string furnitureName;
-    public string furnitureType;
+    public FurnitureType furnitureType;
     public Sprite furniturePhoto;
     
     public bool isAssemblyRequired;
@@ -25,5 +36,10 @@ public class Package : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public string GetFurnitureTypeAsString()
+    {
+        return furnitureType.ToString().Replace('_', ' ');
     }
 }

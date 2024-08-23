@@ -3341,7 +3341,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitBtn: {fileID: 604414497}
-  rubberHammer: {fileID: 211828671}
+  rubberHammerCover: {fileID: 0}
+  clothLegSock: {fileID: 0}
 --- !u!1001 &186980477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10502,6 +10503,8 @@ MonoBehaviour:
   playerResponse3: {fileID: 1227706865}
   neighbourHakim: {fileID: 478058632}
   neighbourSherryl: {fileID: 1240785117}
+  audioSource: {fileID: 0}
+  doorKnock: {fileID: 0}
 --- !u!114 &557129286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10669,9 +10672,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   furnitureName: TABBEL
-  furnitureType: Table
+  furnitureType: 0
   furniturePhoto: {fileID: 0}
-  isAssemblyRequired: 1
+  isAssemblyRequired: 0
   toolRequired: {fileID: 0}
   comicStrip: {fileID: 0}
 --- !u!1 &577838159
@@ -16698,7 +16701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   furnitureName: Karlson
-  furnitureType: Shelving Unit
+  furnitureType: 0
   furniturePhoto: {fileID: 21300000, guid: b30aa9eed81feae4d9034a86ec869da5, type: 3}
   isAssemblyRequired: 1
   toolRequired: {fileID: 21300000, guid: 50d474b050770d445bb81828b0e0c46e, type: 3}
@@ -30319,7 +30322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitBtn: {fileID: 1335954715}
-  rubberHammer: {fileID: 0}
+  rubberHammerCover: {fileID: 0}
+  clothLegSock: {fileID: 0}
 --- !u!1 &1380566579
 GameObject:
   m_ObjectHideFlags: 0
@@ -34973,6 +34977,7 @@ MonoBehaviour:
   shakeDuration: 0.1
   shakeAmount: 0.05
   decreaseFactor: 1
+  movingFurniture: {fileID: 0}
 --- !u!1 &1649789938
 GameObject:
   m_ObjectHideFlags: 0
@@ -36813,6 +36818,11 @@ MonoBehaviour:
   turnSmoothVelocity: 0
   isWalking: 0
   isMinigameStarted: 0
+  audioSource: {fileID: 0}
+  footstepSounds: []
+  footStep1: {fileID: 0}
+  footStep2: {fileID: 0}
+  footStep3: {fileID: 0}
   noiseController: {fileID: 7565215745276000209}
 --- !u!114 &1790319702
 MonoBehaviour:
@@ -36893,17 +36903,21 @@ MonoBehaviour:
   player: {fileID: 1790319697}
   playerMovement: {fileID: 1790319701}
   dragPos: {fileID: 979977608}
-  checkRadius: 2
-  snapRadius: 1
   carriedObject: {fileID: 0}
-  heightOffset: 0.5
-  maxDistance: 3
   forceStrength: 1
   snapPos: {fileID: 0}
   canSnap: 0
   textObject: {fileID: 0}
   dragText: {fileID: 0}
   mainCam: {fileID: 0}
+  audioSource: {fileID: 0}
+  dragSound: {fileID: 0}
+  particleObject: {fileID: 0}
+  snapCollider: {fileID: 0}
+  cupBoardObject: {fileID: 0}
+  mirrorObject: {fileID: 0}
+  tvSetTable: {fileID: 0}
+  barStoolObject: {fileID: 0}
 --- !u!114 &1790319706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44920,6 +44934,10 @@ MonoBehaviour:
   timeUI: {fileID: 0}
   LoadingScreenObj: {fileID: 513372641}
   LoadingBarTimer: {fileID: 84374816}
+  audioSource: {fileID: 0}
+  morningPhase: {fileID: 0}
+  eveningPhase: {fileID: 0}
+  quietTimePhase: {fileID: 0}
   firstDay: {fileID: 0}
   secondDay: {fileID: 0}
 --- !u!82 &7565215745276000208
