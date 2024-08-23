@@ -48814,7 +48814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbour_Hakim: {fileID: 478058632}
   neighbour_Sherryl: {fileID: 1240785117}
-  HappinessBar: {fileID: 0}
+  HappinessBar: {fileID: 1907047686}
 --- !u!114 &7565215745276000214
 MonoBehaviour:
   m_ObjectHideFlags: 0

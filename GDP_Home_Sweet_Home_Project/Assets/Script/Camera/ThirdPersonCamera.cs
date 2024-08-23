@@ -199,12 +199,12 @@ public class TPCFollowIndependentRotation : TPCBase
 
         Vector3 eu = mCameraTransform.rotation.eulerAngles;
 
-        angleX -= my * GameConstants.RotationSpeed;
+        //angleX -= my * GameConstants.RotationSpeed;
 
         // We clamp the angle along the Xaxis to be between the min and max pitch.
-        angleX = Mathf.Clamp(angleX, GameConstants.MinPitch, GameConstants.MaxPitch);
+        //angleX = Mathf.Clamp(angleX, GameConstants.MinPitch, GameConstants.MaxPitch);
 
-        eu.y += mx * GameConstants.RotationSpeed;
+        //eu.y += mx * GameConstants.RotationSpeed;
         Quaternion newRot = Quaternion.Euler(angleX, eu.y, 0.0f) * initialRotation;
 
         mCameraTransform.rotation = newRot;
