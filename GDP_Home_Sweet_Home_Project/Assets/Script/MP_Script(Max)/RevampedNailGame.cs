@@ -253,7 +253,8 @@ public class RevampedNailGame : MonoBehaviour
         Vector3 startPosition = chairObject.transform.position;
         Vector3 targetPosition = startPosition + Vector3.up * 1f;
         //determine position of camera for lerping
-        Vector3 currentCamPosition = mainCam.transform.position;
+        Vector3 currentCamPosition = minigameCam.transform.position;
+        //Vector3 nextCamPosition = new Vector3(currentCamPosition.x, currentCamPosition.y, currentCamPosition.z - 2f);
         Vector3 newCamPosition = currentCamPosition + (Vector3.back * 2f) + (Vector3.up * 1f);
         float elapsedTime = 0f;
         float rotationTime = 3f;
@@ -268,7 +269,7 @@ public class RevampedNailGame : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
             //lerp position of the camera to go backward
-            mainCam.transform.position = Vector3.Lerp(currentCamPosition, newCamPosition, elapsedTime / rotationTime);
+            minigameCam.transform.position = Vector3.Lerp(currentCamPosition, newCamPosition, elapsedTime / rotationTime);
         }
 
         minigameCam.SetActive(false);

@@ -10100,6 +10100,8 @@ MonoBehaviour:
   playerResponse3: {fileID: 1227706865}
   neighbourHakim: {fileID: 478058632}
   neighbourSherryl: {fileID: 1240785117}
+  audioSource: {fileID: 7565215745276000208}
+  doorKnock: {fileID: 8300000, guid: 062e5c08e05e5ff45950959b8d1ffc9f, type: 3}
 --- !u!114 &557129286
 MonoBehaviour:
   m_ObjectHideFlags: 0
