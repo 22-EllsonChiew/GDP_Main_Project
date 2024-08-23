@@ -21,7 +21,12 @@ public class MovingFurniture : MonoBehaviour
     public GameObject textObject;
     public TextMeshPro dragText;
     public GameObject mainCam;
+    public AudioSource audioSource;
+    public AudioClip dragSound;
     private bool inRange = false;
+    private bool dragging = false;
+    public GameObject particleObject;
+    public SnapCollider snapCollider;
 
     private Vector3 contactPoint;
 
@@ -42,6 +47,7 @@ public class MovingFurniture : MonoBehaviour
     private void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
+        snapCollider.prefabPosition.y -= 2f;
     }
 
     private void Update()
@@ -53,9 +59,7 @@ public class MovingFurniture : MonoBehaviour
 
     void FixedUpdate()
     {
-        
         UpdateCarriedObjectPosition();
-     
     }
 
     void CheckForDraggableObject()
@@ -71,7 +75,6 @@ public class MovingFurniture : MonoBehaviour
         {
             if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling") || hitCollider.CompareTag("Draggable") || hitCollider.CompareTag("DraggableMirror") || hitCollider.CompareTag("DraggableBarStool") || hitCollider.CompareTag("DraggableTvTable"))
             {
-                Debug.Log("NIGGER");
                 inRange = true;
                 //set text to active and text to press G to drag
                 textObject.SetActive(true); 
@@ -97,12 +100,14 @@ public class MovingFurniture : MonoBehaviour
             {
                 //pick up object if there is not already a carriedObject
                 PickUpObject();
+                dragging = true;
                 //ApplyForce();
             }
             else if (carriedObject != null)
             {
                 //drop object if there is already a carriedObject
                 DropObject();
+                dragging = false;
             }
         }
     }
@@ -126,6 +131,13 @@ public class MovingFurniture : MonoBehaviour
                 canSnap = false;
 
                 contactPoint = hitCollider.ClosestPoint(player.transform.position);
+
+                //play dragging sound
+                if (dragSound != null && audioSource != null)
+                {
+                    audioSource.clip = dragSound;
+                    audioSource.Play();
+                }
 
                 //lock rotation when object is picked up
                 Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
@@ -152,6 +164,11 @@ public class MovingFurniture : MonoBehaviour
             playerMovement.speed = 3f;
             //object can be snapped into a snap position when dropped
             canSnap = true;
+            //stop dragging sound
+            if (audioSource != null && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
             StartCoroutine(Dropping());
         }
     }
@@ -161,6 +178,7 @@ public class MovingFurniture : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         carriedObject.transform.SetParent(null);
         carriedObject = null;
+        particleObject.SetActive(false);
     }
 
     void UpdateCarriedObjectPosition()
@@ -204,7 +222,14 @@ public class MovingFurniture : MonoBehaviour
                 carriedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
 
+            if (carriedObject.tag == "Draggable")
+            {
+                particleObject.SetActive(true);
+                particleObject.transform.position = snapCollider.prefabPosition;
+            }
+
             dragText.SetText("Press G to drop");
+
         }
     }
 
