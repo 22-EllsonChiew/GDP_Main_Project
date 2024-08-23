@@ -21,7 +21,10 @@ public class MovingFurniture : MonoBehaviour
     public GameObject textObject;
     public TextMeshPro dragText;
     public GameObject mainCam;
+    public AudioSource audioSource;
+    public AudioClip dragSound;
     private bool inRange = false;
+    private bool dragging = false;
 
     private Vector3 contactPoint;
 
@@ -53,9 +56,7 @@ public class MovingFurniture : MonoBehaviour
 
     void FixedUpdate()
     {
-        
         UpdateCarriedObjectPosition();
-     
     }
 
     void CheckForDraggableObject()
@@ -97,12 +98,14 @@ public class MovingFurniture : MonoBehaviour
             {
                 //pick up object if there is not already a carriedObject
                 PickUpObject();
+                dragging = true;
                 //ApplyForce();
             }
             else if (carriedObject != null)
             {
                 //drop object if there is already a carriedObject
                 DropObject();
+                dragging = false;
             }
         }
     }
@@ -126,6 +129,13 @@ public class MovingFurniture : MonoBehaviour
                 canSnap = false;
 
                 contactPoint = hitCollider.ClosestPoint(player.transform.position);
+
+                //play dragging sound
+                if (dragSound != null && audioSource != null)
+                {
+                    audioSource.clip = dragSound;
+                    audioSource.Play();
+                }
 
                 //lock rotation when object is picked up
                 Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
@@ -152,6 +162,12 @@ public class MovingFurniture : MonoBehaviour
             playerMovement.speed = 3f;
             //object can be snapped into a snap position when dropped
             canSnap = true;
+
+            //stop dragging sound
+            if (audioSource != null && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
             StartCoroutine(Dropping());
         }
     }
