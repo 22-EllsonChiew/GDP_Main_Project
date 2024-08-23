@@ -34529,6 +34529,8 @@ MonoBehaviour:
   turnSmoothVelocity: 0
   isWalking: 0
   isMinigameStarted: 0
+  audioSoruce: {fileID: 7565215745276000208}
+  footStep: {fileID: 8300000, guid: d12139470b124634cbff3081651099db, type: 3}
   noiseController: {fileID: 7565215745276000209}
 --- !u!114 &1790319702
 MonoBehaviour:

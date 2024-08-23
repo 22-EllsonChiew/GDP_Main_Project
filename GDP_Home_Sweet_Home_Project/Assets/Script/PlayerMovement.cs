@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
 
     static public bool dialogue = false;
     public bool isMinigameStarted = false;
+    public AudioSource audioSoruce;
+    public AudioClip footStep;
 
     [Header("Scripts")]
     public NoiseController noiseController;
@@ -179,5 +181,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
+    void PlaySound()
+    {
+        audioSoruce.PlayOneShot(footStep);
+    }
 }
