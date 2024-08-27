@@ -66,30 +66,17 @@ public class ChatManager : MonoBehaviour
 
         allPhoneContacts = new List<PhoneContact>()
         {
-            new PhoneContact() {name = "Hakim", photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
-            new PhoneContact() {name = "Sherryl", photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
-            new PhoneContact() {name = "Mother", photo= null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
+            new PhoneContact() {name = neighbourHakim.neighbourName, photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
+            new PhoneContact() {name = neighbourSherryl.neighbourName, photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
         };
 
         unlockedPhoneContacts = new List<PhoneContact>();
 
-        UnlockContact("Mother");
-        UnlockContact("Hakim");
-        UnlockContact("Sherryl");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    ReceiveComplaint("Hakim");
-        //}
 
-        //if (Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    ReceiveComplaint("Sherryl");
-        //}
     }
 
     public void OpenMessages(string contactName)
@@ -252,6 +239,7 @@ public class ChatManager : MonoBehaviour
 
         if (contactToUnlock != null && !contactToUnlock.isUnlocked) 
         {
+            Debug.Log("ChatManager - Unlocked Neighbour Contact");
             contactToUnlock.isUnlocked = true;
             unlockedPhoneContacts.Add(contactToUnlock);
             AddContact(contactToUnlock);
