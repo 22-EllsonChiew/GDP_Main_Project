@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3876171, g: 0.40122858, b: 0.38950473, a: 1}
+  m_IndirectSpecularColor: {r: 0.3876171, g: 0.40122864, b: 0.38950473, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3039,7 +3039,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitBtn: {fileID: 604414497}
-  rubberHammer: {fileID: 211828671}
+  rubberHammerCover: {fileID: 0}
+  clothLegSock: {fileID: 0}
 --- !u!1001 &186980477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9404,6 +9405,8 @@ MonoBehaviour:
   playerResponse3: {fileID: 1227706865}
   neighbourHakim: {fileID: 478058632}
   neighbourSherryl: {fileID: 1240785117}
+  audioSource: {fileID: 0}
+  doorKnock: {fileID: 0}
 --- !u!114 &557129286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16151,6 +16154,7 @@ MonoBehaviour:
     - Once you've finished hammering in all the nails, the mini-game will end
     - Left bar is your progress bar and the right is your sound bar.
     - You've now completed this part of the tutorial..
+    - Walk out the door to proceed to the next part of the tutorial..
     - Walk out the door to proceed to the next part of the tutorial..
 --- !u!65 &931726895
 BoxCollider:
@@ -25805,7 +25809,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitBtn: {fileID: 2051680553}
-  rubberHammer: {fileID: 229892850}
+  rubberHammerCover: {fileID: 0}
+  clothLegSock: {fileID: 0}
 --- !u!114 &1231027055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32888,6 +32893,7 @@ MonoBehaviour:
   shakeDuration: 0.1
   shakeAmount: 0.05
   decreaseFactor: 1
+  movingFurniture: {fileID: 0}
 --- !u!1 &1649789938
 GameObject:
   m_ObjectHideFlags: 0
@@ -34541,6 +34547,11 @@ MonoBehaviour:
   turnSmoothVelocity: 0
   isWalking: 0
   isMinigameStarted: 0
+  audioSource: {fileID: 0}
+  footstepSounds: []
+  footStep1: {fileID: 0}
+  footStep2: {fileID: 0}
+  footStep3: {fileID: 0}
   noiseController: {fileID: 7565215745276000209}
 --- !u!114 &1790319702
 MonoBehaviour:
@@ -34621,18 +34632,19 @@ MonoBehaviour:
   player: {fileID: 1790319697}
   playerMovement: {fileID: 1790319701}
   dragPos: {fileID: 979977608}
-  checkRadius: 0.5
-  snapRadius: 1
   carriedObject: {fileID: 0}
-  heightOffset: 0.5
-  maxDistance: 3
   forceStrength: 0.13
   snapPos: {fileID: 3880671835399978617}
   canSnap: 0
   textObject: {fileID: 1409131348}
   dragText: {fileID: 676249595}
   mainCam: {fileID: 963194225}
+  audioSource: {fileID: 0}
+  dragSound: {fileID: 0}
+  particleObject: {fileID: 0}
+  snapCollider: {fileID: 0}
   cupBoardObject: {fileID: 7994192821190247864, guid: 306f60bdf41bca349863d5b24b060b5a, type: 3}
+  cupBoardTranslucent: {fileID: 0}
   mirrorObject: {fileID: 0}
   tvSetTable: {fileID: 0}
   barStoolObject: {fileID: 0}

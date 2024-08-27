@@ -15,7 +15,7 @@ public class SnapCollider : MonoBehaviour
 
     [Header("Cupboard")]
     public Vector3 prefabRotation = new Vector3(90, 0, 181);
-    public Vector3 prefabPosition = new Vector3(3.636f, 0.771f, -58.5f);
+    public Vector3 prefabPosition = new Vector3(3.636f, 0.79f, -58.5f);
     public GameObject cupBoardPrefab;
 
     [Header("Mirror")]
