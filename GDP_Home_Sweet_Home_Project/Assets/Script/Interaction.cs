@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,9 +11,12 @@ public class Interaction : MonoBehaviour
     public delegate void TaskEventHandler(bool isTaskComplete);
     public event TaskEventHandler OnTaskInteract;
 
+    [Header("UI References")]
     [SerializeField] private ConfirmationWindow packageUI;
     [SerializeField] private GameObject toolBoxUI;
     [SerializeField] private GameObject timeSkipUI;
+    [SerializeField] private TextMeshProUGUI timeSkipUIText;
+    [SerializeField] private InteractionPrompt interactionUIPrompt;
 
     public Animator animator;
 
@@ -47,6 +51,8 @@ public class Interaction : MonoBehaviour
     public bool drillGame = false;
     public bool hammerGame = false;
     public bool tableDrilling = false;
+    private float checkRadius = 0.5f;
+    public GameObject player;
     private void Start()
     {
         timeSkipUI.SetActive(false);
@@ -71,6 +77,7 @@ public class Interaction : MonoBehaviour
         {
             if (CanInteractWithNeighbour)
             {
+                interactionUIPrompt.DisablePanel();
                 ChatManager.instance.UnlockContact(currentNeighbour.neighbourName);
                 NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, currentNeighbour.currentMood);
             }
@@ -78,9 +85,20 @@ public class Interaction : MonoBehaviour
             if (IsAtElevator || IsAtBed)
             {
                 timeSkipUI.SetActive(true);
+                interactionUIPrompt.DisablePanel();
+
+                if (IsAtElevator)
+                {
+                    timeSkipUIText.text = "Go to work?";
+                }
+                
+                if (IsAtBed)
+                {
+                    timeSkipUIText.text = "Go to bed?";
+                }
             }
         }
-
+        CheckDistance();
     }
 
 
@@ -143,112 +161,203 @@ public class Interaction : MonoBehaviour
         if (other.CompareTag("NeighbourInteractionCollider"))
         {
             CanInteractWithNeighbour = true;
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Greet");
             Debug.Log("Player @ neighbour door");
         }
 
-        if (other.CompareTag("Neighbour"))
-        { 
+        if (other.CompareTag("Environment_Window"))
+        {
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Interact");
+            Debug.Log("Player @ window");
+        }
 
+        if (other.CompareTag("Environment_BulletinBoard"))
+        {
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "View");
+            Debug.Log("Player @ board");
         }
 
         if (other.CompareTag("Environment_Elevator"))
         {
             IsAtElevator = true;
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Take Lift");
             Debug.Log("Player @ elevator");
         }
 
         if (other.CompareTag("Bed"))
         {
             IsAtBed = true;
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Sleep");
             Debug.Log("Player @ bed");
         }
 
     }
 
-    private void OnTriggerStay(Collider other)
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Object") && Input.GetKey(KeyCode.E)) //check if tag of the object colliding with player is "object"
+    //    {
+    //        if (!ConfirmButtonClickOnce)
+    //        {
+    //            Package packageData = other.GetComponent<Package>();
+
+    //            packageUI.gameObject.SetActive(true);
+
+    //            packageUI.SetFurnitureName(packageData.furnitureName);
+    //            packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
+    //            packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
+    //            packageUI.SetFurniturePhoto(packageData.furniturePhoto);
+    //            packageUI.SetToolRequired(packageData.toolRequired);
+    //            packageUI.SetManualTips(packageData.comicStrip);
+
+    //            packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(other));
+    //            packageUI.exitButton.onClick.AddListener(ExitClicked);
+    //            ConfirmButtonClickOnce = true;
+    //            hammerGame = true;
+    //        }
+    //    }
+
+    //    if (other.CompareTag("Chest") && Input.GetKey(KeyCode.E))
+    //    {
+    //        Debug.Log("Opening chest");
+    //        toolBoxUI.SetActive(true);
+    //        animator.SetTrigger("chestOpen");
+    //    }
+    //    if (other.CompareTag(tagName) && Input.GetKey(KeyCode.E))
+    //    {
+    //        Package packageData = other.GetComponent<Package>();
+
+    //        packageUI.gameObject.SetActive(true);
+
+    //        packageUI.SetFurnitureName(packageData.furnitureName);
+    //        packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
+    //        packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
+    //        packageUI.SetFurniturePhoto(packageData.furniturePhoto);
+    //        packageUI.SetToolRequired(packageData.toolRequired);
+    //        packageUI.SetManualTips(packageData.comicStrip);
+
+    //        packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedDrillGame(other)); ;
+    //        packageUI.exitButton.onClick.AddListener(ExitClicked);
+    //        drillGame = true;
+    //    }
+    //    if (other.CompareTag("TableDrilling") && Input.GetKey(KeyCode.E))
+    //    {
+    //        Package packageData = other.GetComponent<Package>();
+
+    //        packageUI.gameObject.SetActive(true);
+
+    //        packageUI.SetFurnitureName(packageData.furnitureName);
+    //        packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
+    //        packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
+    //        packageUI.SetFurniturePhoto(packageData.furniturePhoto);
+    //        packageUI.SetToolRequired(packageData.toolRequired);
+    //        packageUI.SetManualTips(packageData.comicStrip);
+
+    //        packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedTableGame(other)); ;
+    //        packageUI.exitButton.onClick.AddListener(ExitClicked);
+    //        tableDrilling = true;
+    //    }
+
+
+    //    currentCollider = other;
+    //}
+
+    void CheckDistance()
     {
-        if (other.CompareTag("Object") && Input.GetKey(KeyCode.E)) //check if tag of the object colliding with player is "object"
+        Vector3 spherePosition = player.transform.position + player.transform.forward * checkRadius;
+        spherePosition.y -= 1f;
+        Collider[] hitColliders = Physics.OverlapSphere(spherePosition, checkRadius);
+
+        foreach (var hitCollider in hitColliders)
         {
-            if (!ConfirmButtonClickOnce)
+            if (hitCollider.CompareTag("Object") && Input.GetKey(KeyCode.E))
             {
-                Package packageData = other.GetComponent<Package>();
+                if (!ConfirmButtonClickOnce)
+                {
+                    Package packageData = hitCollider.gameObject.GetComponent<Package>();
+
+                    packageUI.gameObject.SetActive(true);
+                    interactionUIPrompt.DisablePanel();
+
+                    packageUI.SetFurnitureDetails(packageData);
+
+                    packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(hitCollider));
+                    packageUI.exitButton.onClick.AddListener(ExitClicked);
+                    ConfirmButtonClickOnce = true;
+                    hammerGame = true;
+                }
+            }
+
+            if (hitCollider.CompareTag("Chest") && Input.GetKey(KeyCode.E))
+            {
+                Debug.Log("Opening chest");
+                toolBoxUI.SetActive(true);
+                animator.SetTrigger("chestOpen");
+            }
+            if (hitCollider.CompareTag(tagName) && Input.GetKey(KeyCode.E))
+            {
+                Package packageData = hitCollider.gameObject.GetComponent<Package>();
 
                 packageUI.gameObject.SetActive(true);
+                interactionUIPrompt.DisablePanel();
 
-                packageUI.SetFurnitureName(packageData.furnitureName);
-                packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
-                packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
-                packageUI.SetFurniturePhoto(packageData.furniturePhoto);
-                packageUI.SetToolRequired(packageData.toolRequired);
-                packageUI.SetManualTips(packageData.comicStrip);
+                packageUI.SetFurnitureDetails(packageData);
 
-                packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(other));
+                packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedDrillGame(hitCollider)); 
                 packageUI.exitButton.onClick.AddListener(ExitClicked);
-                ConfirmButtonClickOnce = true;
-                hammerGame = true;
+                drillGame = true;
             }
+            if (hitCollider.CompareTag("TableDrilling") && Input.GetKey(KeyCode.E))
+            {
+                Package packageData = hitCollider.GetComponent<Package>();
+
+                packageUI.gameObject.SetActive(true);
+                interactionUIPrompt.DisablePanel();
+
+                packageUI.SetFurnitureDetails(packageData);
+
+                packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedTableGame(hitCollider)); ;
+                packageUI.exitButton.onClick.AddListener(ExitClicked);
+                tableDrilling = true;
+            }
+
+
+            currentCollider = hitCollider;
         }
-
-        if (other.CompareTag("Chest") && Input.GetKey(KeyCode.E))
-        {
-            Debug.Log("Opening chest");
-            toolBoxUI.SetActive(true);
-            animator.SetTrigger("chestOpen");
-        }
-        if (other.CompareTag(tagName) && Input.GetKey(KeyCode.E))
-        {
-            Package packageData = other.GetComponent<Package>();
-
-            packageUI.gameObject.SetActive(true);
-
-            packageUI.SetFurnitureName(packageData.furnitureName);
-            packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
-            packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
-            packageUI.SetFurniturePhoto(packageData.furniturePhoto);
-            packageUI.SetToolRequired(packageData.toolRequired);
-            packageUI.SetManualTips(packageData.comicStrip);
-
-            packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedDrillGame(other)); ;
-            packageUI.exitButton.onClick.AddListener(ExitClicked);
-            drillGame = true;
-        }
-        if (other.CompareTag("TableDrilling") && Input.GetKey(KeyCode.E))
-        {
-            Package packageData = other.GetComponent<Package>();
-
-            packageUI.gameObject.SetActive(true);
-
-            packageUI.SetFurnitureName(packageData.furnitureName);
-            packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
-            packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
-            packageUI.SetFurniturePhoto(packageData.furniturePhoto);
-            packageUI.SetToolRequired(packageData.toolRequired);
-            packageUI.SetManualTips(packageData.comicStrip);
-
-            packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedTableGame(other)); ;
-            packageUI.exitButton.onClick.AddListener(ExitClicked);
-            tableDrilling = true;
-        }
-
-
-        currentCollider = other;
     }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("NeighbourInteractionCollider"))
         {
+            interactionUIPrompt.DisablePanel();
             CanInteractWithNeighbour = false;
+        }
+
+        if (other.CompareTag("Environment_Window"))
+        {
+            interactionUIPrompt.DisablePanel();
+        }
+
+        if (other.CompareTag("Environment_BulletinBoard"))
+        {
+            interactionUIPrompt.DisablePanel();
         }
 
         if (other.CompareTag("Environment_Elevator"))
         {
-            
+            IsAtElevator = false;
+            interactionUIPrompt.DisablePanel();
         }
 
         if (other.CompareTag("Bed"))
         {
-            
+            IsAtBed = false;
+            interactionUIPrompt.DisablePanel();
         }
         
     }

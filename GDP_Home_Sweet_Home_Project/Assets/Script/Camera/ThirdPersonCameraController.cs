@@ -23,7 +23,7 @@ public class ThirdPersonCameraController : MonoBehaviour
 
     private bool playerWalkOutOfHouse = false;
     private bool playerInsideHouse = true;
-    
+    private bool playerAtBulletinBoard = false;
     private bool playerInHouseCamOn = false;
     private bool playerAtElevator = false;
 
@@ -32,6 +32,7 @@ public class ThirdPersonCameraController : MonoBehaviour
     public BoxCollider playerCorridor;
     public BoxCollider playerHousing;
     public BoxCollider elevatorCorridor;
+    public BoxCollider bulletinBoard;
 
 
 
@@ -94,14 +95,16 @@ public class ThirdPersonCameraController : MonoBehaviour
 
         UpdatePlayerIsInNeighbourCollider();
 
+        Debug.Log(playerAtBulletinBoard);
+
         if (neighbourUI.endInteraction == true)
         {
             
             neighbourEndConvo = true;
             cameraForwardOffset = 0f;
-            
+
         }
-        if (playerAtElevator && Input.GetKeyDown(KeyCode.E))
+        if (playerAtBulletinBoard && Input.GetKeyDown(KeyCode.E))
         {
             cameraForwardOffset = 2f;
             checkBulletinBoard = true;
@@ -136,6 +139,7 @@ public class ThirdPersonCameraController : MonoBehaviour
 
             targetPos = HakimCamHolder;
             cameraForwardOffset = 2f;
+            
         }
        
     }
@@ -152,6 +156,7 @@ public class ThirdPersonCameraController : MonoBehaviour
         playerWalkOutOfHouse = playerCorridor.bounds.Contains(player.position);
         playerInsideHouse = playerHousing.bounds.Contains(player.position);
         playerAtElevator = elevatorCorridor.bounds.Contains(player.position);
+        playerAtBulletinBoard = bulletinBoard.bounds.Contains(player.position);
 
     }
 
@@ -166,6 +171,7 @@ public class ThirdPersonCameraController : MonoBehaviour
             //transform.rotation = SherrylCamHolder.rotation * rotationOffset;
             transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
             checkBulletinBoard = false;
+            neighbourUI.endInteraction = false;
 
 
         }
@@ -175,8 +181,15 @@ public class ThirdPersonCameraController : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, HakimCamHolder.position - HakimneighbourOffSet + Vector3.up * neighbourHeighValue + Vector3.forward * cameraForwardOffset, pLerp);
             //transform.rotation = HakimCamHolder.rotation * rotationOffset;
             transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
+            neighbourUI.endInteraction = false;
+
         }
-        else if (playerWalkOutOfHouse)
+        else if (checkBulletinBoard)
+        {
+            transform.position = Vector3.Lerp(transform.position, elevatorCamHolder.position - elevatorOffset + Vector3.up * heightValueSecondary, pLerp);
+            transform.rotation = Quaternion.Euler(elevatorRotationOffset);
+        }
+        else if (playerWalkOutOfHouse || playerAtElevator)
         {
             //transform.position = Vector3.Lerp(transform.position, player.position - secondaryOffset + Vector3.up * heightValueSecondary, pLerp);
             transform.position = player.position - secondaryOffset + Vector3.up * heightValueSecondary;
@@ -185,11 +198,7 @@ public class ThirdPersonCameraController : MonoBehaviour
 
             cameraForwardOffset = 0f;
         }
-        else if(checkBulletinBoard == true)
-        {
-            transform.position = Vector3.Lerp(transform.position, elevatorCamHolder.position - elevatorOffset + Vector3.up * heightValueSecondary, pLerp);
-            transform.rotation = Quaternion.Euler(elevatorRotationOffset);
-        }
+        
         else if (isInsideSherrylCollider == false || isInsidHakimCollider == false || checkBulletinBoard == false)
         {
 

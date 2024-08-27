@@ -7,6 +7,11 @@ public class ScoreManager : MonoBehaviour
 {
     public Neighbour angeredNeighbour { get; private set; }
 
+    public Neighbour happiestNeighbour { get; private set; }
+    public Neighbour angriestNeighbour { get; private set; }
+    public int totalComplaintCount { get; private set; } = 0;
+    public int totalDisturbanceCount { get; private set; } = 0;
+
     public static ScoreManager Instance;
 
     // Start is called before the first frame update
@@ -35,5 +40,20 @@ public class ScoreManager : MonoBehaviour
     {
         angeredNeighbour = neighbour;
         Debug.Log("Angered neighbour: " + angeredNeighbour);
+    }
+
+    public void IncreaseComplaintCount()
+    {
+        totalComplaintCount++;
+    }
+
+    public void IncreaseDisturbanceCount()
+    {
+        totalDisturbanceCount++;
+    }
+
+    public void IncrementTotalFunitureCount()
+    {
+
     }
 }
