@@ -30,7 +30,7 @@ public class ScreenShake : MonoBehaviour
         {
             camTransform.localPosition = originalLocalPos;
         }
-        objectCarriedSpeed = movingFurniture.carriedObject.GetComponent<Rigidbody>();
+        //objectCarriedSpeed = movingFurniture.carriedObject.GetComponent<Rigidbody>();
     }
 
     public void TriggerShake()
