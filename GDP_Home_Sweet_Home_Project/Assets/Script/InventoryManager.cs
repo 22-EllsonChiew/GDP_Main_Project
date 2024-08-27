@@ -37,8 +37,7 @@ public class InventoryManager : MonoBehaviour
 
     public enum AllItems
     {
-        RubberCover,
-        WoodenPlank,
-        MetalPlate
+        RubberHammerCover,
+        ClothLegSocks,
     }
 }

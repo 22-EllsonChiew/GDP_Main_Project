@@ -170,7 +170,17 @@ public class Interaction : MonoBehaviour
         {
             if (!ConfirmButtonClickOnce)
             {
+                Package packageData = other.GetComponent<Package>();
+
                 packageUI.gameObject.SetActive(true);
+
+                packageUI.SetFurnitureName(packageData.furnitureName);
+                packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
+                packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
+                packageUI.SetFurniturePhoto(packageData.furniturePhoto);
+                packageUI.SetToolRequired(packageData.toolRequired);
+                packageUI.SetManualTips(packageData.comicStrip);
+
                 packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(other));
                 packageUI.exitButton.onClick.AddListener(ExitClicked);
                 ConfirmButtonClickOnce = true;
@@ -191,7 +201,7 @@ public class Interaction : MonoBehaviour
             packageUI.gameObject.SetActive(true);
 
             packageUI.SetFurnitureName(packageData.furnitureName);
-            packageUI.SetFurnitureType(packageData.furnitureType);
+            packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
             packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
             packageUI.SetFurniturePhoto(packageData.furniturePhoto);
             packageUI.SetToolRequired(packageData.toolRequired);
@@ -208,7 +218,7 @@ public class Interaction : MonoBehaviour
             packageUI.gameObject.SetActive(true);
 
             packageUI.SetFurnitureName(packageData.furnitureName);
-            packageUI.SetFurnitureType(packageData.furnitureType);
+            packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
             packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
             packageUI.SetFurniturePhoto(packageData.furniturePhoto);
             packageUI.SetToolRequired(packageData.toolRequired);

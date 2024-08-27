@@ -78,7 +78,7 @@ public class NailGame : MonoBehaviour
 
     private Transform newChairPos;
 
-    InventoryManager.AllItems rubberHammer = InventoryManager.AllItems.RubberCover;
+    //InventoryManager.AllItems rubberHammer = InventoryManager.AllItems.RubberCover;
 
     // Start is called before the first frame update
     public void Start()
@@ -185,11 +185,11 @@ public class NailGame : MonoBehaviour
             }
         }
 
-        if (HasHammer() && !isMuffled)
-        {
-            //noiseIncreaseRate *= 0.5f;
-            isMuffled = true;
-        }
+        //if (HasHammer() && !isMuffled)
+        //{
+        //    //noiseIncreaseRate *= 0.5f;
+        //    isMuffled = true;
+        //}
 
         //noiseDecreaseRate = noiseIncreaseRate * 2.25f;
         isMinigameActive = true;
@@ -336,17 +336,17 @@ public class NailGame : MonoBehaviour
         resetLeg.Invoke();
     }
 
-    public bool HasHammer()
-    {
-        if (InventoryManager.Instance.invItems.Contains(rubberHammer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    //public bool HasHammer()
+    //{
+    //    if (InventoryManager.Instance.invItems.Contains(rubberHammer))
+    //    {
+    //        return true;
+    //    }
+    //    else
+    //    {
+    //        return false;
+    //    }
+    //}
 
 
 
