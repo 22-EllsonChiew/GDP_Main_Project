@@ -7118,7 +7118,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 64b2bcecabfec50468c422521a90b78f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.407
+      value: 10.415
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64b2bcecabfec50468c422521a90b78f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10389,7 +10389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 73a80dcca67f14749b240cbcb78d7a62, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.641998
+      value: -21.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 73a80dcca67f14749b240cbcb78d7a62, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10457,6 +10457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbourName: Hakim
   neighbourTransform: {fileID: 478058631}
+  neighbourImageSprite: {fileID: 0}
   maxHappiness: 100
   happinessRegenAmount: 0
   happinessRegenDuration: 0
@@ -36102,7 +36103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9096f729875a7c4694d627e5cc64cd1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.39
+      value: -21.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9096f729875a7c4694d627e5cc64cd1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36170,6 +36171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbourName: Sherryl
   neighbourTransform: {fileID: 1240785116}
+  neighbourImageSprite: {fileID: 0}
   maxHappiness: 100
   happinessRegenAmount: 0
   happinessRegenDuration: 0
@@ -37912,7 +37914,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 64b2bcecabfec50468c422521a90b78f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.391
+      value: -5.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64b2bcecabfec50468c422521a90b78f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -40635,7 +40637,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.3555971, y: -0, z: -0, w: 0.93463933}
   m_LocalPosition: {x: -0.439, y: 0.79725754, z: -1.753183}
-  m_LocalScale: {x: 0.097943194, y: 0.09794319, z: 0.09794319}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 197020505}
@@ -43007,8 +43009,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417202deb8da4c847b431232a92f4f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neighbourHakim: {fileID: 0}
-  neighbourSherryl: {fileID: 0}
+  neighbourHakim: {fileID: 478058632}
+  neighbourSherryl: {fileID: 1240785117}
   contactListParent: {fileID: 1009009300}
   contactPrefab: {fileID: 770149114913970320, guid: 008153890d8a648488b1bbb309357c4e, type: 3}
   messageLoader: {fileID: 690383063}
