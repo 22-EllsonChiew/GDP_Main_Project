@@ -33,6 +33,7 @@ public class MovingFurniture : MonoBehaviour
     [Header("CupBoard GameObject")]
     public GameObject cupBoardObject;
     //private Vector3 cupBoardPos = new Vector3(1.3f, 0.769f, -60.66f);
+    public GameObject cupBoardTranslucent;
     [Header("Mirror GameObject")]
     public GameObject mirrorObject;
     //private Vector3 mirrorPos = new Vector3(-0.53f, 0.819f, -60.77f);
@@ -48,6 +49,8 @@ public class MovingFurniture : MonoBehaviour
     {
         playerMovement = player.GetComponent<PlayerMovement>();
         snapCollider.prefabPosition.y -= 2f;
+
+        cupBoardTranslucent.SetActive(false);
     }
 
     private void Update()
@@ -225,6 +228,7 @@ public class MovingFurniture : MonoBehaviour
             if (carriedObject.tag == "Draggable")
             {
                 particleObject.SetActive(true);
+                cupBoardTranslucent.SetActive(true);
                 particleObject.transform.position = snapCollider.prefabPosition;
             }
 
@@ -266,28 +270,6 @@ public class MovingFurniture : MonoBehaviour
         //    GameObject instantiatedObject = Instantiate(cupBoardObject, cupBoardPos, Quaternion.identity);
 
         //}
-        //if (other.gameObject.CompareTag("DraggableMirror") && Input.GetKeyDown(KeyCode.E))
-        //{
-        //    Vector3 mirrorPos = other.transform.position;
-        //    other.gameObject.SetActive(false);
-
-        //    GameObject instantiatedMirrorObject = Instantiate(mirrorObject, mirrorPos, Quaternion.identity);
-        //}
-        //if(other.gameObject.CompareTag("DraggableTvTable") && Input.GetKeyDown(KeyCode.E))
-        //{
-        //    Vector3 tvPos = other.transform.position;
-        //    other.gameObject.SetActive(false);
-
-        //    GameObject instantiatedTvSet = Instantiate(tvSetTable, tvPos, Quaternion.identity);
-
-        //}
-        //if(other.gameObject.CompareTag("DraggableBarStool") && Input.GetKeyDown(KeyCode.E))
-        //{
-        //    Vector3 barStoolPos = other.transform.position;
-        //    other.gameObject.SetActive(false);
-
-        //    GameObject instantiatedBarStool = Instantiate(barStoolObject, barStoolPos, Quaternion.identity);
-        //}
 
         if (Input.GetKeyDown(KeyCode.E) && packageData != null)
         {
@@ -299,6 +281,31 @@ public class MovingFurniture : MonoBehaviour
 
                 GameObject instantiatedObject = Instantiate(cupBoardObject, cupBoardPos, Quaternion.identity);
 
+            }
+
+            if(packageData.furnitureType == FurnitureType.Mirror)
+            {
+                Vector3 mirrorPos = other.transform.position;
+                other.gameObject.SetActive(false);
+
+                GameObject instantiatedMirrorObject = Instantiate(mirrorObject, mirrorPos, Quaternion.identity);
+            }
+
+            if(packageData.furnitureType == FurnitureType.Bar_Stool)
+            {
+                Vector3 barStoolPos = other.transform.position;
+                other.gameObject.SetActive(false);
+
+                GameObject instantiatedBarStool = Instantiate(barStoolObject, barStoolPos, Quaternion.identity);
+
+            }
+
+            if(packageData.furnitureType == FurnitureType.TV_Console)
+            {
+                Vector3 tvPos = other.transform.position;
+                other.gameObject.SetActive(false);
+
+                GameObject instantiatedTvSet = Instantiate(tvSetTable, tvPos, Quaternion.identity);
             }
 
             // add other furnitureTypes
