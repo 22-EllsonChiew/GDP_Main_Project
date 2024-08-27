@@ -16,6 +16,9 @@ public class ChairMiniGame : MonoBehaviour
     private Vector3 originalPos;
     private Quaternion originalRotation;
 
+    public AudioSource audioSource;
+    public AudioClip snapSound;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -80,6 +83,7 @@ public class ChairMiniGame : MonoBehaviour
                     transform.position = snapPosition;
                     transform.rotation = Quaternion.identity * Quaternion.Euler(70, 0, 0);
                     transform.SetParent(col.transform);
+                    audioSource.PlayOneShot(snapSound);
                     rb.isKinematic = true;
                     isAttached = true;
                     EnableAllChildren();

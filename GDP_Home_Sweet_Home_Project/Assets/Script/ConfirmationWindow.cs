@@ -30,19 +30,16 @@ public class ConfirmationWindow : MonoBehaviour
         }
     }
 
-    public void SetFurnitureName(string furnitureName)
+    public void SetFurnitureDetails(Package packageData)
     {
-        furnitureNameField.text = furnitureName;
-    }
+        // set ui text fields using package data
+        furnitureNameField.text = packageData.furnitureName;
+        furnitureTypeField.text = packageData.GetFurnitureTypeAsString();
+        furniturePhotoArea.sprite = packageData.furniturePhoto;
+        SetAssemblyBool(packageData.isAssemblyRequired);
+        assemblyToolPhotoArea.sprite = packageData.toolRequired;
+        comicStripArea.sprite = packageData.comicStrip;
 
-    public void SetFurnitureType(string furnitureType)
-    {
-        furnitureTypeField.text = furnitureType;
-    }
-
-    public void SetFurniturePhoto(Sprite imageSprite)
-    {
-        furniturePhotoArea.sprite = imageSprite;
     }
 
     public void SetAssemblyBool (bool isAssemblyRequired)
@@ -55,16 +52,6 @@ public class ConfirmationWindow : MonoBehaviour
         {
             assemblyRequiredField.text = "No";
         }
-    }
-    
-    public void SetToolRequired(Sprite toolRequired)
-    {
-        assemblyToolPhotoArea.sprite = toolRequired;
-    }
-
-    public void SetManualTips(Sprite comicStrip)
-    {
-        comicStripArea.sprite = comicStrip;
     }
 
 }

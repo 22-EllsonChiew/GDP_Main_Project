@@ -37,6 +37,7 @@ public class RevampedNailGame : MonoBehaviour
 
     public AudioSource hammerAudio;
     public AudioClip hammerSound;
+    public AudioClip buildComplete;
 
     public GameObject mainCam;
     public GameObject minigameCam;
@@ -240,6 +241,7 @@ public class RevampedNailGame : MonoBehaviour
     void BuildObject()
     {
         Debug.Log("BUILDING");
+        hammerAudio.PlayOneShot(buildComplete);
         StartCoroutine(RotatingNew());
         taskCompleted.Invoke(true);
     }
