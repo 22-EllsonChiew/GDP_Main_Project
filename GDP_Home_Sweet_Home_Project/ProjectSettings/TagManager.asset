@@ -33,6 +33,9 @@ TagManager:
   - DraggableBarStool
   - DraggableBarStool2
   - DraggableTvTable
+  - ScoreManager
+  - Environment_Window
+  - Environment_BulletinBoard
   layers:
   - Default
   - TransparentFX

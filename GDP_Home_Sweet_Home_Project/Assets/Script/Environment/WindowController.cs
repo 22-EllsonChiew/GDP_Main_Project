@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class WindowController : MonoBehaviour
 {
+
+    [Header("Window Animator References")]
     [SerializeField] private Animator animatorLeft;
     [SerializeField] private Animator animatorRight;
     [SerializeField] private Animator animatorKitchen;
@@ -14,6 +16,7 @@ public class WindowController : MonoBehaviour
 
     [SerializeField] private Transform player;
 
+    [Header("Window Collider References")]
     [SerializeField] private BoxCollider leftWindow;
     [SerializeField] private BoxCollider rightWindow;
     [SerializeField] private BoxCollider kitchenWindow;
@@ -66,6 +69,7 @@ public class WindowController : MonoBehaviour
             ToggleBedRoomWindow();
             windowClosedCount++;
         }
+
     }
 
     public float NoiseLevel()

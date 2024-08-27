@@ -111,7 +111,6 @@ public class Neighbour : MonoBehaviour
                 if ((routine.routineStartHour < currentHour || (routine.routineStartHour == currentHour && routine.routineStartMinute <= currentMinute)) &&
                     (routine.routineEndHour > currentHour || (routine.routineEndHour == currentHour && routine.routineEndMinute >= currentMinute)))
                 {
-                    Debug.Log("Neighbour started routine");
                     IsNeighbourInRoutine = true;
                     currentRoutine = routine;
                     foundCurrentRoutine = true;
@@ -131,7 +130,6 @@ public class Neighbour : MonoBehaviour
 
         if (!foundCurrentRoutine)
         {
-            Debug.Log("Neighbour ended routine");
             IsNeighbourInRoutine = false;
             currentRoutine = null;
         }
