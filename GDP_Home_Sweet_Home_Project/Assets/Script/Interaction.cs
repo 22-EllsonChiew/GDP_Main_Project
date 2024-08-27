@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,9 +11,12 @@ public class Interaction : MonoBehaviour
     public delegate void TaskEventHandler(bool isTaskComplete);
     public event TaskEventHandler OnTaskInteract;
 
+    [Header("UI References")]
     [SerializeField] private ConfirmationWindow packageUI;
     [SerializeField] private GameObject toolBoxUI;
     [SerializeField] private GameObject timeSkipUI;
+    [SerializeField] private TextMeshProUGUI timeSkipUIText;
+    [SerializeField] private InteractionPrompt interactionUIPrompt;
 
     public Animator animator;
 
@@ -73,6 +77,7 @@ public class Interaction : MonoBehaviour
         {
             if (CanInteractWithNeighbour)
             {
+                interactionUIPrompt.DisablePanel();
                 ChatManager.instance.UnlockContact(currentNeighbour.neighbourName);
                 NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, currentNeighbour.currentMood);
             }
@@ -80,6 +85,17 @@ public class Interaction : MonoBehaviour
             if (IsAtElevator || IsAtBed)
             {
                 timeSkipUI.SetActive(true);
+                interactionUIPrompt.DisablePanel();
+
+                if (IsAtElevator)
+                {
+                    timeSkipUIText.text = "Go to work?";
+                }
+                
+                if (IsAtBed)
+                {
+                    timeSkipUIText.text = "Go to bed?";
+                }
             }
         }
         CheckDistance();
@@ -145,23 +161,38 @@ public class Interaction : MonoBehaviour
         if (other.CompareTag("NeighbourInteractionCollider"))
         {
             CanInteractWithNeighbour = true;
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Greet");
             Debug.Log("Player @ neighbour door");
         }
 
-        if (other.CompareTag("Neighbour"))
-        { 
+        if (other.CompareTag("Environment_Window"))
+        {
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Interact");
+            Debug.Log("Player @ window");
+        }
 
+        if (other.CompareTag("Environment_BulletinBoard"))
+        {
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "View");
+            Debug.Log("Player @ board");
         }
 
         if (other.CompareTag("Environment_Elevator"))
         {
             IsAtElevator = true;
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Take Lift");
             Debug.Log("Player @ elevator");
         }
 
         if (other.CompareTag("Bed"))
         {
             IsAtBed = true;
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Sleep");
             Debug.Log("Player @ bed");
         }
 
@@ -251,13 +282,9 @@ public class Interaction : MonoBehaviour
                     Package packageData = hitCollider.gameObject.GetComponent<Package>();
 
                     packageUI.gameObject.SetActive(true);
+                    interactionUIPrompt.DisablePanel();
 
-                    packageUI.SetFurnitureName(packageData.furnitureName);
-                    packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
-                    packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
-                    packageUI.SetFurniturePhoto(packageData.furniturePhoto);
-                    packageUI.SetToolRequired(packageData.toolRequired);
-                    packageUI.SetManualTips(packageData.comicStrip);
+                    packageUI.SetFurnitureDetails(packageData);
 
                     packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(hitCollider));
                     packageUI.exitButton.onClick.AddListener(ExitClicked);
@@ -277,13 +304,9 @@ public class Interaction : MonoBehaviour
                 Package packageData = hitCollider.gameObject.GetComponent<Package>();
 
                 packageUI.gameObject.SetActive(true);
+                interactionUIPrompt.DisablePanel();
 
-                packageUI.SetFurnitureName(packageData.furnitureName);
-                packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
-                packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
-                packageUI.SetFurniturePhoto(packageData.furniturePhoto);
-                packageUI.SetToolRequired(packageData.toolRequired);
-                packageUI.SetManualTips(packageData.comicStrip);
+                packageUI.SetFurnitureDetails(packageData);
 
                 packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedDrillGame(hitCollider)); 
                 packageUI.exitButton.onClick.AddListener(ExitClicked);
@@ -294,13 +317,9 @@ public class Interaction : MonoBehaviour
                 Package packageData = hitCollider.GetComponent<Package>();
 
                 packageUI.gameObject.SetActive(true);
+                interactionUIPrompt.DisablePanel();
 
-                packageUI.SetFurnitureName(packageData.furnitureName);
-                packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
-                packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
-                packageUI.SetFurniturePhoto(packageData.furniturePhoto);
-                packageUI.SetToolRequired(packageData.toolRequired);
-                packageUI.SetManualTips(packageData.comicStrip);
+                packageUI.SetFurnitureDetails(packageData);
 
                 packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedTableGame(hitCollider)); ;
                 packageUI.exitButton.onClick.AddListener(ExitClicked);
@@ -315,17 +334,30 @@ public class Interaction : MonoBehaviour
     {
         if (other.CompareTag("NeighbourInteractionCollider"))
         {
+            interactionUIPrompt.DisablePanel();
             CanInteractWithNeighbour = false;
+        }
+
+        if (other.CompareTag("Environment_Window"))
+        {
+            interactionUIPrompt.DisablePanel();
+        }
+
+        if (other.CompareTag("Environment_BulletinBoard"))
+        {
+            interactionUIPrompt.DisablePanel();
         }
 
         if (other.CompareTag("Environment_Elevator"))
         {
-            
+            IsAtElevator = false;
+            interactionUIPrompt.DisablePanel();
         }
 
         if (other.CompareTag("Bed"))
         {
-            
+            IsAtBed = false;
+            interactionUIPrompt.DisablePanel();
         }
         
     }
