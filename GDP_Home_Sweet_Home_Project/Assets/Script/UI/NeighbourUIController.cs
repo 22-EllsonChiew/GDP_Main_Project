@@ -49,7 +49,7 @@ public class NeighbourUIController : MonoBehaviour
 
     private bool isInteractionUIActive;
 
-    private float neighbourGreeting_MoveDistance = 5f;
+    private float neighbourGreeting_MoveDistance = 1f;
     private float neighbourGreeting_MoveDuration = 0.5f;
     private float neighbourGreeting_MoveDelay = 1.25f;
     private bool isNeighbourGreetingPlayer = false;
