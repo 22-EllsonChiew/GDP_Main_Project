@@ -1,59 +1,9 @@
 fileFormatVersion: 2
-guid: ac449448f02892446b1611b00f97ab35
+guid: 39e86118d873534459242702d35ec44e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Base Material.014
-    second: {fileID: 2100000, guid: acb7b8cd135c92048a3ee07a264655e2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Base Material.015
-    second: {fileID: 2100000, guid: d3f68cf81af317c4caba7b2513b75ff2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Doorframe.012
-    second: {fileID: 2100000, guid: 6c9b652a6840a0047806e8707ab152ea, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Grass
-    second: {fileID: 2100000, guid: 834879c9ae37d7e4c877f865f25b372b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Metal_Panel
-    second: {fileID: 2100000, guid: 40a3166065fcedc4f9c1027f4133b9bd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Path
-    second: {fileID: 2100000, guid: e08e395547f0e9a42845016cfb265682, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Road_Basematerial
-    second: {fileID: 2100000, guid: d1ece57f0bae5744eb5e1cdd356cdc7b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tree
-    second: {fileID: 2100000, guid: ca52070d563be7449ae90dc7fe025aa8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Window_Frame.014
-    second: {fileID: 2100000, guid: 55952a6fda07445409e9ab9bf4fcfa4e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Window_Panel.014
-    second: {fileID: 2100000, guid: 078a72b47d01e714591b0e4896e1e8f6, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
