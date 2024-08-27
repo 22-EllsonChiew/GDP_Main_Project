@@ -71,6 +71,7 @@ public class Interaction : MonoBehaviour
         {
             if (CanInteractWithNeighbour)
             {
+                ChatManager.instance.UnlockContact(currentNeighbour.neighbourName);
                 NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, currentNeighbour.currentMood);
             }
 

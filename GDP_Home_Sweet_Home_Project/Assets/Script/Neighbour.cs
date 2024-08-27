@@ -7,7 +7,9 @@ public class Neighbour : MonoBehaviour
 {
     public string neighbourName;
     public Transform neighbourTransform;
+    public Sprite neighbourImageSprite;
 
+    [Header("Happiness Variables")]
     public float maxHappiness;
     public float happinessRegenAmount;
     public float happinessRegenDuration;
