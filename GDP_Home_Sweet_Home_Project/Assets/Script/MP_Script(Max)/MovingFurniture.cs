@@ -48,7 +48,7 @@ public class MovingFurniture : MonoBehaviour
     private void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
-        snapCollider.prefabPosition.y -= 2f;
+        //snapCollider.prefabPosition.y -= 2f;
 
         cupBoardTranslucent.SetActive(false);
     }
