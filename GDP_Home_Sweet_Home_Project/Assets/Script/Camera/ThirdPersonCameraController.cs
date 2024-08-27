@@ -99,7 +99,7 @@ public class ThirdPersonCameraController : MonoBehaviour
             
             neighbourEndConvo = true;
             cameraForwardOffset = 0f;
-            
+
         }
         if (playerAtElevator && Input.GetKeyDown(KeyCode.E))
         {
@@ -136,6 +136,7 @@ public class ThirdPersonCameraController : MonoBehaviour
 
             targetPos = HakimCamHolder;
             cameraForwardOffset = 2f;
+            
         }
        
     }
@@ -166,6 +167,7 @@ public class ThirdPersonCameraController : MonoBehaviour
             //transform.rotation = SherrylCamHolder.rotation * rotationOffset;
             transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
             checkBulletinBoard = false;
+            neighbourUI.endInteraction = false;
 
 
         }
@@ -175,6 +177,8 @@ public class ThirdPersonCameraController : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, HakimCamHolder.position - HakimneighbourOffSet + Vector3.up * neighbourHeighValue + Vector3.forward * cameraForwardOffset, pLerp);
             //transform.rotation = HakimCamHolder.rotation * rotationOffset;
             transform.rotation = Quaternion.Euler(rotationOffset); //set the rotation of the camera, can be change in the inspector
+            neighbourUI.endInteraction = false;
+
         }
         else if (playerWalkOutOfHouse)
         {
