@@ -79,6 +79,8 @@ public class ChairMiniGame : MonoBehaviour
             {
                 if (col.gameObject.CompareTag(targetSlot))
                 {
+                    //can add a check for other children for this object
+                    //if there is another child object with tag "SnapPosition", destroy that object
                     Vector3 snapPosition = col.transform.position;
                     transform.position = snapPosition;
                     transform.rotation = Quaternion.identity * Quaternion.Euler(70, 0, 0);

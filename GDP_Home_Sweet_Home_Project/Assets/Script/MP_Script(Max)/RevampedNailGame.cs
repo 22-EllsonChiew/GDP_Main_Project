@@ -241,6 +241,8 @@ public class RevampedNailGame : MonoBehaviour
     void BuildObject()
     {
         Debug.Log("BUILDING");
+        //UNCOMMENT LATER PLEASE NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER
+        //ScoreManager.Instance.IncrementTotalFunitureCount();
         hammerAudio.PlayOneShot(buildComplete);
         StartCoroutine(RotatingNew());
         taskCompleted.Invoke(true);
