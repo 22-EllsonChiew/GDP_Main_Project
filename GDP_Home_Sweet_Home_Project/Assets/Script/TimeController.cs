@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using TMPro;
 
 public enum TimePhase
 {
@@ -80,6 +81,10 @@ public class TimeController : MonoBehaviour
     [SerializeField] public List<Sprite> loadingImages = new List<Sprite>();
     [SerializeField] public Sprite hakiimImage;
     [SerializeField] public Sprite sherrylImage;
+    [SerializeField] public Image dayCycleImage;
+    [SerializeField] public Sprite dayImage;
+    [SerializeField] public Sprite nightImage;
+    [SerializeField] public TextMeshProUGUI dayNumber;
 
     public LoadingScreen loadingScreen;
 
@@ -119,13 +124,13 @@ public class TimeController : MonoBehaviour
 
         currentTimePhase = DetermineCurrentTimePhase();
 
-        
+
 
         HandleTime();
-        if(Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             AdvanceTimePhase();
-           
+
 
         }
 
@@ -152,7 +157,7 @@ public class TimeController : MonoBehaviour
             audioSource.clip = newClip;
             audioSource.Play();
         }
-    
+
 
 
     }
@@ -205,31 +210,35 @@ public class TimeController : MonoBehaviour
         // immediately end the morning phase
         // call to loading screen
         // set time to evening start time
+        //randomize between multiple backgrounds
+        if (loadingImages.Count > 0)
+        {
+            int randomIndex = Random.Range(0, loadingImages.Count); // Get a random index
+            Sprite selectedImage = loadingImages[randomIndex]; // Select a random sprite
+            imageObject.sprite = selectedImage; // Assign the selected sprite to the Image component
+        }
 
         loadingScreen.ShowRandomMessage();
 
         if (currentTimePhase == TimePhase.Morning)
         {
-            //randomize between multiple backgrounds
-            if (loadingImages.Count > 0)
-            {
-                int randomIndex = Random.Range(0, loadingImages.Count); // Get a random index
-                Sprite selectedImage = loadingImages[randomIndex]; // Select a random sprite
-                imageObject.sprite = selectedImage; // Assign the selected sprite to the Image component
-            }
+            dayCycleImage.sprite = nightImage;
             StartCoroutine(LoadingScreenSync());
             SetTime(17, 30);
         }
 
         if (currentTimePhase == TimePhase.Evening)
         {
-            SetTime(startHour,startMinute);
+            dayCycleImage.sprite = dayImage;
+            StartCoroutine(LoadingScreenSync());
+            SetTime(startHour, startMinute);
             CurrentDay++;
+            dayNumber.SetText("0" + CurrentDay);
             //Debug.Log("CurrentDay has advanced to: " + CurrentDay);
             PackageSpawnerByDay();
         }
 
-        
+
     }
 
     private void SetTime(int hour, int minute)
@@ -256,7 +265,7 @@ public class TimeController : MonoBehaviour
         {
             return TimePhase.QuietTime;
         }
-            
+
     }
 
     private void HandleTime()
@@ -326,7 +335,7 @@ public class TimeController : MonoBehaviour
         float loadingTime = 10f;
         float timeGoBy = 0f;
 
-        while(timeGoBy < loadingTime)
+        while (timeGoBy < loadingTime)
         {
             timeGoBy += Time.deltaTime;
 
@@ -339,12 +348,12 @@ public class TimeController : MonoBehaviour
         LoadingScreenObj.SetActive(false);
 
         isPaused = false;
-        
+
     }
 
     private void PackageSpawnerByDay()
     {
-        
+
         if (CurrentDay == 2)
         {
             secondDay.SetActive(true);
