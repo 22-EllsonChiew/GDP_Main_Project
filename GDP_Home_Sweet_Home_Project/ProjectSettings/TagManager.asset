@@ -36,6 +36,7 @@ TagManager:
   - ScoreManager
   - Environment_Window
   - Environment_BulletinBoard
+  - DraggableStudyTable
   layers:
   - Default
   - TransparentFX
