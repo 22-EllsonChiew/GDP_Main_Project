@@ -44,6 +44,8 @@ public class MovingFurniture : MonoBehaviour
     [Header("Bar Stool GameObject")]
     public GameObject barStoolObject;
     //private Vector3 barStoolPos = new Vector3(0.31f, 0.6f, -58f);
+    [Header("Study Table GameObject")]
+    public GameObject studyTableObject;
 
 
     private void Start()
@@ -317,6 +319,13 @@ public class MovingFurniture : MonoBehaviour
                 other.gameObject.SetActive(false);
 
                 GameObject instantiatedTvSet = Instantiate(tvSetTable, tvPos, Quaternion.identity);
+            }
+            if(packageData.furnitureType == FurnitureType.Study_Table)
+            {
+                Vector3 studyTable = other.transform.position;
+                other.gameObject.SetActive(false);
+
+                GameObject instantiatedStudyTable = Instantiate(studyTableObject, studyTable, Quaternion.identity);
             }
 
             // add other furnitureTypes

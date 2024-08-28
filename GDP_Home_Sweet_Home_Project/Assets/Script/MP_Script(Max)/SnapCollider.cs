@@ -66,7 +66,7 @@ public class SnapCollider : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //MovingFurniture movingFurniture = FindObjectOfType<MovingFurniture>();
-        if (other.CompareTag("Object") || other.CompareTag("Drilling") || other.CompareTag("Draggable") || other.CompareTag("DraggableMirror") || other.CompareTag("DraggableBarStool") || other.CompareTag("DraggableTvTable"))
+        if (other.CompareTag("Object") || other.CompareTag("Drilling") || other.CompareTag("Draggable") || other.CompareTag("DraggableMirror") || other.CompareTag("DraggableBarStool") || other.CompareTag("DraggableTvTable") || other.CompareTag("DraggableStudyTable"))
         {
             Debug.Log("Hit Object or Drilling");
             //other.transform.position = this.transform.position;
@@ -78,7 +78,7 @@ public class SnapCollider : MonoBehaviour
                 other.transform.rotation = this.transform.rotation;
 
                 
-                if(other.CompareTag("Draggable") && objectTag == "Draggable")
+                if(other.CompareTag("Draggable"))
                 {
                     other.gameObject.SetActive(false);
                     Quaternion prefabQuaternion = Quaternion.Euler(prefabRotation);
@@ -109,6 +109,14 @@ public class SnapCollider : MonoBehaviour
                     translucentTVSet.SetActive(false);
                     Quaternion prefabTvTableQua = Quaternion.Euler(tvTablePrefabRotation);
                     GameObject prebuiltTvTable = Instantiate(tvTablePrefab, tvTablePrefabPosition, prefabTvTableQua);
+                }
+                if(other.CompareTag("DraggableStudyTable"))
+                {
+                    Debug.Log("DISAPPEAR!");
+                    other.gameObject.SetActive(false);
+                    translucentStudyTable.SetActive(false);
+                    Quaternion prefabStudyTableQua = Quaternion.Euler(studyTablePrefabRotation);
+                    GameObject prebuiltStudyTable = Instantiate(studyTablePrefab, studyTablePrefabRotation, prefabStudyTableQua);
                 }
                 
                 
