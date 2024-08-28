@@ -116,7 +116,7 @@ public class SnapCollider : MonoBehaviour
                     other.gameObject.SetActive(false);
                     translucentStudyTable.SetActive(false);
                     Quaternion prefabStudyTableQua = Quaternion.Euler(studyTablePrefabRotation);
-                    GameObject prebuiltStudyTable = Instantiate(studyTablePrefab, studyTablePrefabRotation, prefabStudyTableQua);
+                    GameObject prebuiltStudyTable = Instantiate(studyTablePrefab, studyTablePrefabPosition, prefabStudyTableQua);
                 }
                 
                 

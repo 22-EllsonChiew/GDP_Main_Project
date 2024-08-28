@@ -1804,7 +1804,7 @@ GameObject:
   - component: {fileID: 67721663}
   - component: {fileID: 67721664}
   m_Layer: 0
-  m_Name: MP_Prebuilt_Cardboard
+  m_Name: MP_Prebuilt_Mirror
   m_TagString: DraggableMirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9498,6 +9498,7 @@ GameObject:
   - component: {fileID: 392261319}
   - component: {fileID: 392261318}
   - component: {fileID: 392261317}
+  - component: {fileID: 392261321}
   m_Layer: 0
   m_Name: MP_Prebuilt_Cardboard_BarStool
   m_TagString: DraggableBarStool
@@ -9514,7 +9515,7 @@ Transform:
   m_GameObject: {fileID: 392261315}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 1.43, y: -2.6227133, z: 9.73}
+  m_LocalPosition: {x: 0.469, y: -2.6227133, z: 4.51}
   m_LocalScale: {x: 34.08946, y: 34.08946, z: 34.08946}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9618,6 +9619,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392261315}
   m_Mesh: {fileID: -8910337331997694540, guid: e10962e9d0e2a9241a66a1221e782ef3, type: 3}
+--- !u!114 &392261321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392261315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureName: 
+  furnitureType: 0
+  furniturePhoto: {fileID: 0}
+  isAssemblyRequired: 0
+  toolRequired: {fileID: 0}
+  comicStrip: {fileID: 0}
 --- !u!1 &398192845
 GameObject:
   m_ObjectHideFlags: 0
@@ -10056,6 +10075,158 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413721943}
   m_CullTransparentMesh: 1
+--- !u!1 &414239578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414239579}
+  - component: {fileID: 414239583}
+  - component: {fileID: 414239582}
+  - component: {fileID: 414239581}
+  - component: {fileID: 414239580}
+  - component: {fileID: 414239584}
+  m_Layer: 0
+  m_Name: MP_Prebuilt_Cardboard_BarStool
+  m_TagString: DraggableBarStool
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &414239579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414239578}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -3.5208504, y: -0.7170993, z: -5.9854317}
+  m_LocalScale: {x: 34.089478, y: 34.08947, z: 34.08947}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2013019746}
+  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
+--- !u!54 &414239580
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414239578}
+  serializedVersion: 4
+  m_Mass: 5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &414239581
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414239578}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.028891582, y: 0.019999996, z: 0.012084439}
+  m_Center: {x: 0.0000000037252903, y: 0, z: -9.313226e-10}
+--- !u!23 &414239582
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414239578}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 3312050983373826766, guid: e10962e9d0e2a9241a66a1221e782ef3, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &414239583
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414239578}
+  m_Mesh: {fileID: -8910337331997694540, guid: e10962e9d0e2a9241a66a1221e782ef3, type: 3}
+--- !u!114 &414239584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414239578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureName: 
+  furnitureType: 0
+  furniturePhoto: {fileID: 0}
+  isAssemblyRequired: 0
+  toolRequired: {fileID: 0}
+  comicStrip: {fileID: 0}
 --- !u!1001 &416980340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18506,6 +18677,7 @@ GameObject:
   - component: {fileID: 784651876}
   - component: {fileID: 784651875}
   - component: {fileID: 784651874}
+  - component: {fileID: 784651878}
   m_Layer: 0
   m_Name: MP_Prebuilt_Cardboard_TV
   m_TagString: DraggableTvTable
@@ -18626,6 +18798,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784651872}
   m_Mesh: {fileID: -8910337331997694540, guid: e10962e9d0e2a9241a66a1221e782ef3, type: 3}
+--- !u!114 &784651878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784651872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureName: 
+  furnitureType: 3
+  furniturePhoto: {fileID: 0}
+  isAssemblyRequired: 0
+  toolRequired: {fileID: 0}
+  comicStrip: {fileID: 0}
 --- !u!4 &785402015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ce6ab77dcdb7c784b9f5b42525fa9dfe, type: 3}
@@ -45520,6 +45710,89 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532990620}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1533647091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1533647092}
+  - component: {fileID: 1533647094}
+  - component: {fileID: 1533647093}
+  m_Layer: 0
+  m_Name: Barstool_Legs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1533647092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533647091}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.10211113, y: 0, z: 0.11680816}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1926033406}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1533647093
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533647091}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1533647094
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533647091}
+  m_Mesh: {fileID: -2327764142668466181, guid: 1a8abf1624fd2fe47bf4b5e34b4db5a0, type: 3}
 --- !u!1 &1535562998
 GameObject:
   m_ObjectHideFlags: 0
@@ -48946,6 +49219,89 @@ Transform:
   - {fileID: 785402015}
   m_Father: {fileID: 367606660}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1710627064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1710627065}
+  - component: {fileID: 1710627067}
+  - component: {fileID: 1710627066}
+  m_Layer: 0
+  m_Name: Barstool_Cushion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1710627065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710627064}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.017025871, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1926033406}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1710627066
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710627064}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1710627067
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710627064}
+  m_Mesh: {fileID: -1851498359879192620, guid: 1a8abf1624fd2fe47bf4b5e34b4db5a0, type: 3}
 --- !u!1 &1718529082
 GameObject:
   m_ObjectHideFlags: 0
@@ -50898,8 +51254,12 @@ MonoBehaviour:
   mirrorObject: {fileID: 9150323230364804563, guid: 76db6db0684847840abdd19c81d95b25, type: 3}
   mirrorTranslucnet: {fileID: 2290958076012932705}
   tvSetTable: {fileID: 5165456979696676364, guid: d39429986c6a26b499599766c8ee9646, type: 3}
+  tvSetTranslucent: {fileID: 3908560418301509347}
   barStoolObject: {fileID: 3942116235476561658, guid: 243b33aafd74a2d4c8d9d67a4b528107, type: 3}
+  barStoolTranslucent: {fileID: 1948624815444904295}
+  barStoolTranslucent2: {fileID: 1926033405}
   studyTableObject: {fileID: 4938953605174963865, guid: 16599e67116d2ed4098037bade588879, type: 3}
+  studyTableTranslucent: {fileID: 6315449588254791607}
 --- !u!114 &1790319706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53086,6 +53446,95 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1926033405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1926033406}
+  - component: {fileID: 1926033408}
+  - component: {fileID: 1926033407}
+  m_Layer: 0
+  m_Name: MP_BarStool
+  m_TagString: SnapPosition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1926033406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926033405}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -5.084609, y: -0.48760998, z: -4.814}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1710627065}
+  - {fileID: 1533647092}
+  m_Father: {fileID: 2013019746}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1926033407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926033405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e201ec55b082f234b896367629daee98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingFurniture: {fileID: 1790319705}
+  disableObjectRender: {fileID: 0}
+  objectTag: 
+  prefabRotation: {x: 90, y: 0, z: 181}
+  prefabPosition: {x: 3.636, y: 0.771, z: -58.5}
+  cupBoardPrefab: {fileID: 0}
+  mirrorPrefabRotation: {x: 0, y: 0, z: 0}
+  mirrorPrefabPosition: {x: 0, y: 0, z: 0}
+  mirrorPrefab: {fileID: 0}
+  barStoolPrefabPosition: {x: -1.171, y: 0.54, z: -57.884}
+  barStoolPrefabRotation: {x: -90, y: 0, z: 180}
+  barStoolPrefab1: {fileID: 919132149155446097, guid: 2416b2b874ab34d40b9c67d01e435e2b, type: 3}
+  barStoolTranslucent: {fileID: 1926033405}
+  tvTablePrefabPosition: {x: 0, y: 0, z: 0}
+  tvTablePrefabRotation: {x: 0, y: 0, z: 0}
+  tvTablePrefab: {fileID: 0}
+  translucentTVSet: {fileID: 0}
+  studyTablePrefabPosition: {x: 0, y: 0, z: 0}
+  studyTablePrefabRotation: {x: 0, y: 0, z: 0}
+  studyTablePrefab: {fileID: 0}
+  translucentStudyTable: {fileID: 0}
+--- !u!65 &1926033408
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926033405}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1930695137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54837,7 +55286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2013019746
 Transform:
   m_ObjectHideFlags: 0
@@ -54853,6 +55302,8 @@ Transform:
   m_Children:
   - {fileID: 932932842}
   - {fileID: 2720537274013795728}
+  - {fileID: 414239579}
+  - {fileID: 1926033406}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2014894039
@@ -60125,7 +60576,7 @@ GameObject:
   - component: {fileID: 6034619953273792718}
   - component: {fileID: 6315449588254791608}
   m_Layer: 0
-  m_Name: MP_StudyTable(Prebuilt_Day3)
+  m_Name: MP_StudyTable
   m_TagString: SnapPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60160,8 +60611,8 @@ MonoBehaviour:
   tvTablePrefabRotation: {x: 0, y: 0, z: 0}
   tvTablePrefab: {fileID: 0}
   translucentTVSet: {fileID: 0}
-  studyTablePrefabPosition: {x: 0, y: 0, z: 0}
-  studyTablePrefabRotation: {x: 0, y: 0, z: 0}
+  studyTablePrefabPosition: {x: 3.243, y: 0.423, z: -54.812}
+  studyTablePrefabRotation: {x: 0, y: -180, z: 0}
   studyTablePrefab: {fileID: 2671802780338356982, guid: 259a23496c22dc34ba63edfee47c9e84, type: 3}
   translucentStudyTable: {fileID: 6315449588254791607}
 --- !u!33 &6492684336809642351

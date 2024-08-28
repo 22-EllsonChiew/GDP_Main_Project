@@ -32,20 +32,23 @@ public class MovingFurniture : MonoBehaviour
 
     [Header("CupBoard GameObject")]
     public GameObject cupBoardObject;
-    //private Vector3 cupBoardPos = new Vector3(1.3f, 0.769f, -60.66f);
     public GameObject cupBoardTranslucent;
     [Header("Mirror GameObject")]
     public GameObject mirrorObject;
-    //private Vector3 mirrorPos = new Vector3(-0.53f, 0.819f, -60.77f);
     public GameObject mirrorTranslucnet;
     [Header("TV Set GameObject")]
     public GameObject tvSetTable;
     //private Vector3 tvPos = new Vector3(2.137f, 0.66f, -58.057f);
+    public GameObject tvSetTranslucent;
     [Header("Bar Stool GameObject")]
     public GameObject barStoolObject;
     //private Vector3 barStoolPos = new Vector3(0.31f, 0.6f, -58f);
+    public GameObject barStoolTranslucent;
+
+    public GameObject barStoolTranslucent2;
     [Header("Study Table GameObject")]
     public GameObject studyTableObject;
+    public GameObject studyTableTranslucent;
 
 
     private void Start()
@@ -55,6 +58,11 @@ public class MovingFurniture : MonoBehaviour
 
         cupBoardTranslucent.SetActive(false);
         mirrorTranslucnet.SetActive(false);
+        barStoolTranslucent.SetActive(false);
+        tvSetTranslucent.SetActive(false);
+        studyTableTranslucent.SetActive(false);
+        barStoolTranslucent2.SetActive(false);
+
     }
 
     private void Update()
@@ -71,7 +79,7 @@ public class MovingFurniture : MonoBehaviour
 
     private readonly HashSet<string> draggingTags = new HashSet<string>
     {
-        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable"
+        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2"
     };
 
     void CheckForDraggableObject()
@@ -244,6 +252,23 @@ public class MovingFurniture : MonoBehaviour
             {
                 mirrorTranslucnet.SetActive(true);
             }
+            if(carriedObject.tag == "DraggableBarStool")
+            {
+                barStoolTranslucent.SetActive(true);
+            }
+            if(carriedObject.tag == "DraggableTvTable")
+            {
+                tvSetTranslucent.SetActive(true);
+            }
+            if(carriedObject.tag == "DraggableStudyTable")
+            {
+                studyTableTranslucent.SetActive(true);
+            }
+            if(carriedObject.tag == "DraggableBarStool2")
+            {
+                barStoolTranslucent2.SetActive(true);
+            }
+            
 
             dragText.SetText("Press G to drop");
 
