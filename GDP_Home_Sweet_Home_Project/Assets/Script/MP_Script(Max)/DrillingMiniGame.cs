@@ -208,6 +208,7 @@ public class DrillingMiniGame : MonoBehaviour
     {
         Debug.Log("BUILDING");
         //StartCoroutine(DestroyDelay());
+        ScoreManager.Instance.IncrementTotalFunitureCount();
         StartCoroutine(RotatingNew());
         taskCompleted.Invoke(true);
     }

@@ -83,6 +83,19 @@ public class ChairMiniGame : MonoBehaviour
                     transform.position = snapPosition;
                     transform.rotation = Quaternion.identity * Quaternion.Euler(70, 0, 0);
                     transform.SetParent(col.transform);
+                    //can add a check for other children for this object
+                    GameObject parentObject = this.transform.parent.gameObject;
+                    //if there is another child object with tag "SnapPosition", destroy that object
+                    foreach (Transform child in parentObject.transform)
+                    {
+                        // Check if the child has the tag "SnapCollider"
+                        if (child.CompareTag("SnapPosition"))
+                        {
+                            // Destroy the child object
+                            Destroy(child.gameObject);
+                            break; // Exit the loop after destroying the object
+                        }
+                    }
                     audioSource.PlayOneShot(snapSound);
                     rb.isKinematic = true;
                     isAttached = true;

@@ -11,6 +11,7 @@ public class SnapCollider : MonoBehaviour
 
     private MeshRenderer meshRenederer;
     public GameObject disableObjectRender;
+    public string objectTag;
 
 
     [Header("Cupboard")]
@@ -66,7 +67,7 @@ public class SnapCollider : MonoBehaviour
                 other.transform.rotation = this.transform.rotation;
 
                 
-                if(other.CompareTag("Draggable"))
+                if(other.CompareTag("Draggable") && objectTag == "Draggable")
                 {
                     other.gameObject.SetActive(false);
                     Quaternion prefabQuaternion = Quaternion.Euler(prefabRotation);
