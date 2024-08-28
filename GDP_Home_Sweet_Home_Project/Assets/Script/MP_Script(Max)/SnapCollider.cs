@@ -29,6 +29,7 @@ public class SnapCollider : MonoBehaviour
     public Vector3 barStoolPrefabRotation = new Vector3(0, 0, 0);
     public GameObject barStoolPrefab1;
     public GameObject barStoolTranslucent;
+    public GameObject barStoolTranslucent2;
 
     [Header("Tv Table")]
     public Vector3 tvTablePrefabPosition = new Vector3(0, 0, 0);
@@ -56,17 +57,18 @@ public class SnapCollider : MonoBehaviour
         {
             Debug.Log("MovingFurniture component assigned");
         }
+        
     }
 
     private readonly HashSet<string> draggingTags = new HashSet<string>
     {
-        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable"
-    };
+        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2"
+     };
 
     private void OnTriggerStay(Collider other)
     {
         //MovingFurniture movingFurniture = FindObjectOfType<MovingFurniture>();
-        if (other.CompareTag("Object") || other.CompareTag("Drilling") || other.CompareTag("Draggable") || other.CompareTag("DraggableMirror") || other.CompareTag("DraggableBarStool") || other.CompareTag("DraggableTvTable") || other.CompareTag("DraggableStudyTable"))
+        if (draggingTags.TryGetValue(other.tag, out _))
         {
             Debug.Log("Hit Object or Drilling");
             //other.transform.position = this.transform.position;
@@ -77,8 +79,8 @@ public class SnapCollider : MonoBehaviour
                 other.transform.position = this.transform.position;
                 other.transform.rotation = this.transform.rotation;
 
-                
-                if(other.CompareTag("Draggable"))
+
+                /*if(other.CompareTag("Draggable"))
                 {
                     other.gameObject.SetActive(false);
                     Quaternion prefabQuaternion = Quaternion.Euler(prefabRotation);
@@ -106,20 +108,29 @@ public class SnapCollider : MonoBehaviour
                 if(other.CompareTag("DraggableTvTable"))
                 {
                     other.gameObject.SetActive(false);
+                    
                     translucentTVSet.SetActive(false);
                     Quaternion prefabTvTableQua = Quaternion.Euler(tvTablePrefabRotation);
                     GameObject prebuiltTvTable = Instantiate(tvTablePrefab, tvTablePrefabPosition, prefabTvTableQua);
                 }
                 if(other.CompareTag("DraggableStudyTable"))
                 {
-                    Debug.Log("DISAPPEAR!");
+                    
                     other.gameObject.SetActive(false);
                     translucentStudyTable.SetActive(false);
                     Quaternion prefabStudyTableQua = Quaternion.Euler(studyTablePrefabRotation);
                     GameObject prebuiltStudyTable = Instantiate(studyTablePrefab, studyTablePrefabPosition, prefabStudyTableQua);
                 }
-                
-                
+                if(other.CompareTag("DraggableBarStool2"))
+                {
+                    other.gameObject.SetActive(false);
+                    barStoolTranslucent2.SetActive(false);
+                    Quaternion prefabBarStool2Quaternion = Quaternion.Euler(barStoolPrefabRotation);
+
+                    GameObject prebuiltBarStool2 = Instantiate(barStoolPrefab1, barStoolPrefabPosition, prefabBarStool2Quaternion);
+                }*/
+
+                ObjectSnapLogic(other);
 
                 snapCollider.enabled = false;
 
@@ -131,6 +142,52 @@ public class SnapCollider : MonoBehaviour
 
                 movingFurniture.canSnap = false; // Reset canSnap to avoid multiple snapping
             }
+        }
+    }
+
+    void ObjectSnapLogic(Collider other)
+    {
+        switch(other.tag)
+        {
+            case "Draggable":
+                other.gameObject.SetActive(false);
+                Quaternion prefabQuaternion = Quaternion.Euler(prefabRotation);
+
+                GameObject preBuiltFurniture = Instantiate(cupBoardPrefab, prefabPosition, prefabQuaternion);
+                disableObjectRender.SetActive(false);
+                break;
+            case "DraggableMirror":
+                other.gameObject.SetActive(false);
+
+                Quaternion mirrorPrefabQuaternion = Quaternion.Euler(mirrorPrefabRotation);
+
+                GameObject preBuiltmirrorPrefab = Instantiate(mirrorPrefab, mirrorPrefabPosition, mirrorPrefabQuaternion);
+
+                break;
+            case "DraggableBarStool":
+                other.gameObject.SetActive(false);
+                barStoolTranslucent.SetActive(false);
+                Quaternion prefabBarStool1Quaternion = Quaternion.Euler(barStoolPrefabRotation);
+
+                GameObject prebuiltBarStool1 = Instantiate(barStoolPrefab1, barStoolPrefabPosition, prefabBarStool1Quaternion);
+                break;
+            case "DraggableTvTable":
+                other.gameObject.SetActive(false);
+
+                translucentTVSet.SetActive(false);
+                Quaternion prefabTvTableQua = Quaternion.Euler(tvTablePrefabRotation);
+                GameObject prebuiltTvTable = Instantiate(tvTablePrefab, tvTablePrefabPosition, prefabTvTableQua);
+                break;
+            case "DraggableBarStool2":
+                other.gameObject.SetActive(false);
+                barStoolTranslucent2.SetActive(false);
+                Quaternion prefabBarStool2Quaternion = Quaternion.Euler(barStoolPrefabRotation);
+
+                GameObject prebuiltBarStool2 = Instantiate(barStoolPrefab1, barStoolPrefabPosition, prefabBarStool2Quaternion);
+                break;
+
+
+
         }
     }
 }

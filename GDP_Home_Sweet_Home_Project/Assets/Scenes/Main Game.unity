@@ -1122,6 +1122,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9087544202882588430, guid: c01e0bc7a52f8b94d86ac2f707793070, type: 3}
   m_PrefabInstance: {fileID: 29519767}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &32550753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 32550754}
+  m_Layer: 0
+  m_Name: Television_Set
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &32550754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32550753}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.0058703, y: -2.8945158, z: 8.254002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7443847503348034332}
+  m_Father: {fileID: 255005996}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &34444887
 GameObject:
   m_ObjectHideFlags: 0
@@ -6355,10 +6387,10 @@ Transform:
   m_Children:
   - {fileID: 2007280566}
   - {fileID: 1086128374}
-  - {fileID: 7443847503348034332}
+  - {fileID: 32550754}
   - {fileID: 392261316}
   - {fileID: 784651873}
-  - {fileID: 1171278257638249437}
+  - {fileID: 686796713}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &275969955
@@ -7831,6 +7863,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323599925}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &327272673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 327272674}
+  m_Layer: 0
+  m_Name: Bar_Stool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &327272674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327272673}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.5999575, y: -0.34899396, z: -4.941334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1926033406}
+  m_Father: {fileID: 2013019746}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &331600514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9690,7 +9754,7 @@ Transform:
   m_GameObject: {fileID: 392261315}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0.469, y: -2.6227133, z: 4.51}
+  m_LocalPosition: {x: -0.134, y: -2.6227133, z: 3.758}
   m_LocalScale: {x: 34.08946, y: 34.08946, z: 34.08946}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10266,7 +10330,7 @@ GameObject:
   - component: {fileID: 414239584}
   m_Layer: 0
   m_Name: MP_Prebuilt_Cardboard_BarStool
-  m_TagString: DraggableBarStool
+  m_TagString: DraggableBarStool2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10280,7 +10344,7 @@ Transform:
   m_GameObject: {fileID: 414239578}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -3.5208504, y: -0.7170993, z: -5.9854317}
+  m_LocalPosition: {x: -3.879, y: -0.7170993, z: -4.886}
   m_LocalScale: {x: 34.089478, y: 34.08947, z: 34.08947}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15872,6 +15936,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681490077}
   m_CullTransparentMesh: 1
+--- !u!1 &686796712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686796713}
+  m_Layer: 0
+  m_Name: Bar_Stool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &686796713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686796712}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.0058703, y: -2.8945158, z: 8.254002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1171278257638249437}
+  m_Father: {fileID: 255005996}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &690383060
 GameObject:
   m_ObjectHideFlags: 0
@@ -20983,6 +21079,158 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854526109}
   m_CullTransparentMesh: 1
+--- !u!1 &858241064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 858241065}
+  - component: {fileID: 858241070}
+  - component: {fileID: 858241069}
+  - component: {fileID: 858241068}
+  - component: {fileID: 858241067}
+  - component: {fileID: 858241066}
+  m_Layer: 0
+  m_Name: MP_Prebuilt_Cardboard_OfficeChair
+  m_TagString: DraggableBarStool2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &858241065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858241064}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -1.282934, y: 0.019628644, z: -0.09004593}
+  m_LocalScale: {x: 34.089478, y: 34.08947, z: 34.08947}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1058430790}
+  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
+--- !u!114 &858241066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858241064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureName: 
+  furnitureType: 0
+  furniturePhoto: {fileID: 0}
+  isAssemblyRequired: 0
+  toolRequired: {fileID: 0}
+  comicStrip: {fileID: 0}
+--- !u!54 &858241067
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858241064}
+  serializedVersion: 4
+  m_Mass: 5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &858241068
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858241064}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.028891582, y: 0.019999996, z: 0.012084439}
+  m_Center: {x: 0.0000000037252903, y: 0, z: -9.313226e-10}
+--- !u!23 &858241069
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858241064}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 3312050983373826766, guid: e10962e9d0e2a9241a66a1221e782ef3, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &858241070
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858241064}
+  m_Mesh: {fileID: -8910337331997694540, guid: e10962e9d0e2a9241a66a1221e782ef3, type: 3}
 --- !u!1001 &859549740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31175,6 +31423,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050671711}
   m_CullTransparentMesh: 1
+--- !u!1 &1058430789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1058430790}
+  m_Layer: 0
+  m_Name: Day 4 Package
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1058430790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058430789}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3671794, y: 0.28388202, z: -57.890526}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 858241065}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1064762295
 GameObject:
   m_ObjectHideFlags: 0
@@ -31517,6 +31797,7 @@ MonoBehaviour:
   barStoolPrefabRotation: {x: -90, y: 0, z: 180}
   barStoolPrefab1: {fileID: 2182709797741640837, guid: a4214c01e74c018448f471f9276f50cf, type: 3}
   barStoolTranslucent: {fileID: 0}
+  barStoolTranslucent2: {fileID: 0}
   tvTablePrefabPosition: {x: 0, y: 0, z: 0}
   tvTablePrefabRotation: {x: 0, y: 0, z: 0}
   tvTablePrefab: {fileID: 0}
@@ -50192,6 +50473,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731464950}
   m_CullTransparentMesh: 1
+--- !u!1 &1732479047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1732479048}
+  m_Layer: 0
+  m_Name: Study_Table
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1732479048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732479047}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.5999575, y: -0.34899396, z: -4.941334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2720537274013795728}
+  m_Father: {fileID: 2013019746}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1733617739
 GameObject:
   m_ObjectHideFlags: 0
@@ -53782,13 +54095,13 @@ Transform:
   m_GameObject: {fileID: 1926033405}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -5.084609, y: -0.48760998, z: -4.814}
+  m_LocalPosition: {x: -0.48465157, y: -0.13861603, z: 0.1273346}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1710627065}
   - {fileID: 1533647092}
-  m_Father: {fileID: 2013019746}
+  m_Father: {fileID: 327272674}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1926033407
 MonoBehaviour:
@@ -53814,7 +54127,8 @@ MonoBehaviour:
   barStoolPrefabPosition: {x: -1.171, y: 0.54, z: -57.884}
   barStoolPrefabRotation: {x: -90, y: 0, z: 180}
   barStoolPrefab1: {fileID: 919132149155446097, guid: 2416b2b874ab34d40b9c67d01e435e2b, type: 3}
-  barStoolTranslucent: {fileID: 1926033405}
+  barStoolTranslucent: {fileID: 0}
+  barStoolTranslucent2: {fileID: 327272673}
   tvTablePrefabPosition: {x: 0, y: 0, z: 0}
   tvTablePrefabRotation: {x: 0, y: 0, z: 0}
   tvTablePrefab: {fileID: 0}
@@ -55610,9 +55924,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 932932842}
-  - {fileID: 2720537274013795728}
+  - {fileID: 1732479048}
   - {fileID: 414239579}
-  - {fileID: 1926033406}
+  - {fileID: 327272674}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2014894039
@@ -59020,13 +59334,13 @@ Transform:
   m_GameObject: {fileID: 1948624815444904295}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -1.0947585, y: -2.393224, z: 4.6290016}
+  m_LocalPosition: {x: -5.100629, y: 0.50129175, z: -3.625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5985341927570363662}
   - {fileID: 7411501847363024815}
-  m_Father: {fileID: 255005996}
+  m_Father: {fileID: 686796713}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!23 &1243554448051287593
 MeshRenderer:
@@ -59280,7 +59594,8 @@ MonoBehaviour:
   barStoolPrefabPosition: {x: -1.171, y: 0.54, z: -58.996}
   barStoolPrefabRotation: {x: -90, y: 0, z: 180}
   barStoolPrefab1: {fileID: 919132149155446097, guid: 2416b2b874ab34d40b9c67d01e435e2b, type: 3}
-  barStoolTranslucent: {fileID: 1948624815444904295}
+  barStoolTranslucent: {fileID: 686796712}
+  barStoolTranslucent2: {fileID: 0}
   tvTablePrefabPosition: {x: 0, y: 0, z: 0}
   tvTablePrefabRotation: {x: 0, y: 0, z: 0}
   tvTablePrefab: {fileID: 0}
@@ -59533,12 +59848,12 @@ Transform:
   m_GameObject: {fileID: 6315449588254791607}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.68856335, y: -0.59461, z: -1.62743}
+  m_LocalPosition: {x: 3.9113941, y: -0.24561602, z: 3.3139038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 646426727699338522}
-  m_Father: {fileID: 2013019746}
+  m_Father: {fileID: 1732479048}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &2754765140986634272
 Transform:
@@ -60313,6 +60628,7 @@ MonoBehaviour:
   barStoolPrefabRotation: {x: 0, y: 0, z: 0}
   barStoolPrefab1: {fileID: 0}
   barStoolTranslucent: {fileID: 0}
+  barStoolTranslucent2: {fileID: 0}
   tvTablePrefabPosition: {x: 0, y: 0, z: 0}
   tvTablePrefabRotation: {x: 0, y: 0, z: 0}
   tvTablePrefab: {fileID: 0}
@@ -61123,6 +61439,7 @@ MonoBehaviour:
   barStoolPrefabRotation: {x: 0, y: 0, z: 0}
   barStoolPrefab1: {fileID: 0}
   barStoolTranslucent: {fileID: 0}
+  barStoolTranslucent2: {fileID: 0}
   tvTablePrefabPosition: {x: 0, y: 0, z: 0}
   tvTablePrefabRotation: {x: 0, y: 0, z: 0}
   tvTablePrefab: {fileID: 0}
@@ -61130,7 +61447,7 @@ MonoBehaviour:
   studyTablePrefabPosition: {x: 3.243, y: 0.423, z: -54.812}
   studyTablePrefabRotation: {x: 0, y: -180, z: 0}
   studyTablePrefab: {fileID: 2671802780338356982, guid: 259a23496c22dc34ba63edfee47c9e84, type: 3}
-  translucentStudyTable: {fileID: 6315449588254791607}
+  translucentStudyTable: {fileID: 1732479047}
 --- !u!33 &6492684336809642351
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -61185,6 +61502,7 @@ MonoBehaviour:
   barStoolPrefabRotation: {x: 0, y: 0, z: 0}
   barStoolPrefab1: {fileID: 0}
   barStoolTranslucent: {fileID: 0}
+  barStoolTranslucent2: {fileID: 0}
   tvTablePrefabPosition: {x: 0, y: 0, z: 0}
   tvTablePrefabRotation: {x: 0, y: 0, z: 0}
   tvTablePrefab: {fileID: 0}
@@ -61662,13 +61980,13 @@ Transform:
   m_GameObject: {fileID: 3908560418301509347}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5085909, y: 0.49125895, z: 0.49125895, w: 0.5085909}
-  m_LocalPosition: {x: 3.023605, y: -2.296224, z: 7.427002}
+  m_LocalPosition: {x: -0.98226523, y: 0.59829164, z: -0.82699966}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9166284320889528458}
   - {fileID: 6592288540849954904}
-  m_Father: {fileID: 255005996}
+  m_Father: {fileID: 32550754}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 88.014}
 --- !u!114 &7443847503348034333
 MonoBehaviour:
@@ -61687,7 +62005,7 @@ MonoBehaviour:
   objectTag: 
   prefabRotation: {x: 90, y: 0, z: 181}
   prefabPosition: {x: 3.636, y: 0.771, z: -58.5}
-  cupBoardPrefab: {fileID: 3239890033355516691, guid: 0fc743353476a8c439d2f6cad154af62, type: 3}
+  cupBoardPrefab: {fileID: 0}
   mirrorPrefabRotation: {x: 0, y: 0, z: 0}
   mirrorPrefabPosition: {x: 0, y: 0, z: 0}
   mirrorPrefab: {fileID: 0}
@@ -61695,10 +62013,11 @@ MonoBehaviour:
   barStoolPrefabRotation: {x: 0, y: 0, z: 0}
   barStoolPrefab1: {fileID: 0}
   barStoolTranslucent: {fileID: 0}
+  barStoolTranslucent2: {fileID: 0}
   tvTablePrefabPosition: {x: 3.05, y: 0.63, z: -56}
   tvTablePrefabRotation: {x: -90, y: 0, z: 90}
   tvTablePrefab: {fileID: 7382851437467767559, guid: 023a633dfc4b8ba4e9414df1c4212021, type: 3}
-  translucentTVSet: {fileID: 3908560418301509347}
+  translucentTVSet: {fileID: 32550753}
   studyTablePrefabPosition: {x: 0, y: 0, z: 0}
   studyTablePrefabRotation: {x: 0, y: 0, z: 0}
   studyTablePrefab: {fileID: 0}
@@ -62908,6 +63227,7 @@ SceneRoots:
   - {fileID: 102246780}
   - {fileID: 255005996}
   - {fileID: 2013019746}
+  - {fileID: 1058430790}
   - {fileID: 416980340}
   - {fileID: 1719683087}
   - {fileID: 901208014}

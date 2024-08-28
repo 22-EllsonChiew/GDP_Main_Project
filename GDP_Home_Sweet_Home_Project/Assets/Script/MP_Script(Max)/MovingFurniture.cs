@@ -259,6 +259,7 @@ public class MovingFurniture : MonoBehaviour
             if(carriedObject.tag == "DraggableTvTable")
             {
                 tvSetTranslucent.SetActive(true);
+                
             }
             if(carriedObject.tag == "DraggableStudyTable")
             {
