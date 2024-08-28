@@ -36,6 +36,12 @@ public class SnapCollider : MonoBehaviour
     public GameObject tvTablePrefab;
     public GameObject translucentTVSet;
 
+    [Header("Study Table")]
+    public Vector3 studyTablePrefabPosition = new Vector3(0, 0, 0);
+    public Vector3 studyTablePrefabRotation = new Vector3(0, 0, 0);
+    public GameObject studyTablePrefab;
+    public GameObject translucentStudyTable;
+
     private void Start()
     {
         snapCollider = GetComponent<Collider>();
@@ -51,6 +57,11 @@ public class SnapCollider : MonoBehaviour
             Debug.Log("MovingFurniture component assigned");
         }
     }
+
+    private readonly HashSet<string> draggingTags = new HashSet<string>
+    {
+        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable"
+    };
 
     private void OnTriggerStay(Collider other)
     {
