@@ -76,7 +76,7 @@ public class TimeController : MonoBehaviour
     [SerializeField] private GameObject firstDay;
     [SerializeField] private GameObject secondDay;
     //[SerializeField] private GameObject thirdDay;
-    [SerializeField] public GameObject imageObject;
+    [SerializeField] public Image imageObject;
     [SerializeField] public List<Sprite> loadingImages = new List<Sprite>();
     [SerializeField] public Sprite hakiimImage;
     [SerializeField] public Sprite sherrylImage;
@@ -105,7 +105,7 @@ public class TimeController : MonoBehaviour
             Debug.Log("Next Morning");
             firstDay.SetActive(true);
         }
-
+        //add images into loadingImages list
         loadingImages.Add(hakiimImage);
         loadingImages.Add(sherrylImage);
     }
@@ -207,11 +207,12 @@ public class TimeController : MonoBehaviour
 
         if (currentTimePhase == TimePhase.Morning)
         {
+            //randomize between multiple backgrounds
             if (loadingImages.Count > 0)
             {
-                int randomIndex = Random.Range(0, loadingImages.Count);
-                Sprite selectedImage = loadingImages[randomIndex];
-                //imageObject = selectedImage;
+                int randomIndex = Random.Range(0, loadingImages.Count); // Get a random index
+                Sprite selectedImage = loadingImages[randomIndex]; // Select a random sprite
+                imageObject.sprite = selectedImage; // Assign the selected sprite to the Image component
             }
             StartCoroutine(LoadingScreenSync());
             SetTime(17, 30);
