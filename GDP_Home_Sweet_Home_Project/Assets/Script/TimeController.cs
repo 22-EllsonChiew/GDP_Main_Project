@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
-using TMPro;
 
 public enum TimePhase
 {
@@ -81,10 +80,6 @@ public class TimeController : MonoBehaviour
     [SerializeField] public List<Sprite> loadingImages = new List<Sprite>();
     [SerializeField] public Sprite hakiimImage;
     [SerializeField] public Sprite sherrylImage;
-    [SerializeField] public Image dayCycleImage;
-    [SerializeField] public Sprite dayImage;
-    [SerializeField] public Sprite nightImage;
-    [SerializeField] public TextMeshProUGUI dayNumber;
 
     public LoadingScreen loadingScreen;
 
@@ -210,31 +205,26 @@ public class TimeController : MonoBehaviour
         // immediately end the morning phase
         // call to loading screen
         // set time to evening start time
-        //randomize background images
-        if (loadingImages.Count > 0)
-        {
-            int randomIndex = Random.Range(0, loadingImages.Count); // Get a random index
-            Sprite selectedImage = loadingImages[randomIndex]; // Select a random sprite
-            imageObject.sprite = selectedImage; // Assign the selected sprite to the Image component
-        }
 
         loadingScreen.ShowRandomMessage();
 
         if (currentTimePhase == TimePhase.Morning)
         {
-            dayCycleImage.sprite = nightImage;
+            //randomize between multiple backgrounds
+            if (loadingImages.Count > 0)
+            {
+                int randomIndex = Random.Range(0, loadingImages.Count); // Get a random index
+                Sprite selectedImage = loadingImages[randomIndex]; // Select a random sprite
+                imageObject.sprite = selectedImage; // Assign the selected sprite to the Image component
+            }
             StartCoroutine(LoadingScreenSync());
             SetTime(17, 30);
         }
 
         if (currentTimePhase == TimePhase.Evening)
         {
-            dayCycleImage.sprite = dayImage;
-            StartCoroutine(LoadingScreenSync());
             SetTime(startHour,startMinute);
             CurrentDay++;
-            string dayCount = CurrentDay.ToString();
-            dayNumber.SetText("0" + dayCount);
             //Debug.Log("CurrentDay has advanced to: " + CurrentDay);
             PackageSpawnerByDay();
         }
