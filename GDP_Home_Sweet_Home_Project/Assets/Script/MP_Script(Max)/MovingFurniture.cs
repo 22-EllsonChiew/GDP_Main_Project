@@ -37,12 +37,15 @@ public class MovingFurniture : MonoBehaviour
     [Header("Mirror GameObject")]
     public GameObject mirrorObject;
     //private Vector3 mirrorPos = new Vector3(-0.53f, 0.819f, -60.77f);
+    public GameObject mirrorTranslucnet;
     [Header("TV Set GameObject")]
     public GameObject tvSetTable;
     //private Vector3 tvPos = new Vector3(2.137f, 0.66f, -58.057f);
     [Header("Bar Stool GameObject")]
     public GameObject barStoolObject;
     //private Vector3 barStoolPos = new Vector3(0.31f, 0.6f, -58f);
+    [Header("Study Table GameObject")]
+    public GameObject studyTableObject;
 
 
     private void Start()
@@ -51,6 +54,7 @@ public class MovingFurniture : MonoBehaviour
         //snapCollider.prefabPosition.y -= 2f;
 
         cupBoardTranslucent.SetActive(false);
+        mirrorTranslucnet.SetActive(false);
     }
 
     private void Update()
@@ -65,6 +69,11 @@ public class MovingFurniture : MonoBehaviour
         UpdateCarriedObjectPosition();
     }
 
+    private readonly HashSet<string> draggingTags = new HashSet<string>
+    {
+        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable"
+    };
+
     void CheckForDraggableObject()
     {
         Vector3 spherePosition = player.transform.position + player.transform.forward * checkRadius;
@@ -76,15 +85,15 @@ public class MovingFurniture : MonoBehaviour
 
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling") || hitCollider.CompareTag("Draggable") || hitCollider.CompareTag("DraggableMirror") || hitCollider.CompareTag("DraggableBarStool") || hitCollider.CompareTag("DraggableTvTable"))
+            if(draggingTags.Contains(hitCollider.tag))
             {
                 inRange = true;
                 //set text to active and text to press G to drag
-                textObject.SetActive(true); 
+                textObject.SetActive(true);
                 dragText.SetText("Press G to drag");
                 //exit loop early if we found a valid object
-                
-                return; 
+
+                return;
             }
         }
 
@@ -125,7 +134,7 @@ public class MovingFurniture : MonoBehaviour
 
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.CompareTag("Object") || hitCollider.CompareTag("Drilling") || hitCollider.CompareTag("Draggable") || hitCollider.CompareTag("DraggableMirror") || hitCollider.CompareTag("DraggableBarStool") || hitCollider.CompareTag("DraggableTvTable"))
+            if (draggingTags.Contains(hitCollider.tag))
             {
                 //carried object set to the game object that is collided
                 carriedObject = hitCollider.gameObject;
@@ -231,6 +240,10 @@ public class MovingFurniture : MonoBehaviour
                 cupBoardTranslucent.SetActive(true);
                 particleObject.transform.position = snapCollider.prefabPosition;
             }
+            if(carriedObject.tag == "DraggableMirror")
+            {
+                mirrorTranslucnet.SetActive(true);
+            }
 
             dragText.SetText("Press G to drop");
 
@@ -306,6 +319,13 @@ public class MovingFurniture : MonoBehaviour
                 other.gameObject.SetActive(false);
 
                 GameObject instantiatedTvSet = Instantiate(tvSetTable, tvPos, Quaternion.identity);
+            }
+            if(packageData.furnitureType == FurnitureType.Study_Table)
+            {
+                Vector3 studyTable = other.transform.position;
+                other.gameObject.SetActive(false);
+
+                GameObject instantiatedStudyTable = Instantiate(studyTableObject, studyTable, Quaternion.identity);
             }
 
             // add other furnitureTypes

@@ -10,7 +10,8 @@ public enum FurnitureType
     Dining_Chair,
     TV_Console,
     Mirror,
-    Large_Cabinet
+    Large_Cabinet,
+    Study_Table,
 }
 
 
