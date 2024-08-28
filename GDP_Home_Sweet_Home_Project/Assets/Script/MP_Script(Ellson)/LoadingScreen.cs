@@ -28,9 +28,6 @@ public class LoadingScreen : MonoBehaviour
     void Start()
     {
         myMSOMessage = JsonUtility.FromJson<MessageList>(textJSON.text);
-
-        ShowRandomMessage();
-
     }
 
     private void OnEnable()
@@ -38,7 +35,7 @@ public class LoadingScreen : MonoBehaviour
         ShowRandomMessage();
     }
 
-    void ShowRandomMessage()
+    public void ShowRandomMessage()
     {
         if (myMSOMessage.message.Length > 0)
         {

@@ -81,6 +81,7 @@ public class TimeController : MonoBehaviour
     [SerializeField] public Sprite hakiimImage;
     [SerializeField] public Sprite sherrylImage;
 
+    public LoadingScreen loadingScreen;
 
 
     void Start()
@@ -204,6 +205,8 @@ public class TimeController : MonoBehaviour
         // immediately end the morning phase
         // call to loading screen
         // set time to evening start time
+
+        loadingScreen.ShowRandomMessage();
 
         if (currentTimePhase == TimePhase.Morning)
         {
