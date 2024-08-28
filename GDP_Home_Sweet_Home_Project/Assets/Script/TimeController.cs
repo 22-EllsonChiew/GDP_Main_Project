@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public enum TimePhase
 {
@@ -75,8 +76,11 @@ public class TimeController : MonoBehaviour
     [SerializeField] private GameObject firstDay;
     [SerializeField] private GameObject secondDay;
     //[SerializeField] private GameObject thirdDay;
+    [SerializeField] public GameObject imageObject;
+    [SerializeField] public List<Sprite> loadingImages = new List<Sprite>();
+    [SerializeField] public Sprite hakiimImage;
+    [SerializeField] public Sprite sherrylImage;
 
-    
 
 
     void Start()
@@ -102,7 +106,8 @@ public class TimeController : MonoBehaviour
             firstDay.SetActive(true);
         }
 
-        
+        loadingImages.Add(hakiimImage);
+        loadingImages.Add(sherrylImage);
     }
 
 
@@ -202,6 +207,12 @@ public class TimeController : MonoBehaviour
 
         if (currentTimePhase == TimePhase.Morning)
         {
+            if (loadingImages.Count > 0)
+            {
+                int randomIndex = Random.Range(0, loadingImages.Count);
+                Sprite selectedImage = loadingImages[randomIndex];
+                //imageObject = selectedImage;
+            }
             StartCoroutine(LoadingScreenSync());
             SetTime(17, 30);
         }
