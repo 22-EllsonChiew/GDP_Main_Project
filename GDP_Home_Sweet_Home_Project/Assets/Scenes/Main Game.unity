@@ -61408,6 +61408,7 @@ MonoBehaviour:
   dayImage: {fileID: 21300000, guid: 3e963fccd60b44c448e3dceb53c02f2a, type: 3}
   nightImage: {fileID: 21300000, guid: d1e3408c180fe2e4b8977f84af68d952, type: 3}
   dayNumber: {fileID: 705318154}
+  loadingScreen: {fileID: 690383061}
 --- !u!82 &7565215745276000208
 AudioSource:
   m_ObjectHideFlags: 0

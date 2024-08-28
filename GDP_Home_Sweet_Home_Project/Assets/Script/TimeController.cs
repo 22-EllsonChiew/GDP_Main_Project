@@ -86,6 +86,7 @@ public class TimeController : MonoBehaviour
     [SerializeField] public Sprite nightImage;
     [SerializeField] public TextMeshProUGUI dayNumber;
 
+    public LoadingScreen loadingScreen;
 
 
     void Start()
@@ -216,6 +217,8 @@ public class TimeController : MonoBehaviour
             Sprite selectedImage = loadingImages[randomIndex]; // Select a random sprite
             imageObject.sprite = selectedImage; // Assign the selected sprite to the Image component
         }
+
+        loadingScreen.ShowRandomMessage();
 
         if (currentTimePhase == TimePhase.Morning)
         {
