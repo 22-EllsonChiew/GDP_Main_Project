@@ -5,7 +5,11 @@ using UnityEngine;
 public class ThirdPersonCameraController : MonoBehaviour
 {
 
+    [Header("UI References")]
     public NeighbourUIController neighbourUI;
+    public GameObject bulletinBoardUI;
+
+
     [Header("Player Camera")]
     [SerializeField] private Transform player;
     [SerializeField] private Vector3 offset;
@@ -27,7 +31,7 @@ public class ThirdPersonCameraController : MonoBehaviour
     private bool playerInHouseCamOn = false;
     private bool playerAtElevator = false;
 
-    private bool checkBulletinBoard = false;
+    public bool checkBulletinBoard = false;
 
     public BoxCollider playerCorridor;
     public BoxCollider playerHousing;
@@ -95,8 +99,6 @@ public class ThirdPersonCameraController : MonoBehaviour
 
         UpdatePlayerIsInNeighbourCollider();
 
-        Debug.Log(playerAtBulletinBoard);
-
         if (neighbourUI.endInteraction == true)
         {
             
@@ -107,6 +109,8 @@ public class ThirdPersonCameraController : MonoBehaviour
         if (playerAtBulletinBoard && Input.GetKeyDown(KeyCode.E))
         {
             cameraForwardOffset = 2f;
+            bulletinBoardUI.SetActive(true);
+            player.gameObject.SetActive(false);
             checkBulletinBoard = true;
         }
     }
@@ -208,5 +212,12 @@ public class ThirdPersonCameraController : MonoBehaviour
             cameraForwardOffset = 0f;
 
         }
+    }
+
+    public void DisableBulletinBoardUI()
+    {
+        bulletinBoardUI.SetActive(false);
+        player.gameObject.SetActive(true);
+        checkBulletinBoard = false;
     }
 }

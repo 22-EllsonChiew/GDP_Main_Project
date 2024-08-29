@@ -60,8 +60,6 @@ public class TimeController : MonoBehaviour
     private float initialRotationY = 173f;
     private float initialRotationZ = 183f;
 
-    public TimeUI timeUI;
-
     public GameObject LoadingScreenObj;
 
     [SerializeField] private Slider LoadingBarTimer;
@@ -77,14 +75,16 @@ public class TimeController : MonoBehaviour
     [SerializeField] private GameObject firstDay;
     [SerializeField] private GameObject secondDay;
     //[SerializeField] private GameObject thirdDay;
-    [SerializeField] public Image imageObject;
-    [SerializeField] public List<Sprite> loadingImages = new List<Sprite>();
-    [SerializeField] public Sprite hakiimImage;
-    [SerializeField] public Sprite sherrylImage;
-    [SerializeField] public Image dayCycleImage;
-    [SerializeField] public Sprite dayImage;
-    [SerializeField] public Sprite nightImage;
-    [SerializeField] public TextMeshProUGUI dayNumber;
+
+    [Header("Loading Screen UI References")]
+    [SerializeField] private Image imageObject;
+    [SerializeField] private List<Sprite> loadingImages = new List<Sprite>();
+    [SerializeField] private Sprite hakiimImage;
+    [SerializeField] private Sprite sherrylImage;
+    [SerializeField] private Image dayCycleImage;
+    [SerializeField] private Sprite dayImage;
+    [SerializeField] private Sprite nightImage;
+    [SerializeField] private TextMeshProUGUI dayNumber;
 
     public LoadingScreen loadingScreen;
 
@@ -229,6 +229,14 @@ public class TimeController : MonoBehaviour
 
         if (currentTimePhase == TimePhase.Evening)
         {
+            if (CurrentDay == endDay)
+            {
+                Debug.Log("TimeController - Final day reached, loading End Scene");
+                // load end scene
+                return;
+            }
+
+
             dayCycleImage.sprite = dayImage;
             StartCoroutine(LoadingScreenSync());
             SetTime(startHour, startMinute);
@@ -319,14 +327,10 @@ public class TimeController : MonoBehaviour
 
     }
 
-    void HandleTimeSegmentTransition()
-    {
-        // 
-    }
-
     IEnumerator LoadingScreenSync()
     {
         isPaused = true;
+        PlayerMovement.dialogue = true;
 
         Debug.Log("Loading...");
         LoadingScreenObj.SetActive(true);
@@ -347,6 +351,7 @@ public class TimeController : MonoBehaviour
         //yield return new WaitForSecondsRealtime(10f);
         LoadingScreenObj.SetActive(false);
 
+        PlayerMovement.dialogue = false;
         isPaused = false;
 
     }

@@ -11,6 +11,9 @@ public class ScoreManager : MonoBehaviour
     public Neighbour angriestNeighbour { get; private set; }
     public int totalComplaintCount { get; private set; } = 0;
     public int totalDisturbanceCount { get; private set; } = 0;
+    public int totalBuiltFurniture { get; private set; } = 0;
+    public int promisesMade { get; private set; } = 0;
+    public int promisesBroken { get; private set; } = 0;
 
     public static ScoreManager Instance;
 
@@ -39,21 +42,36 @@ public class ScoreManager : MonoBehaviour
     public void SetAngeredNeighbour(Neighbour neighbour)
     {
         angeredNeighbour = neighbour;
-        Debug.Log("Angered neighbour: " + angeredNeighbour);
+        Debug.Log("Angered neighbour: " + angeredNeighbour.neighbourName);
     }
 
     public void IncreaseComplaintCount()
     {
         totalComplaintCount++;
+        Debug.Log("ScoreManager - Complaint added");
     }
 
     public void IncreaseDisturbanceCount()
     {
         totalDisturbanceCount++;
+        Debug.Log("ScoreManager - Neighbour disturbed");
     }
 
     public void IncrementTotalFunitureCount()
     {
+        totalBuiltFurniture++;
+        Debug.Log("ScoreManager - Furniture built");
+    }
 
+    public void IncrementPromiseTotal()
+    {
+        promisesMade++;
+        Debug.Log("ScoreManager - Promise made");
+    }
+
+    public void IncrementBrokenPromises()
+    {
+        promisesBroken++;
+        Debug.Log("ScoreManager - Promise broken");
     }
 }

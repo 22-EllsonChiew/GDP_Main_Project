@@ -198,74 +198,38 @@ public class Interaction : MonoBehaviour
 
     }
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Object") && Input.GetKey(KeyCode.E)) //check if tag of the object colliding with player is "object"
-    //    {
-    //        if (!ConfirmButtonClickOnce)
-    //        {
-    //            Package packageData = other.GetComponent<Package>();
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("NeighbourInteractionCollider"))
+        {
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Greet");
+        }
 
-    //            packageUI.gameObject.SetActive(true);
+        if (other.CompareTag("Environment_Window"))
+        {
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Interact");
+        }
 
-    //            packageUI.SetFurnitureName(packageData.furnitureName);
-    //            packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
-    //            packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
-    //            packageUI.SetFurniturePhoto(packageData.furniturePhoto);
-    //            packageUI.SetToolRequired(packageData.toolRequired);
-    //            packageUI.SetManualTips(packageData.comicStrip);
+        if (other.CompareTag("Environment_BulletinBoard"))
+        {
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "View");
+        }
 
-    //            packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(other));
-    //            packageUI.exitButton.onClick.AddListener(ExitClicked);
-    //            ConfirmButtonClickOnce = true;
-    //            hammerGame = true;
-    //        }
-    //    }
+        if (other.CompareTag("Environment_Elevator"))
+        {
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Take Lift");
+        }
 
-    //    if (other.CompareTag("Chest") && Input.GetKey(KeyCode.E))
-    //    {
-    //        Debug.Log("Opening chest");
-    //        toolBoxUI.SetActive(true);
-    //        animator.SetTrigger("chestOpen");
-    //    }
-    //    if (other.CompareTag(tagName) && Input.GetKey(KeyCode.E))
-    //    {
-    //        Package packageData = other.GetComponent<Package>();
-
-    //        packageUI.gameObject.SetActive(true);
-
-    //        packageUI.SetFurnitureName(packageData.furnitureName);
-    //        packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
-    //        packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
-    //        packageUI.SetFurniturePhoto(packageData.furniturePhoto);
-    //        packageUI.SetToolRequired(packageData.toolRequired);
-    //        packageUI.SetManualTips(packageData.comicStrip);
-
-    //        packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedDrillGame(other)); ;
-    //        packageUI.exitButton.onClick.AddListener(ExitClicked);
-    //        drillGame = true;
-    //    }
-    //    if (other.CompareTag("TableDrilling") && Input.GetKey(KeyCode.E))
-    //    {
-    //        Package packageData = other.GetComponent<Package>();
-
-    //        packageUI.gameObject.SetActive(true);
-
-    //        packageUI.SetFurnitureName(packageData.furnitureName);
-    //        packageUI.SetFurnitureType(packageData.GetFurnitureTypeAsString());
-    //        packageUI.SetAssemblyBool(packageData.isAssemblyRequired);
-    //        packageUI.SetFurniturePhoto(packageData.furniturePhoto);
-    //        packageUI.SetToolRequired(packageData.toolRequired);
-    //        packageUI.SetManualTips(packageData.comicStrip);
-
-    //        packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedTableGame(other)); ;
-    //        packageUI.exitButton.onClick.AddListener(ExitClicked);
-    //        tableDrilling = true;
-    //    }
-
-
-    //    currentCollider = other;
-    //}
+        if (other.CompareTag("Bed"))
+        {
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Sleep");
+        }
+    }
 
     void CheckDistance()
     {
