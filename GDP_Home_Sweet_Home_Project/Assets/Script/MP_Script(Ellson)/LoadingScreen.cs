@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LoadingScreen : MonoBehaviour
 {
 
     public TextAsset textJSON;
-    public Text messageText;
+    public TextMeshProUGUI messageText;
     
     [System.Serializable]
     public class MSOMessage
