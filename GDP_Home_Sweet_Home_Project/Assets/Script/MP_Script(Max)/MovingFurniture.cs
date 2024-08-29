@@ -50,6 +50,14 @@ public class MovingFurniture : MonoBehaviour
     public GameObject studyTableObject;
     public GameObject studyTableTranslucent;
 
+    [Header("Office Chair Gameobject")]
+    public GameObject officeChairObject;
+    public GameObject officeChairTranslucent;
+
+    [Header("Sofa Gameobject")]
+    public GameObject sofaObject;
+    public GameObject sofaTranslucent;
+
 
     private void Start()
     {
@@ -62,6 +70,8 @@ public class MovingFurniture : MonoBehaviour
         tvSetTranslucent.SetActive(false);
         studyTableTranslucent.SetActive(false);
         barStoolTranslucent2.SetActive(false);
+        officeChairTranslucent.SetActive(false);
+        sofaTranslucent.SetActive(false);
 
     }
 
@@ -79,7 +89,7 @@ public class MovingFurniture : MonoBehaviour
 
     private readonly HashSet<string> draggingTags = new HashSet<string>
     {
-        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2"
+        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa"
     };
 
     void CheckForDraggableObject()
@@ -242,7 +252,7 @@ public class MovingFurniture : MonoBehaviour
                 carriedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
 
-            if (carriedObject.tag == "Draggable")
+            /*if (carriedObject.tag == "Draggable")
             {
                 particleObject.SetActive(true);
                 cupBoardTranslucent.SetActive(true);
@@ -269,13 +279,60 @@ public class MovingFurniture : MonoBehaviour
             {
                 barStoolTranslucent2.SetActive(true);
             }
-            
+            if(carriedObject.tag == "DraggableOfficeChair")
+            {
+                officeChairTranslucent.SetActive(true);
+            }
+            if(carriedObject.tag == "DraggableSofa")
+            {
+                sofaTranslucent.SetActive(true);
+            }*/
+
+            TranslucentSetActive();
+
+
 
             dragText.SetText("Press G to drop");
 
         }
     }
 
+    public void TranslucentSetActive()
+    {
+        if(draggingTags.Contains(carriedObject.tag))
+        {
+            switch (carriedObject.tag)
+            {
+                case "Draggable":
+                    particleObject.SetActive(true);
+                    cupBoardTranslucent.SetActive(true);
+                    particleObject.transform.position = snapCollider.prefabPosition;
+                    break;
+                case "DraggableMirror":
+                    mirrorTranslucnet.SetActive(true);
+                    break;
+                case "DraggableBarStool":
+                    barStoolTranslucent.SetActive(true);
+                    break;
+                case "DraggableTvTable":
+                    tvSetTranslucent.SetActive(true);
+                    break;
+                case "DraggableStudyTable":
+                    studyTableTranslucent.SetActive(true);
+                    break;
+                case "DraggableBarStool2":
+                    barStoolTranslucent2.SetActive(true);
+                    break;
+                case "DraggableOfficeChair":
+                    officeChairTranslucent.SetActive(true);
+                    break;
+                case "DraggableSofa":
+                    sofaTranslucent.SetActive(true);
+                    break;
+
+            }
+        }
+    }
     
     void SnapPosition()
     {
@@ -352,6 +409,21 @@ public class MovingFurniture : MonoBehaviour
                 other.gameObject.SetActive(false);
 
                 GameObject instantiatedStudyTable = Instantiate(studyTableObject, studyTable, Quaternion.identity);
+            }
+
+            if(packageData.furnitureType == FurnitureType.Office_Chair)
+            {
+                Vector3 officeChairPos = other.transform.position;
+                other.gameObject.SetActive(false);
+
+                GameObject instantiatedOfficeChair = Instantiate(officeChairObject, officeChairPos, Quaternion.identity);
+            }
+            if(packageData.furnitureType == FurnitureType.Sofa)
+            {
+                Vector3 sofaPos = other.transform.position;
+                other.gameObject.SetActive(false);
+
+                GameObject instantiatedSofa = Instantiate(sofaObject, sofaPos, Quaternion.identity);
             }
 
             // add other furnitureTypes

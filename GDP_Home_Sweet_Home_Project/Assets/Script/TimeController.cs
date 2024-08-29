@@ -74,7 +74,8 @@ public class TimeController : MonoBehaviour
     [Header("Game Object")]
     [SerializeField] private GameObject firstDay;
     [SerializeField] private GameObject secondDay;
-    //[SerializeField] private GameObject thirdDay;
+    [SerializeField] private GameObject thirdDay;
+    [SerializeField] private GameObject fourthDay;
 
     [Header("Loading Screen UI References")]
     [SerializeField] private Image imageObject;
@@ -363,6 +364,11 @@ public class TimeController : MonoBehaviour
         {
             secondDay.SetActive(true);
             Debug.Log("Day 2 baby");
+        }
+        if(CurrentDay == 3)
+        {
+            thirdDay.SetActive(true);
+            Debug.Log("Day 3 MF");
         }
     }
 }

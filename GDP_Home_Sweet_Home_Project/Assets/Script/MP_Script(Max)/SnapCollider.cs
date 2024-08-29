@@ -43,6 +43,17 @@ public class SnapCollider : MonoBehaviour
     public GameObject studyTablePrefab;
     public GameObject translucentStudyTable;
 
+    [Header("Office Chair")]
+    public Vector3 officeChairPrefabPosition = new Vector3(0, 0, 0);
+    public Vector3 officeChairPrefabRotation = new Vector3(0, 0, 0);
+    public GameObject officeChairPrefab;
+    public GameObject translucentOfiiceChair;
+
+    [Header("Sofa")]
+    public Vector3 sofaPrefabPosition = new Vector3(0, 0, 0);
+    public Vector3 sofaPrefabRotation = new Vector3(0, 0, 0);
+    public GameObject sofaPrefab;
+    public GameObject TranslucentSofa;
     private void Start()
     {
         snapCollider = GetComponent<Collider>();
@@ -62,7 +73,7 @@ public class SnapCollider : MonoBehaviour
 
     private readonly HashSet<string> draggingTags = new HashSet<string>
     {
-        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2"
+        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa"
      };
 
     private void OnTriggerStay(Collider other)
@@ -152,28 +163,22 @@ public class SnapCollider : MonoBehaviour
             case "Draggable":
                 other.gameObject.SetActive(false);
                 Quaternion prefabQuaternion = Quaternion.Euler(prefabRotation);
-
                 GameObject preBuiltFurniture = Instantiate(cupBoardPrefab, prefabPosition, prefabQuaternion);
                 disableObjectRender.SetActive(false);
                 break;
             case "DraggableMirror":
                 other.gameObject.SetActive(false);
-
                 Quaternion mirrorPrefabQuaternion = Quaternion.Euler(mirrorPrefabRotation);
-
                 GameObject preBuiltmirrorPrefab = Instantiate(mirrorPrefab, mirrorPrefabPosition, mirrorPrefabQuaternion);
-
                 break;
             case "DraggableBarStool":
                 other.gameObject.SetActive(false);
                 barStoolTranslucent.SetActive(false);
                 Quaternion prefabBarStool1Quaternion = Quaternion.Euler(barStoolPrefabRotation);
-
                 GameObject prebuiltBarStool1 = Instantiate(barStoolPrefab1, barStoolPrefabPosition, prefabBarStool1Quaternion);
                 break;
             case "DraggableTvTable":
                 other.gameObject.SetActive(false);
-
                 translucentTVSet.SetActive(false);
                 Quaternion prefabTvTableQua = Quaternion.Euler(tvTablePrefabRotation);
                 GameObject prebuiltTvTable = Instantiate(tvTablePrefab, tvTablePrefabPosition, prefabTvTableQua);
@@ -182,8 +187,19 @@ public class SnapCollider : MonoBehaviour
                 other.gameObject.SetActive(false);
                 barStoolTranslucent2.SetActive(false);
                 Quaternion prefabBarStool2Quaternion = Quaternion.Euler(barStoolPrefabRotation);
-
                 GameObject prebuiltBarStool2 = Instantiate(barStoolPrefab1, barStoolPrefabPosition, prefabBarStool2Quaternion);
+                break;
+            case "DraggableOfficeChair":
+                other.gameObject.SetActive(false);
+                translucentOfiiceChair.SetActive(false);
+                Quaternion officeChairQuaternion = Quaternion.Euler(officeChairPrefabRotation);
+                GameObject officeChairPrebuilt = Instantiate(officeChairPrefab, officeChairPrefabPosition, officeChairQuaternion);
+                break;
+            case "DraggableSofa":
+                other.gameObject.SetActive(false);
+                TranslucentSofa.SetActive(false);
+                Quaternion sofaQuaternion = Quaternion.Euler(sofaPrefabRotation);
+                GameObject sofaPrebuilt = Instantiate(sofaPrefab, sofaPrefabPosition, sofaQuaternion);
                 break;
 
 

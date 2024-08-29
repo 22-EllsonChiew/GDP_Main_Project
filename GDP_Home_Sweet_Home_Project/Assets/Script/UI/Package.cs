@@ -12,6 +12,8 @@ public enum FurnitureType
     Mirror,
     Large_Cabinet,
     Study_Table,
+    Office_Chair,
+    Sofa
 }
 
 

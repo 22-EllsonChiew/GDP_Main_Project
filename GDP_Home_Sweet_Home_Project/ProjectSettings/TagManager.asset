@@ -37,6 +37,8 @@ TagManager:
   - Environment_Window
   - Environment_BulletinBoard
   - DraggableStudyTable
+  - DraggableOfficeChair
+  - DraggableSofa
   layers:
   - Default
   - TransparentFX
