@@ -1426,6 +1426,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40227264}
   m_CullTransparentMesh: 1
+--- !u!1 &43497420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 43497421}
+  - component: {fileID: 43497423}
+  - component: {fileID: 43497422}
+  m_Layer: 0
+  m_Name: Chair_Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &43497421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43497420}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.6261743, z: 0.13784888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 681737114}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &43497422
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43497420}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &43497423
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43497420}
+  m_Mesh: {fileID: -4062763986392842948, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &53256204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,7 +1935,7 @@ Transform:
   m_GameObject: {fileID: 67721658}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -1.466, y: -4.365429, z: 1.592}
+  m_LocalPosition: {x: -2.437, y: -4.365429, z: 1.881}
   m_LocalScale: {x: 34.08946, y: 34.08946, z: 34.08946}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2482,6 +2566,89 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1790319700}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &84276052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 84276053}
+  - component: {fileID: 84276055}
+  - component: {fileID: 84276054}
+  m_Layer: 0
+  m_Name: Chair_Seat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &84276053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84276052}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.32138282, z: 0.000000038146972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 681737114}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &84276054
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84276052}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &84276055
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84276052}
+  m_Mesh: {fileID: -6481565430382316653, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &85158816
 GameObject:
   m_ObjectHideFlags: 0
@@ -5177,6 +5344,130 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 656816909286024795, guid: 580930927b043614c898d9939503a25f, type: 3}
+--- !u!1 &206190431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 206190432}
+  - component: {fileID: 206190434}
+  - component: {fileID: 206190433}
+  m_Layer: 0
+  m_Name: MP_Dinning_Chair(Day4)
+  m_TagString: SnapPosition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &206190432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206190431}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.038, y: 2.4753523, z: 0.19400024}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1160607940}
+  - {fileID: 1297558329}
+  - {fileID: 2040404754}
+  - {fileID: 1256221137}
+  m_Father: {fileID: 393317229}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &206190433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206190431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e201ec55b082f234b896367629daee98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingFurniture: {fileID: 1790319705}
+  disableObjectRender: {fileID: 0}
+  objectTag: 
+  prefabRotation: {x: 90, y: 0, z: 181}
+  prefabPosition: {x: 3.636, y: 0.79, z: -58.5}
+  cupBoardPrefab: {fileID: 0}
+  mirrorPrefabRotation: {x: 0, y: 0, z: 0}
+  mirrorPrefabPosition: {x: 0, y: 0, z: 0}
+  mirrorPrefab: {fileID: 0}
+  barStoolPrefabPosition: {x: 0, y: 0, z: 0}
+  barStoolPrefabRotation: {x: 0, y: 0, z: 0}
+  barStoolPrefab1: {fileID: 0}
+  barStoolTranslucent: {fileID: 0}
+  barStoolTranslucent2: {fileID: 0}
+  tvTablePrefabPosition: {x: 0, y: 0, z: 0}
+  tvTablePrefabRotation: {x: 0, y: 0, z: 0}
+  tvTablePrefab: {fileID: 0}
+  translucentTVSet: {fileID: 0}
+  studyTablePrefabPosition: {x: 0, y: 0, z: 0}
+  studyTablePrefabRotation: {x: 0, y: 0, z: 0}
+  studyTablePrefab: {fileID: 0}
+  translucentStudyTable: {fileID: 0}
+  officeChairPrefabPosition: {x: 0, y: 0, z: 0}
+  officeChairPrefabRotation: {x: 0, y: 0, z: 0}
+  officeChairPrefab: {fileID: 0}
+  translucentOfiiceChair: {fileID: 0}
+  sofaPrefabPosition: {x: 0, y: 0, z: 0}
+  sofaPrefabRotation: {x: 0, y: 0, z: 0}
+  sofaPrefab: {fileID: 0}
+  TranslucentSofa: {fileID: 0}
+  lampPrefabPosition: {x: 0, y: 0, z: 0}
+  lampPrefabRotation: {x: 0, y: 0, z: 0}
+  lampPrefab: {fileID: 0}
+  TranslucentLamp: {fileID: 0}
+  bedRoomLampPosition: {x: 0, y: 0, z: 0}
+  bedRoomLampRotation: {x: 0, y: 0, z: 0}
+  bedRoomLampPrefab: {fileID: 0}
+  TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 2.044, y: 0.088, z: -60.738}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 8423500048506644205, guid: 2292a39b9be65864683730c445bc1849, type: 3}
+  TranslucentDc4Prefab: {fileID: 206190431}
+--- !u!65 &206190434
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206190431}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6415434, y: 0.6898999, z: 0.49227524}
+  m_Center: {x: -0.014676288, y: 0.3499154, z: -0.00797081}
 --- !u!1001 &207057830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8813,6 +9104,89 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354051196}
   m_CullTransparentMesh: 1
+--- !u!1 &358550922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358550923}
+  - component: {fileID: 358550925}
+  - component: {fileID: 358550924}
+  m_Layer: 0
+  m_Name: Chair_Leg_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &358550923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358550922}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.11764068, y: 0.110350415, z: 0.0076709744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 654473459}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &358550924
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358550922}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &358550925
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358550922}
+  m_Mesh: {fileID: -1684582053126022752, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &363410372
 GameObject:
   m_ObjectHideFlags: 0
@@ -9756,7 +10130,7 @@ Transform:
   m_GameObject: {fileID: 392261315}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -0.134, y: -2.6227133, z: 5.24}
+  m_LocalPosition: {x: -0.134, y: -2.6227133, z: 4.81}
   m_LocalScale: {x: 34.08946, y: 34.08946, z: 34.08946}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9878,6 +10252,38 @@ MonoBehaviour:
   isAssemblyRequired: 0
   toolRequired: {fileID: 0}
   comicStrip: {fileID: 0}
+--- !u!1 &393317228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 393317229}
+  m_Layer: 0
+  m_Name: Dinning_Chair_Day4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &393317229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393317228}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 206190432}
+  m_Father: {fileID: 1536779378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &398192845
 GameObject:
   m_ObjectHideFlags: 0
@@ -13558,6 +13964,89 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &568663700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568663701}
+  - component: {fileID: 568663703}
+  - component: {fileID: 568663702}
+  m_Layer: 0
+  m_Name: Chair_Seat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &568663701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568663700}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.32138282, z: 0.000000038146972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 654473459}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &568663702
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568663700}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &568663703
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568663700}
+  m_Mesh: {fileID: -6481565430382316653, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1001 &578190595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14891,6 +15380,130 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651692480}
   m_CullTransparentMesh: 1
+--- !u!1 &654473458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 654473459}
+  - component: {fileID: 654473461}
+  - component: {fileID: 654473460}
+  m_Layer: 0
+  m_Name: MP_Dinning_Chair(Day2)
+  m_TagString: SnapPosition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &654473459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654473458}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.517, y: 2.4753523, z: -0.73270035}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 781894156}
+  - {fileID: 358550923}
+  - {fileID: 717874889}
+  - {fileID: 568663701}
+  m_Father: {fileID: 1423569119}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &654473460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654473458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e201ec55b082f234b896367629daee98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingFurniture: {fileID: 1790319705}
+  disableObjectRender: {fileID: 0}
+  objectTag: 
+  prefabRotation: {x: 90, y: 0, z: 181}
+  prefabPosition: {x: 3.636, y: 0.79, z: -58.5}
+  cupBoardPrefab: {fileID: 0}
+  mirrorPrefabRotation: {x: 0, y: 0, z: 0}
+  mirrorPrefabPosition: {x: 0, y: 0, z: 0}
+  mirrorPrefab: {fileID: 0}
+  barStoolPrefabPosition: {x: 0, y: 0, z: 0}
+  barStoolPrefabRotation: {x: 0, y: 0, z: 0}
+  barStoolPrefab1: {fileID: 0}
+  barStoolTranslucent: {fileID: 0}
+  barStoolTranslucent2: {fileID: 0}
+  tvTablePrefabPosition: {x: 0, y: 0, z: 0}
+  tvTablePrefabRotation: {x: 0, y: 0, z: 0}
+  tvTablePrefab: {fileID: 0}
+  translucentTVSet: {fileID: 0}
+  studyTablePrefabPosition: {x: 0, y: 0, z: 0}
+  studyTablePrefabRotation: {x: 0, y: 0, z: 0}
+  studyTablePrefab: {fileID: 0}
+  translucentStudyTable: {fileID: 0}
+  officeChairPrefabPosition: {x: 0, y: 0, z: 0}
+  officeChairPrefabRotation: {x: 0, y: 0, z: 0}
+  officeChairPrefab: {fileID: 0}
+  translucentOfiiceChair: {fileID: 0}
+  sofaPrefabPosition: {x: 0, y: 0, z: 0}
+  sofaPrefabRotation: {x: 0, y: 0, z: 0}
+  sofaPrefab: {fileID: 0}
+  TranslucentSofa: {fileID: 0}
+  lampPrefabPosition: {x: 0, y: 0, z: 0}
+  lampPrefabRotation: {x: 0, y: 0, z: 0}
+  lampPrefab: {fileID: 0}
+  TranslucentLamp: {fileID: 0}
+  bedRoomLampPosition: {x: 0, y: 0, z: 0}
+  bedRoomLampRotation: {x: 0, y: 0, z: 0}
+  bedRoomLampPrefab: {fileID: 0}
+  TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 2.571, y: 0.088, z: -61.672}
+  diningChair2Rota: {x: 0, y: 180, z: 0}
+  diningChair2Prefab: {fileID: 8423500048506644205, guid: 2292a39b9be65864683730c445bc1849, type: 3}
+  TranslucentDc2Prefab: {fileID: 654473458}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
+--- !u!65 &654473461
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654473458}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6415434, y: 0.6898999, z: 0.49227524}
+  m_Center: {x: -0.014676288, y: 0.3499154, z: -0.00797081}
 --- !u!1 &654779188
 GameObject:
   m_ObjectHideFlags: 0
@@ -16042,6 +16655,130 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681490077}
   m_CullTransparentMesh: 1
+--- !u!1 &681737113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 681737114}
+  - component: {fileID: 681737116}
+  - component: {fileID: 681737115}
+  m_Layer: 0
+  m_Name: MP_Dinning_Chair(Day3)
+  m_TagString: SnapPosition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &681737114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681737113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.542, y: 2.4753523, z: 0.194}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 43497421}
+  - {fileID: 1606063020}
+  - {fileID: 1904150056}
+  - {fileID: 84276053}
+  m_Father: {fileID: 1455335254}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &681737115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681737113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e201ec55b082f234b896367629daee98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingFurniture: {fileID: 1790319705}
+  disableObjectRender: {fileID: 0}
+  objectTag: 
+  prefabRotation: {x: 90, y: 0, z: 181}
+  prefabPosition: {x: 3.636, y: 0.79, z: -58.5}
+  cupBoardPrefab: {fileID: 0}
+  mirrorPrefabRotation: {x: 0, y: 0, z: 0}
+  mirrorPrefabPosition: {x: 0, y: 0, z: 0}
+  mirrorPrefab: {fileID: 0}
+  barStoolPrefabPosition: {x: 0, y: 0, z: 0}
+  barStoolPrefabRotation: {x: 0, y: 0, z: 0}
+  barStoolPrefab1: {fileID: 0}
+  barStoolTranslucent: {fileID: 0}
+  barStoolTranslucent2: {fileID: 0}
+  tvTablePrefabPosition: {x: 0, y: 0, z: 0}
+  tvTablePrefabRotation: {x: 0, y: 0, z: 0}
+  tvTablePrefab: {fileID: 0}
+  translucentTVSet: {fileID: 0}
+  studyTablePrefabPosition: {x: 0, y: 0, z: 0}
+  studyTablePrefabRotation: {x: 0, y: 0, z: 0}
+  studyTablePrefab: {fileID: 0}
+  translucentStudyTable: {fileID: 0}
+  officeChairPrefabPosition: {x: 0, y: 0, z: 0}
+  officeChairPrefabRotation: {x: 0, y: 0, z: 0}
+  officeChairPrefab: {fileID: 0}
+  translucentOfiiceChair: {fileID: 0}
+  sofaPrefabPosition: {x: 0, y: 0, z: 0}
+  sofaPrefabRotation: {x: 0, y: 0, z: 0}
+  sofaPrefab: {fileID: 0}
+  TranslucentSofa: {fileID: 0}
+  lampPrefabPosition: {x: 0, y: 0, z: 0}
+  lampPrefabRotation: {x: 0, y: 0, z: 0}
+  lampPrefab: {fileID: 0}
+  TranslucentLamp: {fileID: 0}
+  bedRoomLampPosition: {x: 0, y: 0, z: 0}
+  bedRoomLampRotation: {x: 0, y: 0, z: 0}
+  bedRoomLampPrefab: {fileID: 0}
+  TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 2.544, y: 0.088, z: -60.738}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 8423500048506644205, guid: 2292a39b9be65864683730c445bc1849, type: 3}
+  TranslucentDc3Prefab: {fileID: 681737113}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 206190431}
+--- !u!65 &681737116
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681737113}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6415434, y: 0.6898999, z: 0.49227524}
+  m_Center: {x: -0.014676288, y: 0.3499154, z: -0.00797081}
 --- !u!1 &686796712
 GameObject:
   m_ObjectHideFlags: 0
@@ -17534,6 +18271,89 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 19.321228}
   m_SizeDelta: {x: 450, y: 631.3574}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &717874888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717874889}
+  - component: {fileID: 717874891}
+  - component: {fileID: 717874890}
+  m_Layer: 0
+  m_Name: Chair_Leg_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &717874889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717874888}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11764007, y: 0.1103504, z: 0.0076710507}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 654473459}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &717874890
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717874888}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &717874891
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717874888}
+  m_Mesh: {fileID: 4719177768313787800, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &719376628
 GameObject:
   m_ObjectHideFlags: 0
@@ -18948,6 +19768,90 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce6ab77dcdb7c784b9f5b42525fa9dfe, type: 3}
+--- !u!1 &781894155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 781894156}
+  - component: {fileID: 781894158}
+  - component: {fileID: 781894157}
+  m_Layer: 0
+  m_Name: Chair_Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &781894156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781894155}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.6261743, z: 0.13784888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 654473459}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &781894157
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781894155}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &781894158
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781894155}
+  m_Mesh: {fileID: -4062763986392842948, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &782346325
 GameObject:
   m_ObjectHideFlags: 0
@@ -27956,7 +28860,7 @@ Transform:
   m_GameObject: {fileID: 932932841}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -2.93, y: -0.7170993, z: 0.23}
+  m_LocalPosition: {x: -2.93, y: -0.7170993, z: -0.79}
   m_LocalScale: {x: 34.08946, y: 34.08946, z: 34.08946}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31935,6 +32839,22 @@ MonoBehaviour:
   bedRoomLampRotation: {x: 0, y: 0, z: 0}
   bedRoomLampPrefab: {fileID: 0}
   TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
 --- !u!65 &1086128376
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33470,6 +34390,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146899270}
   m_CullTransparentMesh: 1
+--- !u!1 &1148435672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1148435673}
+  m_Layer: 0
+  m_Name: Dinning_Chair_Day1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1148435673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148435672}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8764406416677075767}
+  m_Father: {fileID: 1536779378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1154612138
 GameObject:
   m_ObjectHideFlags: 0
@@ -33704,6 +34656,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160108279}
   m_CullTransparentMesh: 1
+--- !u!1 &1160607939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1160607940}
+  - component: {fileID: 1160607942}
+  - component: {fileID: 1160607941}
+  m_Layer: 0
+  m_Name: Chair_Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1160607940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160607939}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.6261743, z: 0.13784888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 206190432}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1160607941
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160607939}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1160607942
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160607939}
+  m_Mesh: {fileID: -4062763986392842948, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &1164218798
 GameObject:
   m_ObjectHideFlags: 0
@@ -41060,6 +42096,89 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255065262}
   m_CullTransparentMesh: 1
+--- !u!1 &1256221136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1256221137}
+  - component: {fileID: 1256221139}
+  - component: {fileID: 1256221138}
+  m_Layer: 0
+  m_Name: Chair_Seat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1256221137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256221136}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.32138282, z: 0.000000038146972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 206190432}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1256221138
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256221136}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1256221139
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256221136}
+  m_Mesh: {fileID: -6481565430382316653, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &1259518472
 GameObject:
   m_ObjectHideFlags: 0
@@ -42167,6 +43286,89 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295920331}
   m_CullTransparentMesh: 1
+--- !u!1 &1297558328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1297558329}
+  - component: {fileID: 1297558331}
+  - component: {fileID: 1297558330}
+  m_Layer: 0
+  m_Name: Chair_Leg_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1297558329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297558328}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.11764068, y: 0.110350415, z: 0.0076709744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 206190432}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1297558330
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297558328}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1297558331
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297558328}
+  m_Mesh: {fileID: -1684582053126022752, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &1303495705
 GameObject:
   m_ObjectHideFlags: 0
@@ -44853,7 +46055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 35.73, y: 0, z: 0.349}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5425732, y: 6.7321806}
+  m_AnchoredPosition: {x: 21.21, y: 6.7321806}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1410498323
@@ -45134,6 +46336,38 @@ Transform:
   - {fileID: 2859477371161610189}
   m_Father: {fileID: 1058430790}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1423569118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1423569119}
+  m_Layer: 0
+  m_Name: Dinning_Chair_Day2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1423569119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423569118}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 654473459}
+  m_Father: {fileID: 1536779378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1427785131
 GameObject:
   m_ObjectHideFlags: 0
@@ -45274,7 +46508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1429948315
 Transform:
   m_ObjectHideFlags: 0
@@ -45284,7 +46518,7 @@ Transform:
   m_GameObject: {fileID: 1429948314}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0.10594821, y: -0.14832163, z: 0.31710052}
+  m_LocalPosition: {x: 0.10594821, y: -0.14832163, z: -0.577}
   m_LocalScale: {x: 34.089478, y: 34.08947, z: 34.08947}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45817,6 +47051,38 @@ MonoBehaviour:
   currentPostContent: {fileID: 883923001}
   currentPostPhoto: {fileID: 1160108281}
   postLoader: {fileID: 0}
+--- !u!1 &1455335253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1455335254}
+  m_Layer: 0
+  m_Name: Dinning_Chair_Day3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1455335254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455335253}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 681737114}
+  m_Father: {fileID: 1536779378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1456575348
 GameObject:
   m_ObjectHideFlags: 0
@@ -47402,6 +48668,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535562998}
   m_CullTransparentMesh: 1
+--- !u!1 &1536779377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1536779378}
+  m_Layer: 0
+  m_Name: Built_Furniture
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1536779378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536779377}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.0855284, y: -2.3973522, z: -60.9383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1606575570}
+  - {fileID: 1148435673}
+  - {fileID: 1423569119}
+  - {fileID: 1455335254}
+  - {fileID: 393317229}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1540248700
 GameObject:
   m_ObjectHideFlags: 0
@@ -47972,6 +49274,22 @@ MonoBehaviour:
   bedRoomLampRotation: {x: 0, y: 0, z: 0}
   bedRoomLampPrefab: {fileID: 5865719066158118188, guid: 21d1fb1165d33174c838ddd186650d29, type: 3}
   TranslucentBedRoomLamp: {fileID: 843310337}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
 --- !u!65 &1556781369
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48671,6 +49989,121 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603283298}
   m_Mesh: {fileID: -7335755079508183853, guid: 8cd54236b9563994ea5c316f6bf1f41c, type: 3}
+--- !u!1 &1606063019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1606063020}
+  - component: {fileID: 1606063022}
+  - component: {fileID: 1606063021}
+  m_Layer: 0
+  m_Name: Chair_Leg_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1606063020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606063019}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.11764068, y: 0.110350415, z: 0.0076709744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 681737114}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1606063021
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606063019}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1606063022
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606063019}
+  m_Mesh: {fileID: -1684582053126022752, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
+--- !u!1 &1606575569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1606575570}
+  m_Layer: 0
+  m_Name: Dinning_Table
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1606575570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606575569}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2782740656774290936}
+  m_Father: {fileID: 1536779378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1613078636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53111,7 +54544,7 @@ MonoBehaviour:
   mainCamera: {fileID: 963194225}
   miniGameCamDrill: {fileID: 1918765102}
   miniGameCamTable: {fileID: 1565027436}
-  builtChair: {fileID: 3740343675297963895, guid: 203fc38dfd614b74f83b17e61a2637d2, type: 3}
+  builtChair: {fileID: 8122945108771623249, guid: b5e48d8e94a73c64587d263fb65cfc0e, type: 3}
   isGameStarting:
     m_PersistentCalls:
       m_Calls: []
@@ -53199,6 +54632,10 @@ MonoBehaviour:
   lampObject: {fileID: 5865719066158118188, guid: 21d1fb1165d33174c838ddd186650d29, type: 3}
   lampLRTranslucent: {fileID: 6623740763591652018}
   lampBRTranslucent: {fileID: 1556781366}
+  diningChairTranslucent: {fileID: 1148435672}
+  diningChair2Translucent: {fileID: 1423569118}
+  diningChair3Translucent: {fileID: 1455335253}
+  diningChair4Translucent: {fileID: 393317228}
 --- !u!114 &1790319706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54986,6 +56423,89 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1366136583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1904150055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1904150056}
+  - component: {fileID: 1904150058}
+  - component: {fileID: 1904150057}
+  m_Layer: 0
+  m_Name: Chair_Leg_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1904150056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904150055}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11764007, y: 0.1103504, z: 0.0076710507}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 681737114}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1904150057
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904150055}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1904150058
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904150055}
+  m_Mesh: {fileID: 4719177768313787800, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &1907047684
 GameObject:
   m_ObjectHideFlags: 0
@@ -55470,6 +56990,22 @@ MonoBehaviour:
   bedRoomLampRotation: {x: 0, y: 0, z: 0}
   bedRoomLampPrefab: {fileID: 0}
   TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
 --- !u!65 &1926033408
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -57572,6 +59108,89 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 505483681153999527, guid: c97475669dc1a654e99345298238c64d, type: 3}
   m_PrefabInstance: {fileID: 1947879433}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2040404753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2040404754}
+  - component: {fileID: 2040404756}
+  - component: {fileID: 2040404755}
+  m_Layer: 0
+  m_Name: Chair_Leg_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2040404754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040404753}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11764007, y: 0.1103504, z: 0.0076710507}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 206190432}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &2040404755
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040404753}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2040404756
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040404753}
+  m_Mesh: {fileID: 4719177768313787800, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &2041796053
 GameObject:
   m_ObjectHideFlags: 0
@@ -59897,13 +61516,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139646501}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -11.335, y: -6.129222, z: -29.91}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -12.06, y: -6.129222, z: -29.35}
   m_LocalScale: {x: 3.6478844, y: 0.05906377, z: 2.2266428}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 367606660}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!54 &2139646506
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -60651,6 +62270,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &252359757908578432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 425467335260981082}
+  - component: {fileID: 8628413210363146046}
+  - component: {fileID: 3937152920110479457}
+  m_Layer: 0
+  m_Name: Chair_Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &274422481383113623
 GameObject:
   m_ObjectHideFlags: 0
@@ -60670,6 +62307,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!4 &412068222959444903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8139072821859759388}
+  serializedVersion: 2
+  m_LocalRotation: {x: -9.094947e-15, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00000030517577, y: 0.000000009728533, z: -0.000000008263}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2782740656774290936}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &425467335260981082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252359757908578432}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.6261743, z: 0.13784888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4003585317340963694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &443903908300702594
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60938,6 +62605,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &759736277710512139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096879531845583413}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.6261743, z: 0.13784888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8764406416677075767}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &775463111715115916
 RectTransform:
   m_ObjectHideFlags: 0
@@ -60995,6 +62677,24 @@ Transform:
   - {fileID: 1036620910}
   m_Father: {fileID: 399596232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &893292828836593693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9008543075997126547}
+  - component: {fileID: 3163170295332058023}
+  - component: {fileID: 8987836986059446780}
+  m_Layer: 0
+  m_Name: Chair_Leg_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &919132147488388782
 GameObject:
   m_ObjectHideFlags: 0
@@ -61138,6 +62838,24 @@ GameObject:
   - component: {fileID: 443903908300702594}
   m_Layer: 0
   m_Name: Sofa_Cushion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1058830411759440922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5113460150442932963}
+  - component: {fileID: 4061316626296397825}
+  - component: {fileID: 2356739566876186907}
+  m_Layer: 0
+  m_Name: Table_T-Leg_1.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61428,6 +63146,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &1834097933749320777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8122945110734328249}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.401, y: 0.695, z: -58.603718}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4003585317340963694}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1862651458665970797
 GameObject:
   m_ObjectHideFlags: 0
@@ -61476,6 +63210,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 836078303302256465}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1879242188151246583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430777061327815716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11764007, y: 0.1103504, z: 0.0076710507}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8764406416677075767}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1917983209335670981
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096879531845583413}
+  m_Mesh: {fileID: -4062763986392842948, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &1948624815444904295
 GameObject:
   m_ObjectHideFlags: 0
@@ -61544,6 +63301,22 @@ MonoBehaviour:
   bedRoomLampRotation: {x: 0, y: 0, z: 0}
   bedRoomLampPrefab: {fileID: 0}
   TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
 --- !u!65 &1948624815444904297
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61659,6 +63432,22 @@ MonoBehaviour:
   bedRoomLampRotation: {x: 0, y: 0, z: 0}
   bedRoomLampPrefab: {fileID: 0}
   TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
 --- !u!65 &2103087591742744773
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61734,6 +63523,91 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6946830126014889172}
   m_Mesh: {fileID: -8400479469389668488, guid: e493475c1cd2bd142b7062cc46099e4f, type: 3}
+--- !u!23 &2356739566876186907
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058830411759440922}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!23 &2365009621405387613
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5620957240952367627}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2380049317939857783
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -61750,6 +63624,14 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5844259600251040696}
   m_Mesh: {fileID: -6972350233998309878, guid: 573e948b3d62dc34f8791e948a12dd74, type: 3}
+--- !u!33 &2390514737122404406
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8139072821859759388}
+  m_Mesh: {fileID: 3491858155134451472, guid: c5e7b1ebcde078b47bd58bd1673c8141, type: 3}
 --- !u!1 &2402936790663478313
 GameObject:
   m_ObjectHideFlags: 0
@@ -61771,6 +63653,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &2418209174482158414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073725218641397790}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.11764068, y: 0.110350415, z: 0.0076709744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4003585317340963694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2435725085076022667
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5620957240952367627}
+  m_Mesh: {fileID: -3545755463510122382, guid: c5e7b1ebcde078b47bd58bd1673c8141, type: 3}
 --- !u!4 &2455665881008933461
 Transform:
   m_ObjectHideFlags: 0
@@ -61922,6 +63827,24 @@ Transform:
   - {fileID: 646426727699338522}
   m_Father: {fileID: 1732479048}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &2739901238818936328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4003585317340963694}
+  - component: {fileID: 4587646679597436594}
+  - component: {fileID: 8798623357588679213}
+  m_Layer: 0
+  m_Name: MP_Chair
+  m_TagString: DraggableDiningChair
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &2754765140986634272
 Transform:
   m_ObjectHideFlags: 0
@@ -61936,6 +63859,24 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 102246780}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2782740656774290936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3302712265821767490}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000081460335, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.83752847, y: 2.4637065, z: -0.271698}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5113460150442932963}
+  - {fileID: 412068222959444903}
+  - {fileID: 8168169805884005972}
+  m_Father: {fileID: 1606575570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2859477371161610189
 Transform:
@@ -62042,7 +63983,7 @@ Transform:
   m_GameObject: {fileID: 2402936790663478313}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0.093, y: -4.3649397, z: 1.593}
+  m_LocalPosition: {x: -1.07, y: -4.3649397, z: 2.314}
   m_LocalScale: {x: 34.08946, y: 34.08946, z: 34.08946}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62185,6 +64126,14 @@ MonoBehaviour:
   kitchenWindow: {fileID: 0}
   bedRoomWindow: {fileID: 0}
   windowClosedCount: 0
+--- !u!33 &3163170295332058023
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893292828836593693}
+  m_Mesh: {fileID: -1684582053126022752, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &3235052553581059447
 GameObject:
   m_ObjectHideFlags: 0
@@ -62253,6 +64202,22 @@ MonoBehaviour:
   bedRoomLampRotation: {x: 0, y: 0, z: 0}
   bedRoomLampPrefab: {fileID: 0}
   TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
 --- !u!65 &3235052553581059449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62274,6 +64239,48 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &3257609784593564895
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6385272382520599757}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &3260616448705870963
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -62298,6 +64305,111 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8840808434053217027}
   m_Mesh: {fileID: -6973368508045868708, guid: 8557bb7c79407514bb770315f4cb3f95, type: 3}
+--- !u!1 &3302712265821767490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2782740656774290936}
+  - component: {fileID: 3302712265821767492}
+  - component: {fileID: 3302712265821767491}
+  m_Layer: 0
+  m_Name: MP_Dinning_Table(Day5)
+  m_TagString: SnapPosition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &3302712265821767491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3302712265821767490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e201ec55b082f234b896367629daee98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingFurniture: {fileID: 0}
+  disableObjectRender: {fileID: 0}
+  objectTag: 
+  prefabRotation: {x: 90, y: 0, z: 181}
+  prefabPosition: {x: 3.636, y: 0.79, z: -58.5}
+  cupBoardPrefab: {fileID: 0}
+  mirrorPrefabRotation: {x: 0, y: 0, z: 0}
+  mirrorPrefabPosition: {x: 0, y: 0, z: 0}
+  mirrorPrefab: {fileID: 0}
+  barStoolPrefabPosition: {x: 0, y: 0, z: 0}
+  barStoolPrefabRotation: {x: 0, y: 0, z: 0}
+  barStoolPrefab1: {fileID: 0}
+  barStoolTranslucent: {fileID: 0}
+  barStoolTranslucent2: {fileID: 0}
+  tvTablePrefabPosition: {x: 0, y: 0, z: 0}
+  tvTablePrefabRotation: {x: 0, y: 0, z: 0}
+  tvTablePrefab: {fileID: 0}
+  translucentTVSet: {fileID: 0}
+  studyTablePrefabPosition: {x: 0, y: 0, z: 0}
+  studyTablePrefabRotation: {x: 0, y: 0, z: 0}
+  studyTablePrefab: {fileID: 0}
+  translucentStudyTable: {fileID: 0}
+  officeChairPrefabPosition: {x: 0, y: 0, z: 0}
+  officeChairPrefabRotation: {x: 0, y: 0, z: 0}
+  officeChairPrefab: {fileID: 0}
+  translucentOfiiceChair: {fileID: 0}
+  sofaPrefabPosition: {x: 0, y: 0, z: 0}
+  sofaPrefabRotation: {x: 0, y: 0, z: 0}
+  sofaPrefab: {fileID: 0}
+  TranslucentSofa: {fileID: 0}
+  lampPrefabPosition: {x: 0, y: 0, z: 0}
+  lampPrefabRotation: {x: 0, y: 0, z: 0}
+  lampPrefab: {fileID: 0}
+  TranslucentLamp: {fileID: 0}
+  bedRoomLampPosition: {x: 0, y: 0, z: 0}
+  bedRoomLampRotation: {x: 0, y: 0, z: 0}
+  bedRoomLampPrefab: {fileID: 0}
+  TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
+--- !u!65 &3302712265821767492
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3302712265821767490}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6841478, y: 0.8287238, z: 1}
+  m_Center: {x: 0.007422298, y: 0.36226243, z: -9.14788e-16}
 --- !u!1 &3355815195040813732
 GameObject:
   m_ObjectHideFlags: 0
@@ -62401,6 +64513,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1613550533357597305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3578373070593465883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7000332571355401097}
+  - component: {fileID: 7105620937303968214}
+  - component: {fileID: 4723496815712277288}
+  m_Layer: 0
+  m_Name: Chair_Seat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &3624256168741523817
 GameObject:
   m_ObjectHideFlags: 0
@@ -62434,6 +64564,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2859477371161610189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3650788804517276099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5317121045857441726}
+  - component: {fileID: 7562451464995250470}
+  - component: {fileID: 6904340579843453262}
+  m_Layer: 0
+  m_Name: Chair_Leg_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!222 &3667523114960454646
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -62547,6 +64695,49 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!23 &3937152920110479457
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252359757908578432}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2764913909342112230, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
+  - {fileID: 2295699958525706655, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3993512258430149359
 GameObject:
   m_ObjectHideFlags: 0
@@ -62565,6 +64756,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4003585317340963694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2739901238818936328}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2945896, y: -0.571, z: 0.5174217}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 425467335260981082}
+  - {fileID: 2418209174482158414}
+  - {fileID: 5317121045857441726}
+  - {fileID: 7000332571355401097}
+  m_Father: {fileID: 1834097933749320777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4061316626296397825
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058830411759440922}
+  m_Mesh: {fileID: 4342391426930381121, guid: c5e7b1ebcde078b47bd58bd1673c8141, type: 3}
 --- !u!4 &4083501151357328990
 Transform:
   m_ObjectHideFlags: 0
@@ -62910,6 +65128,22 @@ MonoBehaviour:
   bedRoomLampRotation: {x: 0, y: 0, z: 0}
   bedRoomLampPrefab: {fileID: 0}
   TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
 --- !u!1 &4306174159518398954
 GameObject:
   m_ObjectHideFlags: 0
@@ -63128,6 +65362,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8094067027682237080}
   m_Mesh: {fileID: 8606403735971086005, guid: 3414237b399ea0641ab669e00ac0a568, type: 3}
+--- !u!65 &4587646679597436594
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2739901238818936328}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.39734662, y: 0.7374052, z: 0.40860686}
+  m_Center: {x: -0.0042460747, y: 0.357529, z: 0.007010263}
 --- !u!4 &4723310008363656931
 Transform:
   m_ObjectHideFlags: 0
@@ -63143,6 +65398,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450653486201244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &4723496815712277288
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578373070593465883}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2764913909342112230, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &4815278204629289976
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63318,6 +65615,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652011899924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5105661202332028314
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430777061327815716}
+  m_Mesh: {fileID: 4719177768313787800, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!33 &5110784637580695903
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -63326,6 +65631,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7244490300905150775}
   m_Mesh: {fileID: 7909512210802452705, guid: 573e948b3d62dc34f8791e948a12dd74, type: 3}
+--- !u!4 &5113460150442932963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058830411759440922}
+  serializedVersion: 2
+  m_LocalRotation: {x: -9.094947e-15, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00000030517577, y: 0.000000009728533, z: -0.000000008263}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2782740656774290936}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5233909762246897275
 GameObject:
   m_ObjectHideFlags: 0
@@ -63363,6 +65683,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &5317121045857441726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3650788804517276099}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11764007, y: 0.1103504, z: 0.0076710507}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4003585317340963694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5346912075575363431
 Transform:
   m_ObjectHideFlags: 0
@@ -63378,6 +65713,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450651991607501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5430777061327815716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1879242188151246583}
+  - component: {fileID: 5105661202332028314}
+  - component: {fileID: 6605226019834911047}
+  m_Layer: 0
+  m_Name: Chair_Leg_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &5436504807836291396
 GameObject:
   m_ObjectHideFlags: 0
@@ -63509,6 +65862,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1613550533357597305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5620957240952367627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8168169805884005972}
+  - component: {fileID: 2435725085076022667}
+  - component: {fileID: 2365009621405387613}
+  m_Layer: 0
+  m_Name: Table_Top.001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!33 &5623720485083918590
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -63954,6 +66325,40 @@ MonoBehaviour:
   bedRoomLampRotation: {x: 0, y: 0, z: 0}
   bedRoomLampPrefab: {fileID: 0}
   TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
+--- !u!1 &6385272382520599757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8718315304733152054}
+  - component: {fileID: 7865236757661085391}
+  - component: {fileID: 3257609784593564895}
+  m_Layer: 0
+  m_Name: Chair_Seat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!33 &6404256550929650145
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -64102,6 +66507,22 @@ MonoBehaviour:
   bedRoomLampRotation: {x: 0, y: 0, z: 0}
   bedRoomLampPrefab: {fileID: 0}
   TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
 --- !u!23 &6512945969421551924
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64217,6 +66638,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1613550533357597305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &6605226019834911047
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430777061327815716}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6617610771763622338
 GameObject:
   m_ObjectHideFlags: 0
@@ -64318,12 +66781,28 @@ MonoBehaviour:
   TranslucentSofa: {fileID: 0}
   lampPrefabPosition: {x: 1.431, y: 0.79, z: -58.666}
   lampPrefabRotation: {x: 0, y: 0, z: 0}
-  lampPrefab: {fileID: 5865719066158118188, guid: 21d1fb1165d33174c838ddd186650d29, type: 3}
+  lampPrefab: {fileID: 5865719066158118188, guid: f66af2f94bcd4944b8b98bb8a368fc99, type: 3}
   TranslucentLamp: {fileID: 912561608}
   bedRoomLampPosition: {x: 0, y: 0, z: 0}
   bedRoomLampRotation: {x: 0, y: 0, z: 0}
   bedRoomLampPrefab: {fileID: 0}
   TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
 --- !u!23 &6650045301060489600
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64428,6 +66907,48 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5237506310918889662}
   m_Mesh: {fileID: 8312551830910715713, guid: 8cd54236b9563994ea5c316f6bf1f41c, type: 3}
+--- !u!23 &6904340579843453262
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3650788804517276099}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2295699958525706655, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6944210146045516754
 GameObject:
   m_ObjectHideFlags: 0
@@ -64547,6 +67068,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5809225157199556090}
   m_Mesh: {fileID: -2949497129853200921, guid: 1026eef66e91ac44ab49ebef2078f2ff, type: 3}
+--- !u!4 &7000332571355401097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578373070593465883}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.32138282, z: 0.000000038146972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4003585317340963694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7021654518416477443
 GameObject:
   m_ObjectHideFlags: 0
@@ -64622,6 +67158,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2859477371161610189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7105620937303968214
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578373070593465883}
+  m_Mesh: {fileID: -6481565430382316653, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!4 &7164167075943943434
 Transform:
   m_ObjectHideFlags: 0
@@ -64873,6 +67417,22 @@ MonoBehaviour:
   bedRoomLampRotation: {x: 0, y: 0, z: 0}
   bedRoomLampPrefab: {fileID: 0}
   TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 0, y: 0, z: 0}
+  diningChair1Rota: {x: 0, y: 0, z: 0}
+  diningChair1Prefab: {fileID: 0}
+  TranslucentDc1Prefab: {fileID: 0}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
 --- !u!65 &7443847503348034334
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64909,6 +67469,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652011899924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7562451464995250470
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3650788804517276099}
+  m_Mesh: {fileID: 4719177768313787800, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!114 &7565215745276000206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65020,8 +67588,9 @@ MonoBehaviour:
   quietTimePhase: {fileID: 8300000, guid: 9eecdf1b186312d4f922bb530c14e0e3, type: 3}
   firstDay: {fileID: 102246779}
   secondDay: {fileID: 255005995}
-  thirdDay: {fileID: 0}
-  fourthDay: {fileID: 0}
+  thirdDay: {fileID: 2013019745}
+  fourthDay: {fileID: 1058430789}
+  fifthDay: {fileID: 1645565273}
   imageObject: {fileID: 6283181}
   loadingImages: []
   hakiimImage: {fileID: 21300000, guid: 4e8d31432135eff42b8f2e4735bf6bda, type: 3}
@@ -65603,6 +68172,14 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6617610771763622338}
   m_Mesh: {fileID: -1851498359879192620, guid: 1a8abf1624fd2fe47bf4b5e34b4db5a0, type: 3}
+--- !u!33 &7865236757661085391
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6385272382520599757}
+  m_Mesh: {fileID: -6481565430382316653, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!23 &7924434423228774318
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65704,6 +68281,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450653228818456}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &8012019245489685985
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096879531845583413}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &8033744866905235968
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65848,6 +68468,98 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!23 &8122016796010011965
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8139072821859759388}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8122945110734328249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1834097933749320777}
+  m_Layer: 0
+  m_Name: MP_Draggable_Dinning_Chair(Testing Chair)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &8139072821859759388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412068222959444903}
+  - component: {fileID: 2390514737122404406}
+  - component: {fileID: 8122016796010011965}
+  m_Layer: 0
+  m_Name: Table_T-Leg_2.001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8168169805884005972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5620957240952367627}
+  serializedVersion: 2
+  m_LocalRotation: {x: -9.094947e-15, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00000030517577, y: 0.000000009728533, z: -0.000000008263}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2782740656774290936}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8184551884063710854
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -65856,6 +68568,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3688723648831570179}
   m_Mesh: {fileID: 6212965769586725468, guid: b77ff9e29876bf14b814d203ffe8a858, type: 3}
+--- !u!1 &8280639358281752973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8764406416677075767}
+  - component: {fileID: 8764406416677075769}
+  - component: {fileID: 8764406416677075768}
+  m_Layer: 0
+  m_Name: MP_Dinning_Chair(Day1)
+  m_TagString: SnapPosition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &8362196299238486176
 GameObject:
   m_ObjectHideFlags: 0
@@ -66060,6 +68790,56 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!23 &8565623200393922893
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073725218641397790}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2295699958525706655, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &8628413210363146046
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252359757908578432}
+  m_Mesh: {fileID: -4062763986392842948, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1 &8696841388232179359
 GameObject:
   m_ObjectHideFlags: 0
@@ -66097,6 +68877,154 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &8718315304733152054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6385272382520599757}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.32138282, z: 0.000000038146972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8764406416677075767}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &8764406416677075767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280639358281752973}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -1.0755284, y: 2.4753523, z: -0.73270035}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 759736277710512139}
+  - {fileID: 9008543075997126547}
+  - {fileID: 1879242188151246583}
+  - {fileID: 8718315304733152054}
+  m_Father: {fileID: 1148435673}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &8764406416677075768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280639358281752973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e201ec55b082f234b896367629daee98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingFurniture: {fileID: 1790319705}
+  disableObjectRender: {fileID: 0}
+  objectTag: 
+  prefabRotation: {x: 90, y: 0, z: 181}
+  prefabPosition: {x: 3.636, y: 0.79, z: -58.5}
+  cupBoardPrefab: {fileID: 0}
+  mirrorPrefabRotation: {x: 0, y: 0, z: 0}
+  mirrorPrefabPosition: {x: 0, y: 0, z: 0}
+  mirrorPrefab: {fileID: 0}
+  barStoolPrefabPosition: {x: 0, y: 0, z: 0}
+  barStoolPrefabRotation: {x: 0, y: 0, z: 0}
+  barStoolPrefab1: {fileID: 0}
+  barStoolTranslucent: {fileID: 0}
+  barStoolTranslucent2: {fileID: 0}
+  tvTablePrefabPosition: {x: 0, y: 0, z: 0}
+  tvTablePrefabRotation: {x: 0, y: 0, z: 0}
+  tvTablePrefab: {fileID: 0}
+  translucentTVSet: {fileID: 0}
+  studyTablePrefabPosition: {x: 0, y: 0, z: 0}
+  studyTablePrefabRotation: {x: 0, y: 0, z: 0}
+  studyTablePrefab: {fileID: 0}
+  translucentStudyTable: {fileID: 0}
+  officeChairPrefabPosition: {x: 0, y: 0, z: 0}
+  officeChairPrefabRotation: {x: 0, y: 0, z: 0}
+  officeChairPrefab: {fileID: 0}
+  translucentOfiiceChair: {fileID: 0}
+  sofaPrefabPosition: {x: 0, y: 0, z: 0}
+  sofaPrefabRotation: {x: 0, y: 0, z: 0}
+  sofaPrefab: {fileID: 0}
+  TranslucentSofa: {fileID: 0}
+  lampPrefabPosition: {x: 0, y: 0, z: 0}
+  lampPrefabRotation: {x: 0, y: 0, z: 0}
+  lampPrefab: {fileID: 0}
+  TranslucentLamp: {fileID: 0}
+  bedRoomLampPosition: {x: 0, y: 0, z: 0}
+  bedRoomLampRotation: {x: 0, y: 0, z: 0}
+  bedRoomLampPrefab: {fileID: 0}
+  TranslucentBedRoomLamp: {fileID: 0}
+  diningChair1Pos: {x: 2.006, y: 0.088, z: -61.672}
+  diningChair1Rota: {x: 0, y: 180, z: 0}
+  diningChair1Prefab: {fileID: 8423500048506644205, guid: 2292a39b9be65864683730c445bc1849, type: 3}
+  TranslucentDc1Prefab: {fileID: 8280639358281752973}
+  diningChair2Pos: {x: 0, y: 0, z: 0}
+  diningChair2Rota: {x: 0, y: 0, z: 0}
+  diningChair2Prefab: {fileID: 0}
+  TranslucentDc2Prefab: {fileID: 0}
+  diningChair3Pos: {x: 0, y: 0, z: 0}
+  diningChair3Rota: {x: 0, y: 0, z: 0}
+  diningChair3Prefab: {fileID: 0}
+  TranslucentDc3Prefab: {fileID: 0}
+  diningChair4Pos: {x: 0, y: 0, z: 0}
+  diningChair4Rota: {x: 0, y: 0, z: 0}
+  diningChair4Prefab: {fileID: 0}
+  TranslucentDc4Prefab: {fileID: 0}
+--- !u!65 &8764406416677075769
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280639358281752973}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6415434, y: 0.6898999, z: 0.49227524}
+  m_Center: {x: -0.014676288, y: 0.3499154, z: -0.00797081}
+--- !u!54 &8798623357588679213
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2739901238818936328}
+  serializedVersion: 4
+  m_Mass: 4
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &8801816820651728400
 Transform:
   m_ObjectHideFlags: 0
@@ -66178,6 +69106,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5436504807836291396}
   m_Mesh: {fileID: 3156789233897332337, guid: 3414237b399ea0641ab669e00ac0a568, type: 3}
+--- !u!23 &8987836986059446780
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893292828836593693}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9376fc7f0fd37f7479a92428da3b4768, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &9008543075997126547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893292828836593693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.11764068, y: 0.110350415, z: 0.0076709744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8764406416677075767}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9013834580178833300
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -66247,6 +69232,42 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &9073725218641397790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2418209174482158414}
+  - component: {fileID: 9198165727875418604}
+  - component: {fileID: 8565623200393922893}
+  m_Layer: 0
+  m_Name: Chair_Leg_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &9096879531845583413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759736277710512139}
+  - component: {fileID: 1917983209335670981}
+  - component: {fileID: 8012019245489685985}
+  m_Layer: 0
+  m_Name: Chair_Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &9100569467576662730
 GameObject:
   m_ObjectHideFlags: 0
@@ -66280,6 +69301,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7443847503348034332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &9198165727875418604
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073725218641397790}
+  m_Mesh: {fileID: -1684582053126022752, guid: 6d53481249c8e8f40876ed63b891e74a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -66324,3 +69353,5 @@ SceneRoots:
   - {fileID: 164995790}
   - {fileID: 2014894040}
   - {fileID: 1409131349}
+  - {fileID: 1536779378}
+  - {fileID: 1834097933749320777}

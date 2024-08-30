@@ -41,6 +41,10 @@ TagManager:
   - DraggableSofa
   - DraggableLRLamp
   - DraggableBRLamp
+  - DraggableDiningChair
+  - DraggableDC2
+  - DraggableDC3
+  - DraggableDC4
   layers:
   - Default
   - TransparentFX

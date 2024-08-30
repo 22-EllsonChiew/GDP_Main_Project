@@ -63,23 +63,19 @@ public class MovingFurniture : MonoBehaviour
     public GameObject lampLRTranslucent;
     public GameObject lampBRTranslucent;
 
+    [Header("Dining Chair")]
+    public GameObject diningChairTranslucent;
+    public GameObject diningChair2Translucent;
+    public GameObject diningChair3Translucent;
+    public GameObject diningChair4Translucent;
+
 
     private void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
         //snapCollider.prefabPosition.y -= 2f;
 
-        /*cupBoardTranslucent.SetActive(false);
-        mirrorTranslucnet.SetActive(false);
-        barStoolTranslucent.SetActive(false);
-        tvSetTranslucent.SetActive(false);
-        studyTableTranslucent.SetActive(false);
-        barStoolTranslucent2.SetActive(false);
-        officeChairTranslucent.SetActive(false);
-        sofaTranslucent.SetActive(false);
-        lampBRTranslucent.SetActive(false);
-        lampLRTranslucent.SetActive(false);*/
-
+        
         TranslucentObject();
 
     }
@@ -98,7 +94,8 @@ public class MovingFurniture : MonoBehaviour
 
     private readonly HashSet<string> draggingTags = new HashSet<string>
     {
-        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa", "DraggableLRLamp", "DraggableBRLamp"
+        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa", "DraggableLRLamp", "DraggableBRLamp", "DraggableDiningChair",
+        "DraggableDC2", "DraggableDC3", "DraggableDC4"
     };
 
     void CheckForDraggableObject()
@@ -344,6 +341,18 @@ public class MovingFurniture : MonoBehaviour
                 case "DraggableBRLamp":
                     lampBRTranslucent.SetActive(true);
                     break;
+                case "DraggableDiningChair":
+                    diningChairTranslucent.SetActive(true);
+                    break;
+                case "DraggableDC2":
+                    diningChair2Translucent.SetActive(true);
+                    break;
+                case "DraggableDC3":
+                    diningChair3Translucent.SetActive(true);
+                    break;
+                case "DraggableDC4":
+                    diningChair4Translucent.SetActive(true);
+                    break;
 
             }
         }
@@ -361,6 +370,10 @@ public class MovingFurniture : MonoBehaviour
         sofaTranslucent.SetActive(false);
         lampBRTranslucent.SetActive(false);
         lampLRTranslucent.SetActive(false);
+        diningChairTranslucent.SetActive(false);
+        diningChair2Translucent.SetActive(false);
+        diningChair3Translucent.SetActive(false);
+        diningChair4Translucent.SetActive(false);
     }
     
     void SnapPosition()

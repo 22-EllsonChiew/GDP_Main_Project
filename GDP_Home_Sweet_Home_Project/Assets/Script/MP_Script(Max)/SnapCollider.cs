@@ -66,6 +66,30 @@ public class SnapCollider : MonoBehaviour
     public Vector3 bedRoomLampRotation = new Vector3(0, 0, 0);
     public GameObject bedRoomLampPrefab;
     public GameObject TranslucentBedRoomLamp;
+
+    [Header("Dining Chair 1")]
+    public Vector3 diningChair1Pos = new Vector3(0, 0, 0);
+    public Vector3 diningChair1Rota = new Vector3(0, 0, 0);
+    public GameObject diningChair1Prefab;
+    public GameObject TranslucentDc1Prefab;
+
+    [Header("Dining Chair 2")]
+    public Vector3 diningChair2Pos = new Vector3(0, 0, 0);
+    public Vector3 diningChair2Rota = new Vector3(0, 0, 0);
+    public GameObject diningChair2Prefab;
+    public GameObject TranslucentDc2Prefab;
+
+    [Header("Dining Chair 3")]
+    public Vector3 diningChair3Pos = new Vector3(0, 0, 0);
+    public Vector3 diningChair3Rota = new Vector3(0, 0, 0);
+    public GameObject diningChair3Prefab;
+    public GameObject TranslucentDc3Prefab;
+
+    [Header("Dining Chair 4")]
+    public Vector3 diningChair4Pos = new Vector3(0, 0, 0);
+    public Vector3 diningChair4Rota = new Vector3(0, 0, 0);
+    public GameObject diningChair4Prefab;
+    public GameObject TranslucentDc4Prefab;
     private void Start()
     {
         snapCollider = GetComponent<Collider>();
@@ -85,7 +109,8 @@ public class SnapCollider : MonoBehaviour
 
     private readonly HashSet<string> draggingTags = new HashSet<string>
     {
-        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa", "DraggableLRLamp", "DraggableBRLamp"
+        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa", "DraggableLRLamp", "DraggableBRLamp", "DraggableDiningChair",
+        "DraggableDC2", "DraggableDC3", "DraggableDC4"
      };
 
     private void OnTriggerStay(Collider other)
@@ -225,7 +250,30 @@ public class SnapCollider : MonoBehaviour
                 Quaternion BRLampQuaternion = Quaternion.Euler(bedRoomLampRotation);
                 GameObject BRLampPrebuilt = Instantiate(bedRoomLampPrefab, bedRoomLampPosition, BRLampQuaternion);
                 break;
-
+            case "DraggableDiningChair":
+                other.gameObject.SetActive(false);
+                TranslucentDc1Prefab.SetActive(false);
+                Quaternion DC1PrefabQua = Quaternion.Euler(diningChair1Rota);
+                GameObject DC1Prebuilt = Instantiate(diningChair1Prefab, diningChair1Pos, DC1PrefabQua);
+                break;
+            case "DraggableDC2":
+                other.gameObject.SetActive(false);
+                TranslucentDc2Prefab.SetActive(false);
+                Quaternion DC2PrefabQua = Quaternion.Euler(diningChair2Rota);
+                GameObject DC2Prebuilt = Instantiate(diningChair2Prefab, diningChair2Pos, DC2PrefabQua);
+                break;
+            case "DraggableDC3":
+                other.gameObject.SetActive(false);
+                TranslucentDc3Prefab.SetActive(false);
+                Quaternion DC3PrefabQua = Quaternion.Euler(diningChair3Rota);
+                GameObject DC3Prebuilt = Instantiate(diningChair3Prefab, diningChair3Pos, DC3PrefabQua);
+                break;
+            case "DraggableDC4":
+                other.gameObject.SetActive(false);
+                TranslucentDc4Prefab.SetActive(false);
+                Quaternion DC4PrefabQua = Quaternion.Euler(diningChair4Rota);
+                GameObject DC4Prebuilt = Instantiate(diningChair4Prefab, diningChair4Pos, DC4PrefabQua);
+                break;
         }
     }
 }
