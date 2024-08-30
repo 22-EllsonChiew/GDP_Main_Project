@@ -88,12 +88,13 @@ public class ChairMiniGame : MonoBehaviour
                     //if there is another child object with tag "SnapPosition", destroy that object
                     foreach (Transform child in parentObject.transform)
                     {
-                        // Check if the child has the tag "SnapCollider"
+                        //check if the child has the tag "SnapCollider"
                         if (child.CompareTag("SnapPosition"))
                         {
-                            // Destroy the child object
+                            //destroy the child object
                             Destroy(child.gameObject);
-                            break; // Exit the loop after destroying the object
+                            //exit the loop after destroying the object
+                            break; 
                         }
                     }
                     audioSource.PlayOneShot(snapSound);

@@ -16,6 +16,9 @@ public class ShelfMiniGame : MonoBehaviour
     private Vector3 originalPos;
     private Quaternion originalRotation;
 
+    public AudioSource audioSource;
+    public AudioClip snapSound;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -80,6 +83,21 @@ public class ShelfMiniGame : MonoBehaviour
                     transform.position = snapPosition;
                     transform.rotation = Quaternion.identity * Quaternion.Euler(110, 0, 0);
                     transform.SetParent(col.transform);
+                    //can add a check for other children for this object
+                    GameObject parentObject = this.transform.parent.gameObject;
+                    //if there is another child object with tag "SnapPosition", destroy that object
+                    foreach (Transform child in parentObject.transform)
+                    {
+                        //check if the child has the tag "SnapCollider"
+                        if (child.CompareTag("SnapPosition"))
+                        {
+                            //destroy the child object
+                            Destroy(child.gameObject);
+                            //exit the loop after destroying the object
+                            break;
+                        }
+                    }
+                    audioSource.PlayOneShot(snapSound);
                     rb.isKinematic = true;
                     isAttached = true;
                     EnableAllChildren();
