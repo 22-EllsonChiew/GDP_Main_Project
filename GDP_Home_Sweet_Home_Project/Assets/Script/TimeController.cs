@@ -85,6 +85,7 @@ public class TimeController : MonoBehaviour
     [SerializeField] private Sprite dayImage;
     [SerializeField] private Sprite nightImage;
     [SerializeField] private TextMeshProUGUI dayNumber;
+    [SerializeField] private TextMeshProUGUI dayText;
 
     public LoadingScreen loadingScreen;
 
@@ -223,6 +224,7 @@ public class TimeController : MonoBehaviour
         if (currentTimePhase == TimePhase.Morning)
         {
             dayCycleImage.sprite = nightImage;
+            dayText.SetText("Evening");
             StartCoroutine(LoadingScreenSync());
             SetTime(17, 30);
         }
@@ -238,6 +240,7 @@ public class TimeController : MonoBehaviour
 
 
             dayCycleImage.sprite = dayImage;
+            dayText.SetText("Morning");
             StartCoroutine(LoadingScreenSync());
             SetTime(startHour, startMinute);
             CurrentDay++;
