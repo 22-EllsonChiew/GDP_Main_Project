@@ -54,6 +54,18 @@ public class SnapCollider : MonoBehaviour
     public Vector3 sofaPrefabRotation = new Vector3(0, 0, 0);
     public GameObject sofaPrefab;
     public GameObject TranslucentSofa;
+
+    [Header("Living Room Lamp")]
+    public Vector3 lampPrefabPosition = new Vector3(0, 0, 0);
+    public Vector3 lampPrefabRotation = new Vector3(0, 0, 0);
+    public GameObject lampPrefab;
+    public GameObject TranslucentLamp;
+
+    [Header("Bed Room Lamp")]
+    public Vector3 bedRoomLampPosition = new Vector3(0, 0, 0);
+    public Vector3 bedRoomLampRotation = new Vector3(0, 0, 0);
+    public GameObject bedRoomLampPrefab;
+    public GameObject TranslucentBedRoomLamp;
     private void Start()
     {
         snapCollider = GetComponent<Collider>();
@@ -73,7 +85,7 @@ public class SnapCollider : MonoBehaviour
 
     private readonly HashSet<string> draggingTags = new HashSet<string>
     {
-        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa"
+        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa", "DraggableLRLamp", "DraggableBRLamp"
      };
 
     private void OnTriggerStay(Collider other)
@@ -201,8 +213,18 @@ public class SnapCollider : MonoBehaviour
                 Quaternion sofaQuaternion = Quaternion.Euler(sofaPrefabRotation);
                 GameObject sofaPrebuilt = Instantiate(sofaPrefab, sofaPrefabPosition, sofaQuaternion);
                 break;
-
-
+            case "DraggableLRLamp":
+                other.gameObject.SetActive(false);
+                TranslucentLamp.SetActive(false);
+                Quaternion LRLampQuaternion = Quaternion.Euler(lampPrefabRotation);
+                GameObject LRLampPrebuilt = Instantiate(lampPrefab, lampPrefabPosition, LRLampQuaternion);
+                break;
+            case "DraggableBRLamp":
+                other.gameObject.SetActive(false);
+                TranslucentBedRoomLamp.SetActive(false);
+                Quaternion BRLampQuaternion = Quaternion.Euler(bedRoomLampRotation);
+                GameObject BRLampPrebuilt = Instantiate(bedRoomLampPrefab, bedRoomLampPosition, BRLampQuaternion);
+                break;
 
         }
     }

@@ -39,6 +39,8 @@ TagManager:
   - DraggableStudyTable
   - DraggableOfficeChair
   - DraggableSofa
+  - DraggableLRLamp
+  - DraggableBRLamp
   layers:
   - Default
   - TransparentFX

@@ -58,13 +58,18 @@ public class MovingFurniture : MonoBehaviour
     public GameObject sofaObject;
     public GameObject sofaTranslucent;
 
+    [Header("Lamp Gameobject")]
+    public GameObject lampObject;
+    public GameObject lampLRTranslucent;
+    public GameObject lampBRTranslucent;
+
 
     private void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
         //snapCollider.prefabPosition.y -= 2f;
 
-        cupBoardTranslucent.SetActive(false);
+        /*cupBoardTranslucent.SetActive(false);
         mirrorTranslucnet.SetActive(false);
         barStoolTranslucent.SetActive(false);
         tvSetTranslucent.SetActive(false);
@@ -72,6 +77,10 @@ public class MovingFurniture : MonoBehaviour
         barStoolTranslucent2.SetActive(false);
         officeChairTranslucent.SetActive(false);
         sofaTranslucent.SetActive(false);
+        lampBRTranslucent.SetActive(false);
+        lampLRTranslucent.SetActive(false);*/
+
+        TranslucentObject();
 
     }
 
@@ -89,7 +98,7 @@ public class MovingFurniture : MonoBehaviour
 
     private readonly HashSet<string> draggingTags = new HashSet<string>
     {
-        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa"
+        "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa", "DraggableLRLamp", "DraggableBRLamp"
     };
 
     void CheckForDraggableObject()
@@ -329,9 +338,29 @@ public class MovingFurniture : MonoBehaviour
                 case "DraggableSofa":
                     sofaTranslucent.SetActive(true);
                     break;
+                case "DraggableLRLamp":
+                    lampLRTranslucent.SetActive(true);
+                    break;
+                case "DraggableBRLamp":
+                    lampBRTranslucent.SetActive(true);
+                    break;
 
             }
         }
+    }
+
+    private void TranslucentObject()
+    {
+        cupBoardTranslucent.SetActive(false);
+        mirrorTranslucnet.SetActive(false);
+        barStoolTranslucent.SetActive(false);
+        tvSetTranslucent.SetActive(false);
+        studyTableTranslucent.SetActive(false);
+        barStoolTranslucent2.SetActive(false);
+        officeChairTranslucent.SetActive(false);
+        sofaTranslucent.SetActive(false);
+        lampBRTranslucent.SetActive(false);
+        lampLRTranslucent.SetActive(false);
     }
     
     void SnapPosition()
@@ -424,6 +453,12 @@ public class MovingFurniture : MonoBehaviour
                 other.gameObject.SetActive(false);
 
                 GameObject instantiatedSofa = Instantiate(sofaObject, sofaPos, Quaternion.identity);
+            }
+            if(packageData.furnitureType == FurnitureType.Lamp)
+            {
+                Vector3 lampPos = other.transform.position;
+                other.gameObject.SetActive(false);
+                GameObject instantiatedLamp = Instantiate(lampObject, lampPos, Quaternion.identity);
             }
 
             // add other furnitureTypes

@@ -13,7 +13,8 @@ public enum FurnitureType
     Large_Cabinet,
     Study_Table,
     Office_Chair,
-    Sofa
+    Sofa,
+    Lamp
 }
 
 
