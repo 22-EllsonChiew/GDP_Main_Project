@@ -53,6 +53,7 @@ public class Interaction : MonoBehaviour
     public bool tableDrilling = false;
     private float checkRadius = 0.5f;
     public GameObject player;
+    private bool inPackageUI = false;
     private void Start()
     {
         timeSkipUI.SetActive(false);
@@ -111,8 +112,8 @@ public class Interaction : MonoBehaviour
 
         if (confirmedCollider != null) 
         {
-            
 
+            ConfirmButtonClickOnce = true;
             minigameCam.SetActive(true);
             mainCam.SetActive(false);
 
@@ -153,7 +154,9 @@ public class Interaction : MonoBehaviour
 
     private void ExitClicked()
     {
+        Debug.Log("LEAVING PACKAGE UI");
         packageUI.gameObject.SetActive(false);
+        inPackageUI = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -241,8 +244,10 @@ public class Interaction : MonoBehaviour
         {
             if (hitCollider.CompareTag("Object") && Input.GetKey(KeyCode.E))
             {
-                if (!ConfirmButtonClickOnce)
+                if (!ConfirmButtonClickOnce && inPackageUI == false)
                 {
+                    Debug.Log("IN PACKAGE UI");
+                    inPackageUI = true;
                     Package packageData = hitCollider.gameObject.GetComponent<Package>();
 
                     packageUI.gameObject.SetActive(true);
@@ -252,7 +257,6 @@ public class Interaction : MonoBehaviour
 
                     packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(hitCollider));
                     packageUI.exitButton.onClick.AddListener(ExitClicked);
-                    ConfirmButtonClickOnce = true;
                     hammerGame = true;
                 }
             }
