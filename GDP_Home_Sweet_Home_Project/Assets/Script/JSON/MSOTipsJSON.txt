@@ -13,7 +13,13 @@
          "Message": "Use a carpet or exercise mats if you are doing DIY project on your floor."
       },
       {
-         "Message": "Be mindful of the quiet hours as the quiet hours are observed from 10.30pm to 7am "
+         "Message": "Be mindful of the quiet hours as the quiet hours are observed from 10.30pm to 7am."
+      },
+      {
+         "Message": "Use items to soundproof the room or absorb the noise where the renovation is taking place."
+      },
+      {
+         "Message": "Close your windows and doors to prevent noise from affecting others."
       }
    ]
 }
