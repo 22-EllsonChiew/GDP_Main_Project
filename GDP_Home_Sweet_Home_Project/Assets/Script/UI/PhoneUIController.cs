@@ -75,6 +75,11 @@ public class PhoneUIController : MonoBehaviour
     [SerializeField]
     private GameObject chatNotification;
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioClip sfx_PhoneNotification;
+    [SerializeField] private AudioClip sfx_PhoneAppClick;
+    [SerializeField] private AudioClip sfx_PhoneBack;
+
     private Dictionary<PhoneApp, GameObject> appScreens;
     private Stack<PhoneApp> navigationHistory;
 
@@ -121,7 +126,7 @@ public class PhoneUIController : MonoBehaviour
             screen.SetActive(false);
         }
 
-        OpenApp(PhoneApp.Home);
+        OpenApp(PhoneApp.Home, true);
 
     }
 
@@ -186,8 +191,13 @@ public class PhoneUIController : MonoBehaviour
         StartCoroutine(MovePhone(targetPos));
     }
 
-    public void OpenApp(PhoneApp app)
+    public void OpenApp(PhoneApp app, bool isStartUp = false)
     {
+        if (!isStartUp) 
+        {
+            AudioManager.Instance.PlaySFX(sfx_PhoneAppClick);
+        }
+        
         if (currentApp != app)
         {
             if (hasReceivedNotification && app == PhoneApp.ChatApp)
@@ -219,12 +229,14 @@ public class PhoneUIController : MonoBehaviour
 
     public void OpenMessages()
     {
+        AudioManager.Instance.PlaySFX(sfx_PhoneAppClick);
         OpenApp(PhoneApp.ChatApp_Messages);
         Debug.Log("Opened messages");
     }
 
     public void OpenNetPost()
     {
+        AudioManager.Instance.PlaySFX(sfx_PhoneAppClick);
         OpenApp(PhoneApp.NetApp_Post);
         Debug.Log("Opened forum post");
     }
@@ -238,7 +250,7 @@ public class PhoneUIController : MonoBehaviour
 
         notificationBell.gameObject.SetActive(true);
         // play notification sound
-
+        AudioManager.Instance.PlaySFX(sfx_PhoneNotification);
         
         hasReceivedNotification = true;
 
@@ -253,6 +265,8 @@ public class PhoneUIController : MonoBehaviour
 
     public void BackBtn()
     {
+        AudioManager.Instance.PlaySFX(sfx_PhoneBack);
+
         if (navigationHistory.Count > 0)
         {
             if (currentApp != PhoneApp.Stowed && appScreens.ContainsKey(currentApp))

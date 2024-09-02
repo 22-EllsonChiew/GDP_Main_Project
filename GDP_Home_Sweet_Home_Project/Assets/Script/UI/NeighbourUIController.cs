@@ -53,8 +53,7 @@ public class NeighbourUIController : MonoBehaviour
     private float neighbourGreeting_MoveDuration = 0.5f;
     private float neighbourGreeting_MoveDelay = 1.25f;
     private bool isNeighbourGreetingPlayer = false;
-    public AudioSource audioSource;
-    public AudioClip doorKnock;
+    public AudioClip sfx_DoorKnock;
 
 
     // Start is called before the first frame update
@@ -90,7 +89,7 @@ public class NeighbourUIController : MonoBehaviour
         if (!Interaction.currentNeighbour.IsNeighbourInRoutine)
         {
             //door knock audio
-            audioSource.PlayOneShot(doorKnock);
+            AudioManager.Instance.PlaySFX(sfx_DoorKnock);
             isNeighbourGreetingPlayer = true;
             HandleInteractionAnimations();
         }
@@ -141,11 +140,13 @@ public class NeighbourUIController : MonoBehaviour
     public void EndInteraction()
     {
         PlayerMovement.dialogue = false;
-
         isNeighbourGreetingPlayer = false;
-        HandleInteractionAnimations();
-        endInteraction = true;
 
+        if (!Interaction.currentNeighbour.IsNeighbourInRoutine)
+        {
+            HandleInteractionAnimations();
+        }
+        
         ToggleInteractionUI();
 
         endInteraction = true;

@@ -65,10 +65,10 @@ public class TimeController : MonoBehaviour
     [SerializeField] private Slider LoadingBarTimer;
 
     [Header("Background Sound")]
-    public AudioSource audioSource;
     public AudioClip morningPhase;
     public AudioClip eveningPhase;
     public AudioClip quietTimePhase;
+    private AudioClip currentBGAudioClip;
 
 
     [Header("Game Object")]
@@ -124,66 +124,41 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         currentTimePhase = DetermineCurrentTimePhase();
-
-
+        
 
         HandleTime();
         if (Input.GetKeyDown(KeyCode.M))
         {
             AdvanceTimePhase();
-
-
         }
 
-
-        AudioClip newClip = null;
-
-        if (Hour >= 6 && Hour <= 8)
-        {
-            newClip = morningPhase;
-        }
-        else if (Hour >= 8 && (Hour < 22 || (Hour == 22 && Minute < 30)))
-        {
-            newClip = eveningPhase;
-        }
-        else
-        {
-            newClip = quietTimePhase;
-        }
-
-        // Play the new clip only if it is different from the currently playing clip
-        if (audioSource.clip != newClip)
-        {
-            audioSource.Stop();
-            audioSource.clip = newClip;
-            audioSource.Play();
-        }
-
-
-
+        PlayBackGroundMusic(currentTimePhase);
     }
 
-    /*private void PlayBackGroundMusic(TimePhase phase)
+    private void PlayBackGroundMusic(TimePhase phase)
     {
+        AudioClip newClip = null;
+
         switch (phase)
         {
             case TimePhase.Morning:
-                audioSource.clip = morningPhase;
+                newClip = morningPhase;
                 break;
             case TimePhase.Evening:
-                audioSource.clip = eveningPhase;
+                newClip = eveningPhase;
                 break;
             case TimePhase.QuietTime:
-                audioSource.clip = quietTimePhase;
+                newClip = quietTimePhase;
                 break;
         }
 
-        // Start playing the new clip and ensure it loops
-        //audioSource.loop = true;
-        audioSource.Play();
-    }*/
+        if (newClip != currentBGAudioClip)
+        {
+            currentBGAudioClip = newClip;
+            AudioManager.Instance.PlayBGAudio(currentBGAudioClip);
+        }
+    }
 
     private void UpdateDirectionalLight()
     {
@@ -355,6 +330,7 @@ public class TimeController : MonoBehaviour
 
         //yield return new WaitForSecondsRealtime(10f);
         LoadingScreenObj.SetActive(false);
+
 
         PlayerMovement.dialogue = false;
         isPaused = false;
