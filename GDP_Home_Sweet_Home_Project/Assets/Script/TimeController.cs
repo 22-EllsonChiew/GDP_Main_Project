@@ -208,7 +208,7 @@ public class TimeController : MonoBehaviour
 
         if (currentTimePhase == TimePhase.Evening)
         {
-            if (CurrentDay == endDay)
+            if (CurrentDay == 5)
             {
                 Debug.Log("TimeController - Final day reached, loading End Scene");
                 // load end scene
