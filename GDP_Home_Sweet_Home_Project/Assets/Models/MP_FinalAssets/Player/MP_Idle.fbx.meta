@@ -3,7 +3,42 @@ guid: 79b36780986c52447a78cc8012d424f1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body.009
+    second: {fileID: 2100000, guid: 76daf3f758e00ba4c806185ee6a2e895, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hands.009
+    second: {fileID: 2100000, guid: 9371abc60aa36504081d27dc6c77d5ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Head.009
+    second: {fileID: 2100000, guid: 23a0f2c0ff4810f4d80ee8b7c67d23d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 82e8d31f2f72f1248902752a90264092, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.022
+    second: {fileID: 2100000, guid: 38d74f5c6135cef409a8680e92a5c6c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants.010
+    second: {fileID: 2100000, guid: 729e08bbcc3f5a341a198cce9583d870, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Timberlakes
+    second: {fileID: 2100000, guid: d47a24ae1b6776549a719d5c80ccf676, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -18,6 +18,11 @@ public class Interaction : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timeSkipUIText;
     [SerializeField] private InteractionPrompt interactionUIPrompt;
 
+    [Header("Sound Effects")]
+    public AudioClip sfx_ToolboxOpen;
+    public AudioClip sfx_ToolboxClose;
+    public AudioClip sfx_PackageManualOpen;
+
     public Animator animator;
 
     [Header("Camera")]
@@ -234,6 +239,22 @@ public class Interaction : MonoBehaviour
         }
     }
 
+    public void CloseToolboxUI() 
+    {
+        if (toolBoxUI.activeSelf)
+        {
+            AudioManager.Instance.PlaySFX(sfx_ToolboxClose);
+            toolBoxUI.SetActive(false);
+        }
+    }
+
+    public void ClosePackageManualUI()
+    {
+        if (packageUI.gameObject.activeSelf)
+        {
+            packageUI.gameObject.SetActive(false);
+        }
+    }
     void CheckDistance()
     {
         Vector3 spherePosition = player.transform.position + player.transform.forward * checkRadius;
@@ -242,14 +263,14 @@ public class Interaction : MonoBehaviour
 
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.CompareTag("Object") && Input.GetKey(KeyCode.E))
+            if (hitCollider.CompareTag("Object") && Input.GetKeyDown(KeyCode.E))
             {
                 if (!ConfirmButtonClickOnce && inPackageUI == false)
                 {
                     Debug.Log("IN PACKAGE UI");
                     inPackageUI = true;
                     Package packageData = hitCollider.gameObject.GetComponent<Package>();
-
+                    AudioManager.Instance.PlaySFX(sfx_PackageManualOpen);
                     packageUI.gameObject.SetActive(true);
                     interactionUIPrompt.DisablePanel();
 
@@ -261,16 +282,17 @@ public class Interaction : MonoBehaviour
                 }
             }
 
-            if (hitCollider.CompareTag("Chest") && Input.GetKey(KeyCode.E))
+            if (hitCollider.CompareTag("Chest") && Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Opening chest");
+                AudioManager.Instance.PlaySFX(sfx_ToolboxOpen);
                 toolBoxUI.SetActive(true);
                 animator.SetTrigger("chestOpen");
             }
-            if (hitCollider.CompareTag(tagName) && Input.GetKey(KeyCode.E))
+            if (hitCollider.CompareTag(tagName) && Input.GetKeyDown(KeyCode.E))
             {
                 Package packageData = hitCollider.gameObject.GetComponent<Package>();
-
+                AudioManager.Instance.PlaySFX(sfx_PackageManualOpen);
                 packageUI.gameObject.SetActive(true);
                 interactionUIPrompt.DisablePanel();
 
@@ -280,9 +302,11 @@ public class Interaction : MonoBehaviour
                 packageUI.exitButton.onClick.AddListener(ExitClicked);
                 drillGame = true;
             }
-            if (hitCollider.CompareTag("TableDrilling") && Input.GetKey(KeyCode.E))
+            if (hitCollider.CompareTag("TableDrilling") && Input.GetKeyDown(KeyCode.E))
             {
                 Package packageData = hitCollider.GetComponent<Package>();
+
+                AudioManager.Instance.PlaySFX(sfx_PackageManualOpen);
 
                 packageUI.gameObject.SetActive(true);
                 interactionUIPrompt.DisablePanel();

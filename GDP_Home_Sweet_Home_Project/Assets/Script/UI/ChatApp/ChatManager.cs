@@ -41,6 +41,9 @@ public class ChatManager : MonoBehaviour
     [SerializeField]
     private MessagePanel playerResponsePrefab;
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioClip sfx_ReceiveMessage;
+
     private List<PhoneContact> allPhoneContacts;
     private List<PhoneContact> unlockedPhoneContacts;
     private DialogueLine[] _receivedMessages;
@@ -153,6 +156,7 @@ public class ChatManager : MonoBehaviour
 
                 if(currentContact == targetContact)
                 {
+                    AudioManager.Instance.PlaySFX(sfx_ReceiveMessage);
                     RefreshCurrentMessages();
                 }
                 else
@@ -185,6 +189,7 @@ public class ChatManager : MonoBehaviour
 
         if (currentContact.isAwaitingReply)
         {
+            AudioManager.Instance.PlaySFX(sfx_ReceiveMessage);
             Debug.Log("Reply by player sent");
             DialogueLine lineToAdd = currentConversation.messages[1];
             DialogueLine[] updatedMessages = new DialogueLine[currentContact.receivedMessages.Length + 1];
@@ -214,7 +219,7 @@ public class ChatManager : MonoBehaviour
 
     private IEnumerator ReceiveNeighbourReply()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.85f);
 
         DialogueLine lineToAdd = currentConversation.messages[2];
         DialogueLine[] updatedMessages = new DialogueLine[currentContact.receivedMessages.Length + 1];
@@ -224,7 +229,9 @@ public class ChatManager : MonoBehaviour
         currentContact.receivedMessages = updatedMessages;
 
         currentContact.isAwaitingReply = false;
+
         UpdateContactList();
+        AudioManager.Instance.PlaySFX(sfx_ReceiveMessage);
         RefreshCurrentMessages();
     }
 
