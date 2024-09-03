@@ -69,6 +69,8 @@ public class MovingFurniture : MonoBehaviour
     public GameObject diningChair3Translucent;
     public GameObject diningChair4Translucent;
 
+    [Header("Dining Table")]
+    public GameObject diningTableTranslucent;
 
     private void Start()
     {
@@ -95,7 +97,7 @@ public class MovingFurniture : MonoBehaviour
     private readonly HashSet<string> draggingTags = new HashSet<string>
     {
         "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa", "DraggableLRLamp", "DraggableBRLamp", "DraggableDiningChair",
-        "DraggableDC2", "DraggableDC3", "DraggableDC4"
+        "DraggableDC2", "DraggableDC3", "DraggableDC4", "DraggableDiningTable"
     };
 
     void CheckForDraggableObject()
@@ -353,6 +355,9 @@ public class MovingFurniture : MonoBehaviour
                 case "DraggableDC4":
                     diningChair4Translucent.SetActive(true);
                     break;
+                case "DraggableDiningTable":
+                    diningTableTranslucent.SetActive(true);
+                    break;
 
             }
         }
@@ -374,6 +379,7 @@ public class MovingFurniture : MonoBehaviour
         diningChair2Translucent.SetActive(false);
         diningChair3Translucent.SetActive(false);
         diningChair4Translucent.SetActive(false);
+        diningTableTranslucent.SetActive(false);
     }
     
     void SnapPosition()
@@ -399,15 +405,6 @@ public class MovingFurniture : MonoBehaviour
     {
         Package packageData = other.gameObject.GetComponent<Package>();
 
-        //if (packageData.furnitureType == FurnitureType.Large_Cabinet && Input.GetKeyDown(KeyCode.E))
-        //{
-        //    Vector3 cupBoardPos = other.transform.position;
-        //    cupBoardPos.y = 3f;
-        //    other.gameObject.SetActive(false);
-
-        //    GameObject instantiatedObject = Instantiate(cupBoardObject, cupBoardPos, Quaternion.identity);
-
-        //}
 
         if (Input.GetKeyDown(KeyCode.E) && packageData != null)
         {

@@ -90,6 +90,13 @@ public class SnapCollider : MonoBehaviour
     public Vector3 diningChair4Rota = new Vector3(0, 0, 0);
     public GameObject diningChair4Prefab;
     public GameObject TranslucentDc4Prefab;
+
+    [Header("Dining Table")]
+    public Vector3 diningTablePos = new Vector3(0, 0, 0);
+    public Vector3 diningTableRota = new Vector3(0, 0, 0);
+    public GameObject diningTablePrefab;
+    public GameObject TranslucenDiningTablePrefab;
+
     private void Start()
     {
         snapCollider = GetComponent<Collider>();
@@ -110,7 +117,7 @@ public class SnapCollider : MonoBehaviour
     private readonly HashSet<string> draggingTags = new HashSet<string>
     {
         "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa", "DraggableLRLamp", "DraggableBRLamp", "DraggableDiningChair",
-        "DraggableDC2", "DraggableDC3", "DraggableDC4"
+        "DraggableDC2", "DraggableDC3", "DraggableDC4", "DraggableDiningTable"
      };
 
     private void OnTriggerStay(Collider other)
@@ -273,6 +280,12 @@ public class SnapCollider : MonoBehaviour
                 TranslucentDc4Prefab.SetActive(false);
                 Quaternion DC4PrefabQua = Quaternion.Euler(diningChair4Rota);
                 GameObject DC4Prebuilt = Instantiate(diningChair4Prefab, diningChair4Pos, DC4PrefabQua);
+                break;
+            case "DraggableDiningTable":
+                other.gameObject.SetActive(false);
+                TranslucenDiningTablePrefab.SetActive(false);
+                Quaternion DiningTableQua = Quaternion.Euler(diningTableRota);
+                GameObject DiningTablePreBuilt = Instantiate(diningTablePrefab, diningTablePos, DiningTableQua);
                 break;
         }
     }

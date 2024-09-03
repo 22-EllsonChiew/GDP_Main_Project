@@ -11127,8 +11127,7 @@ MonoBehaviour:
   playerResponse3: {fileID: 1227706865}
   neighbourHakim: {fileID: 478058632}
   neighbourSherryl: {fileID: 1240785117}
-  audioSource: {fileID: 7565215745276000208}
-  doorKnock: {fileID: 8300000, guid: 062e5c08e05e5ff45950959b8d1ffc9f, type: 3}
+  sfx_DoorKnock: {fileID: 0}
 --- !u!114 &557129286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13606,7 +13605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textJSON: {fileID: 4900000, guid: d8ea4b0211ab12248b77facc9334dfd1, type: 3}
-  messageText: {fileID: 151620406}
+  messageText: {fileID: 0}
   myMSOMessage:
     message: []
 --- !u!4 &690383062
@@ -23701,6 +23700,9 @@ MonoBehaviour:
   notificationClock: {fileID: 215105700}
   notificationBell: {fileID: 75765851}
   chatNotification: {fileID: 1724469595}
+  sfx_PhoneNotification: {fileID: 0}
+  sfx_PhoneAppClick: {fileID: 0}
+  sfx_PhoneBack: {fileID: 0}
 --- !u!222 &900560940
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25385,6 +25387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbourUI: {fileID: 557129285}
+  bulletinBoardUI: {fileID: 0}
   player: {fileID: 1790319700}
   offset: {x: 0, y: 0, z: 4}
   heightValue: 7
@@ -25396,9 +25399,11 @@ MonoBehaviour:
   elevatorCamHolder: {fileID: 1837632856}
   elevatorOffset: {x: -0.33, y: 0.93, z: 0.06}
   elevatorRotationOffset: {x: 0, y: 26.6, z: 0}
+  checkBulletinBoard: 0
   playerCorridor: {fileID: 943003588}
   playerHousing: {fileID: 226816508}
   elevatorCorridor: {fileID: 882196875}
+  bulletinBoard: {fileID: 0}
   pLerp: 0.02
   rLerp: 0.04
   lerpDuration: 1
@@ -42548,6 +42553,7 @@ MonoBehaviour:
   playerReplyBtn: {fileID: 294706427}
   npcResponsePrefab: {fileID: 5425624041799691553, guid: f4f418b305fd95448a35660e83e705bf, type: 3}
   playerResponsePrefab: {fileID: 5425624041799691553, guid: 4297cd3c3d9e57848ad8710e91c17b3d, type: 3}
+  sfx_ReceiveMessage: {fileID: 0}
 --- !u!1 &1623732771
 GameObject:
   m_ObjectHideFlags: 0
@@ -45417,6 +45423,11 @@ MonoBehaviour:
   packageUI: {fileID: 1891107679}
   toolBoxUI: {fileID: 782346325}
   timeSkipUI: {fileID: 932281702}
+  timeSkipUIText: {fileID: 0}
+  interactionUIPrompt: {fileID: 0}
+  sfx_ToolboxOpen: {fileID: 0}
+  sfx_ToolboxClose: {fileID: 0}
+  sfx_PackageManualOpen: {fileID: 0}
   animator: {fileID: 1633611348}
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}
@@ -45431,6 +45442,7 @@ MonoBehaviour:
   drillGame: 0
   hammerGame: 0
   tableDrilling: 0
+  player: {fileID: 0}
 --- !u!95 &1790319703
 Animator:
   serializedVersion: 5
@@ -45495,8 +45507,25 @@ MonoBehaviour:
   cupBoardObject: {fileID: 7994192821190247864, guid: 306f60bdf41bca349863d5b24b060b5a, type: 3}
   cupBoardTranslucent: {fileID: 0}
   mirrorObject: {fileID: 9150323230364804563, guid: 76db6db0684847840abdd19c81d95b25, type: 3}
+  mirrorTranslucnet: {fileID: 0}
   tvSetTable: {fileID: 5165456979696676364, guid: d39429986c6a26b499599766c8ee9646, type: 3}
+  tvSetTranslucent: {fileID: 0}
   barStoolObject: {fileID: 3942116235476561658, guid: 243b33aafd74a2d4c8d9d67a4b528107, type: 3}
+  barStoolTranslucent: {fileID: 0}
+  barStoolTranslucent2: {fileID: 0}
+  studyTableObject: {fileID: 0}
+  studyTableTranslucent: {fileID: 0}
+  officeChairObject: {fileID: 0}
+  officeChairTranslucent: {fileID: 0}
+  sofaObject: {fileID: 0}
+  sofaTranslucent: {fileID: 0}
+  lampObject: {fileID: 0}
+  lampLRTranslucent: {fileID: 0}
+  lampBRTranslucent: {fileID: 0}
+  diningChairTranslucent: {fileID: 0}
+  diningChair2Translucent: {fileID: 0}
+  diningChair3Translucent: {fileID: 0}
+  diningChair4Translucent: {fileID: 0}
 --- !u!114 &1790319706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53124,15 +53153,26 @@ MonoBehaviour:
   nightIntensity: 0.2
   eveningIntensity: 0.5
   transitionSpeed: 0.1
-  timeUI: {fileID: 0}
   LoadingScreenObj: {fileID: 513372641}
   LoadingBarTimer: {fileID: 84374816}
-  audioSource: {fileID: 1856731922}
   morningPhase: {fileID: 8300000, guid: 4d671e256722b6d4ab61a86de8a7f2d6, type: 3}
   eveningPhase: {fileID: 8300000, guid: 420f1752c98c7ae47820246ed071c2b9, type: 3}
   quietTimePhase: {fileID: 8300000, guid: 9eecdf1b186312d4f922bb530c14e0e3, type: 3}
   firstDay: {fileID: 0}
   secondDay: {fileID: 0}
+  thirdDay: {fileID: 0}
+  fourthDay: {fileID: 0}
+  fifthDay: {fileID: 0}
+  imageObject: {fileID: 0}
+  loadingImages: []
+  hakiimImage: {fileID: 0}
+  sherrylImage: {fileID: 0}
+  dayCycleImage: {fileID: 0}
+  dayImage: {fileID: 0}
+  nightImage: {fileID: 0}
+  dayNumber: {fileID: 0}
+  dayText: {fileID: 0}
+  loadingScreen: {fileID: 0}
 --- !u!82 &7565215745276000208
 AudioSource:
   m_ObjectHideFlags: 0
@@ -53478,6 +53518,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   hammerAudio: {fileID: 7565215745276000208}
   hammerSound: {fileID: 8300000, guid: 62cdfee2d868b7f479a3f3310b4ea53d, type: 3}
+  buildComplete: {fileID: 0}
   mainCam: {fileID: 963194225}
   minigameCam: {fileID: 1649021139}
   camRay: {fileID: 1649021141}

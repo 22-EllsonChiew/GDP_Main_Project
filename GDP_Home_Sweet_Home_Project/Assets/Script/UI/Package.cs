@@ -14,7 +14,8 @@ public enum FurnitureType
     Study_Table,
     Office_Chair,
     Sofa,
-    Lamp
+    Lamp,
+    Shelf
 }
 
 
