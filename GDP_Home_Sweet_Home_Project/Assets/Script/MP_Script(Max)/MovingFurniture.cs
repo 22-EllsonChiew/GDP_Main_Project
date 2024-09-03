@@ -31,6 +31,8 @@ public class MovingFurniture : MonoBehaviour
     private Vector3 contactPoint;
 
     private bool timeForNextPhase = false;
+    [Header("UI Refrence")]
+    [SerializeField] private InteractionPrompt interactionUIPrompt;
 
     [Header("CupBoard GameObject")]
     public GameObject cupBoardObject;
@@ -117,8 +119,9 @@ public class MovingFurniture : MonoBehaviour
             {
                 inRange = true;
                 //set text to active and text to press G to drag
+                interactionUIPrompt.EnablePanel();
+                InteractionUI();
                 textObject.SetActive(true);
-                dragText.SetText("Press G to drag");
                 //exit loop early if we found a valid object
 
                 return;
@@ -128,6 +131,7 @@ public class MovingFurniture : MonoBehaviour
         // Hide the text if not in range of any object
         if (!inRange && carriedObject == null)
         {
+            interactionUIPrompt.DisablePanel();
             textObject.SetActive(false);
         }
     }
@@ -481,5 +485,11 @@ public class MovingFurniture : MonoBehaviour
             // add other furnitureTypes
         }
         
+    }
+
+    private void InteractionUI()
+    {
+        interactionUIPrompt.EnablePanel();
+        interactionUIPrompt.SetInteractionText("G", "Drag");
     }
 }

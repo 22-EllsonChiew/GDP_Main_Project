@@ -3531,7 +3531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &102246780
 Transform:
   m_ObjectHideFlags: 0
@@ -51906,7 +51906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1606575570
 Transform:
   m_ObjectHideFlags: 0
@@ -56746,6 +56746,7 @@ MonoBehaviour:
   dragSound: {fileID: 8300000, guid: 579afb3541f375745bdd467a780620b8, type: 3}
   particleObject: {fileID: 1209764341}
   snapCollider: {fileID: 4273171159819755055}
+  interactionUIPrompt: {fileID: 524422628}
   cupBoardObject: {fileID: 7994192821190247864, guid: 306f60bdf41bca349863d5b24b060b5a, type: 3}
   cupBoardTranslucent: {fileID: 4273171159819755053}
   mirrorObject: {fileID: 9150323230364804563, guid: 76db6db0684847840abdd19c81d95b25, type: 3}
