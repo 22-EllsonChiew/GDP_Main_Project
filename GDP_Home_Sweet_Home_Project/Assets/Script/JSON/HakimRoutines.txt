@@ -12,7 +12,7 @@
 			"day": 1,
 			"routineStartHour": 6,
 			"routineStartMinute": 30,
-			"routineEndHour": 7,
+			"routineEndHour": 17,
 			"routineEndMinute": 30,
 			"routineType": "Asleep"
 		},
