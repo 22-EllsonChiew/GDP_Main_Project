@@ -45,6 +45,7 @@ TagManager:
   - DraggableDC2
   - DraggableDC3
   - DraggableDC4
+  - DraggableDiningTable
   layers:
   - Default
   - TransparentFX

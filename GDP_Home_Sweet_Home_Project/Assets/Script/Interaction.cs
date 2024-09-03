@@ -34,8 +34,13 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject miniGameCamTable;
 
     
-
+    [Header("Buildable prefab")]
     public GameObject builtChair;
+    public GameObject builtChair2;
+    public GameObject builtChair3;
+    public GameObject builtChair4;
+
+    private bool builtChair3Instantiated = false;
 
     private Collider currentCollider;
     private string currentNeighbourCollider;
@@ -123,7 +128,30 @@ public class Interaction : MonoBehaviour
             mainCam.SetActive(false);
 
             Destroy(confirmedCollider.gameObject);
-            Instantiate(builtChair, new Vector3(confirmedCollider.gameObject.transform.position.x, builtChair.transform.position.y, confirmedCollider.gameObject.transform.position.z), builtChair.transform.rotation);
+            if(TimeController.CurrentDay == 1)
+            {
+                Instantiate(builtChair, new Vector3(confirmedCollider.gameObject.transform.position.x, builtChair.transform.position.y, confirmedCollider.gameObject.transform.position.z), builtChair.transform.rotation);
+            }
+            
+
+            if(TimeController.CurrentDay == 2)
+            {
+                Instantiate(builtChair2, new Vector3(confirmedCollider.gameObject.transform.position.x, builtChair2.transform.position.y, confirmedCollider.gameObject.transform.position.z), builtChair2.transform.rotation);
+            }
+
+
+            if(TimeController.CurrentDay == 3)
+            {
+                if (!builtChair3Instantiated)
+                {
+                    Instantiate(builtChair3, new Vector3(confirmedCollider.gameObject.transform.position.x, builtChair3.transform.position.y, confirmedCollider.gameObject.transform.position.z), builtChair3.transform.rotation);
+                    builtChair3Instantiated = true; // Set the flag to true after instantiation
+                }
+                else
+                {
+                    Instantiate(builtChair4, new Vector3(confirmedCollider.gameObject.transform.position.x, builtChair4.transform.position.y, confirmedCollider.gameObject.transform.position.z), builtChair4.transform.rotation);
+                }
+            }
 
         }
         //call function for minigame
