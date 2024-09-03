@@ -103,6 +103,8 @@ public class Neighbour : MonoBehaviour
         int currentMinute = TimeController.Minute;
         bool foundCurrentRoutine = false;
 
+        upcomingRoutine = null;
+
         foreach (var routine in routineArray.routines)
         {
             if (routine.day == TimeController.CurrentDay)

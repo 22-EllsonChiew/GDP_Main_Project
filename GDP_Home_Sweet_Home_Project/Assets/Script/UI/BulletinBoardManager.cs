@@ -21,59 +21,48 @@ public class BulletinBoardManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateHakimBulletinBoard();
-        UpdateSherrylBulletinBoard();
+        UpdateBulletinBoard(neighbourHakim, hakimRoutineText);
+        UpdateBulletinBoard(neighbourSherryl, sherrylRoutineText);
     }
 
-    void UpdateHakimBulletinBoard()
+    void UpdateBulletinBoard(Neighbour neighbour, TextMeshProUGUI routineText)
     {
-        NeighbourRoutines upcomingRoutine = neighbourHakim.upcomingRoutine;
+        NeighbourRoutines upcomingRoutine = neighbour.upcomingRoutine;
 
         if (upcomingRoutine != null)
         {
-            if (upcomingRoutine.routineType == RoutineType.NoNoise)
+            switch (upcomingRoutine.routineType)
             {
-                hakimRoutineText.text = "Please DO NOT make noise from " +
-                    upcomingRoutine.routineStartHour + ":" + upcomingRoutine.routineStartMinute + " to "
-                    + upcomingRoutine.routineEndHour + ":" + upcomingRoutine.routineEndMinute;
-            }
+                case RoutineType.NoNoise:
+                    routineText.text = "Please try to keep things quiet between " +
+                        FormatTime(upcomingRoutine.routineStartHour, upcomingRoutine.routineStartMinute) + " and " +
+                        FormatTime(upcomingRoutine.routineEndHour, upcomingRoutine.routineEndMinute) + ". Thanks!";
+                    break;
 
-            if (upcomingRoutine.routineType == RoutineType.NotHome)
-            {
-                hakimRoutineText.text = "I'll be out of my flat from " +
-                    upcomingRoutine.routineStartHour + ":" + upcomingRoutine.routineStartMinute + " to "
-                    + upcomingRoutine.routineEndHour + ":" + upcomingRoutine.routineEndMinute;
+                case RoutineType.NotHome:
+                    routineText.text = "I'll be out from " +
+                        FormatTime(upcomingRoutine.routineStartHour, upcomingRoutine.routineStartMinute) + " to " +
+                        FormatTime(upcomingRoutine.routineEndHour, upcomingRoutine.routineEndMinute) + ". See you later!";
+                    break;
+
+                case RoutineType.Asleep:
+                    routineText.text = $"<i>It's been quiet for a while. {neighbour.neighbourName} is probably asleep.</i>";
+                    break;
+
+                default:
+                    routineText.text = "No updates at the moment.";
+                    break;
             }
         }
         else
         {
-            hakimRoutineText.text = "I'll probably be home all day.";
+            routineText.text = "I'll likely be around all day.";
         }
     }
 
-    void UpdateSherrylBulletinBoard()
+    string FormatTime(int hour, int minute)
     {
-        NeighbourRoutines upcomingRoutine = neighbourSherryl.upcomingRoutine;
-
-        if (upcomingRoutine != null)
-        {
-            if (upcomingRoutine.routineType == RoutineType.NoNoise)
-            {
-                sherrylRoutineText.text = "Please DO NOT make noise from " +
-                    upcomingRoutine.routineStartHour + ":" + upcomingRoutine.routineStartMinute + " to "
-                    + upcomingRoutine.routineEndHour + ":" + upcomingRoutine.routineEndMinute;
-            }
-
-            if (upcomingRoutine.routineType == RoutineType.NotHome)
-            {
-                sherrylRoutineText.text = "I'll be out of my flat from " +
-                    upcomingRoutine.routineStartHour + ":" + upcomingRoutine.routineStartMinute + " to "
-                    + upcomingRoutine.routineEndHour + ":" + upcomingRoutine.routineEndMinute;
-            }
-        }
-        else
-        {
-            sherrylRoutineText.text = "I'll probably be home all day.";
-        }
+        return hour.ToString("00") + ":" + minute.ToString("00");
     }
+
 }

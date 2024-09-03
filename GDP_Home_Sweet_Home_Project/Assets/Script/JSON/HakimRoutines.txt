@@ -2,19 +2,75 @@
 	"routines": [
 		{
 			"day": 1,
-			"routineStartHour": 7,
-			"routineStartMinute": 30,
-			"routineEndHour": 18,
-			"routineEndMinute": 15,
-			"routineType": "NoNoise",
+			"routineStartHour": 21,
+			"routineStartMinute": 0,
+			"routineEndHour": 0,
+			"routineEndMinute": 30,
+			"routineType": "NotHome"
 		},
 		{
 			"day": 1,
+			"routineStartHour": 6,
+			"routineStartMinute": 30,
+			"routineEndHour": 7,
+			"routineEndMinute": 30,
+			"routineType": "Asleep"
+		},
+		{
+			"day": 2,
+			"routineStartHour": 7,
+			"routineStartMinute": 30,
+			"routineEndHour": 20,
+			"routineEndMinute": 0,
+			"routineType": "NotHome"
+		},
+		{
+			"day": 2,
+			"routineStartHour": 23,
+			"routineStartMinute": 0,
+			"routineEndHour": 0,
+			"routineEndMinute": 30,
+			"routineType": "Asleep"
+		},
+		{
+			"day": 3,
+			"routineStartHour": 7,
+			"routineStartMinute": 0,
+			"routineEndHour": 8,
+			"routineEndMinute": 0,
+			"routineType": "NotHome"
+		},
+		{
+			"day": 3,
 			"routineStartHour": 23,
 			"routineStartMinute": 30,
-			"routineEndHour": 1,
+			"routineEndHour": 0,
 			"routineEndMinute": 30,
-			"routineType": "Asleep",
+			"routineType": "Asleep"
 		},
+		{
+			"day": 4,
+			"routineStartHour": 7,
+			"routineStartMinute": 30,
+			"routineEndHour": 21,
+			"routineEndMinute": 0,
+			"routineType": "NotHome"
+		},
+		{
+			"day": 4,
+			"routineStartHour": 23,
+			"routineStartMinute": 30,
+			"routineEndHour": 0,
+			"routineEndMinute": 30,
+			"routineType": "Asleep"
+		},
+		{
+			"day": 5,
+			"routineStartHour": 22,
+			"routineStartMinute": 45,
+			"routineEndHour": 0,
+			"routineEndMinute": 30,
+			"routineType": "Asleep"
+		}
 	]
 }
