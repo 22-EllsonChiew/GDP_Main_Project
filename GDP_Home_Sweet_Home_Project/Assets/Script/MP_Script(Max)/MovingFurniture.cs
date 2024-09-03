@@ -30,6 +30,8 @@ public class MovingFurniture : MonoBehaviour
 
     private Vector3 contactPoint;
 
+    private bool timeForNextPhase = false;
+
     [Header("CupBoard GameObject")]
     public GameObject cupBoardObject;
     public GameObject cupBoardTranslucent;
@@ -132,6 +134,11 @@ public class MovingFurniture : MonoBehaviour
 
     void HandleDragging()
     {
+        if(TimeController.instance.isPaused)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.G))
         {
             if (carriedObject == null && inRange)
