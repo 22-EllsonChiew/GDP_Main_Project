@@ -45,12 +45,8 @@ public class BulletinBoardManager : MonoBehaviour
                         FormatTime(upcomingRoutine.routineEndHour, upcomingRoutine.routineEndMinute) + ". See you later!";
                     break;
 
-                case RoutineType.Asleep:
-                    routineText.text = $"<i>It's been quiet for a while. {neighbour.neighbourName} is probably asleep.</i>";
-                    break;
-
                 default:
-                    routineText.text = "No updates at the moment.";
+                    routineText.text = "I'll be busy doing some of my own things.";
                     break;
             }
         }
