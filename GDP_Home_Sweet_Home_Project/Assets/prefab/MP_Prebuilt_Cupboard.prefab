@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6417955743330381533}
+  - component: {fileID: 7608125035005324174}
   m_Layer: 0
   m_Name: MP_Prebuilt_Cupboard
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 7822832324515989380}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 181.324}
+--- !u!65 &7608125035005324174
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239890033355516691}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.004045169, y: 0.009012527, z: 0.014133671}
+  m_Center: {x: -0.000092150716, y: 0.000011545419, z: -0.00048539342}
 --- !u!1 &3944473563806094201
 GameObject:
   m_ObjectHideFlags: 0

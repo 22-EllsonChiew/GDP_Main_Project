@@ -224,10 +224,14 @@ public class MovingFurniture : MonoBehaviour
 
     IEnumerator Dropping()
     {
-        yield return new WaitForSeconds(0.5f);
-        carriedObject.transform.SetParent(null);
-        carriedObject = null;
-        particleObject.SetActive(false);
+        if (carriedObject != null)
+        {
+            yield return new WaitForSeconds(0.1f);
+            carriedObject.transform.SetParent(null);
+            carriedObject = null;
+            particleObject.SetActive(false);
+        }
+            
     }
 
     void UpdateCarriedObjectPosition()
@@ -422,7 +426,7 @@ public class MovingFurniture : MonoBehaviour
             if (packageData.furnitureType == FurnitureType.Large_Cabinet)
             {
                 Vector3 cupBoardPos = other.transform.position;
-                cupBoardPos.y = 3f;
+                cupBoardPos.y = 0.7811141f;
                 other.gameObject.SetActive(false);
 
                 GameObject instantiatedObject = Instantiate(cupBoardObject, cupBoardPos, Quaternion.identity);
