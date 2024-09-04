@@ -14,8 +14,7 @@ public enum PhoneApp
     NetApp,
     NetApp_Post,
     NotesApp,
-    NotesApp_Note,
-    Hamburger
+    NotesApp_Note
 }
 
 
@@ -83,9 +82,9 @@ public class PhoneUIController : MonoBehaviour
     private Dictionary<PhoneApp, GameObject> appScreens;
     private Stack<PhoneApp> navigationHistory;
 
-    public bool isPhoneActive { get; private set; }
-    public bool hasReceivedNotification { get; private set; }
-    public PhoneApp currentApp {  get; private set; }
+    public bool IsPhoneActive { get; private set; }
+    public bool HasReceivedNotification { get; private set; }
+    public PhoneApp CurrentApp {  get; private set; }
 
     public static PhoneUIController instance;
 
@@ -101,9 +100,9 @@ public class PhoneUIController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        isPhoneActive = false;
+        IsPhoneActive = false;
         targetPos = phoneTransform.anchoredPosition;
-        currentApp = PhoneApp.Stowed;
+        CurrentApp = PhoneApp.Stowed;
 
         homeBtn.onClick.AddListener(() => OpenApp(PhoneApp.Home));
         chatBtn.onClick.AddListener(() => OpenApp(PhoneApp.ChatApp));
@@ -146,7 +145,7 @@ public class PhoneUIController : MonoBehaviour
 
     public void HandleNotificationClock()
     {
-        if (currentApp == PhoneApp.Home && phoneTransform.anchoredPosition.y == upperY)
+        if (CurrentApp == PhoneApp.Home && phoneTransform.anchoredPosition.y == upperY)
         {
             notificationClock.SetActive(false);
             // set notification bar decoration
@@ -162,17 +161,17 @@ public class PhoneUIController : MonoBehaviour
 
     void UpdateWallpaper()
     {
-        if (currentApp == PhoneApp.Home)
+        if (CurrentApp == PhoneApp.Home)
         {
             phoneBG.sprite = homeBG;
         }
 
-        if (currentApp == PhoneApp.NetApp)
+        if (CurrentApp == PhoneApp.NetApp)
         {
             phoneBG.sprite = netAppBG;
         }
 
-        if (currentApp == PhoneApp.ChatApp)
+        if (CurrentApp == PhoneApp.ChatApp)
         {
             phoneBG.sprite = chatAppBG;
         }
@@ -198,22 +197,22 @@ public class PhoneUIController : MonoBehaviour
             AudioManager.Instance.PlaySFX(sfx_PhoneAppClick);
         }
         
-        if (currentApp != app)
+        if (CurrentApp != app)
         {
-            if (hasReceivedNotification && app == PhoneApp.ChatApp)
+            if (HasReceivedNotification && app == PhoneApp.ChatApp)
             {
                 chatNotification.SetActive(false);
             }
 
-            if (currentApp != PhoneApp.Stowed)
+            if (CurrentApp != PhoneApp.Stowed)
             {
-                navigationHistory.Push(currentApp);
+                navigationHistory.Push(CurrentApp);
             }
 
 
-            if (currentApp != PhoneApp.Stowed && appScreens.ContainsKey(currentApp))
+            if (CurrentApp != PhoneApp.Stowed && appScreens.ContainsKey(CurrentApp))
             {
-                appScreens[currentApp].SetActive(false);
+                appScreens[CurrentApp].SetActive(false);
             }
 
             if (appScreens.ContainsKey(app))
@@ -222,7 +221,7 @@ public class PhoneUIController : MonoBehaviour
             }
 
 
-            currentApp = app;
+            CurrentApp = app;
             Debug.Log("Opened app: " + app.ToString());
         }
     }
@@ -243,7 +242,7 @@ public class PhoneUIController : MonoBehaviour
 
     public void ReceiveChatNotification()
     {
-        if (currentApp != PhoneApp.ChatApp || currentApp != PhoneApp.ChatApp_Messages)
+        if (CurrentApp != PhoneApp.ChatApp || CurrentApp != PhoneApp.ChatApp_Messages)
         {
             chatNotification.SetActive(true);
         }
@@ -252,7 +251,7 @@ public class PhoneUIController : MonoBehaviour
         // play notification sound
         AudioManager.Instance.PlaySFX(sfx_PhoneNotification);
         
-        hasReceivedNotification = true;
+        HasReceivedNotification = true;
 
     }
 
@@ -260,7 +259,7 @@ public class PhoneUIController : MonoBehaviour
     {
         chatNotification.SetActive(false);
         notificationBell.SetActive(false);
-        hasReceivedNotification = false;
+        HasReceivedNotification = false;
     }
 
     public void BackBtn()
@@ -269,19 +268,19 @@ public class PhoneUIController : MonoBehaviour
 
         if (navigationHistory.Count > 0)
         {
-            if (currentApp != PhoneApp.Stowed && appScreens.ContainsKey(currentApp))
+            if (CurrentApp != PhoneApp.Stowed && appScreens.ContainsKey(CurrentApp))
             {
-                appScreens[currentApp].SetActive(false);
+                appScreens[CurrentApp].SetActive(false);
             }
 
-            currentApp = navigationHistory.Pop();
+            CurrentApp = navigationHistory.Pop();
 
-            if (currentApp != PhoneApp.Stowed && appScreens.ContainsKey(currentApp))
+            if (CurrentApp != PhoneApp.Stowed && appScreens.ContainsKey(CurrentApp))
             {
-                appScreens[currentApp].SetActive(true);
+                appScreens[CurrentApp].SetActive(true);
             }
 
-            Debug.Log("Returned to " + currentApp.ToString());
+            Debug.Log("Returned to " + CurrentApp.ToString());
         }
     }
 

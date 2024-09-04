@@ -42,7 +42,7 @@ public class NeighbourAngerBar : MonoBehaviour
 
             UpdateNeighbourHappinessBar(amount);
 
-            if (neighbour.currentHappiness <= neighbour.complaintThreshold && neighbour.complaintCount < 2)
+            if (neighbour.CurrentHappiness <= neighbour.ComplaintThreshold && neighbour.ComplaintCount < 2)
             {
                 neighbour.EscalateNeighbourComplaint();
                 ChatManager.instance.ReceiveComplaint(neighbour.neighbourName, DetermineComplaintType());
@@ -63,7 +63,7 @@ public class NeighbourAngerBar : MonoBehaviour
 
     DialogueType DetermineComplaintType()
     {
-        if (neighbour.currentHappiness <= neighbour.happinessThreshold_Angry)
+        if (neighbour.CurrentHappiness <= neighbour.HappinessThreshold_Angry)
         {
             return DialogueType.Complaint_Angry;
         }

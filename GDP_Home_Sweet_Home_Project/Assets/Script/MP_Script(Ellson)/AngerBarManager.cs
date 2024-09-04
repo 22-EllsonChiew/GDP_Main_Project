@@ -25,12 +25,12 @@ public class AngerBarManager : MonoBehaviour
     {
         UpdateHappinessBar();
 
-        if (neighbour_Hakim.currentHappiness <= 0f)
+        if (neighbour_Hakim.CurrentHappiness <= 0f)
         {
             ScoreManager.Instance.SetAngeredNeighbour(neighbour_Hakim);
             SceneManager.LoadScene(loseScene);
         }
-        else if (neighbour_Sherryl.currentHappiness <= 0f)
+        else if (neighbour_Sherryl.CurrentHappiness <= 0f)
         {
             ScoreManager.Instance.SetAngeredNeighbour(neighbour_Sherryl);
             SceneManager.LoadScene(loseScene);
@@ -40,7 +40,7 @@ public class AngerBarManager : MonoBehaviour
     public void UpdateHappinessBar()
     {
         //calculate the average happiness by taking both the neighbours indivdual happiness value and adding them then divide by 2 to give the average value for the happiness total decrease
-        float averageHappinessDecrease = (neighbour_Hakim.currentHappiness + neighbour_Sherryl.currentHappiness) / 2;
+        float averageHappinessDecrease = (neighbour_Hakim.CurrentHappiness + neighbour_Sherryl.CurrentHappiness) / 2;
 
         float maxHappiness = (neighbour_Hakim.maxHappiness + neighbour_Sherryl.maxHappiness) / 2; // value will be 100f
 

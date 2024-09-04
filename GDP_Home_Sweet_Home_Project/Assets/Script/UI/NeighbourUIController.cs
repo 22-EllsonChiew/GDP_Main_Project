@@ -48,6 +48,7 @@ public class NeighbourUIController : MonoBehaviour
     private InteractionConversation currentConversation;
 
     private bool isInteractionUIActive;
+    private bool isNeighbourInDialogue = false;
 
     private float neighbourGreeting_MoveDistance = 1f;
     private float neighbourGreeting_MoveDuration = 0.5f;
@@ -70,7 +71,7 @@ public class NeighbourUIController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        playerResponse2.onClick.AddListener(() => ShowInteractionDialogue(Interaction.currentNeighbour.neighbourName, Interaction.currentNeighbour.currentMood));
+        playerResponse2.onClick.AddListener(() => ShowInteractionDialogue(Interaction.currentNeighbour.neighbourName, Interaction.currentNeighbour.CurrentMood));
         playerResponse3.onClick.AddListener(() => EndInteraction());
 
     }
@@ -85,11 +86,12 @@ public class NeighbourUIController : MonoBehaviour
     {
 
         PlayerMovement.dialogue = true;
-        
+        AudioManager.Instance.PlaySFX(sfx_DoorKnock);
+
         if (!Interaction.currentNeighbour.IsNeighbourInRoutine)
         {
-            //door knock audio
-            AudioManager.Instance.PlaySFX(sfx_DoorKnock);
+            ChatManager.instance.UnlockContact(Interaction.currentNeighbour.neighbourName);
+            isNeighbourInDialogue = true;
             isNeighbourGreetingPlayer = true;
             HandleInteractionAnimations();
         }
@@ -119,7 +121,7 @@ public class NeighbourUIController : MonoBehaviour
         if (Interaction.currentNeighbour.IsNeighbourInRoutine)
         {
             neighbourUIName.text = Interaction.currentNeighbour.neighbourName;
-            neighbourUIDialogue.text = "Neighbour is currently busy";
+            neighbourUIDialogue.text = "<i>They dont seem to be around.</i>";
             playerResponse2.interactable = false;
         }
         else
@@ -142,13 +144,14 @@ public class NeighbourUIController : MonoBehaviour
         PlayerMovement.dialogue = false;
         isNeighbourGreetingPlayer = false;
 
-        if (!Interaction.currentNeighbour.IsNeighbourInRoutine)
+        if (!Interaction.currentNeighbour.IsNeighbourInRoutine || isNeighbourInDialogue)
         {
             HandleInteractionAnimations();
         }
         
         ToggleInteractionUI();
 
+        isNeighbourInDialogue = false;
         endInteraction = true;
         
 
@@ -173,6 +176,7 @@ public class NeighbourUIController : MonoBehaviour
     {
         Transform neighbourTransform = Interaction.currentNeighbour.neighbourTransform;
         float moveDirection = neighbourGreeting_MoveDistance;
+        playerResponse2.interactable = false;
         playerResponse3.interactable = false;
 
         if (isNeighbourGreetingPlayer)
@@ -200,6 +204,7 @@ public class NeighbourUIController : MonoBehaviour
 
 
         neighbourTransform.position = endPos;
+        playerResponse2.interactable = true;
         playerResponse3.interactable = true;
     }
 

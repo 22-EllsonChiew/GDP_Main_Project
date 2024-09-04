@@ -118,21 +118,10 @@ public class MovingFurniture : MonoBehaviour
             if(draggingTags.Contains(hitCollider.tag))
             {
                 inRange = true;
-                //set text to active and text to press G to drag
-                interactionUIPrompt.EnablePanel();
-                InteractionUI();
-                textObject.SetActive(true);
+                //set text to active and text to press G to drags
                 //exit loop early if we found a valid object
-
                 return;
             }
-        }
-
-        // Hide the text if not in range of any object
-        if (!inRange && carriedObject == null)
-        {
-            interactionUIPrompt.DisablePanel();
-            textObject.SetActive(false);
         }
     }
 
@@ -236,25 +225,6 @@ public class MovingFurniture : MonoBehaviour
 
     void UpdateCarriedObjectPosition()
     {
-        /*if (carriedObject != null)
-        {
-            float distance = Vector3.Distance(dragPos.position, carriedObject.transform.position);
-
-            if (distance < maxDistance)
-            {
-                //apply an impulse force on the object in the players forward direction
-                Vector3 direction = player.transform.forward;
-                carriedObject.GetComponent<Rigidbody>().AddForce(direction * forceStrength, ForceMode.Acceleration);
-            }
-            else
-            {
-                //stop the object
-                carriedObject.GetComponent<Rigidbody>().velocity = Vector3.zero; 
-            }
-
-            //update text while carrying
-            dragText.SetText("Press G to drop");
-        }*/
 
         if (carriedObject != null)
         {
@@ -274,42 +244,6 @@ public class MovingFurniture : MonoBehaviour
             {
                 carriedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
-
-            /*if (carriedObject.tag == "Draggable")
-            {
-                particleObject.SetActive(true);
-                cupBoardTranslucent.SetActive(true);
-                particleObject.transform.position = snapCollider.prefabPosition;
-            }
-            if(carriedObject.tag == "DraggableMirror")
-            {
-                mirrorTranslucnet.SetActive(true);
-            }
-            if(carriedObject.tag == "DraggableBarStool")
-            {
-                barStoolTranslucent.SetActive(true);
-            }
-            if(carriedObject.tag == "DraggableTvTable")
-            {
-                tvSetTranslucent.SetActive(true);
-                
-            }
-            if(carriedObject.tag == "DraggableStudyTable")
-            {
-                studyTableTranslucent.SetActive(true);
-            }
-            if(carriedObject.tag == "DraggableBarStool2")
-            {
-                barStoolTranslucent2.SetActive(true);
-            }
-            if(carriedObject.tag == "DraggableOfficeChair")
-            {
-                officeChairTranslucent.SetActive(true);
-            }
-            if(carriedObject.tag == "DraggableSofa")
-            {
-                sofaTranslucent.SetActive(true);
-            }*/
 
             TranslucentSetActive();
 
@@ -491,9 +425,33 @@ public class MovingFurniture : MonoBehaviour
         
     }
 
-    private void InteractionUI()
+    private void EnableInteractionUI()
     {
         interactionUIPrompt.EnablePanel();
         interactionUIPrompt.SetInteractionText("G", "Drag");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(draggingTags.Contains(other.tag))
+        {
+            EnableInteractionUI();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(draggingTags.Contains(other.tag))
+        {
+            EnableInteractionUI();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (draggingTags.Contains(other.tag))
+        {
+            interactionUIPrompt.DisablePanel();
+        }
     }
 }
