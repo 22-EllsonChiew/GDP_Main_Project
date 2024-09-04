@@ -69,8 +69,8 @@ public class ChatManager : MonoBehaviour
 
         allPhoneContacts = new List<PhoneContact>()
         {
-            new PhoneContact() {name = neighbourHakim.neighbourName, photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
-            new PhoneContact() {name = neighbourSherryl.neighbourName, photo = null, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
+            new PhoneContact() {name = neighbourHakim.neighbourName, photo = neighbourHakim.neighbourImageSprite, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
+            new PhoneContact() {name = neighbourSherryl.neighbourName, photo = neighbourSherryl.neighbourImageSprite, isUnlocked = false, isAwaitingReply = false, receivedMessages = new DialogueLine[0]},
         };
 
         unlockedPhoneContacts = new List<PhoneContact>();
@@ -89,6 +89,7 @@ public class ChatManager : MonoBehaviour
         if (targetContact != null) 
         {
             currentContactName.text = contactName;
+            currentContactPhoto.sprite = targetContact.photo;
             currentContact = targetContact;
 
             RefreshCurrentMessages();

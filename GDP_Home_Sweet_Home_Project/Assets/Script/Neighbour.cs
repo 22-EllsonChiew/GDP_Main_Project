@@ -18,12 +18,12 @@ public class Neighbour : MonoBehaviour
     public TextAsset neighbourRoutinesJSON;
     public RoutineData routineArray;
 
-    public float happinessThreshold_Normal {  get; private set; }
-    public float happinessThreshold_Angry { get; private set; }
-    public float complaintThreshold { get; private set; }
-    public int complaintCount { get; private set; }
-    public float currentHappiness { get; private set; }
-    public DialogueType currentMood { get; private set; }
+    public float HappinessThreshold_Normal {  get; private set; }
+    public float HappinessThreshold_Angry { get; private set; }
+    public float ComplaintThreshold { get; private set; }
+    public int ComplaintCount { get; private set; }
+    public float CurrentHappiness { get; private set; }
+    public DialogueType CurrentMood { get; private set; }
     public bool IsNeighbourInRoutine {  get; private set; }
     public bool HasBeenPromised {  get; private set; } = false;
 
@@ -35,13 +35,13 @@ public class Neighbour : MonoBehaviour
     void Start()
     {
 
-        currentHappiness = maxHappiness;
-        happinessThreshold_Normal = maxHappiness * 0.65f;
-        happinessThreshold_Angry = maxHappiness * 0.35f;
+        CurrentHappiness = maxHappiness;
+        HappinessThreshold_Normal = maxHappiness * 0.65f;
+        HappinessThreshold_Angry = maxHappiness * 0.35f;
         brokenPromisePenalty = maxHappiness * 0.2f;
 
-        complaintThreshold = happinessThreshold_Normal;
-        complaintCount = 0;
+        ComplaintThreshold = HappinessThreshold_Normal;
+        ComplaintCount = 0;
 
         routineArray = JsonConvert.DeserializeObject<RoutineData>(neighbourRoutinesJSON.text);
         neighbourTransform = transform;
@@ -58,16 +58,16 @@ public class Neighbour : MonoBehaviour
 
     public void EscalateNeighbourComplaint()
     {
-        if (complaintCount < 1)
+        if (ComplaintCount < 1)
         {
-            complaintCount++;
-            complaintThreshold = happinessThreshold_Angry;
+            ComplaintCount++;
+            ComplaintThreshold = HappinessThreshold_Angry;
             Debug.Log("neighbour has made a complaint - less forgiving to player");
         }
-        else if (complaintCount < 2)
+        else if (ComplaintCount < 2)
         {
-            complaintCount++;
-            complaintThreshold = 0f;
+            ComplaintCount++;
+            ComplaintThreshold = 0f;
             Debug.Log("neighbour has made final warning - will no longer make informal complaint");
         }
         else
@@ -78,8 +78,8 @@ public class Neighbour : MonoBehaviour
 
     public void ReduceHappiness(float amount)
     {
-        currentHappiness -= amount;
-        currentHappiness = Mathf.Clamp(currentHappiness, 0, maxHappiness);
+        CurrentHappiness -= amount;
+        CurrentHappiness = Mathf.Clamp(CurrentHappiness, 0, maxHappiness);
     }
 
     public void MakePromise()
@@ -103,6 +103,7 @@ public class Neighbour : MonoBehaviour
         int currentMinute = TimeController.Minute;
         bool foundCurrentRoutine = false;
 
+        // reset upcoming routine only when that specific routine has been completed
         if (upcomingRoutine != null && (currentHour >= upcomingRoutine.routineEndHour && currentMinute >= upcomingRoutine.routineEndMinute))
         {
             upcomingRoutine = null;
@@ -142,17 +143,17 @@ public class Neighbour : MonoBehaviour
 
     void CalculateCurrentMood()
     {
-        if (currentHappiness <= happinessThreshold_Angry)
+        if (CurrentHappiness <= HappinessThreshold_Angry)
         {
-            currentMood = DialogueType.Mood_Angry;
+            CurrentMood = DialogueType.Mood_Angry;
         }
-        else if (currentHappiness <= happinessThreshold_Normal)
+        else if (CurrentHappiness <= HappinessThreshold_Normal)
         {
-            currentMood = DialogueType.Mood_Normal;
+            CurrentMood = DialogueType.Mood_Normal;
         }
         else 
         {
-            currentMood = DialogueType.Mood_Happy;
+            CurrentMood = DialogueType.Mood_Happy;
         }
     }
 
@@ -163,8 +164,8 @@ public class Neighbour : MonoBehaviour
 
         while (elapsedTime < happinessRegenDuration)
         {
-            currentHappiness += regenAmount * Time.deltaTime;
-            currentHappiness = Mathf.Clamp(currentHappiness, 0, maxHappiness);
+            CurrentHappiness += regenAmount * Time.deltaTime;
+            CurrentHappiness = Mathf.Clamp(CurrentHappiness, 0, maxHappiness);
             elapsedTime += Time.deltaTime;
             yield return null;
         }

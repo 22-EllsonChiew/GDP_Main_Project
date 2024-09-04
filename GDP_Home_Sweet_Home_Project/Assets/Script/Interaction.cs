@@ -89,8 +89,7 @@ public class Interaction : MonoBehaviour
             if (CanInteractWithNeighbour)
             {
                 interactionUIPrompt.DisablePanel();
-                ChatManager.instance.UnlockContact(currentNeighbour.neighbourName);
-                NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, currentNeighbour.currentMood);
+                NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, currentNeighbour.CurrentMood);
             }
 
             if (IsAtElevator || IsAtBed)
