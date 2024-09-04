@@ -22,13 +22,11 @@ public class InteractionPrompt : MonoBehaviour
 
     public void EnablePanel()
     {
-        Debug.Log("InteractionPrompt - Enabling Pop-up");
         gameObject.SetActive(true);
     }
     
     public void DisablePanel()
     {
-        Debug.Log("InteractionPrompt - Disabling Pop-up");
         gameObject.SetActive(false);
     }
 }

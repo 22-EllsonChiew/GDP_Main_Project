@@ -53,6 +53,7 @@ public class Interaction : MonoBehaviour
     public static bool CanInteractWithNeighbour {  get; private set; }
     private bool IsAtElevator;
     private bool IsAtBed;
+    private bool IsAtToolbox;
 
     public UnityEvent<bool> isGameStarting;
 
@@ -106,6 +107,14 @@ public class Interaction : MonoBehaviour
                 {
                     timeSkipUIText.text = "Go to bed?";
                 }
+            }
+
+            if (IsAtToolbox)
+            {
+                Debug.Log("Opening chest");
+                AudioManager.Instance.PlaySFX(sfx_ToolboxOpen);
+                toolBoxUI.SetActive(true);
+                animator.SetTrigger("chestOpen");
             }
         }
         CheckDistance();
@@ -193,6 +202,12 @@ public class Interaction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Chest"))
+        {
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Open");
+        }
+
         if (other.CompareTag("NeighbourInteractionCollider"))
         {
             CanInteractWithNeighbour = true;
@@ -235,6 +250,13 @@ public class Interaction : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.CompareTag("Chest"))
+        {
+            IsAtToolbox = true;
+            interactionUIPrompt.EnablePanel();
+            interactionUIPrompt.SetInteractionText("E", "Open");
+        }
+
         if (other.CompareTag("NeighbourInteractionCollider"))
         {
             interactionUIPrompt.EnablePanel();
@@ -309,13 +331,6 @@ public class Interaction : MonoBehaviour
                 }
             }
 
-            if (hitCollider.CompareTag("Chest") && Input.GetKeyDown(KeyCode.E))
-            {
-                Debug.Log("Opening chest");
-                AudioManager.Instance.PlaySFX(sfx_ToolboxOpen);
-                toolBoxUI.SetActive(true);
-                animator.SetTrigger("chestOpen");
-            }
             if (hitCollider.CompareTag(tagName) && Input.GetKeyDown(KeyCode.E))
             {
                 Package packageData = hitCollider.gameObject.GetComponent<Package>();
@@ -329,6 +344,7 @@ public class Interaction : MonoBehaviour
                 packageUI.exitButton.onClick.AddListener(ExitClicked);
                 drillGame = true;
             }
+
             if (hitCollider.CompareTag("TableDrilling") && Input.GetKeyDown(KeyCode.E))
             {
                 Package packageData = hitCollider.GetComponent<Package>();
@@ -351,6 +367,12 @@ public class Interaction : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("Chest"))
+        {
+            IsAtToolbox = false;
+            interactionUIPrompt.DisablePanel();
+        }
+
         if (other.CompareTag("NeighbourInteractionCollider"))
         {
             interactionUIPrompt.DisablePanel();
