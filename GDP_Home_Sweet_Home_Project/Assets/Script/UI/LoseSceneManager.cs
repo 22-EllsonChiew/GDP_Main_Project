@@ -38,7 +38,7 @@ public class LoseSceneManager : MonoBehaviour
         if (scoreManager != null)
         {
             angeredNeighbourName.text = scoreManager.AngeredNeighbour.neighbourName;
-            // set neighbourPhoto
+            angeredNeighbourPhoto.sprite = scoreManager.AngeredNeighbour.neighbourImageSprite;
         }
     }
 

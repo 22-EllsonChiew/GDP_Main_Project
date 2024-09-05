@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public enum TimePhase
@@ -208,10 +209,10 @@ public class TimeController : MonoBehaviour
 
         if (currentTimePhase == TimePhase.Evening)
         {
-            if (CurrentDay == 5)
+            if (CurrentDay == endDay)
             {
                 Debug.Log("TimeController - Final day reached, loading End Scene");
-                // load end scene
+                SceneManager.LoadScene("End Scene");
                 return;
             }
 
@@ -260,12 +261,6 @@ public class TimeController : MonoBehaviour
     {
         if (Hour == endHour && Minute == endMinute)
         {
-            if (CurrentDay == endDay)
-            {
-                Debug.Log("Total game days reached!");
-                // move to end scene
-                // housewarming party!
-            }
 
             isPaused = true;
             // load into day end scene
