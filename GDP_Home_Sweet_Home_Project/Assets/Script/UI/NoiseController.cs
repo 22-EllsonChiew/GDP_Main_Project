@@ -106,7 +106,7 @@ public class NoiseController : MonoBehaviour
 
     public void MakeNoise(float noise)
     {
-        if (TimeController.instance.currentTimePhase == TimePhase.QuietTime)
+        if (TimeController.instance.CurrentTimePhase == TimePhase.QuietTime)
         {
             noise *= 1.75f;
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class LoseSceneManager : MonoBehaviour
 {
@@ -38,7 +38,15 @@ public class LoseSceneManager : MonoBehaviour
         if (scoreManager != null)
         {
             angeredNeighbourName.text = scoreManager.AngeredNeighbour.neighbourName;
-            angeredNeighbourPhoto.sprite = scoreManager.AngeredNeighbour.neighbourImageSprite;
+            if (scoreManager.AngeredNeighbour.neighbourImageSprite != null)
+            {
+                angeredNeighbourPhoto.sprite = scoreManager.AngeredNeighbour.neighbourImageSprite;
+            }
+            else
+            {
+                Debug.LogWarning("No neighbour photo found!");
+            }
+            
         }
     }
 

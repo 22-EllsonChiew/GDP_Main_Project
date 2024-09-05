@@ -304,6 +304,15 @@ public class Interaction : MonoBehaviour
             packageUI.gameObject.SetActive(false);
         }
     }
+
+    public void CloseTimeSkipUI()
+    {
+        if (timeSkipUI.activeSelf)
+        {
+            timeSkipUI.SetActive(false);
+        }
+    }
+
     void CheckDistance()
     {
         Vector3 spherePosition = player.transform.position + player.transform.forward * checkRadius;

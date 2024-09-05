@@ -16,14 +16,14 @@ public class ChestController : MonoBehaviour
 
     public void AddRubberHammerCover()
     {
-        InventoryManager.Instance.AddItem(InventoryManager.AllItems.RubberHammerCover);
+        InventoryManager.Instance.AddItem(InventoryManager.InventoryManagerItems.RubberHammerCover);
         rubberHammerCover.interactable = false;
         Debug.Log("Hammer Added!");
     }
 
     public void AddClothLegSock()
     {
-        InventoryManager.Instance.AddItem(InventoryManager.AllItems.ClothLegSocks);
+        InventoryManager.Instance.AddItem(InventoryManager.InventoryManagerItems.ClothLegSocks);
         clothLegSock.interactable = false;
         Debug.Log("Leg socks added!");
     }

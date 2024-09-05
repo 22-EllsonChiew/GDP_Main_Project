@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -74,6 +75,19 @@ public class PhoneUIController : MonoBehaviour
     [SerializeField]
     private GameObject chatNotification;
 
+    [Header("Home Screen Widgets")]
+    [SerializeField]
+    private TextMeshProUGUI phoneClockTimePhaseText;
+    [SerializeField]
+    private Image phoneClockTimePhasePhoto;
+    [SerializeField]
+    private TextMeshProUGUI phoneCalendarDaysLeft;
+
+    [Header("Home Clock Sprites")]
+    public Sprite dayTime;
+    public Sprite eveningTime;
+    public Sprite quietTime;
+
     [Header("Sound Effects")]
     [SerializeField] private AudioClip sfx_PhoneNotification;
     [SerializeField] private AudioClip sfx_PhoneAppClick;
@@ -134,6 +148,8 @@ public class PhoneUIController : MonoBehaviour
     {
 
         UpdateWallpaper();
+        UpdateTimeWidgets();
+
         HandleNotificationClock();
 
         if (Input.GetKeyDown(KeyCode.Tab) && !isMoving) 
@@ -174,6 +190,27 @@ public class PhoneUIController : MonoBehaviour
         if (CurrentApp == PhoneApp.ChatApp)
         {
             phoneBG.sprite = chatAppBG;
+        }
+    }
+
+    void UpdateTimeWidgets()
+    {
+        phoneClockTimePhaseText.text = TimeController.instance.CurrentTimePhase.ToString();
+        phoneCalendarDaysLeft.text = TimeController.instance.DaysLeft.ToString();
+
+        switch (TimeController.instance.CurrentTimePhase)
+        {
+            case TimePhase.Morning:
+                phoneClockTimePhasePhoto.sprite = dayTime;
+                break;
+
+            case TimePhase.Evening:
+                phoneClockTimePhasePhoto.sprite = eveningTime;
+                break;
+
+            case TimePhase.QuietTime:
+                phoneClockTimePhasePhoto.sprite = quietTime; 
+                break;
         }
     }
 

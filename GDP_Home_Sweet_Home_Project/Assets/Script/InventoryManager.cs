@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
-    public List<AllItems> invItems = new List<AllItems>();
+    public List<InventoryManagerItems> invItems = new List<InventoryManagerItems>();
 
     // Start is called before the first frame update
     void Awake()
@@ -19,15 +19,16 @@ public class InventoryManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void AddItem(AllItems item)
+    public void AddItem(InventoryManagerItems item)
     {
-        if (!invItems.Contains(item))
+        if (!invItems.Contains(item) && item != InventoryManagerItems.Tool)
         {
+            Debug.Log("Added " + item.ToString());
             invItems.Add(item);
         }
     }
 
-    public void RemoveItem(AllItems item)
+    public void RemoveItem(InventoryManagerItems item)
     {
         if (!invItems.Contains(item))
         {
@@ -35,9 +36,10 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public enum AllItems
+    public enum InventoryManagerItems
     {
         RubberHammerCover,
         ClothLegSocks,
+        Tool,
     }
 }
