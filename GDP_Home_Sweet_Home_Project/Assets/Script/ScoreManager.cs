@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] private int totalFurnitureCount = 17;
+    [SerializeField] public int TotalFurnitureCount { get; private set; } = 17;
 
     public Neighbour AngeredNeighbour { get; private set; }
     public Neighbour AngriestNeighbour { get; private set; }

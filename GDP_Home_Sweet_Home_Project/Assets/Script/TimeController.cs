@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public enum TimePhase
@@ -23,15 +24,16 @@ public class TimeController : MonoBehaviour
     public static int Minute { get; private set; }
     public static int Hour { get; private set; }
     public static int CurrentDay { get; private set; }
-
-    public bool isPaused { get; private set; }
-
-    public TimePhase currentTimePhase { get; private set; }
-    private float minuteToRealTime = 0.75f;
-    private float timer;
+    public int DaysLeft { get; private set; }
 
     [SerializeField]
     private int endDay;
+
+    public bool isPaused { get; private set; }
+
+    public TimePhase CurrentTimePhase { get; private set; }
+    private float minuteToRealTime = 0.75f;
+    private float timer;
 
     [SerializeField]
     private int startHour;
@@ -124,8 +126,9 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTimePhase = DetermineCurrentTimePhase();
-        
+        CurrentTimePhase = DetermineCurrentTimePhase();
+
+        DaysLeft = endDay - CurrentDay;
 
         HandleTime();
         if (Input.GetKeyDown(KeyCode.M))
@@ -133,7 +136,7 @@ public class TimeController : MonoBehaviour
             AdvanceTimePhase();
         }
 
-        PlayBackGroundMusic(currentTimePhase);
+        PlayBackGroundMusic(CurrentTimePhase);
     }
 
     private void PlayBackGroundMusic(TimePhase phase)
@@ -198,7 +201,7 @@ public class TimeController : MonoBehaviour
 
         loadingScreen.ShowRandomMessage();
 
-        if (currentTimePhase == TimePhase.Morning)
+        if (CurrentTimePhase == TimePhase.Morning)
         {
             dayCycleImage.sprite = nightImage;
             dayText.SetText("Evening");
@@ -206,12 +209,12 @@ public class TimeController : MonoBehaviour
             SetTime(17, 30);
         }
 
-        if (currentTimePhase == TimePhase.Evening)
+        if (CurrentTimePhase == TimePhase.Evening)
         {
-            if (CurrentDay == 5)
+            if (CurrentDay == endDay)
             {
                 Debug.Log("TimeController - Final day reached, loading End Scene");
-                // load end scene
+                SceneManager.LoadScene("End Scene");
                 return;
             }
 
@@ -260,12 +263,6 @@ public class TimeController : MonoBehaviour
     {
         if (Hour == endHour && Minute == endMinute)
         {
-            if (CurrentDay == endDay)
-            {
-                Debug.Log("Total game days reached!");
-                // move to end scene
-                // housewarming party!
-            }
 
             isPaused = true;
             // load into day end scene

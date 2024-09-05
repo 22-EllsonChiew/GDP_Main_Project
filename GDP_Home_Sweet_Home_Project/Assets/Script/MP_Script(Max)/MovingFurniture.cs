@@ -18,8 +18,6 @@ public class MovingFurniture : MonoBehaviour
     [SerializeField] private float forceStrength = 100f;
     public GameObject snapPos;
     public bool canSnap = false;
-    public GameObject textObject;
-    public TextMeshPro dragText;
     public GameObject mainCam;
     public AudioSource audioSource;
     public AudioClip dragSound;
@@ -33,6 +31,7 @@ public class MovingFurniture : MonoBehaviour
     private bool timeForNextPhase = false;
     [Header("UI Refrence")]
     [SerializeField] private InteractionPrompt interactionUIPrompt;
+    [SerializeField] private ConfirmationWindow packageUI;
 
     [Header("CupBoard GameObject")]
     public GameObject cupBoardObject;
@@ -98,7 +97,7 @@ public class MovingFurniture : MonoBehaviour
         UpdateCarriedObjectPosition();
     }
 
-    private readonly HashSet<string> draggingTags = new HashSet<string>
+    public readonly HashSet<string> draggingTags = new HashSet<string>
     {
         "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa", "DraggableLRLamp", "DraggableBRLamp", "DraggableDiningChair",
         "DraggableDC2", "DraggableDC3", "DraggableDC4", "DraggableDiningTable"
@@ -249,8 +248,6 @@ public class MovingFurniture : MonoBehaviour
 
 
 
-            dragText.SetText("Press G to drop");
-
         }
     }
 
@@ -357,6 +354,28 @@ public class MovingFurniture : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && packageData != null)
         {
+            packageUI.gameObject.SetActive(true);
+            packageUI.SetFurnitureDetails(packageData);
+
+            packageUI.confirmButton.onClick.RemoveAllListeners();
+            packageUI.confirmButton.onClick.AddListener(() => InstantiateFurniture(packageData, other));
+            packageUI.confirmButton.onClick.AddListener(() => ClosePackageManualUI());
+        }
+        
+    }
+
+    void ClosePackageManualUI()
+    {
+        if (packageUI.gameObject.activeSelf)
+        {
+            packageUI.gameObject.SetActive(false);
+        }
+    }
+
+    void InstantiateFurniture(Package packageData, Collision other)
+    {
+        if (packageData != null)
+        {
             if (packageData.furnitureType == FurnitureType.Large_Cabinet)
             {
                 Vector3 cupBoardPos = other.transform.position;
@@ -367,7 +386,7 @@ public class MovingFurniture : MonoBehaviour
 
             }
 
-            if(packageData.furnitureType == FurnitureType.Mirror)
+            if (packageData.furnitureType == FurnitureType.Mirror)
             {
                 Vector3 mirrorPos = other.transform.position;
                 other.gameObject.SetActive(false);
@@ -375,7 +394,7 @@ public class MovingFurniture : MonoBehaviour
                 GameObject instantiatedMirrorObject = Instantiate(mirrorObject, mirrorPos, Quaternion.identity);
             }
 
-            if(packageData.furnitureType == FurnitureType.Bar_Stool)
+            if (packageData.furnitureType == FurnitureType.Bar_Stool)
             {
                 Vector3 barStoolPos = other.transform.position;
                 other.gameObject.SetActive(false);
@@ -384,14 +403,14 @@ public class MovingFurniture : MonoBehaviour
 
             }
 
-            if(packageData.furnitureType == FurnitureType.TV_Console)
+            if (packageData.furnitureType == FurnitureType.TV_Console)
             {
                 Vector3 tvPos = other.transform.position;
                 other.gameObject.SetActive(false);
 
                 GameObject instantiatedTvSet = Instantiate(tvSetTable, tvPos, Quaternion.identity);
             }
-            if(packageData.furnitureType == FurnitureType.Study_Table)
+            if (packageData.furnitureType == FurnitureType.Study_Table)
             {
                 Vector3 studyTable = other.transform.position;
                 other.gameObject.SetActive(false);
@@ -399,36 +418,38 @@ public class MovingFurniture : MonoBehaviour
                 GameObject instantiatedStudyTable = Instantiate(studyTableObject, studyTable, Quaternion.identity);
             }
 
-            if(packageData.furnitureType == FurnitureType.Office_Chair)
+            if (packageData.furnitureType == FurnitureType.Office_Chair)
             {
                 Vector3 officeChairPos = other.transform.position;
                 other.gameObject.SetActive(false);
 
                 GameObject instantiatedOfficeChair = Instantiate(officeChairObject, officeChairPos, Quaternion.identity);
             }
-            if(packageData.furnitureType == FurnitureType.Sofa)
+            if (packageData.furnitureType == FurnitureType.Sofa)
             {
                 Vector3 sofaPos = other.transform.position;
                 other.gameObject.SetActive(false);
 
                 GameObject instantiatedSofa = Instantiate(sofaObject, sofaPos, Quaternion.identity);
             }
-            if(packageData.furnitureType == FurnitureType.Lamp)
+            if (packageData.furnitureType == FurnitureType.Lamp)
             {
                 Vector3 lampPos = other.transform.position;
                 other.gameObject.SetActive(false);
                 GameObject instantiatedLamp = Instantiate(lampObject, lampPos, Quaternion.identity);
             }
-
-            // add other furnitureTypes
         }
-        
+        else
+        {
+            Debug.LogWarning("Package data not found!");
+        }
     }
+
 
     private void EnableInteractionUI()
     {
         interactionUIPrompt.EnablePanel();
-        interactionUIPrompt.SetInteractionText("G", "Drag");
+        interactionUIPrompt.SetInteractionText("E/G", "Interact/Drag");
     }
 
     private void OnTriggerEnter(Collider other)
