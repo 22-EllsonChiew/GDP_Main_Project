@@ -16946,7 +16946,7 @@ GameObject:
   - component: {fileID: 734049400}
   - component: {fileID: 734049401}
   m_Layer: 5
-  m_Name: NoiseMeter_v2
+  m_Name: NoiseMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26172,7 +26172,7 @@ GameObject:
   - component: {fileID: 900560940}
   - component: {fileID: 900560939}
   m_Layer: 5
-  m_Name: Phone_v2
+  m_Name: PlayerHandphone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
