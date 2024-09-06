@@ -6,6 +6,7 @@ using TMPro;
 
 public class NetManager : MonoBehaviour
 {
+    [Header("Post Instantiation")]
     [SerializeField]
     private Transform postListParent;
     [SerializeField]
@@ -23,6 +24,7 @@ public class NetManager : MonoBehaviour
     [SerializeField]
     private Image currentPostPhoto;
 
+    [Header("JSON Loader")]
     [SerializeField]
     private PostLoader postLoader;
 
