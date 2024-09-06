@@ -20,6 +20,7 @@ public class ChatManager : MonoBehaviour
     [SerializeField]
     private ContactPanel contactPrefab;
 
+    [Header("Neighbour Text Data Loader")]
     [SerializeField]
     private MessageLoader messageLoader;
 
@@ -29,7 +30,7 @@ public class ChatManager : MonoBehaviour
     [SerializeField]
     private Image currentContactPhoto;
     [SerializeField]
-    private TextMeshProUGUI errorMessage;
+    private TextMeshProUGUI chatErrorMessage;
     [SerializeField]
     private Transform chatListParent;
     [SerializeField]
@@ -46,9 +47,8 @@ public class ChatManager : MonoBehaviour
 
     private List<PhoneContact> allPhoneContacts;
     private List<PhoneContact> unlockedPhoneContacts;
-    private DialogueLine[] _receivedMessages;
 
-    public PhoneContact currentContact { get; private set; }
+    public PhoneContact CurrentContact { get; private set; }
     private MessageConversation currentConversation;
     
     public static ChatManager instance;
@@ -90,7 +90,7 @@ public class ChatManager : MonoBehaviour
         {
             currentContactName.text = contactName;
             currentContactPhoto.sprite = targetContact.photo;
-            currentContact = targetContact;
+            CurrentContact = targetContact;
 
             RefreshCurrentMessages();
         }
@@ -103,9 +103,9 @@ public class ChatManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        if (currentContact.receivedMessages != null)
+        if (CurrentContact.receivedMessages != null)
         {
-            foreach (var message in currentContact.receivedMessages)
+            foreach (var message in CurrentContact.receivedMessages)
             {
 
                 if (message.speaker == "Myself")
@@ -123,8 +123,8 @@ public class ChatManager : MonoBehaviour
         }
         else
         {
-            errorMessage.text = "No messages with " + currentContact.name + "yet.";
-            Debug.Log("No active chat with " + currentContact.name);
+            chatErrorMessage.text = "No messages with " + CurrentContact.name + "yet.";
+            Debug.Log("No active chat with " + CurrentContact.name);
         }
     }
 
@@ -155,7 +155,7 @@ public class ChatManager : MonoBehaviour
                 targetContact.receivedMessages = updatedMessages;
                 targetContact.isAwaitingReply = true;
 
-                if(currentContact == targetContact)
+                if(CurrentContact == targetContact)
                 {
                     AudioManager.Instance.PlaySFX(sfx_ReceiveMessage);
                     RefreshCurrentMessages();
@@ -182,22 +182,22 @@ public class ChatManager : MonoBehaviour
     {
         Debug.Log("Sending reply");
 
-        if (currentContact == null)
+        if (CurrentContact == null)
         {
             Debug.LogWarning("No current contact. Is this intended?");
             return;
         }
 
-        if (currentContact.isAwaitingReply)
+        if (CurrentContact.isAwaitingReply)
         {
             AudioManager.Instance.PlaySFX(sfx_ReceiveMessage);
             Debug.Log("Reply by player sent");
             DialogueLine lineToAdd = currentConversation.messages[1];
-            DialogueLine[] updatedMessages = new DialogueLine[currentContact.receivedMessages.Length + 1];
-            updatedMessages[currentContact.receivedMessages.Length] = lineToAdd;
-            currentContact.receivedMessages.CopyTo(updatedMessages, 0);
+            DialogueLine[] updatedMessages = new DialogueLine[CurrentContact.receivedMessages.Length + 1];
+            updatedMessages[CurrentContact.receivedMessages.Length] = lineToAdd;
+            CurrentContact.receivedMessages.CopyTo(updatedMessages, 0);
 
-            currentContact.receivedMessages = updatedMessages;
+            CurrentContact.receivedMessages = updatedMessages;
 
             MakePromiseViaText();
 
@@ -208,11 +208,11 @@ public class ChatManager : MonoBehaviour
 
     void MakePromiseViaText()
     {
-        if (currentContact.name == neighbourHakim.neighbourName) 
+        if (CurrentContact.name == neighbourHakim.neighbourName) 
         {
             neighbourHakim.MakePromise();
         }
-        else if (currentContact.name == neighbourSherryl.neighbourName)
+        else if (CurrentContact.name == neighbourSherryl.neighbourName)
         {
             neighbourSherryl.MakePromise();
         }
@@ -223,13 +223,13 @@ public class ChatManager : MonoBehaviour
         yield return new WaitForSeconds(0.85f);
 
         DialogueLine lineToAdd = currentConversation.messages[2];
-        DialogueLine[] updatedMessages = new DialogueLine[currentContact.receivedMessages.Length + 1];
-        updatedMessages[currentContact.receivedMessages.Length] = lineToAdd;
-        currentContact.receivedMessages.CopyTo(updatedMessages, 0);
+        DialogueLine[] updatedMessages = new DialogueLine[CurrentContact.receivedMessages.Length + 1];
+        updatedMessages[CurrentContact.receivedMessages.Length] = lineToAdd;
+        CurrentContact.receivedMessages.CopyTo(updatedMessages, 0);
 
-        currentContact.receivedMessages = updatedMessages;
+        CurrentContact.receivedMessages = updatedMessages;
 
-        currentContact.isAwaitingReply = false;
+        CurrentContact.isAwaitingReply = false;
 
         UpdateContactList();
         AudioManager.Instance.PlaySFX(sfx_ReceiveMessage);
@@ -238,7 +238,7 @@ public class ChatManager : MonoBehaviour
 
     public bool PlayerRepliedToNeighbour(string name)
     {
-        return currentContact != null && currentContact.name == name && !currentContact.isAwaitingReply;
+        return CurrentContact != null && CurrentContact.name == name && !CurrentContact.isAwaitingReply;
     }
 
     public void UnlockContact(string contactName)
