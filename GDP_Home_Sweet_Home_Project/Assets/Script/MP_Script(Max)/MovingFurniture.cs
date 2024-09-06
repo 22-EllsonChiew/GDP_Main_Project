@@ -29,6 +29,8 @@ public class MovingFurniture : MonoBehaviour
     private Vector3 contactPoint;
 
     private bool timeForNextPhase = false;
+
+
     [Header("UI Refrence")]
     [SerializeField] private InteractionPrompt interactionUIPrompt;
     [SerializeField] private ConfirmationWindow packageUI;
@@ -350,15 +352,15 @@ public class MovingFurniture : MonoBehaviour
     private void OnCollisionStay(Collision other)
     {
         Package packageData = other.gameObject.GetComponent<Package>();
+        GameObject targetObject = other.gameObject;
 
-
-        if (Input.GetKeyDown(KeyCode.E) && packageData != null)
+        if (Input.GetKeyDown(KeyCode.E) && packageData != null && targetObject != null)
         {
             packageUI.gameObject.SetActive(true);
             packageUI.SetFurnitureDetails(packageData);
 
             packageUI.confirmButton.onClick.RemoveAllListeners();
-            packageUI.confirmButton.onClick.AddListener(() => InstantiateFurniture(packageData, other));
+            packageUI.confirmButton.onClick.AddListener(() => InstantiateFurniture(packageData, targetObject));
             packageUI.confirmButton.onClick.AddListener(() => ClosePackageManualUI());
         }
         
@@ -372,7 +374,7 @@ public class MovingFurniture : MonoBehaviour
         }
     }
 
-    void InstantiateFurniture(Package packageData, Collision other)
+    void InstantiateFurniture(Package packageData, GameObject other)
     {
         if (packageData != null)
         {
@@ -380,7 +382,7 @@ public class MovingFurniture : MonoBehaviour
             {
                 Vector3 cupBoardPos = other.transform.position;
                 cupBoardPos.y = 0.7811141f;
-                other.gameObject.SetActive(false);
+                other.SetActive(false);
 
                 GameObject instantiatedObject = Instantiate(cupBoardObject, cupBoardPos, Quaternion.identity);
 
@@ -389,7 +391,8 @@ public class MovingFurniture : MonoBehaviour
             if (packageData.furnitureType == FurnitureType.Mirror)
             {
                 Vector3 mirrorPos = other.transform.position;
-                other.gameObject.SetActive(false);
+                mirrorPos.y = 0.8f;
+                other.SetActive(false);
 
                 GameObject instantiatedMirrorObject = Instantiate(mirrorObject, mirrorPos, Quaternion.identity);
             }
@@ -397,7 +400,7 @@ public class MovingFurniture : MonoBehaviour
             if (packageData.furnitureType == FurnitureType.Bar_Stool)
             {
                 Vector3 barStoolPos = other.transform.position;
-                other.gameObject.SetActive(false);
+                other.SetActive(false);
 
                 GameObject instantiatedBarStool = Instantiate(barStoolObject, barStoolPos, Quaternion.identity);
 
@@ -406,14 +409,14 @@ public class MovingFurniture : MonoBehaviour
             if (packageData.furnitureType == FurnitureType.TV_Console)
             {
                 Vector3 tvPos = other.transform.position;
-                other.gameObject.SetActive(false);
+                other.SetActive(false);
 
                 GameObject instantiatedTvSet = Instantiate(tvSetTable, tvPos, Quaternion.identity);
             }
             if (packageData.furnitureType == FurnitureType.Study_Table)
             {
                 Vector3 studyTable = other.transform.position;
-                other.gameObject.SetActive(false);
+                other.SetActive(false);
 
                 GameObject instantiatedStudyTable = Instantiate(studyTableObject, studyTable, Quaternion.identity);
             }
@@ -421,21 +424,21 @@ public class MovingFurniture : MonoBehaviour
             if (packageData.furnitureType == FurnitureType.Office_Chair)
             {
                 Vector3 officeChairPos = other.transform.position;
-                other.gameObject.SetActive(false);
+                other.SetActive(false);
 
                 GameObject instantiatedOfficeChair = Instantiate(officeChairObject, officeChairPos, Quaternion.identity);
             }
             if (packageData.furnitureType == FurnitureType.Sofa)
             {
                 Vector3 sofaPos = other.transform.position;
-                other.gameObject.SetActive(false);
+                other.SetActive(false);
 
                 GameObject instantiatedSofa = Instantiate(sofaObject, sofaPos, Quaternion.identity);
             }
             if (packageData.furnitureType == FurnitureType.Lamp)
             {
                 Vector3 lampPos = other.transform.position;
-                other.gameObject.SetActive(false);
+                other.SetActive(false);
                 GameObject instantiatedLamp = Instantiate(lampObject, lampPos, Quaternion.identity);
             }
         }
