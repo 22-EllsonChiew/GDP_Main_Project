@@ -48610,7 +48610,7 @@ MonoBehaviour:
   messageLoader: {fileID: 690383063}
   currentContactName: {fileID: 405888849}
   currentContactPhoto: {fileID: 34444889}
-  errorMessage: {fileID: 0}
+  chatErrorMessage: {fileID: 0}
   chatListParent: {fileID: 1736064201}
   playerReplyBtn: {fileID: 294706427}
   npcResponsePrefab: {fileID: 5425624041799691553, guid: f4f418b305fd95448a35660e83e705bf, type: 3}
