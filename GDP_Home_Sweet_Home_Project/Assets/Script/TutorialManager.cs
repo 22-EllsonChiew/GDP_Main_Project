@@ -10,6 +10,8 @@ public class TutorialManager : MonoBehaviour
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI DialogueText;
+
+    public GameObject nextSceneTrigger;
     
 
     public Animator animatorDialogue;
@@ -47,6 +49,7 @@ public class TutorialManager : MonoBehaviour
         if(sentences.Count == 0)
         {
             EndDialouge();
+            nextSceneTrigger.SetActive(true);
             return;
         }
 
