@@ -12,15 +12,12 @@ public class NeighbourUIController : MonoBehaviour
     [SerializeField]
     private DialogueLoader dialogueLoader;
 
-    [SerializeField]
-    private GameObject playerObj;
-
-    [SerializeField]
-    private GameObject mainUIGroup;
+    
 
     public bool endInteraction = false; //New implement
 
     [Header("UI Elements - NPC")]
+    [Header("UI References")]
     [SerializeField]
     private GameObject neighbourUIGroup;
     [SerializeField]
@@ -29,15 +26,18 @@ public class NeighbourUIController : MonoBehaviour
     private TextMeshProUGUI neighbourUIDialogue;
 
     [Header("UI Elements - Player")]
+    [Header("Player References")]
+    [SerializeField]
+    private GameObject playerObj;
+    [SerializeField]
+    private GameObject mainUIGroup;
+    [Header("Player Buttons")]
     [SerializeField]
     private Button playerResponse1;
     [SerializeField]
     private Button playerResponse2;
     [SerializeField]
     private Button playerResponse3;
-    //[SerializeField]
-    //private TextMeshProUGUI playerResponse3Text;
-
 
     [Header("Neighbour Reference")]
     [SerializeField]
@@ -54,6 +54,8 @@ public class NeighbourUIController : MonoBehaviour
     private float neighbourGreeting_MoveDuration = 0.5f;
     private float neighbourGreeting_MoveDelay = 1.25f;
     private bool isNeighbourGreetingPlayer = false;
+
+    [Header("Sound Effects")]
     public AudioClip sfx_DoorKnock;
 
 
