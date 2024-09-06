@@ -1024,7 +1024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 32550754}
   m_Layer: 0
-  m_Name: Television_Set
+  m_Name: SnapPostion_TVConsole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1691,7 +1691,7 @@ GameObject:
   - component: {fileID: 67721663}
   - component: {fileID: 67721664}
   m_Layer: 0
-  m_Name: MP_Prebuilt_Mirror
+  m_Name: Package_Mirror
   m_TagString: DraggableMirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1822,12 +1822,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureName: Mira
+  furnitureName: Spegel
   furnitureType: 4
-  furniturePhoto: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: 02d11cc9530c6af4ab1ab2ad3f0f47f6, type: 3}
   isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  toolRequired: {fileID: 21300000, guid: 53ad80d44d713ca43987177df80e9311, type: 3}
+  comicStrip: {fileID: 21300000, guid: 449781f20a23f7743bc28bec83fe1855, type: 3}
 --- !u!1 &74955308
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,12 +3095,10 @@ GameObject:
   - component: {fileID: 120510579}
   - component: {fileID: 120510578}
   - component: {fileID: 120510577}
-  - component: {fileID: 120510576}
-  - component: {fileID: 120510575}
   - component: {fileID: 120510581}
   - component: {fileID: 120510580}
   m_Layer: 0
-  m_Name: Cardboard(Chair)
+  m_Name: Package_Chair4
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3121,36 +3119,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2013019746}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &120510575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120510573}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54f67acaf0397864b8f36cd9ac85cc6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  tagName: Carpet
-  rayCastRange: 10
-  noiseController: {fileID: 7565215745276000209}
---- !u!114 &120510576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120510573}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a328e8484a722c048ba454fffafe2cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &120510577
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3235,12 +3203,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureName: 
+  furnitureName: Benson
   furnitureType: 2
-  furniturePhoto: {fileID: 0}
-  isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: 1679524920874244abebd61c840a33cf, type: 3}
+  isAssemblyRequired: 1
+  toolRequired: {fileID: 21300000, guid: 022a6fa1a5760b34bbfada6a1b0ac66f, type: 3}
+  comicStrip: {fileID: 21300000, guid: b0b50d4eea7a429448957c272b10bec1, type: 3}
 --- !u!54 &120510581
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5770,191 +5738,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232161582}
   m_CullTransparentMesh: 1
---- !u!1 &235360232
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 235360233}
-  - component: {fileID: 235360239}
-  - component: {fileID: 235360238}
-  - component: {fileID: 235360237}
-  - component: {fileID: 235360236}
-  - component: {fileID: 235360235}
-  - component: {fileID: 235360234}
-  - component: {fileID: 235360240}
-  m_Layer: 0
-  m_Name: Cardboard(Table)
-  m_TagString: Object
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &235360233
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235360232}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.85023105, y: -0.2618323, z: -1.3683739}
-  m_LocalScale: {x: 20, y: 20, z: 20}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1645565274}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &235360234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235360232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  furnitureName: 
-  furnitureType: 1
-  furniturePhoto: {fileID: 0}
-  isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
---- !u!114 &235360235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235360232}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54f67acaf0397864b8f36cd9ac85cc6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  tagName: Carpet
-  rayCastRange: 10
-  noiseController: {fileID: 7565215745276000209}
---- !u!114 &235360236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235360232}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a328e8484a722c048ba454fffafe2cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &235360237
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235360232}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.034945965, y: 0.019999996, z: 0.012084439}
-  m_Center: {x: 0.000000023283064, y: 0, z: 2.328307e-10}
---- !u!23 &235360238
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235360232}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 3312050983373826766, guid: e493475c1cd2bd142b7062cc46099e4f, type: 3}
-  - {fileID: 1971852602870745418, guid: e493475c1cd2bd142b7062cc46099e4f, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &235360239
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235360232}
-  m_Mesh: {fileID: -8400479469389668488, guid: e493475c1cd2bd142b7062cc46099e4f, type: 3}
---- !u!54 &235360240
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235360232}
-  serializedVersion: 4
-  m_Mass: 5
-  m_Drag: 10
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!4 &239930325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ce6ab77dcdb7c784b9f5b42525fa9dfe, type: 3}
@@ -7732,7 +7515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 327272674}
   m_Layer: 0
-  m_Name: Bar_Stool
+  m_Name: SnapPosition_BarStool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9523,7 +9306,7 @@ GameObject:
   - component: {fileID: 392261317}
   - component: {fileID: 392261321}
   m_Layer: 0
-  m_Name: MP_Prebuilt_Cardboard_BarStool
+  m_Name: Package_BarStool
   m_TagString: DraggableBarStool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9654,12 +9437,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureName: 
+  furnitureName: Pall
   furnitureType: 0
-  furniturePhoto: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: ff17b7f139eb1534698845f9e03be379, type: 3}
   isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  toolRequired: {fileID: 21300000, guid: 53ad80d44d713ca43987177df80e9311, type: 3}
+  comicStrip: {fileID: 21300000, guid: 449781f20a23f7743bc28bec83fe1855, type: 3}
 --- !u!1 &393317228
 GameObject:
   m_ObjectHideFlags: 0
@@ -10145,7 +9928,7 @@ GameObject:
   - component: {fileID: 414239580}
   - component: {fileID: 414239584}
   m_Layer: 0
-  m_Name: MP_Prebuilt_Cardboard_BarStool
+  m_Name: Package_BarStool
   m_TagString: DraggableBarStool2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10276,12 +10059,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureName: 
+  furnitureName: Pall
   furnitureType: 0
-  furniturePhoto: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: ff17b7f139eb1534698845f9e03be379, type: 3}
   isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  toolRequired: {fileID: 21300000, guid: 53ad80d44d713ca43987177df80e9311, type: 3}
+  comicStrip: {fileID: 21300000, guid: 449781f20a23f7743bc28bec83fe1855, type: 3}
 --- !u!1001 &416980340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10995,7 +10778,7 @@ GameObject:
   - component: {fileID: 462201132}
   - component: {fileID: 462201133}
   m_Layer: 0
-  m_Name: 'Cardboard(Table) '
+  m_Name: Package_???
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12269,11 +12052,11 @@ RectTransform:
   - {fileID: 1968597342}
   - {fileID: 2043042285}
   - {fileID: 305152074}
-  m_Father: {fileID: 557129283}
+  m_Father: {fileID: 673219699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 175}
+  m_AnchoredPosition: {x: 0, y: -225.82883}
   m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &524422626
@@ -13111,7 +12894,6 @@ RectTransform:
   - {fileID: 1891107678}
   - {fileID: 932281703}
   - {fileID: 782346326}
-  - {fileID: 524422625}
   - {fileID: 1017588320}
   - {fileID: 1501941020}
   m_Father: {fileID: 0}
@@ -15046,6 +14828,7 @@ RectTransform:
   m_Children:
   - {fileID: 734049400}
   - {fileID: 900560938}
+  - {fileID: 524422625}
   m_Father: {fileID: 557129283}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -15427,7 +15210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 686796713}
   m_Layer: 0
-  m_Name: Bar_Stool
+  m_Name: SnapPosition_BarStool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16382,12 +16165,10 @@ GameObject:
   - component: {fileID: 706402227}
   - component: {fileID: 706402226}
   - component: {fileID: 706402225}
-  - component: {fileID: 706402224}
-  - component: {fileID: 706402223}
   - component: {fileID: 706402229}
   - component: {fileID: 706402228}
   m_Layer: 0
-  m_Name: Cardboard(Chair)
+  m_Name: Package_Chair3
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16408,36 +16189,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2013019746}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &706402223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706402221}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54f67acaf0397864b8f36cd9ac85cc6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  tagName: Carpet
-  rayCastRange: 10
-  noiseController: {fileID: 7565215745276000209}
---- !u!114 &706402224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706402221}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a328e8484a722c048ba454fffafe2cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &706402225
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16524,10 +16275,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   furnitureName: Benson
   furnitureType: 2
-  furniturePhoto: {fileID: 0}
-  isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: 1679524920874244abebd61c840a33cf, type: 3}
+  isAssemblyRequired: 1
+  toolRequired: {fileID: 21300000, guid: 022a6fa1a5760b34bbfada6a1b0ac66f, type: 3}
+  comicStrip: {fileID: 21300000, guid: b0b50d4eea7a429448957c272b10bec1, type: 3}
 --- !u!54 &706402229
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17649,12 +17400,10 @@ GameObject:
   - component: {fileID: 751318747}
   - component: {fileID: 751318746}
   - component: {fileID: 751318745}
-  - component: {fileID: 751318744}
-  - component: {fileID: 751318743}
   - component: {fileID: 751318742}
   - component: {fileID: 751318748}
   m_Layer: 0
-  m_Name: Cardboard(Table)
+  m_Name: Package_DiningTable
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17687,42 +17436,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureName: 
+  furnitureName: Tabell
   furnitureType: 1
-  furniturePhoto: {fileID: 0}
-  isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
---- !u!114 &751318743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 751318740}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54f67acaf0397864b8f36cd9ac85cc6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  tagName: Carpet
-  rayCastRange: 10
-  noiseController: {fileID: 7565215745276000209}
---- !u!114 &751318744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 751318740}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a328e8484a722c048ba454fffafe2cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  furniturePhoto: {fileID: 21300000, guid: ca291b0d68ed2be4faf7b70fa61dcbd9, type: 3}
+  isAssemblyRequired: 1
+  toolRequired: {fileID: 21300000, guid: 022a6fa1a5760b34bbfada6a1b0ac66f, type: 3}
+  comicStrip: {fileID: 21300000, guid: b0b50d4eea7a429448957c272b10bec1, type: 3}
 --- !u!65 &751318745
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18730,7 +18449,7 @@ GameObject:
   - component: {fileID: 784651874}
   - component: {fileID: 784651878}
   m_Layer: 0
-  m_Name: MP_Prebuilt_Cardboard_TV
+  m_Name: Package_TVConsole
   m_TagString: DraggableTvTable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18861,12 +18580,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureName: 
+  furnitureName: "Tr\xF6sta"
   furnitureType: 3
-  furniturePhoto: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: 4ca8c1b9b7d840d43a8314dcba4742f2, type: 3}
   isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  toolRequired: {fileID: 21300000, guid: 53ad80d44d713ca43987177df80e9311, type: 3}
+  comicStrip: {fileID: 21300000, guid: 449781f20a23f7743bc28bec83fe1855, type: 3}
 --- !u!4 &785402015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ce6ab77dcdb7c784b9f5b42525fa9dfe, type: 3}
@@ -20168,7 +19887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 843310338}
   m_Layer: 0
-  m_Name: BedRoom_Lamp
+  m_Name: SnapPosition_Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20752,7 +20471,7 @@ GameObject:
   - component: {fileID: 858241067}
   - component: {fileID: 858241066}
   m_Layer: 0
-  m_Name: MP_Prebuilt_Cardboard_OfficeChair
+  m_Name: Package_OfficeChair
   m_TagString: DraggableOfficeChair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20785,12 +20504,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureName: 
+  furnitureName: Kontorssits
   furnitureType: 7
-  furniturePhoto: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: f36ec74be72c0464ca0b66aa4028a4a9, type: 3}
   isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  toolRequired: {fileID: 21300000, guid: 53ad80d44d713ca43987177df80e9311, type: 3}
+  comicStrip: {fileID: 21300000, guid: 449781f20a23f7743bc28bec83fe1855, type: 3}
 --- !u!54 &858241067
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26849,7 +26568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 912561609}
   m_Layer: 0
-  m_Name: Living Room_Lamp
+  m_Name: SnapPosition_Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27509,7 +27228,7 @@ GameObject:
   - component: {fileID: 932932843}
   - component: {fileID: 932932847}
   m_Layer: 0
-  m_Name: MP_Prebuilt_Cardboard_StudyTable
+  m_Name: Package_StudyTable
   m_TagString: DraggableStudyTable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27640,12 +27359,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureName: 
+  furnitureName: Skrivbord
   furnitureType: 6
-  furniturePhoto: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: d27bfa5ab56e88b40b56673d454edded, type: 3}
   isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  toolRequired: {fileID: 21300000, guid: 53ad80d44d713ca43987177df80e9311, type: 3}
+  comicStrip: {fileID: 21300000, guid: 449781f20a23f7743bc28bec83fe1855, type: 3}
 --- !u!4 &941372707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 424390ec5317ac349bcb48ff06c8f557, type: 3}
@@ -31397,7 +31116,7 @@ GameObject:
   - component: {fileID: 1086128376}
   - component: {fileID: 1086128375}
   m_Layer: 0
-  m_Name: Bar Stool Position
+  m_Name: SnapPostion_??
   m_TagString: SnapPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39849,7 +39568,7 @@ GameObject:
   - component: {fileID: 1233461789}
   - component: {fileID: 1233461788}
   m_Layer: 0
-  m_Name: MP_Prebuilt_Cardboard_BedRoom_Lamp
+  m_Name: Package_Lamp
   m_TagString: DraggableBRLamp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39882,12 +39601,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureName: 
+  furnitureName: Lampa
   furnitureType: 9
-  furniturePhoto: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: 64c311306fdf1cd49b304c17ba6c7040, type: 3}
   isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  toolRequired: {fileID: 21300000, guid: 53ad80d44d713ca43987177df80e9311, type: 3}
+  comicStrip: {fileID: 21300000, guid: 449781f20a23f7743bc28bec83fe1855, type: 3}
 --- !u!54 &1233461789
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -44530,7 +44249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1418343635}
   m_Layer: 0
-  m_Name: Office_Chair
+  m_Name: SnapPosition_OfficeChair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44731,7 +44450,7 @@ GameObject:
   - component: {fileID: 1429948317}
   - component: {fileID: 1429948316}
   m_Layer: 0
-  m_Name: MP_Prebuilt_Cardboard_Sofa
+  m_Name: Package_Sofa
   m_TagString: DraggableSofa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44764,12 +44483,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureName: 
+  furnitureName: Soffa
   furnitureType: 8
-  furniturePhoto: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: fa6fe85cbf6b0d349b141d43b59974c0, type: 3}
   isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  toolRequired: {fileID: 21300000, guid: 53ad80d44d713ca43987177df80e9311, type: 3}
+  comicStrip: {fileID: 21300000, guid: 449781f20a23f7743bc28bec83fe1855, type: 3}
 --- !u!54 &1429948317
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -49884,7 +49603,6 @@ Transform:
   - {fileID: 1700967063}
   - {fileID: 1429948315}
   - {fileID: 462201126}
-  - {fileID: 235360233}
   m_Father: {fileID: 483815629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1645684916
@@ -50842,7 +50560,7 @@ GameObject:
   - component: {fileID: 1700967065}
   - component: {fileID: 1700967064}
   m_Layer: 0
-  m_Name: MP_Prebuilt_Cardboard_LivingRoom_Lamp
+  m_Name: Package_Lamp
   m_TagString: DraggableLRLamp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50875,12 +50593,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureName: 
+  furnitureName: Lampa
   furnitureType: 9
-  furniturePhoto: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: 64c311306fdf1cd49b304c17ba6c7040, type: 3}
   isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  toolRequired: {fileID: 21300000, guid: 53ad80d44d713ca43987177df80e9311, type: 3}
+  comicStrip: {fileID: 21300000, guid: 449781f20a23f7743bc28bec83fe1855, type: 3}
 --- !u!54 &1700967065
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -50989,7 +50707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1702237476}
   m_Layer: 0
-  m_Name: Sofa
+  m_Name: SnapPosition_Sofa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51722,7 +51440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1732479048}
   m_Layer: 0
-  m_Name: Study_Table
+  m_Name: SnapPosition_StudyTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57378,7 +57096,7 @@ GameObject:
   - component: {fileID: 2007280573}
   - component: {fileID: 2007280572}
   m_Layer: 0
-  m_Name: Cardboard(Chair)
+  m_Name: Package_Chair2
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57515,10 +57233,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   furnitureName: Benson
   furnitureType: 2
-  furniturePhoto: {fileID: 0}
-  isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: 1679524920874244abebd61c840a33cf, type: 3}
+  isAssemblyRequired: 1
+  toolRequired: {fileID: 21300000, guid: 022a6fa1a5760b34bbfada6a1b0ac66f, type: 3}
+  comicStrip: {fileID: 21300000, guid: b0b50d4eea7a429448957c272b10bec1, type: 3}
 --- !u!54 &2007280573
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -62010,7 +61728,7 @@ GameObject:
   - component: {fileID: 6492684336809642353}
   - component: {fileID: 6492684336809642352}
   m_Layer: 0
-  m_Name: Mirror_Body
+  m_Name: SnapPosition_Mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62193,7 +61911,7 @@ GameObject:
   - component: {fileID: 4204125884079742462}
   - component: {fileID: 4204125884079742463}
   m_Layer: 0
-  m_Name: MP_Prebuilt_Cardboard
+  m_Name: Package_Cabinet
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63614,12 +63332,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761adf27e51792c46b6cb67e43f01fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureName: Cabinet
+  furnitureName: "Sk\xE5p"
   furnitureType: 5
-  furniturePhoto: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: 027853993b62280419b761ac4392418b, type: 3}
   isAssemblyRequired: 0
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  toolRequired: {fileID: 21300000, guid: 53ad80d44d713ca43987177df80e9311, type: 3}
+  comicStrip: {fileID: 21300000, guid: 449781f20a23f7743bc28bec83fe1855, type: 3}
 --- !u!33 &4236539313109048676
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -63670,7 +63388,7 @@ GameObject:
   - component: {fileID: 4273171159819755055}
   - component: {fileID: 4273171159819755054}
   m_Layer: 0
-  m_Name: MP_Cupboard
+  m_Name: SnapPosition_Cupboard
   m_TagString: SnapPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65959,7 +65677,7 @@ GameObject:
   - component: {fileID: 6946830126014889176}
   - component: {fileID: 6946830126014889177}
   m_Layer: 0
-  m_Name: Cardboard(Chair)
+  m_Name: Package_Chair1
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66018,10 +65736,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   furnitureName: Benson
   furnitureType: 2
-  furniturePhoto: {fileID: 0}
+  furniturePhoto: {fileID: 21300000, guid: 1679524920874244abebd61c840a33cf, type: 3}
   isAssemblyRequired: 1
-  toolRequired: {fileID: 0}
-  comicStrip: {fileID: 0}
+  toolRequired: {fileID: 21300000, guid: 022a6fa1a5760b34bbfada6a1b0ac66f, type: 3}
+  comicStrip: {fileID: 21300000, guid: b0b50d4eea7a429448957c272b10bec1, type: 3}
 --- !u!54 &6946830126014889177
 Rigidbody:
   m_ObjectHideFlags: 0
