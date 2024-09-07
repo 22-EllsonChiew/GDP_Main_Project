@@ -13813,6 +13813,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 538018314}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 538018319}
   m_SourcePrefab: {fileID: 100100000, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
 --- !u!4 &538018312 stripped
 Transform:
@@ -13853,7 +13856,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538018313}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ea7d0f22da1ad84db35eee748e64386, type: 3}
   m_Name: 
@@ -13887,6 +13890,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02000001, y: 0.020000005, z: 0.2879756}
   m_Center: {x: 0.000000029618816, y: 0.00000006160122, z: -0.13398778}
+--- !u!114 &538018319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538018313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275ac5febc2a1f94f904e08a03523d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameCamera: {fileID: 1565027438}
+  nailLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  gameManager: {fileID: 1069056548248898491}
+  noiseController: {fileID: 7565215745276000209}
+  currentProgress: 0
+  currentClicks: 0
 --- !u!1 &540929809
 GameObject:
   m_ObjectHideFlags: 0
@@ -50946,6 +50969,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1606549276}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1606549281}
   m_SourcePrefab: {fileID: 100100000, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
 --- !u!4 &1606549274 stripped
 Transform:
@@ -50986,7 +51012,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606549275}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ea7d0f22da1ad84db35eee748e64386, type: 3}
   m_Name: 
@@ -51020,6 +51046,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02000001, y: 0.020000005, z: 0.2879756}
   m_Center: {x: 0.000000029618816, y: 0.00000006160122, z: -0.13398778}
+--- !u!114 &1606549281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606549275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275ac5febc2a1f94f904e08a03523d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameCamera: {fileID: 1565027438}
+  nailLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  gameManager: {fileID: 1069056548248898491}
+  noiseController: {fileID: 7565215745276000209}
+  currentProgress: 0
+  currentClicks: 0
 --- !u!1 &1606575569
 GameObject:
   m_ObjectHideFlags: 0
@@ -51137,6 +51183,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1611815044}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1611815049}
   m_SourcePrefab: {fileID: 100100000, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
 --- !u!4 &1611815042 stripped
 Transform:
@@ -51177,7 +51226,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611815043}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ea7d0f22da1ad84db35eee748e64386, type: 3}
   m_Name: 
@@ -51211,6 +51260,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02000001, y: 0.020000005, z: 0.2879756}
   m_Center: {x: 0.000000029618816, y: 0.00000006160122, z: -0.13398778}
+--- !u!114 &1611815049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611815043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275ac5febc2a1f94f904e08a03523d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameCamera: {fileID: 1565027438}
+  nailLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  gameManager: {fileID: 1069056548248898491}
+  noiseController: {fileID: 7565215745276000209}
+  currentProgress: 0
+  currentClicks: 0
 --- !u!1001 &1613078636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55291,6 +55360,8 @@ MonoBehaviour:
   builtChair2: {fileID: 8122945108771623249, guid: f7d8c1f039711d045bc48870ccd217af, type: 3}
   builtChair3: {fileID: 8122945108771623249, guid: 8e2f84502e120cc4abb709a82da81470, type: 3}
   builtChair4: {fileID: 8122945108771623249, guid: ca3a3144e17e77d4cbec98963f403a49, type: 3}
+  builtShelf: {fileID: 0}
+  builtTable: {fileID: 919132149155446097, guid: c5e7b1ebcde078b47bd58bd1673c8141, type: 3}
   isGameStarting:
     m_PersistentCalls:
       m_Calls: []
@@ -58350,6 +58421,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1925143657}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1925143662}
   m_SourcePrefab: {fileID: 100100000, guid: a8d4389571984ca4e8528aa3feb0f5ba, type: 3}
 --- !u!4 &1925143655 stripped
 Transform:
@@ -58390,7 +58464,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925143656}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ea7d0f22da1ad84db35eee748e64386, type: 3}
   m_Name: 
@@ -58424,6 +58498,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02000001, y: 0.020000005, z: 0.2879756}
   m_Center: {x: 0.000000029618816, y: 0.00000006160122, z: -0.13398778}
+--- !u!114 &1925143662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925143656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275ac5febc2a1f94f904e08a03523d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameCamera: {fileID: 1565027438}
+  nailLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  gameManager: {fileID: 1069056548248898491}
+  noiseController: {fileID: 7565215745276000209}
+  currentProgress: 0
+  currentClicks: 0
 --- !u!1 &1926033405
 GameObject:
   m_ObjectHideFlags: 0
@@ -64580,6 +64674,7 @@ GameObject:
   - component: {fileID: 7565215745276000215}
   - component: {fileID: 7565215745276000216}
   - component: {fileID: 7565215745276000217}
+  - component: {fileID: 7565215745276000218}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: NailGameController
@@ -70496,6 +70591,79 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7565215745276000218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069056548248898491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d3471d2372f224185a64399aa73d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeNeeded: 5
+  noiseThreshold: 0.7
+  noiseIncreaseRate: 0.1
+  noiseDecreaseRate: 0
+  isMinigameActive: 0
+  uiCursor: {fileID: 1743354050}
+  minigameUI: {fileID: 4870747693653130841}
+  noise: {fileID: 0}
+  progress: {fileID: 0}
+  hitParticles: {fileID: 2202126463932808898, guid: 93c6c66a1a7c14142a3e96e036242dae, type: 3}
+  fill: {fileID: 0}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  oldChair: {fileID: 0}
+  newChair: {fileID: 0}
+  drillingAudio: {fileID: 1556718344}
+  drillSound: {fileID: 8300000, guid: e5f4bba976aaa1e42a6dec0eabacfdc5, type: 3}
+  mainCam: {fileID: 963194225}
+  miniGameCam: {fileID: 1565027436}
+  camRay: {fileID: 1565027438}
+  nailLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  taskCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  resetLeg:
+    m_PersistentCalls:
+      m_Calls: []
+  debugBuild: 0
+  tableObject: {fileID: 919132149155446097, guid: c5e7b1ebcde078b47bd58bd1673c8141, type: 3}
+  noiseController: {fileID: 7565215745276000209}
+  windowController: {fileID: 399596233}
 --- !u!23 &7571334005101334377
 MeshRenderer:
   m_ObjectHideFlags: 0
