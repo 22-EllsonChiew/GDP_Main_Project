@@ -29,7 +29,7 @@ public class NeighbourAngerBar : MonoBehaviour
         if (CheckPlayerInCollider())
         {
 
-            if (neighbour.currentRoutine != null && neighbour.currentRoutine.routineType == RoutineType.NotHome)
+            if (neighbour.CurrentRoutine != null && neighbour.CurrentRoutine.routineType == RoutineType.NotHome)
             {
                 Debug.Log("Neighbour is not home");
                 return;
