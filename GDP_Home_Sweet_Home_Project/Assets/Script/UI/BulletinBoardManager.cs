@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class BulletinBoardManager : MonoBehaviour
 {
-
+    [Header("Neighbour References")]
     public Neighbour neighbourHakim;
     public Neighbour neighbourSherryl;
 
+    [Header("UI References")]
     public TextMeshProUGUI hakimRoutineText;
     public TextMeshProUGUI sherrylRoutineText;
 
