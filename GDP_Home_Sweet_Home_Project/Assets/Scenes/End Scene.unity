@@ -203,7 +203,6 @@ GameObject:
   - component: {fileID: 167352854}
   - component: {fileID: 167352853}
   - component: {fileID: 167352852}
-  - component: {fileID: 167352856}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -300,26 +299,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &167352856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167352851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17db0cdee97468c4683a21a69326d974, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gradePenaltyPerPromiseBroken: 0.05
-  gradePenaltyPerComplaint: 0.02
-  playerPerformanceGrade: {fileID: 1181335649}
-  playerPerformanceSubtext: {fileID: 519190766}
-  mostAngeredNeighbourImage: {fileID: 0}
-  totalComplaintsStatistic: {fileID: 600155924}
-  promisesMadeStatistic: {fileID: 1267800754}
-  promisesBrokenStatistic: {fileID: 406142622}
 --- !u!1 &183206679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,7 +1974,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1826702010}
   m_HandleRect: {fileID: 1826702009}
   m_Direction: 2
-  m_Value: 1.0000002
+  m_Value: 1.0000005
   m_Size: 0.5002357
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2811,7 +2790,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 167352856}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EndSceneManager, Assembly-CSharp
         m_MethodName: MainMenuBtn
         m_Mode: 1
@@ -2953,6 +2932,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1396203571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1396203572}
+  - component: {fileID: 1396203573}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1396203572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396203571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9018574, y: -13.525608, z: -52.109436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1396203573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396203571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17db0cdee97468c4683a21a69326d974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gradePenaltyPerPromiseBroken: 0.05
+  gradePenaltyPerComplaint: 0.02
+  playerPerformanceGrade: {fileID: 1181335649}
+  playerPerformanceSubtext: {fileID: 519190766}
+  mostAngeredNeighbourImage: {fileID: 0}
+  totalComplaintsStatistic: {fileID: 600155924}
+  promisesMadeStatistic: {fileID: 1267800754}
+  promisesBrokenStatistic: {fileID: 406142622}
 --- !u!1 &1499865734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3639,7 +3670,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 167352856}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EndSceneManager, Assembly-CSharp
         m_MethodName: RestartGameBtn
         m_Mode: 1
@@ -4085,6 +4116,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1294779386}
+  - {fileID: 1396203572}
   - {fileID: 1942523157}
   - {fileID: 167352855}
   - {fileID: 13762423}

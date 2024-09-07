@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class BulletinBoardManager : MonoBehaviour
 {
-
+    [Header("Neighbour References")]
     public Neighbour neighbourHakim;
     public Neighbour neighbourSherryl;
 
+    [Header("UI References")]
     public TextMeshProUGUI hakimRoutineText;
     public TextMeshProUGUI sherrylRoutineText;
 
@@ -27,7 +28,7 @@ public class BulletinBoardManager : MonoBehaviour
 
     void UpdateBulletinBoard(Neighbour neighbour, TextMeshProUGUI routineText)
     {
-        NeighbourRoutines upcomingRoutine = neighbour.upcomingRoutine;
+        NeighbourRoutines upcomingRoutine = neighbour.UpcomingRoutine;
 
         if (upcomingRoutine != null)
         {

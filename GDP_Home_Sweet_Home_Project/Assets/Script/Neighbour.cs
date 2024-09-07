@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 
 public class Neighbour : MonoBehaviour
 {
+    [Header("Neighbour Details")]
     public string neighbourName;
     public Transform neighbourTransform;
     public Sprite neighbourImageSprite;
@@ -13,10 +14,11 @@ public class Neighbour : MonoBehaviour
     public float maxHappiness;
     public float happinessRegenAmount;
     public float happinessRegenDuration;
-    private float brokenPromisePenalty;  
+    private float brokenPromisePenalty;
 
+    [Header("JSON Data Reference")]
     public TextAsset neighbourRoutinesJSON;
-    public RoutineData routineArray;
+    public RoutineData RoutineArray { get; private set; }
 
     public float HappinessThreshold_Normal {  get; private set; }
     public float HappinessThreshold_Angry { get; private set; }
@@ -28,8 +30,8 @@ public class Neighbour : MonoBehaviour
     public bool HasBeenPromised {  get; private set; } = false;
 
 
-    public NeighbourRoutines currentRoutine {  get; private set; }
-    public NeighbourRoutines upcomingRoutine { get; private set; }
+    public NeighbourRoutines CurrentRoutine {  get; private set; }
+    public NeighbourRoutines UpcomingRoutine { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,7 @@ public class Neighbour : MonoBehaviour
         ComplaintThreshold = HappinessThreshold_Normal;
         ComplaintCount = 0;
 
-        routineArray = JsonConvert.DeserializeObject<RoutineData>(neighbourRoutinesJSON.text);
+        RoutineArray = JsonConvert.DeserializeObject<RoutineData>(neighbourRoutinesJSON.text);
         neighbourTransform = transform;
     }
 
@@ -85,6 +87,7 @@ public class Neighbour : MonoBehaviour
     public void MakePromise()
     {
         HasBeenPromised = true;
+        ScoreManager.Instance.IncrementPromiseTotal();
         StartCoroutine(RegenerateHappinessOverTime());
         Debug.Log("Promise made with neighbour - regenerating happiness");
     }
@@ -93,6 +96,7 @@ public class Neighbour : MonoBehaviour
     {
         StopAllCoroutines();
         HasBeenPromised = false;
+        ScoreManager.Instance.IncrementBrokenPromises();
         ReduceHappiness(brokenPromisePenalty);
         Debug.Log("Promise broken with neighbour - Neighbour severely angered");
     }
@@ -104,12 +108,12 @@ public class Neighbour : MonoBehaviour
         bool foundCurrentRoutine = false;
 
         // reset upcoming routine only when that specific routine has been completed
-        if (upcomingRoutine != null && (currentHour >= upcomingRoutine.routineEndHour && currentMinute >= upcomingRoutine.routineEndMinute))
+        if (UpcomingRoutine != null && (currentHour >= UpcomingRoutine.routineEndHour && currentMinute >= UpcomingRoutine.routineEndMinute))
         {
-            upcomingRoutine = null;
+            UpcomingRoutine = null;
         }
         
-        foreach (var routine in routineArray.routines)
+        foreach (var routine in RoutineArray.routines)
         {
             if (routine.day == TimeController.CurrentDay)
             {
@@ -118,17 +122,17 @@ public class Neighbour : MonoBehaviour
                     (routine.routineEndHour > currentHour || (routine.routineEndHour == currentHour && routine.routineEndMinute >= currentMinute)))
                 {
                     IsNeighbourInRoutine = true;
-                    currentRoutine = routine;
+                    CurrentRoutine = routine;
                     foundCurrentRoutine = true;
                     break; // No need to check further once we find the current routine
                 }
                 else if (routine.routineStartHour > currentHour || (routine.routineStartHour == currentHour && routine.routineStartMinute > currentMinute))
                 {
                     // Routine starts in the future, so set it as the upcoming routine if none is already set
-                    if (upcomingRoutine == null || routine.routineStartHour < upcomingRoutine.routineStartHour ||
-                        (routine.routineStartHour == upcomingRoutine.routineStartHour && routine.routineStartMinute < upcomingRoutine.routineStartMinute))
+                    if (UpcomingRoutine == null || routine.routineStartHour < UpcomingRoutine.routineStartHour ||
+                        (routine.routineStartHour == UpcomingRoutine.routineStartHour && routine.routineStartMinute < UpcomingRoutine.routineStartMinute))
                     {
-                        upcomingRoutine = routine;
+                        UpcomingRoutine = routine;
                     }
                 }
             }
@@ -137,7 +141,7 @@ public class Neighbour : MonoBehaviour
         if (!foundCurrentRoutine)
         {
             IsNeighbourInRoutine = false;
-            currentRoutine = null;
+            CurrentRoutine = null;
         }
     }
 
