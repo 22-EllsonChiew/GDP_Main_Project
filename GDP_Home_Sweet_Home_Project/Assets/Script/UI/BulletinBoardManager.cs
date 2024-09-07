@@ -27,7 +27,7 @@ public class BulletinBoardManager : MonoBehaviour
 
     void UpdateBulletinBoard(Neighbour neighbour, TextMeshProUGUI routineText)
     {
-        NeighbourRoutines upcomingRoutine = neighbour.upcomingRoutine;
+        NeighbourRoutines upcomingRoutine = neighbour.UpcomingRoutine;
 
         if (upcomingRoutine != null)
         {
