@@ -39,6 +39,8 @@ public class Interaction : MonoBehaviour
     public GameObject builtChair2;
     public GameObject builtChair3;
     public GameObject builtChair4;
+    public GameObject builtShelf;
+    public GameObject builtTable;
 
     private bool builtChair3Instantiated = false;
 
@@ -189,7 +191,7 @@ public class Interaction : MonoBehaviour
             miniGameCamTable.SetActive(true);
 
             Destroy(tableConfirmedCollider.gameObject);
-
+            Instantiate(builtTable, new Vector3(tableConfirmedCollider.gameObject.transform.position.x, builtChair4.transform.position.y, tableConfirmedCollider.gameObject.transform.position.z), builtChair4.transform.rotation);
         }
     }
 
