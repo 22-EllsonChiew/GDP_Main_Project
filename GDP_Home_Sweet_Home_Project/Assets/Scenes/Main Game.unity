@@ -12476,7 +12476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 495474680}
   m_Layer: 0
-  m_Name: Camera2Pos
+  m_Name: ShelfCam2Pos
   m_TagString: MinigameCamPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12491,11 +12491,11 @@ Transform:
   m_GameObject: {fileID: 495474679}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15844117, y: -0, z: -0, w: 0.9873684}
-  m_LocalPosition: {x: -49.889996, y: 3.67, z: -130.26}
+  m_LocalPosition: {x: -49.889996, y: -1.3999996, z: -0.7899933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2126235304}
   m_LocalEulerAnglesHint: {x: 18.233, y: 0, z: 0}
 --- !u!1 &504490616
 GameObject:
@@ -49102,12 +49102,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565027436}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.56604385, y: -0, z: -0, w: 0.8243751}
-  m_LocalPosition: {x: 57.74, y: 9.08, z: -130.48}
+  m_LocalRotation: {x: 0.5660439, y: -0, z: -0, w: 0.82437515}
+  m_LocalPosition: {x: 57.74, y: 4.01, z: -1.0099945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2126235304}
   m_LocalEulerAnglesHint: {x: 68.95, y: 0, z: 0}
 --- !u!1 &1574837676
 GameObject:
@@ -51415,7 +51415,7 @@ GameObject:
   - component: {fileID: 1649021140}
   - component: {fileID: 1649021143}
   m_Layer: 0
-  m_Name: MiniGameCam
+  m_Name: ChairMiniGameCam
   m_TagString: MinigameCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51488,12 +51488,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649021139}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5233395, y: 0, z: 0, w: 0.8521243}
-  m_LocalPosition: {x: 0, y: 5.07, z: -129.47}
+  m_LocalRotation: {x: 0.5233395, y: -0, z: -0, w: 0.8521243}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2126235304}
   m_LocalEulerAnglesHint: {x: 53.775, y: 180, z: 0}
 --- !u!114 &1649021143
 MonoBehaviour:
@@ -56394,7 +56394,7 @@ GameObject:
   - component: {fileID: 1918765104}
   - component: {fileID: 1918765106}
   m_Layer: 0
-  m_Name: DrillMiniGame
+  m_Name: ShelfMiniGameCam
   m_TagString: MinigameCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56459,12 +56459,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918765102}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.56604385, y: -0, z: -0, w: 0.8243751}
-  m_LocalPosition: {x: -49.85, y: 9.08, z: -130.48}
+  m_LocalRotation: {x: 0.5660439, y: -0, z: -0, w: 0.82437515}
+  m_LocalPosition: {x: -49.85, y: 4.01, z: -1.0099945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2126235304}
   m_LocalEulerAnglesHint: {x: 68.95, y: 0, z: 0}
 --- !u!81 &1918765106
 AudioListener:
@@ -60911,6 +60911,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1463290298}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &2126235303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2126235304}
+  m_Layer: 0
+  m_Name: MiniGameCams
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2126235304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126235303}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.0699997, z: -129.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1649021142}
+  - {fileID: 1918765105}
+  - {fileID: 1565027439}
+  - {fileID: 495474680}
+  - {fileID: 2143293975}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2138597630
 GameObject:
   m_ObjectHideFlags: 0
@@ -61213,7 +61249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2143293975}
   m_Layer: 0
-  m_Name: Camera2Pos (1)
+  m_Name: TableCam2Pos
   m_TagString: MinigameCamPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61228,11 +61264,11 @@ Transform:
   m_GameObject: {fileID: 2143293974}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15844117, y: -0, z: -0, w: 0.9873684}
-  m_LocalPosition: {x: 57.96, y: 2.523, z: -128.859}
+  m_LocalPosition: {x: 57.96, y: -2.5469997, z: 0.6110077}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2126235304}
   m_LocalEulerAnglesHint: {x: 18.233, y: 0, z: 0}
 --- !u!1 &2143797436
 GameObject:
@@ -69748,14 +69784,9 @@ SceneRoots:
   - {fileID: 543450653228818456}
   - {fileID: 1410498324}
   - {fileID: 1790319700}
-  - {fileID: 1649021142}
   - {fileID: 557129283}
   - {fileID: 483815629}
   - {fileID: 1653540009}
-  - {fileID: 1918765105}
-  - {fileID: 1565027439}
-  - {fileID: 495474680}
-  - {fileID: 2143293975}
   - {fileID: 1320407091}
   - {fileID: 1209764342}
   - {fileID: 416980340}
@@ -69765,3 +69796,4 @@ SceneRoots:
   - {fileID: 2308520140130376259}
   - {fileID: 165123102}
   - {fileID: 773953439}
+  - {fileID: 2126235304}
