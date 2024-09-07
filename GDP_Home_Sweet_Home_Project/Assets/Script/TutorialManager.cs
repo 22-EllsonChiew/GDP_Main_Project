@@ -12,7 +12,8 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI DialogueText;
 
     public GameObject nextSceneTrigger;
-    
+    public GameObject leftBlocker;
+    public GameObject rightBlocker;
 
     public Animator animatorDialogue;
 
@@ -51,6 +52,11 @@ public class TutorialManager : MonoBehaviour
             EndDialouge();
             nextSceneTrigger.SetActive(true);
             return;
+        }
+        if(sentences.Count == 9)
+        {
+            leftBlocker.SetActive(false);
+            rightBlocker.SetActive(false);
         }
 
         string sentence = sentences.Dequeue();
