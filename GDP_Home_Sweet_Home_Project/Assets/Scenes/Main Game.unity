@@ -13477,7 +13477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275ac5febc2a1f94f904e08a03523d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameCamera: {fileID: 0}
+  gameCamera: {fileID: 1565027438}
   nailLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -49883,7 +49883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275ac5febc2a1f94f904e08a03523d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameCamera: {fileID: 0}
+  gameCamera: {fileID: 1565027438}
   nailLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -50097,7 +50097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275ac5febc2a1f94f904e08a03523d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameCamera: {fileID: 0}
+  gameCamera: {fileID: 1565027438}
   nailLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -54026,7 +54026,7 @@ MonoBehaviour:
   minigameCam: {fileID: 1649021139}
   mainCamera: {fileID: 963194225}
   miniGameCamDrill: {fileID: 1918765102}
-  miniGameCamTable: {fileID: 0}
+  miniGameCamTable: {fileID: 1565027436}
   builtChair: {fileID: 8122945108771623249, guid: b5e48d8e94a73c64587d263fb65cfc0e, type: 3}
   builtChair2: {fileID: 8122945108771623249, guid: f7d8c1f039711d045bc48870ccd217af, type: 3}
   builtChair3: {fileID: 8122945108771623249, guid: 8e2f84502e120cc4abb709a82da81470, type: 3}
@@ -56653,7 +56653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275ac5febc2a1f94f904e08a03523d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameCamera: {fileID: 0}
+  gameCamera: {fileID: 1565027438}
   nailLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -68165,7 +68165,7 @@ MonoBehaviour:
   gameCamera: {fileID: 0}
   drillCamera: {fileID: 1918765104}
   hammerCamera: {fileID: 1649021141}
-  tableCamera: {fileID: 0}
+  tableCamera: {fileID: 1565027438}
   camera2Pos: {fileID: 0}
   drillCamera2Pos: {fileID: 495474680}
   hammerCamera2Pos: {fileID: 1813876984}
@@ -68358,7 +68358,7 @@ MonoBehaviour:
   noiseIncreaseRate: 0.1
   noiseDecreaseRate: 0
   isMinigameActive: 0
-  uiCursor: {fileID: 1743354050}
+  uiCursor: {fileID: 1050671713}
   minigameUI: {fileID: 4870747693653130841}
   noise: {fileID: 0}
   progress: {fileID: 0}
@@ -68394,13 +68394,13 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  oldChair: {fileID: 0}
-  newChair: {fileID: 0}
+  oldChair: {fileID: 919132149155446097, guid: c5e7b1ebcde078b47bd58bd1673c8141, type: 3}
+  newChair: {fileID: 919132149155446097, guid: c5e7b1ebcde078b47bd58bd1673c8141, type: 3}
   drillingAudio: {fileID: 1556718344}
   drillSound: {fileID: 8300000, guid: e5f4bba976aaa1e42a6dec0eabacfdc5, type: 3}
   mainCam: {fileID: 963194225}
-  miniGameCam: {fileID: 0}
-  camRay: {fileID: 0}
+  miniGameCam: {fileID: 1565027436}
+  camRay: {fileID: 1565027438}
   nailLayer:
     serializedVersion: 2
     m_Bits: 64
