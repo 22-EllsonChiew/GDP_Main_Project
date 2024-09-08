@@ -34,6 +34,7 @@ public class DrillingMiniGame : MonoBehaviour
 
     public AudioSource drillingAudio;
     public AudioClip drillSound;
+    public AudioClip buildComplete;
 
     public GameObject mainCam;
     public GameObject miniGameCam;
@@ -208,6 +209,7 @@ public class DrillingMiniGame : MonoBehaviour
     {
         Debug.Log("BUILDING");
         //StartCoroutine(DestroyDelay());
+        drillingAudio.PlayOneShot(buildComplete);
         ScoreManager.Instance.IncrementTotalFunitureCount();
         StartCoroutine(RotatingNew());
         taskCompleted.Invoke(true);
