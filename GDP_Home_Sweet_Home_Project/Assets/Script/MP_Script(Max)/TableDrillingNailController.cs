@@ -22,21 +22,25 @@ public class TableDrillingNailController : MonoBehaviour
             tableDrillingMiniGame = gameManager.GetComponent<TableDrillingMiniGame>();
             if (tableDrillingMiniGame == null)
             {
-                Debug.LogError("DrillingMiniGame component not found on Game Manager.");
+                Debug.LogError("TableDrillingMiniGame component not found on Game Manager.");
             }
             else
             {
-                Debug.Log("DrillingMiniGame component successfully assigned.");
+                Debug.Log("TableDrillingMiniGame component successfully assigned.");
             }
         }
         else
         {
-            Debug.LogError("Game Manager is not assigned." + this.name);
+            Debug.LogError("Game Manager is not assigned.");
         }
     }
 
     void Update()
     {
+        if (tableDrillingMiniGame == null)
+        {
+            tableDrillingMiniGame = gameManager.GetComponent<TableDrillingMiniGame>();
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);

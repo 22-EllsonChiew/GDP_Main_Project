@@ -149,7 +149,7 @@ public class DrillingMiniGame : MonoBehaviour
         Debug.Log("Minigame started");
 
         // Set the max value of the progress slider
-        progress.maxValue = timeNeeded;
+        //progress.maxValue = timeNeeded;
     }
 
     public void EndMinigame()
