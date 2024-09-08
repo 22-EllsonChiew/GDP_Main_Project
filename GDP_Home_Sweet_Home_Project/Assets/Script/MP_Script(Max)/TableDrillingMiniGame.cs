@@ -30,7 +30,7 @@ public class TableDrillingMiniGame : MonoBehaviour
     public GameObject oldChair;
     public GameObject newChair;
 
-    private DrillingNailController currentNail;
+    private TableDrillingNailController currentNail;
 
     public AudioSource drillingAudio;
     public AudioClip drillSound;
@@ -136,10 +136,15 @@ public class TableDrillingMiniGame : MonoBehaviour
             Debug.LogError("nailPrefab is null.");
             return;
         }
-
+        Debug.Log(nailPrefab.name);
         noiseDecreaseRate = noiseIncreaseRate * 2.25f;
         isMinigameActive = true;
-        currentNail = nailPrefab.GetComponent<DrillingNailController>();
+        currentNail = nailPrefab.GetComponent<TableDrillingNailController>();
+        if (currentNail == null)
+        {
+            Debug.LogError("TableDrillingNailController component not found on the nailPrefab.");
+            return;
+        }
         minigameUI.SetActive(true);
 
         miniGameCam.SetActive(true);
@@ -149,7 +154,11 @@ public class TableDrillingMiniGame : MonoBehaviour
         Debug.Log("Minigame started");
 
         // Set the max value of the progress slider
-        progress.maxValue = timeNeeded;
+        //progress.maxValue = timeNeeded;
+        if (minigameUI == null) Debug.LogError("minigameUI is null");
+        if (miniGameCam == null) Debug.LogError("miniGameCam is null");
+        if (mainCam == null) Debug.LogError("mainCam is null");
+        //if (progress == null) Debug.LogError("progress slider is null");
     }
 
     public void EndMinigame()
