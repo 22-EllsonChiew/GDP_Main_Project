@@ -53,6 +53,7 @@ public class TutorialManager : MonoBehaviour
             nextSceneTrigger.SetActive(true);
             return;
         }
+        
         if(sentences.Count == 9)
         {
             leftBlocker.SetActive(false);
