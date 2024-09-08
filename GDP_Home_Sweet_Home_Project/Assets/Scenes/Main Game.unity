@@ -67504,6 +67504,7 @@ MonoBehaviour:
   newChair: {fileID: 919132149155446097, guid: 4f7f2ea11b03bb84ea49ba24b200f5ff, type: 3}
   drillingAudio: {fileID: 1556718344}
   drillSound: {fileID: 8300000, guid: c118473808365e5429938b04186a106a, type: 3}
+  buildComplete: {fileID: 8300000, guid: d4a482b4e03e231408c3492f8a62c352, type: 3}
   mainCam: {fileID: 963194225}
   miniGameCam: {fileID: 1918765102}
   camRay: {fileID: 1918765104}
@@ -67768,6 +67769,7 @@ MonoBehaviour:
   newChair: {fileID: 919132149155446097, guid: c5e7b1ebcde078b47bd58bd1673c8141, type: 3}
   drillingAudio: {fileID: 1556718344}
   drillSound: {fileID: 8300000, guid: e5f4bba976aaa1e42a6dec0eabacfdc5, type: 3}
+  buildComplete: {fileID: 8300000, guid: d4a482b4e03e231408c3492f8a62c352, type: 3}
   mainCam: {fileID: 963194225}
   miniGameCam: {fileID: 1565027436}
   camRay: {fileID: 1565027438}
