@@ -42,6 +42,10 @@ public class Interaction : MonoBehaviour
     public GameObject builtShelf;
     public GameObject builtTable;
 
+    [Header("Shelf Position and Rotation")]
+    public Vector3 shelfPos = new Vector3(0, 0, 0);
+    public Vector3 ShelfRot = new Vector3(0, 0, 0);
+
     private bool builtChair3Instantiated = false;
 
     private Collider currentCollider;
@@ -177,6 +181,9 @@ public class Interaction : MonoBehaviour
             miniGameCamDrill.SetActive(true);
 
             Destroy(drillConfirmedCollider.gameObject);
+            Debug.Log("SPAWN BABY");
+            Quaternion shelfPrefab = Quaternion.Euler(ShelfRot);
+            GameObject shelfInstantiate = Instantiate(builtShelf, shelfPos, shelfPrefab);
 
         }
     }
@@ -356,7 +363,7 @@ public class Interaction : MonoBehaviour
                 drillGame = true;
             }
 
-            if (hitCollider.CompareTag("TableDrilling") && Input.GetKeyDown(KeyCode.E))
+            if (hitCollider.CompareTag("DraggableDiningTable") && Input.GetKeyDown(KeyCode.E))
             {
                 Package packageData = hitCollider.GetComponent<Package>();
 
