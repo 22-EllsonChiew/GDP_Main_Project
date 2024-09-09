@@ -38,7 +38,7 @@ public class SceneManagement : MonoBehaviour
     public void LoadTutorialScene()
     {
         Debug.Log("Loading Tutorial Scene");
-        //SceneManager.LoadScene("Instruction");
+        SceneManager.LoadScene("Main Game_Tutorial");
     }
 
     public void GameScene()

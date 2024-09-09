@@ -99,20 +99,18 @@ public class Interaction : MonoBehaviour
                 NeighbourUIController.instance.StartInteraction(currentNeighbour.neighbourName, currentNeighbour.CurrentMood);
             }
 
-            if (IsAtElevator || IsAtBed)
+            if (IsAtElevator && TimeController.instance.CurrentTimePhase == TimePhase.Morning)
             {
                 timeSkipUI.SetActive(true);
                 interactionUIPrompt.DisablePanel();
+                timeSkipUIText.text = "Go to work?";
+            }
 
-                if (IsAtElevator)
-                {
-                    timeSkipUIText.text = "Go to work?";
-                }
-                
-                if (IsAtBed)
-                {
-                    timeSkipUIText.text = "Go to bed?";
-                }
+            if (IsAtBed && TimeController.instance.CurrentTimePhase != TimePhase.Morning)
+            {
+                timeSkipUI.SetActive(true);
+                interactionUIPrompt.DisablePanel();
+                timeSkipUIText.text = "Go to bed?";
             }
 
             if (IsAtToolbox)
@@ -133,6 +131,7 @@ public class Interaction : MonoBehaviour
         //isGameStarting.Invoke(true);
 
         packageUI.gameObject.SetActive(false);
+        interactionUIPrompt.DisablePanel();
 
         if (confirmedCollider != null) 
         {
@@ -174,8 +173,9 @@ public class Interaction : MonoBehaviour
     private void ConfirmClickedDrillGame(Collider drillConfirmedCollider)
     {
         packageUI.gameObject.SetActive(false);
+        interactionUIPrompt.DisablePanel();
 
-        if(drillConfirmedCollider != null)
+        if (drillConfirmedCollider != null)
         {
             mainCamera.SetActive(false);
             miniGameCamDrill.SetActive(true);
@@ -191,6 +191,7 @@ public class Interaction : MonoBehaviour
     private void ConfirmClickedTableGame(Collider tableConfirmedCollider)
     {
         packageUI.gameObject.SetActive(false);
+        interactionUIPrompt.DisablePanel();
 
         if (tableConfirmedCollider != null)
         {
@@ -239,7 +240,7 @@ public class Interaction : MonoBehaviour
             Debug.Log("Player @ board");
         }
 
-        if (other.CompareTag("Environment_Elevator"))
+        if (other.CompareTag("Environment_Elevator") && TimeController.instance.CurrentTimePhase == TimePhase.Morning)
         {
             IsAtElevator = true;
             interactionUIPrompt.EnablePanel();
@@ -247,7 +248,7 @@ public class Interaction : MonoBehaviour
             Debug.Log("Player @ elevator");
         }
 
-        if (other.CompareTag("Bed"))
+        if (other.CompareTag("Bed") && TimeController.instance.CurrentTimePhase != TimePhase.Morning)
         {
             IsAtBed = true;
             interactionUIPrompt.EnablePanel();
@@ -284,13 +285,13 @@ public class Interaction : MonoBehaviour
             interactionUIPrompt.SetInteractionText("E", "View");
         }
 
-        if (other.CompareTag("Environment_Elevator"))
+        if (other.CompareTag("Environment_Elevator") && TimeController.instance.CurrentTimePhase == TimePhase.Morning)
         {
             interactionUIPrompt.EnablePanel();
             interactionUIPrompt.SetInteractionText("E", "Take Lift");
         }
 
-        if (other.CompareTag("Bed"))
+        if (other.CompareTag("Bed") && TimeController.instance.CurrentTimePhase != TimePhase.Morning)
         {
             interactionUIPrompt.EnablePanel();
             interactionUIPrompt.SetInteractionText("E", "Sleep");

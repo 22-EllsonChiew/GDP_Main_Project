@@ -66,6 +66,11 @@ public class TimeController : MonoBehaviour
 
     [SerializeField] private Slider LoadingBarTimer;
 
+    [Header("Notification UI")]
+    public GameObject timeNotificationUI;
+    public TextMeshProUGUI timeNotificationText;
+    public TextMeshProUGUI timeNotificationHintText;
+
     [Header("Background Sound")]
     public AudioClip morningPhase;
     public AudioClip eveningPhase;
@@ -114,7 +119,11 @@ public class TimeController : MonoBehaviour
         if (CurrentDay == 1)
         {
             Debug.Log("Next Morning");
-            firstDay.SetActive(true);
+            if (firstDay != null)
+            {
+                firstDay.SetActive(true);
+            }
+            
         }
         //add images into loadingImages list
         loadingImages.Add(hakiimImage);
@@ -192,6 +201,12 @@ public class TimeController : MonoBehaviour
         // call to loading screen
         // set time to evening start time
         //randomize between multiple backgrounds
+
+        if (timeNotificationUI.activeSelf)
+        {
+            timeNotificationUI.SetActive(false);
+        }
+
         if (loadingImages.Count > 0)
         {
             int randomIndex = Random.Range(0, loadingImages.Count); // Get a random index
@@ -265,8 +280,10 @@ public class TimeController : MonoBehaviour
         {
 
             isPaused = true;
-            // load into day end scene
-            // possibly make use of dream scene here
+
+            timeNotificationUI.SetActive(true);
+            HandleTimeNotification();
+
         }
         else if (!isPaused)
         {
@@ -285,6 +302,10 @@ public class TimeController : MonoBehaviour
                     if (Hour == 8)
                     {
                         isPaused = true;
+
+                        timeNotificationUI.SetActive(true);
+                        HandleTimeNotification();
+
                         Debug.Log("Time to go to work");
                     }
 
@@ -303,6 +324,29 @@ public class TimeController : MonoBehaviour
         }
 
     }
+
+    void HandleTimeNotification()
+    {
+        switch (CurrentTimePhase)
+        {
+            case TimePhase.Morning:
+                timeNotificationText.text = "Time to go to work!";
+                timeNotificationHintText.text = "Use the elevator to go to work";
+                break;
+
+            case TimePhase.Evening:
+                timeNotificationText.text = "Time to sleep!";
+                timeNotificationHintText.text = "Use the bed to sleep";
+                break;
+
+            case TimePhase.QuietTime:
+                timeNotificationText.text = "Time to sleep!";
+                timeNotificationHintText.text = "Use the bed to sleep";
+                break;
+
+        }
+    }
+
 
     IEnumerator LoadingScreenSync()
     {

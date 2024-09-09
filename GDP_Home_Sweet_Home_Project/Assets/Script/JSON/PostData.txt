@@ -4,31 +4,31 @@
 			"id": "GoodNeighbour",
 			"title": "Neighbourliness 101",
 			"subtitle": "Tips to be a good neighbour",
-			"content": "Here's some tips to be a good neighbour to others! Start by proactively building a relationship with your neighbours. Engage in friendly conversations and offer help when needed. Practise considerate behaviours to create a harmonious environment."
+			"content": "Here's some tips to be a good neighbour to others! <br>Start by proactively building a relationship with your neighbours. <br>Engage in friendly conversations and offer help when needed. Practise considerate behaviours to create a harmonious environment."
 		},
 		{
 			"id": "BuildRelationships",
 			"title": "Building Relationships",
 			"subtitle": "Starting off on the right foot",
-			"content": "Proactively build a relationship with your neighbours from the onset to foster mutual understanding and friendliness. Engage in friendly conversations and offer help when needed."
+			"content": "Proactively build a relationship with your neighbours from the onset to foster mutual understanding and friendliness. <br>Engage in friendly conversations and offer help when needed."
 		},
 		{
 			"id": "Considerate",
 			"title": "Considerate Behaviors",
 			"subtitle": "Creating a harmonious environment",
-			"content": "Practise considerate behaviours like lowering TV volume at night, using door stoppers to prevent slamming, and monitoring your children's noise levels to ensure a peaceful living environment for everyone."
+			"content": "Practice considerate behaviours like lowering TV volume at night, <br>using door stoppers to prevent slamming, <br>and monitor your children's noise levels to ensure a peaceful living environment for everyone."
 		},
 		{
 			"id": "QuietTime",
 			"title": "Quiet Hours",
 			"subtitle": "Respecting noise boundaries",
-			"content": "Extend the official quiet hours from the current 10.30 pm - 7 am to 10 pm - 8 am. Be considerate and observe these hours to allow your neighbours to rest peacefully."
+			"content": "Extend the official quiet hours from the current 10.30 pm - 7 am to 10 pm - 8 am. <br>Be considerate and observe these hours to allow your neighbours to rest peacefully."
 		},
 		{
 			"id": "DIY",
 			"title": "DIY and Renovation Tips",
 			"subtitle": "Minimizing noise while building furniture",
-			"content": "When building furniture or undertaking DIY projects, try to keep the noise to a minimum. Use furniture sliders to move heavy items quietly, and work during the daytime to avoid disturbing your neighbours. Implement soundproofing methods to reduce noise, and inform your neighbours beforehand about any potentially noisy activities."
+			"content": "When building furniture or undertaking DIY projects, try to keep the noise to a minimum. <br>Use furniture sliders to move heavy items quietly, and work during the daytime to avoid disturbing your neighbours. <br>Implement soundproofing methods to reduce noise, and inform your neighbours beforehand about any potentially noisy activities."
 		}
 	]
 }

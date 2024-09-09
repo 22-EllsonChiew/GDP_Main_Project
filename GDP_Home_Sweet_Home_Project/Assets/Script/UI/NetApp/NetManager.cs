@@ -24,6 +24,9 @@ public class NetManager : MonoBehaviour
     [SerializeField]
     private Image currentPostPhoto;
 
+    [Header("Post Images")]
+    public List<Sprite> postSprites;
+
     [Header("JSON Loader")]
     [SerializeField]
     private PostLoader postLoader;
@@ -68,11 +71,13 @@ public class NetManager : MonoBehaviour
             currentPostTitle.text = targetPost.title;
             currentPostSubtitle.text = targetPost.subtitle;
             currentPostContent.text = targetPost.content;
+            currentPostPhoto.sprite = targetPost.image;
         }
     }
 
     public void PopulateThread()
     {
+
         foreach (Transform child in postListParent)
         {
             Destroy(child.gameObject);
@@ -80,6 +85,11 @@ public class NetManager : MonoBehaviour
 
         for (int i = 0; i < allForumPosts.Count; i++)
         {
+            if (postSprites.Count > 0)
+            {
+                allForumPosts[i].image = postSprites[i];
+            }
+
             AddPost(allForumPosts[i]);
             Debug.Log(allForumPosts.Count);
         }
