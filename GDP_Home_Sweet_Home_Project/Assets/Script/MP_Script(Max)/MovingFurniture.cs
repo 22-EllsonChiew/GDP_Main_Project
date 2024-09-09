@@ -313,21 +313,81 @@ public class MovingFurniture : MonoBehaviour
 
     private void TranslucentObject()
     {
-        cupBoardTranslucent.SetActive(false);
-        mirrorTranslucnet.SetActive(false);
-        barStoolTranslucent.SetActive(false);
-        tvSetTranslucent.SetActive(false);
-        studyTableTranslucent.SetActive(false);
-        barStoolTranslucent2.SetActive(false);
-        officeChairTranslucent.SetActive(false);
-        sofaTranslucent.SetActive(false);
-        lampBRTranslucent.SetActive(false);
-        lampLRTranslucent.SetActive(false);
-        diningChairTranslucent.SetActive(false);
-        diningChair2Translucent.SetActive(false);
-        diningChair3Translucent.SetActive(false);
-        diningChair4Translucent.SetActive(false);
-        diningTableTranslucent.SetActive(false);
+        if (cupBoardTranslucent != null)
+        {
+            cupBoardTranslucent.SetActive(false);
+        }
+
+        if (mirrorTranslucnet != null)
+        {
+            mirrorTranslucnet.SetActive(false);
+        }
+
+        if (barStoolTranslucent != null)
+        {
+            barStoolTranslucent.SetActive(false);
+        }
+
+        if (tvSetTranslucent != null)
+        {
+            tvSetTranslucent.SetActive(false);
+        }
+
+        if (studyTableTranslucent != null)
+        {
+            studyTableTranslucent.SetActive(false);
+        }
+
+        if (barStoolTranslucent2 != null)
+        {
+            barStoolTranslucent2.SetActive(false);
+        }
+
+        if (officeChairTranslucent != null)
+        {
+            officeChairTranslucent.SetActive(false);
+        }
+
+        if (sofaTranslucent != null)
+        {
+            sofaTranslucent.SetActive(false);
+        }
+
+        if (lampBRTranslucent != null)
+        {
+            lampBRTranslucent.SetActive(false);
+        }
+
+        if (lampLRTranslucent != null)
+        {
+            lampLRTranslucent.SetActive(false);
+        }
+
+        if (diningChairTranslucent != null)
+        {
+            diningChairTranslucent.SetActive(false);
+        }
+
+        if (diningChair2Translucent != null)
+        {
+            diningChair2Translucent.SetActive(false);
+        }
+
+        if (diningChair3Translucent != null)
+        {
+            diningChair3Translucent.SetActive(false);
+        }
+
+        if (diningChair4Translucent != null)
+        {
+            diningChair4Translucent.SetActive(false);
+        }
+
+        if (diningTableTranslucent != null)
+        {
+            diningTableTranslucent.SetActive(false);
+        }
+        
     }
     
     void SnapPosition()

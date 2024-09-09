@@ -195,20 +195,22 @@ public class PhoneUIController : MonoBehaviour
 
     void UpdateTimeWidgets()
     {
-        phoneClockTimePhaseText.text = TimeController.instance.CurrentTimePhase.ToString();
         phoneCalendarDaysLeft.text = TimeController.instance.DaysLeft.ToString();
 
         switch (TimeController.instance.CurrentTimePhase)
         {
             case TimePhase.Morning:
+                phoneClockTimePhaseText.text = "Morning";
                 phoneClockTimePhasePhoto.sprite = dayTime;
                 break;
 
             case TimePhase.Evening:
+                phoneClockTimePhaseText.text = "Evening";
                 phoneClockTimePhasePhoto.sprite = eveningTime;
                 break;
 
             case TimePhase.QuietTime:
+                phoneClockTimePhaseText.text = "Night";
                 phoneClockTimePhasePhoto.sprite = quietTime; 
                 break;
         }
@@ -222,6 +224,7 @@ public class PhoneUIController : MonoBehaviour
         }
         else
         {
+            OpenApp(PhoneApp.Home, true);
             targetPos = new Vector2(phoneTransform.anchoredPosition.x, lowerY);
         }
         StartCoroutine(MovePhone(targetPos));

@@ -2980,7 +2980,7 @@ MonoBehaviour:
   gradePenaltyPerComplaint: 0.02
   playerPerformanceGrade: {fileID: 1181335649}
   playerPerformanceSubtext: {fileID: 519190766}
-  mostAngeredNeighbourImage: {fileID: 0}
+  mostAngeredNeighbourImage: {fileID: 2082555322}
   totalComplaintsStatistic: {fileID: 600155924}
   promisesMadeStatistic: {fileID: 1267800754}
   promisesBrokenStatistic: {fileID: 406142622}
@@ -3948,7 +3948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b0b3d5f3f7dfa8f4b880ca8416489bb8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
