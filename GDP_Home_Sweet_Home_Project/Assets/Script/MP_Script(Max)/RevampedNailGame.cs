@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class RevampedNailGame : MonoBehaviour
 {
@@ -241,11 +242,11 @@ public class RevampedNailGame : MonoBehaviour
     void BuildObject()
     {
         Debug.Log("BUILDING");
-        //UNCOMMENT LATER PLEASE NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER NIGGER
-        //ScoreManager.Instance.IncrementTotalFunitureCount();
+        ScoreManager.Instance.IncrementTotalFunitureCount();
         hammerAudio.PlayOneShot(buildComplete);
         StartCoroutine(RotatingNew());
         taskCompleted.Invoke(true);
+        Instantiate(chairObject, transform.position, Quaternion.identity);
     }
 
     IEnumerator RotatingNew()
@@ -278,6 +279,8 @@ public class RevampedNailGame : MonoBehaviour
 
         minigameCam.SetActive(false);
         mainCam.SetActive(true);
+
+        Destroy(chairObject);
     }
 
     void OnMouseDown()

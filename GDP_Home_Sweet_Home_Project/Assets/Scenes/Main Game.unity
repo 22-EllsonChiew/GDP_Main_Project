@@ -21783,7 +21783,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 760305481}
   m_HandleRect: {fileID: 760305480}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -68001,6 +68001,7 @@ MonoBehaviour:
       m_Calls: []
   debugBuild: 0
   chairObject: {fileID: 1292429341}
+  assemblyPrefab: {fileID: 6265470910282969159, guid: 0a03f14b7b84d784094520b298a858b2, type: 3}
   screenShake: {fileID: 1649021143}
   downwardIncrement: 0.05
 --- !u!82 &7565215745276000217

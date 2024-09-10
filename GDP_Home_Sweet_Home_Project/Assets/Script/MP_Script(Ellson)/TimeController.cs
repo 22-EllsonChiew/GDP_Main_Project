@@ -202,7 +202,7 @@ public class TimeController : MonoBehaviour
         // set time to evening start time
         //randomize between multiple backgrounds
 
-        if (timeNotificationUI.activeSelf)
+        if (timeNotificationUI != null && timeNotificationUI.activeSelf)
         {
             timeNotificationUI.SetActive(false);
         }
@@ -281,8 +281,11 @@ public class TimeController : MonoBehaviour
 
             isPaused = true;
 
-            timeNotificationUI.SetActive(true);
-            HandleTimeNotification();
+            if (timeNotificationUI != null)
+            {
+                timeNotificationUI.SetActive(true);
+                HandleTimeNotification();
+            }
 
         }
         else if (!isPaused)
@@ -303,8 +306,11 @@ public class TimeController : MonoBehaviour
                     {
                         isPaused = true;
 
-                        timeNotificationUI.SetActive(true);
-                        HandleTimeNotification();
+                        if (timeNotificationUI != null)
+                        {
+                            timeNotificationUI.SetActive(true);
+                            HandleTimeNotification();
+                        }
 
                         Debug.Log("Time to go to work");
                     }

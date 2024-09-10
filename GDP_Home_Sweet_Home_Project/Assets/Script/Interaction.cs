@@ -127,7 +127,7 @@ public class Interaction : MonoBehaviour
 
     private void ConfirmClicked(Collider confirmedCollider)
     {
-        Debug.Log("ConfirmClicked called with: " + confirmedCollider);
+        Debug.Log("ConfirmClicked called with: " + confirmedCollider.name);
         //isGameStarting.Invoke(true);
 
         packageUI.gameObject.SetActive(false);
@@ -135,12 +135,14 @@ public class Interaction : MonoBehaviour
 
         if (confirmedCollider != null) 
         {
+            Debug.Log("Hello there");
 
             ConfirmButtonClickOnce = true;
             minigameCam.SetActive(true);
             mainCam.SetActive(false);
 
             Destroy(confirmedCollider.gameObject);
+
             if(TimeController.CurrentDay == 1)
             {
                 Instantiate(builtChair, new Vector3(confirmedCollider.gameObject.transform.position.x, builtChair.transform.position.y, confirmedCollider.gameObject.transform.position.z), builtChair.transform.rotation);
@@ -208,6 +210,7 @@ public class Interaction : MonoBehaviour
         Debug.Log("LEAVING PACKAGE UI");
         packageUI.gameObject.SetActive(false);
         inPackageUI = false;
+        ConfirmButtonClickOnce = false;
     }
 
     private void OnTriggerEnter(Collider other)

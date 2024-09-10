@@ -145,6 +145,7 @@ public class ChatManager : MonoBehaviour
 
             if (conversationToAdd != null)
             {
+                ScoreManager.Instance.IncreaseComplaintCount();
                 currentConversation = conversationToAdd;
 
                 DialogueLine lineToAdd = conversationToAdd.messages[0];
