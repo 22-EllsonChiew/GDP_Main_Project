@@ -445,6 +445,7 @@ public class MovingFurniture : MonoBehaviour
                 other.SetActive(false);
 
                 GameObject instantiatedObject = Instantiate(cupBoardObject, cupBoardPos, Quaternion.identity);
+                ScoreManager.Instance.IncrementTotalFunitureCount();
 
             }
 
@@ -455,6 +456,7 @@ public class MovingFurniture : MonoBehaviour
                 other.SetActive(false);
 
                 GameObject instantiatedMirrorObject = Instantiate(mirrorObject, mirrorPos, Quaternion.identity);
+                ScoreManager.Instance.IncrementTotalFunitureCount();
             }
 
             if (packageData.furnitureType == FurnitureType.Bar_Stool)
@@ -463,6 +465,7 @@ public class MovingFurniture : MonoBehaviour
                 other.SetActive(false);
 
                 GameObject instantiatedBarStool = Instantiate(barStoolObject, barStoolPos, Quaternion.identity);
+                ScoreManager.Instance.IncrementTotalFunitureCount();
 
             }
 
@@ -472,6 +475,7 @@ public class MovingFurniture : MonoBehaviour
                 other.SetActive(false);
 
                 GameObject instantiatedTvSet = Instantiate(tvSetTable, tvPos, Quaternion.identity);
+                ScoreManager.Instance.IncrementTotalFunitureCount();
             }
             if (packageData.furnitureType == FurnitureType.Study_Table)
             {
@@ -479,6 +483,7 @@ public class MovingFurniture : MonoBehaviour
                 other.SetActive(false);
 
                 GameObject instantiatedStudyTable = Instantiate(studyTableObject, studyTable, Quaternion.identity);
+                ScoreManager.Instance.IncrementTotalFunitureCount();
             }
 
             if (packageData.furnitureType == FurnitureType.Office_Chair)
@@ -487,6 +492,7 @@ public class MovingFurniture : MonoBehaviour
                 other.SetActive(false);
 
                 GameObject instantiatedOfficeChair = Instantiate(officeChairObject, officeChairPos, Quaternion.identity);
+                ScoreManager.Instance.IncrementTotalFunitureCount();
             }
             if (packageData.furnitureType == FurnitureType.Sofa)
             {
@@ -494,12 +500,14 @@ public class MovingFurniture : MonoBehaviour
                 other.SetActive(false);
 
                 GameObject instantiatedSofa = Instantiate(sofaObject, sofaPos, Quaternion.identity);
+                ScoreManager.Instance.IncrementTotalFunitureCount();
             }
             if (packageData.furnitureType == FurnitureType.Lamp)
             {
                 Vector3 lampPos = other.transform.position;
                 other.SetActive(false);
                 GameObject instantiatedLamp = Instantiate(lampObject, lampPos, Quaternion.identity);
+                ScoreManager.Instance.IncrementTotalFunitureCount();
             }
         }
         else
