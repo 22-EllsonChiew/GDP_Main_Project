@@ -16,6 +16,10 @@ public class ShelfMiniGameManager : MonoBehaviour
     public Interaction interaction;
     private int mountCount = 0;
 
+    public Camera hammerCamera2;
+    public Camera hammerCamera3;
+    public Camera hammerCamera4;
+
     private void Awake()
     {
         if (Instance == null)
