@@ -32,7 +32,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject miniGameCamDrill;
     [SerializeField] private GameObject miniGameCamTable;
-    [SerializeField] private GameObject miniGameCam2;
+    [SerializeField] public GameObject miniGameCam2;
     [SerializeField] private GameObject miniGameCam3;
     [SerializeField] private GameObject miniGameCam4;
 
@@ -193,7 +193,7 @@ public class Interaction : MonoBehaviour
             Debug.Log("Hello there");
 
             ConfirmButtonClickOnce = true;
-            minigameCam.SetActive(true);
+            miniGameCam2.SetActive(true);
             mainCam.SetActive(false);
 
             Destroy(comfirmCollider2.gameObject);
@@ -437,7 +437,8 @@ public class Interaction : MonoBehaviour
                 packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked2(hitCollider));
                 packageUI.exitButton.onClick.AddListener(ExitClicked);
                 hammerGame2 = true;
-                chairMinigame2.SetActive(true);
+                Debug.Log(hammerGame2);
+                //chairMinigame2.SetActive(true);
             }
             if (hitCollider.CompareTag("Object3") && Input.GetKeyDown(KeyCode.E))
             {

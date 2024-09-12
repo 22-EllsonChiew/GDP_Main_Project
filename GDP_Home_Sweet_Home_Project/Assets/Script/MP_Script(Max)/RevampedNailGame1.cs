@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using Unity.VisualScripting;
 
-public class RevampedNailGame : MonoBehaviour
+public class RevampedNailGame1 : MonoBehaviour
 {
     public int timeNeeded = 5;
     private float currentTimeHeld = 0f;
@@ -34,7 +34,7 @@ public class RevampedNailGame : MonoBehaviour
     public Image fill;
     public Gradient gradient;
 
-    private HammerNailController currentNail;
+    private HammerNailController1 currentNail;
 
     public AudioSource hammerAudio;
     public AudioClip hammerSound;
@@ -68,7 +68,7 @@ public class RevampedNailGame : MonoBehaviour
     public UnityEvent resetLeg;
 
     public bool debugBuild = false;
-    public GameObject chairObject;
+    //public GameObject chairObject;
     public GameObject chairObject2;
 
     public ScreenShake screenShake;
@@ -76,10 +76,10 @@ public class RevampedNailGame : MonoBehaviour
     public GameObject chairMiniGamePrefab;
     void Start()
     {
-        minigameCam = hammerMiniGame;
-        camRay = camRay1;
+        //noise.maxValue = noiseThreshold;
         Quaternion camRotate = Quaternion.Euler(originalCamRotation);
-
+        minigameCam = hammerMiniGame2;
+        camRay = camRay2;
         minigameCam.SetActive(false);
 
         hammerAudio = GetComponent<AudioSource>();
@@ -112,7 +112,7 @@ public class RevampedNailGame : MonoBehaviour
     {
         if (isMinigameActive)
         {
-            Ray ray = camRay.ScreenPointToRay(Input.mousePosition);
+            Ray ray = camRay2.ScreenPointToRay(Input.mousePosition);
             
             RaycastHit hit;
             currentClicks = currentNail.GetComponent<HammerNailController>().currentClicks;
@@ -189,7 +189,7 @@ public class RevampedNailGame : MonoBehaviour
             currentNail = null;
         }
 
-        currentNail = nailPrefab.GetComponent<HammerNailController>();
+        currentNail = nailPrefab.GetComponent<HammerNailController1>();
         minigameUI.SetActive(true);
 
         minigameCam.SetActive(true);
@@ -362,7 +362,7 @@ public class RevampedNailGame : MonoBehaviour
     {
         // Define the rotation and position for the object
         Quaternion targetRotation = Quaternion.Euler(200f, 0f, 0f);
-        Vector3 startPosition = chairObject.transform.position;
+        Vector3 startPosition = chairObject2.transform.position;
         Vector3 targetPosition = startPosition + Vector3.up * 1f;
 
         // Determine the camera's current and new positions for lerping
@@ -374,8 +374,8 @@ public class RevampedNailGame : MonoBehaviour
         while (elapsedTime < rotationTime)
         {
             // Lerp rotation and position of chairObject
-            chairObject.transform.rotation = Quaternion.Lerp(chairObject.transform.rotation, targetRotation, elapsedTime / rotationTime);
-            chairObject.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / rotationTime);
+            chairObject2.transform.rotation = Quaternion.Lerp(chairObject2.transform.rotation, targetRotation, elapsedTime / rotationTime);
+            chairObject2.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / rotationTime);
 
             
             elapsedTime += Time.deltaTime;
@@ -394,21 +394,21 @@ public class RevampedNailGame : MonoBehaviour
         //Quaternion spawnRotation = chairObject.transform.rotation;
         //Quaternion spawnRotations = Quaternion.Euler(spawnRotation);
         // Destroy the current chair object
-        Destroy(chairObject);
-        //chairObject2.SetActive(true);
+        Destroy(chairObject2);
+        chairObject2.SetActive(true);
 
         // Reset the minigame settings
         //ResetMinigame();
         // Reset Lerp-specific values to prepare for the next chair object
         elapsedTime = 0f;  // Reset elapsed time
-        chairObject = null;  // Clear the current chair object reference
+        chairObject2 = null;  // Clear the current chair object reference
 
         // Instantiate the next mini-game object with a fresh state
-        //Quaternion spawnRotations = Quaternion.Euler(spawnRotation);
-        //chairObject = Instantiate(chairMiniGamePrefab, spawnPosition, spawnRotations);
+        Quaternion spawnRotations = Quaternion.Euler(spawnRotation);
+        chairObject2 = Instantiate(chairMiniGamePrefab, spawnPosition, spawnRotations);
 
         // Instantiate a new chair mini game from the original prefab
-        //GameObject newChairMiniGame = Instantiate(chairMiniGamePrefab, spawnPosition, spawnRotations);
+        GameObject newChairMiniGame = Instantiate(chairMiniGamePrefab, spawnPosition, spawnRotations);
 
         // Optionally, initialize or set up the new chair mini game if needed
         // e.g., newChairMiniGame.GetComponent<SomeComponent>().Initialize();
