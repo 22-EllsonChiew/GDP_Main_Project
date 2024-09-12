@@ -41,9 +41,22 @@ public class RevampedNailGame : MonoBehaviour
     public AudioClip buildComplete;
 
     public GameObject mainCam;
+    public GameObject hammerMiniGame;
+    public GameObject hammerMiniGame2;
+    public GameObject hammerMiniGame3;
+    public GameObject hammerMiniGame4;
     public GameObject minigameCam;
     public Camera camRay;
+    public Camera camRay1;
+    public Camera camRay2;
+    public Camera camRay3;
+    public Camera camRay4;
     public LayerMask nailLayer;
+    public ShelfMiniGameManager miniGameManager;
+    public bool firstDone;
+    public bool secondDone;
+    public bool thirdDone;
+    public bool fourthDone;
 
     private Transform newChairPos;
 
@@ -59,7 +72,22 @@ public class RevampedNailGame : MonoBehaviour
     void Start()
     {
         //noise.maxValue = noiseThreshold;
-
+        if (!firstDone)
+        {
+            minigameCam = hammerMiniGame;
+        }
+        if (firstDone)
+        {
+            minigameCam = hammerMiniGame2;
+        }
+        if (secondDone)
+        {
+            minigameCam = hammerMiniGame3;
+        }
+        if (thirdDone)
+        {
+            minigameCam = hammerMiniGame4;
+        }
         minigameCam.SetActive(false);
 
         hammerAudio = GetComponent<AudioSource>();
@@ -91,8 +119,25 @@ public class RevampedNailGame : MonoBehaviour
         if (isMinigameActive)
         {
             Ray ray = camRay.ScreenPointToRay(Input.mousePosition);
+            if (!firstDone)
+            {
+                ray = camRay1.ScreenPointToRay(Input.mousePosition);
+            }
+            if (firstDone)
+            {
+                ray = camRay2.ScreenPointToRay(Input.mousePosition);
+            }
+            if (secondDone)
+            {
+                ray = camRay3.ScreenPointToRay(Input.mousePosition);
+            }
+            if (thirdDone)
+            {
+                ray = camRay4.ScreenPointToRay(Input.mousePosition);
+            }
             RaycastHit hit;
             currentClicks = currentNail.GetComponent<HammerNailController>().currentClicks;
+
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, nailLayer))
             {
