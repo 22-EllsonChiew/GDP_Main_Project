@@ -74,6 +74,10 @@ public class Interaction : MonoBehaviour
     public bool hammerGame3 = false;
     public bool hammerGame4 = false;
 
+    public GameObject chairMinigame2;
+    public GameObject chairMinigame3;
+    public GameObject chairMinigame4;
+
     public bool tableDrilling = false;
     private float checkRadius = 0.5f;
     public GameObject player;
@@ -433,6 +437,7 @@ public class Interaction : MonoBehaviour
                 packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked2(hitCollider));
                 packageUI.exitButton.onClick.AddListener(ExitClicked);
                 hammerGame2 = true;
+                chairMinigame2.SetActive(true);
             }
             if (hitCollider.CompareTag("Object3") && Input.GetKeyDown(KeyCode.E))
             {

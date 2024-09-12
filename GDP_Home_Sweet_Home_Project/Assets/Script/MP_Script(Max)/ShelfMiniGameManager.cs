@@ -59,6 +59,7 @@ public class ShelfMiniGameManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        elapsedTime = 0;
         gameCamera.transform.position = end;
         gameCamera.transform.rotation = endRotation;
     }
