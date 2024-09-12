@@ -389,21 +389,18 @@ public class Interaction : MonoBehaviour
             }
             if (hitCollider.CompareTag("Object2") && Input.GetKeyDown(KeyCode.E))
             {
-                if (!ConfirmButtonClickOnce && inPackageUI == false)
-                {
-                    Debug.Log("OBJECT 2");
-                    inPackageUI = true;
-                    Package packageData = hitCollider.gameObject.GetComponent<Package>();
-                    AudioManager.Instance.PlaySFX(sfx_PackageManualOpen);
-                    packageUI.gameObject.SetActive(true);
-                    interactionUIPrompt.DisablePanel();
+                Debug.Log("OBJECT 2");
+                inPackageUI = true;
+                Package packageData = hitCollider.gameObject.GetComponent<Package>();
+                AudioManager.Instance.PlaySFX(sfx_PackageManualOpen);
+                packageUI.gameObject.SetActive(true);
+                interactionUIPrompt.DisablePanel();
 
-                    packageUI.SetFurnitureDetails(packageData);
+                packageUI.SetFurnitureDetails(packageData);
 
-                    packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(hitCollider));
-                    packageUI.exitButton.onClick.AddListener(ExitClicked);
-                    hammerGame2 = true;
-                }
+                packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(hitCollider));
+                packageUI.exitButton.onClick.AddListener(ExitClicked);
+                hammerGame2 = true;
             }
             if (hitCollider.CompareTag("Object3") && Input.GetKeyDown(KeyCode.E))
             {
