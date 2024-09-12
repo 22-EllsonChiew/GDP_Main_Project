@@ -5440,7 +5440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &221989250
 Transform:
   m_ObjectHideFlags: 0
@@ -55241,6 +55241,9 @@ MonoBehaviour:
   tagName: Drilling
   drillGame: 0
   hammerGame: 0
+  hammerGame2: 0
+  hammerGame3: 0
+  hammerGame4: 0
   tableDrilling: 0
   player: {fileID: 1790319697}
 --- !u!95 &1790319703
@@ -59951,7 +59954,7 @@ GameObject:
   - component: {fileID: 2007280572}
   m_Layer: 0
   m_Name: Package_Chair2
-  m_TagString: Object
+  m_TagString: Object2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68948,6 +68951,9 @@ MonoBehaviour:
   hammerCamera2Pos: {fileID: 6149716248978217205}
   tableCamera2Pos: {fileID: 2143293975}
   interaction: {fileID: 1790319702}
+  hammerCamera2: {fileID: 221989253}
+  hammerCamera3: {fileID: 0}
+  hammerCamera4: {fileID: 0}
 --- !u!114 &7565215745276000216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69007,11 +69013,24 @@ MonoBehaviour:
   hammerSound: {fileID: 8300000, guid: 62cdfee2d868b7f479a3f3310b4ea53d, type: 3}
   buildComplete: {fileID: 8300000, guid: d4a482b4e03e231408c3492f8a62c352, type: 3}
   mainCam: {fileID: 963194225}
-  minigameCam: {fileID: 1649021139}
-  camRay: {fileID: 1649021141}
+  hammerMiniGame: {fileID: 1649021139}
+  hammerMiniGame2: {fileID: 221989249}
+  hammerMiniGame3: {fileID: 0}
+  hammerMiniGame4: {fileID: 0}
+  minigameCam: {fileID: 0}
+  camRay: {fileID: 0}
+  camRay1: {fileID: 1649021141}
+  camRay2: {fileID: 221989253}
+  camRay3: {fileID: 0}
+  camRay4: {fileID: 0}
   nailLayer:
     serializedVersion: 2
     m_Bits: 64
+  miniGameManager: {fileID: 0}
+  firstDone: 0
+  secondDone: 0
+  thirdDone: 0
+  fourthDone: 0
   taskCompleted:
     m_PersistentCalls:
       m_Calls: []

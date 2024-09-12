@@ -75,18 +75,22 @@ public class RevampedNailGame : MonoBehaviour
         if (!firstDone)
         {
             minigameCam = hammerMiniGame;
+            camRay = camRay1;
         }
         if (firstDone)
         {
             minigameCam = hammerMiniGame2;
+            camRay = camRay2;
         }
         if (secondDone)
         {
             minigameCam = hammerMiniGame3;
+            camRay = camRay3;
         }
         if (thirdDone)
         {
             minigameCam = hammerMiniGame4;
+            camRay = camRay4;
         }
         minigameCam.SetActive(false);
 
@@ -119,22 +123,7 @@ public class RevampedNailGame : MonoBehaviour
         if (isMinigameActive)
         {
             Ray ray = camRay.ScreenPointToRay(Input.mousePosition);
-            if (!firstDone)
-            {
-                ray = camRay1.ScreenPointToRay(Input.mousePosition);
-            }
-            if (firstDone)
-            {
-                ray = camRay2.ScreenPointToRay(Input.mousePosition);
-            }
-            if (secondDone)
-            {
-                ray = camRay3.ScreenPointToRay(Input.mousePosition);
-            }
-            if (thirdDone)
-            {
-                ray = camRay4.ScreenPointToRay(Input.mousePosition);
-            }
+            
             RaycastHit hit;
             currentClicks = currentNail.GetComponent<HammerNailController>().currentClicks;
 
