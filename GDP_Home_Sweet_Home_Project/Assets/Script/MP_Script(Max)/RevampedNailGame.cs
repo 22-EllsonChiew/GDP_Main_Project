@@ -60,7 +60,8 @@ public class RevampedNailGame : MonoBehaviour
 
     public Vector3 spawnPosition = new Vector3(0, 0, 0);
     public Vector3 spawnRotation = new Vector3(0, 0, 0);
-
+    private Vector3 originalCamPos;
+    private Quaternion originalCamRotation;
     private Transform newChairPos;
 
     public UnityEvent<bool> taskCompleted;
@@ -100,6 +101,9 @@ public class RevampedNailGame : MonoBehaviour
 
         hammerAudio = GetComponent<AudioSource>();
         hammerAudio.clip = hammerSound;
+
+        originalCamPos = minigameCam.transform.position;
+        originalCamRotation = minigameCam.transform.rotation;
 
         //newChairPos = oldChair.transform;
         GameObject minigameCameraObject = GameObject.FindWithTag("MinigameCam");
@@ -394,6 +398,8 @@ public class RevampedNailGame : MonoBehaviour
 
         // Instantiate a new chair mini game from the original prefab
         GameObject newChairMiniGame = Instantiate(chairMiniGamePrefab, spawnPosition, spawnRotations);
+        minigameCam.transform.position = originalCamPos;
+        minigameCam.transform.rotation = originalCamRotation;
 
         // Optionally, initialize or set up the new chair mini game if needed
         // e.g., newChairMiniGame.GetComponent<SomeComponent>().Initialize();
