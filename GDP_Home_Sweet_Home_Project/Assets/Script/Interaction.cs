@@ -32,8 +32,11 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject miniGameCamDrill;
     [SerializeField] private GameObject miniGameCamTable;
+    [SerializeField] private GameObject miniGameCam2;
+    [SerializeField] private GameObject miniGameCam3;
+    [SerializeField] private GameObject miniGameCam4;
 
-    
+
     [Header("Buildable prefab")]
     public GameObject builtChair;
     public GameObject builtChair2;
@@ -131,7 +134,7 @@ public class Interaction : MonoBehaviour
 
     private void ConfirmClicked(Collider confirmedCollider)
     {
-        Debug.Log("ConfirmClicked called with: " + confirmedCollider.name);
+       
         //isGameStarting.Invoke(true);
 
         packageUI.gameObject.SetActive(false);
@@ -174,6 +177,35 @@ public class Interaction : MonoBehaviour
 
         }
         //call function for minigame
+    }
+
+    private void ConfirmClicked2(Collider comfirmCollider2)
+    {
+        packageUI.gameObject.SetActive(false);
+        interactionUIPrompt.DisablePanel();
+
+        if (comfirmCollider2 != null)
+        {
+            Debug.Log("Hello there");
+
+            ConfirmButtonClickOnce = true;
+            minigameCam.SetActive(true);
+            mainCam.SetActive(false);
+
+            Destroy(comfirmCollider2.gameObject);
+
+            
+
+
+            if (TimeController.CurrentDay == 2)
+            {
+                Instantiate(builtChair2, new Vector3(comfirmCollider2.gameObject.transform.position.x, builtChair2.transform.position.y, comfirmCollider2.gameObject.transform.position.z), builtChair2.transform.rotation);
+            }
+
+
+
+        }
+
     }
 
     private void ConfirmClickedDrillGame(Collider drillConfirmedCollider)
@@ -398,7 +430,7 @@ public class Interaction : MonoBehaviour
 
                 packageUI.SetFurnitureDetails(packageData);
 
-                packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(hitCollider));
+                packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked2(hitCollider));
                 packageUI.exitButton.onClick.AddListener(ExitClicked);
                 hammerGame2 = true;
             }
