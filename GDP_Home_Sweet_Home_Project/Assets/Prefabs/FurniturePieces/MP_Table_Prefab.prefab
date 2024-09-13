@@ -357,6 +357,8 @@ MonoBehaviour:
     m_Bits: 8
   hoverHeight: 0.4
   targetSlot: NailSlot
+  audioSource: {fileID: 0}
+  snapSound: {fileID: 0}
 --- !u!65 &6030666336618183652
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -517,6 +519,8 @@ MonoBehaviour:
     m_Bits: 8
   hoverHeight: 0.4
   targetSlot: NailSlot
+  audioSource: {fileID: 0}
+  snapSound: {fileID: 0}
 --- !u!65 &3562625571173193906
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -911,7 +915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5778268656339650810}
   m_Layer: 0
-  m_Name: MP_Table_Asset 1
+  m_Name: MP_Table_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
