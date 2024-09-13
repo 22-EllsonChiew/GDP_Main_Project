@@ -292,15 +292,10 @@ public class MovingFurniture : MonoBehaviour
                     lampBRTranslucent.SetActive(true);
                     break;
                 case "DraggableDiningChair":
+                    // set positions for all dining chairs
                     diningChairTranslucent.SetActive(true);
-                    break;
-                case "DraggableDC2":
                     diningChair2Translucent.SetActive(true);
-                    break;
-                case "DraggableDC3":
                     diningChair3Translucent.SetActive(true);
-                    break;
-                case "DraggableDC4":
                     diningChair4Translucent.SetActive(true);
                     break;
                 case "DraggableDiningTable":
