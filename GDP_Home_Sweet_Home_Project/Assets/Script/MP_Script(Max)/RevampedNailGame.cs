@@ -55,7 +55,6 @@ public class RevampedNailGame : MonoBehaviour
 
     public ScreenShake screenShake;
     public float downwardIncrement = 0.05f;
-    public GameObject chairMiniGamePrefab;
     void Start()
     {
         //noise.maxValue = noiseThreshold;
@@ -77,13 +76,6 @@ public class RevampedNailGame : MonoBehaviour
             }
         }
        
-    }
-
-    private HammerNailController hammerNailController;
-
-    public void Initialize(HammerNailController hammerNailController)
-    {
-        this.hammerNailController = hammerNailController;
     }
 
     void Update()
@@ -142,29 +134,14 @@ public class RevampedNailGame : MonoBehaviour
 
     public void StartMinigame(GameObject nailPrefab)
     {
-        Debug.Log("START CALL");
         if (nailPrefab == null)
         {
             Debug.LogError("nailPrefab is null.");
             return;
         }
 
-        // Check if the nail prefab is the same as the previous one
-        if (currentNail != null && currentNail.gameObject == nailPrefab)
-        {
-            Debug.Log("Cannot start mini-game with the same nail prefab again.");
-            return;
-        }
-
         noiseDecreaseRate = noiseIncreaseRate * 2.25f;
         isMinigameActive = true;
-
-        // Reset currentNail if it's already set
-        if (currentNail != null)
-        {
-            currentNail = null;
-        }
-
         currentNail = nailPrefab.GetComponent<HammerNailController>();
         minigameUI.SetActive(true);
 
@@ -177,40 +154,6 @@ public class RevampedNailGame : MonoBehaviour
         //progress.maxValue = clicksNeeded;
     }
 
-    void ResetMinigame()
-    {
-        isMinigameActive = false;
-        currentTimeHeld = 0f;
-        currentClicks = 0;
-        currentNoise = 0f;
-        currentNail = null; // Reset currentNail to null
-
-        // Reset hammerMiniGame to null
-        if (hammerNailController != null)
-        {
-            hammerNailController.hammerMiniGame = null;
-        }
-
-        // Hide minigame UI elements
-        if (minigameUI != null)
-        {
-            minigameUI.SetActive(false);
-        }
-
-        // Reset camera settings
-        if (minigameCam != null)
-        {
-            minigameCam.SetActive(false);
-        }
-        if (mainCam != null)
-        {
-            mainCam.SetActive(true);
-        }
-
-        // Reset cursor visibility
-        Cursor.visible = true;
-    }
-
     public void EndMinigame()
     {
         hammerAudio.Stop();
@@ -220,15 +163,9 @@ public class RevampedNailGame : MonoBehaviour
         if (currentNail != null)
         {
             Destroy(currentNail.gameObject);
-            currentNail = null; // Reset currentNail to null
         }
 
-        // Reset hammerMiniGame to null
-        if (hammerNailController != null)
-        {
-            hammerNailController.hammerMiniGame = null;
-        }
-
+        currentNail = null;
         Cursor.visible = true;
 
         Debug.Log("Minigame ended");
@@ -307,58 +244,43 @@ public class RevampedNailGame : MonoBehaviour
         Debug.Log("BUILDING");
         ScoreManager.Instance.IncrementTotalFunitureCount();
         hammerAudio.PlayOneShot(buildComplete);
-
-        // Start the coroutine to rotate and replace the chair object
         StartCoroutine(RotatingNew());
-
-        // Trigger any additional events after building
         taskCompleted.Invoke(true);
+        Instantiate(chairObject, transform.position, Quaternion.identity);
     }
 
     IEnumerator RotatingNew()
     {
-        // Define the rotation and position for the object
+        //yield return new WaitForSeconds(2f);
+        //determining rotation for object
         Quaternion targetRotation = Quaternion.Euler(200f, 0f, 0f);
+        //determining position for object
         Vector3 startPosition = chairObject.transform.position;
         Vector3 targetPosition = startPosition + Vector3.up * 1f;
-
-        // Determine the camera's current and new positions for lerping
+        //determine position of camera for lerping
         Vector3 currentCamPosition = minigameCam.transform.position;
+        //Vector3 nextCamPosition = new Vector3(currentCamPosition.x, currentCamPosition.y, currentCamPosition.z - 2f);
         Vector3 newCamPosition = currentCamPosition + (Vector3.back * 2f) + (Vector3.up * 1f);
         float elapsedTime = 0f;
         float rotationTime = 3f;
 
+       
+
         while (elapsedTime < rotationTime)
         {
-            // Lerp rotation and position of chairObject
+            //lerp rotation and position of shelfObject
             chairObject.transform.rotation = Quaternion.Lerp(chairObject.transform.rotation, targetRotation, elapsedTime / rotationTime);
             chairObject.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / rotationTime);
             elapsedTime += Time.deltaTime;
             yield return null;
-
-            // Lerp the position of the camera to move backward
+            //lerp position of the camera to go backward
             minigameCam.transform.position = Vector3.Lerp(currentCamPosition, newCamPosition, elapsedTime / rotationTime);
         }
 
-        // Switch cameras back after the rotation is complete
         minigameCam.SetActive(false);
         mainCam.SetActive(true);
 
-        // Store the position and rotation before destroying the current chairObject
-        Vector3 spawnPosition = chairObject.transform.position;
-        Quaternion spawnRotation = chairObject.transform.rotation;
-
-        // Destroy the current chair object
         Destroy(chairObject);
-
-        // Reset the minigame settings
-        ResetMinigame();
-
-        // Instantiate a new chair mini game from the original prefab
-        GameObject newChairMiniGame = Instantiate(chairMiniGamePrefab, spawnPosition, spawnRotation);
-
-        // Optionally, initialize or set up the new chair mini game if needed
-        // e.g., newChairMiniGame.GetComponent<SomeComponent>().Initialize();
     }
 
     void OnMouseDown()

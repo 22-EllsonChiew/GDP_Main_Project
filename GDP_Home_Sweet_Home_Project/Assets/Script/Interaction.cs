@@ -328,7 +328,6 @@ public class Interaction : MonoBehaviour
 
     void CheckDistance()
     {
-
         Vector3 spherePosition = player.transform.position + player.transform.forward * checkRadius;
         spherePosition.y -= 1f;
         Collider[] hitColliders = Physics.OverlapSphere(spherePosition, checkRadius);

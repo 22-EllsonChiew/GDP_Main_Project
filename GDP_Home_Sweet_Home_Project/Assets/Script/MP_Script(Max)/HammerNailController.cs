@@ -9,7 +9,7 @@ public class HammerNailController : MonoBehaviour
 
     public GameObject gameManager;
 
-    public RevampedNailGame hammerMiniGame;
+    private RevampedNailGame hammerMiniGame;
     public float currentProgress;
     public int currentClicks;
 
