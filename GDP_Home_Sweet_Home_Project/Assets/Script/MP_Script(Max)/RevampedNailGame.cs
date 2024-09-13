@@ -60,8 +60,8 @@ public class RevampedNailGame : MonoBehaviour
 
     public Vector3 spawnPosition = new Vector3(0, 0, 0);
     public Vector3 spawnRotation = new Vector3(0, 0, 0);
-    public Vector3 originalCamPos;
-    public Vector3 originalCamRotation;
+    private Vector3 originalCamPos;
+    private Quaternion originalCamRotation;
     private Transform newChairPos;
 
     public UnityEvent<bool> taskCompleted;
@@ -69,7 +69,6 @@ public class RevampedNailGame : MonoBehaviour
 
     public bool debugBuild = false;
     public GameObject chairObject;
-    public GameObject chairObject2;
 
     public ScreenShake screenShake;
     public float downwardIncrement = 0.05f;
@@ -97,15 +96,14 @@ public class RevampedNailGame : MonoBehaviour
             minigameCam = hammerMiniGame4;
             camRay = camRay4;
         }
-        Quaternion camRotate = Quaternion.Euler(originalCamRotation);
-
         minigameCam.SetActive(false);
         hammerMiniGame2.SetActive(false);
 
         hammerAudio = GetComponent<AudioSource>();
         hammerAudio.clip = hammerSound;
 
-        
+        originalCamPos = minigameCam.transform.position;
+        originalCamRotation = minigameCam.transform.rotation;
 
         //newChairPos = oldChair.transform;
         GameObject minigameCameraObject = GameObject.FindWithTag("MinigameCam");
@@ -223,8 +221,6 @@ public class RevampedNailGame : MonoBehaviour
 
     void ResetMinigame()
     {
-        Debug.Log("Fresh start");
-
         isMinigameActive = false;
         currentTimeHeld = 0f;
         currentClicks = 0;
@@ -234,7 +230,6 @@ public class RevampedNailGame : MonoBehaviour
         // Reset hammerMiniGame to null
         if (hammerNailController != null)
         {
-            Destroy(currentNail.gameObject);
             hammerNailController.hammerMiniGame = null;
         }
 
@@ -256,7 +251,6 @@ public class RevampedNailGame : MonoBehaviour
 
         // Reset cursor visibility
         Cursor.visible = true;
-        ResetCamera();
     }
 
     public void EndMinigame()
@@ -279,8 +273,6 @@ public class RevampedNailGame : MonoBehaviour
 
         Cursor.visible = true;
 
-        // Reset the camera position and rotation here
-
         Debug.Log("Minigame ended");
 
         // Check if all nails are drilled in
@@ -289,7 +281,6 @@ public class RevampedNailGame : MonoBehaviour
         {
             BuildObject();
         }
-       
     }
 
     public void HandleClick()
@@ -358,24 +349,12 @@ public class RevampedNailGame : MonoBehaviour
         Debug.Log("BUILDING");
         ScoreManager.Instance.IncrementTotalFunitureCount();
         hammerAudio.PlayOneShot(buildComplete);
+
         // Start the coroutine to rotate and replace the chair object
-        minigameCam.transform.SetPositionAndRotation(originalCamPos, Quaternion.Euler(originalCamRotation));
         StartCoroutine(RotatingNew());
-        //ResetMinigame();
 
         // Trigger any additional events after building
         taskCompleted.Invoke(true);
-    }
-
-    public void ResetCamera()
-    {
-        // Set the camera's position and rotation back to the original values
-        
-        if (minigameCam != null)
-        {
-            Debug.Log("Help me");
-            minigameCam.transform.SetPositionAndRotation(originalCamPos, Quaternion.Euler(originalCamRotation));
-        }
     }
 
     IEnumerator RotatingNew()
@@ -386,8 +365,8 @@ public class RevampedNailGame : MonoBehaviour
         Vector3 targetPosition = startPosition + Vector3.up * 1f;
 
         // Determine the camera's current and new positions for lerping
-        //Vector3 currentCamPosition = minigameCam.transform.position;
-        //Vector3 newCamPosition = currentCamPosition + (Vector3.back * 2f) + (Vector3.up * 1f);
+        Vector3 currentCamPosition = minigameCam.transform.position;
+        Vector3 newCamPosition = currentCamPosition + (Vector3.back * 2f) + (Vector3.up * 1f);
         float elapsedTime = 0f;
         float rotationTime = 3f;
 
@@ -396,13 +375,11 @@ public class RevampedNailGame : MonoBehaviour
             // Lerp rotation and position of chairObject
             chairObject.transform.rotation = Quaternion.Lerp(chairObject.transform.rotation, targetRotation, elapsedTime / rotationTime);
             chairObject.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / rotationTime);
-
-            
             elapsedTime += Time.deltaTime;
             yield return null;
 
             // Lerp the position of the camera to move backward
-            //minigameCam.transform.position = Vector3.Lerp(currentCamPosition, newCamPosition, elapsedTime / rotationTime);
+            minigameCam.transform.position = Vector3.Lerp(currentCamPosition, newCamPosition, elapsedTime / rotationTime);
         }
 
         // Switch cameras back after the rotation is complete
@@ -412,28 +389,21 @@ public class RevampedNailGame : MonoBehaviour
         // Store the position and rotation before destroying the current chairObject
         //Vector3 spawnPosition = new Vector3 ()
         //Quaternion spawnRotation = chairObject.transform.rotation;
-        //Quaternion spawnRotations = Quaternion.Euler(spawnRotation);
+        Quaternion spawnRotations = Quaternion.Euler(spawnRotation);
         // Destroy the current chair object
         Destroy(chairObject);
-        chairObject2.SetActive(true);
 
         // Reset the minigame settings
         ResetMinigame();
-        // Reset Lerp-specific values to prepare for the next chair object
-        elapsedTime = 0f;  // Reset elapsed time
-        chairObject = null;  // Clear the current chair object reference
-
-        // Instantiate the next mini-game object with a fresh state
-        Quaternion spawnRotations = Quaternion.Euler(spawnRotation);
-        chairObject = Instantiate(chairMiniGamePrefab, spawnPosition, spawnRotations);
 
         // Instantiate a new chair mini game from the original prefab
         GameObject newChairMiniGame = Instantiate(chairMiniGamePrefab, spawnPosition, spawnRotations);
+        minigameCam.transform.position = originalCamPos;
+        minigameCam.transform.rotation = originalCamRotation;
 
         // Optionally, initialize or set up the new chair mini game if needed
         // e.g., newChairMiniGame.GetComponent<SomeComponent>().Initialize();
     }
-    
 
     void OnMouseDown()
     {

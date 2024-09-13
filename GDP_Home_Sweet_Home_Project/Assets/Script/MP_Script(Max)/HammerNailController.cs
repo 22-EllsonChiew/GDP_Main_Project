@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class HammerNailController : MonoBehaviour
 {
-    [SerializeField] public Camera gameCamera;
-    [SerializeField] public LayerMask nailLayer;
+    public Camera gameCamera;
+    public LayerMask nailLayer;
 
-    [SerializeField] public GameObject gameManager;
+    public GameObject gameManager;
 
-    [SerializeField] public RevampedNailGame hammerMiniGame;
-    [SerializeField] public float currentProgress;
-    [SerializeField] public int currentClicks;
+    public RevampedNailGame hammerMiniGame;
+    public float currentProgress;
+    public int currentClicks;
 
     [Header("Script")]
-    [SerializeField] public NoiseController noiseController;
-    [SerializeField] public WindowController windowControllers;
-    [SerializeField] public PackageRaycast packageRaycast;
+    public NoiseController noiseController;
+    public WindowController windowControllers;
+    public PackageRaycast packageRaycast;
 
     void Start()
     {
