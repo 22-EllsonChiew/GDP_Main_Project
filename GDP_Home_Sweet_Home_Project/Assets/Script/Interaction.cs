@@ -212,75 +212,6 @@ public class Interaction : MonoBehaviour
 
     }
 
-    private void ConfirmClicked3(Collider comfirmCollider3)
-    {
-        packageUI.gameObject.SetActive(false);
-        interactionUIPrompt.DisablePanel();
-
-        if (comfirmCollider3 != null)
-        {
-            Debug.Log("Hello there");
-
-            ConfirmButtonClickOnce = true;
-            miniGameCam3.SetActive(true);
-            mainCam.SetActive(false);
-
-            Destroy(comfirmCollider3.gameObject);
-
-
-
-
-            if (TimeController.CurrentDay == 3)
-            {
-                if (!builtChair3Instantiated)
-                {
-                    Instantiate(builtChair3, new Vector3(comfirmCollider3.gameObject.transform.position.x, builtChair3.transform.position.y, comfirmCollider3.gameObject.transform.position.z), builtChair3.transform.rotation);
-                    builtChair3Instantiated = true; // Set the flag to true after instantiation
-                }
-                else
-                {
-                    Instantiate(builtChair4, new Vector3(comfirmCollider3.gameObject.transform.position.x, builtChair4.transform.position.y, comfirmCollider3.gameObject.transform.position.z), builtChair4.transform.rotation);
-                }
-            }
-
-
-
-        }
-
-    }
-
-    private void ConfirmClicked4(Collider comfirmCollider4)
-    {
-        packageUI.gameObject.SetActive(false);
-        interactionUIPrompt.DisablePanel();
-
-        if (comfirmCollider4 != null)
-        {
-            Debug.Log("Hello there");
-
-            ConfirmButtonClickOnce = true;
-            miniGameCam4.SetActive(true);
-            mainCam.SetActive(false);
-
-            Destroy(comfirmCollider4.gameObject);
-
-
-
-
-            if (TimeController.CurrentDay == 3)
-            {
-               
-               
-               Instantiate(builtChair4, new Vector3(comfirmCollider4.gameObject.transform.position.x, builtChair4.transform.position.y, comfirmCollider4.gameObject.transform.position.z), builtChair4.transform.rotation);
-                
-            }
-
-
-
-        }
-
-    }
-
     private void ConfirmClickedDrillGame(Collider drillConfirmedCollider)
     {
         packageUI.gameObject.SetActive(false);
@@ -522,7 +453,7 @@ public class Interaction : MonoBehaviour
 
                     packageUI.SetFurnitureDetails(packageData);
 
-                    packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked3(hitCollider));
+                    packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(hitCollider));
                     packageUI.exitButton.onClick.AddListener(ExitClicked);
                     hammerGame3 = true;
                 }
@@ -540,7 +471,7 @@ public class Interaction : MonoBehaviour
 
                     packageUI.SetFurnitureDetails(packageData);
 
-                    packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked4(hitCollider));
+                    packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked(hitCollider));
                     packageUI.exitButton.onClick.AddListener(ExitClicked);
                     hammerGame4 = true;
                 }

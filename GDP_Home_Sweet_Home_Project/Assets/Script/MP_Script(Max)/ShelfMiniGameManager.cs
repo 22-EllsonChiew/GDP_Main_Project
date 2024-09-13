@@ -19,9 +19,7 @@ public class ShelfMiniGameManager : MonoBehaviour
     public Camera hammerCamera2;
     public Transform hammerCamera2Pos2;
     public Camera hammerCamera3;
-    public Transform hammerCamera3Pos3;
     public Camera hammerCamera4;
-    public Transform hammerCamera4Pos4;
 
     private void Awake()
     {
@@ -123,13 +121,11 @@ public class ShelfMiniGameManager : MonoBehaviour
         if (interaction.hammerGame3 == true)
         {
             gameCamera = hammerCamera3;
-            camera2Pos = hammerCamera3Pos3;
-}
+        }
 
         if (interaction.hammerGame4 == true)
         {
             gameCamera = hammerCamera4;
-            camera2Pos = hammerCamera4Pos4;
         }
     }
 }
