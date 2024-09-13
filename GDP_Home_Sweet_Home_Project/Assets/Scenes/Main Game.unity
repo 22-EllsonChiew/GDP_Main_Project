@@ -5440,7 +5440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &221989250
 Transform:
   m_ObjectHideFlags: 0
@@ -55227,9 +55227,6 @@ MonoBehaviour:
   mainCamera: {fileID: 963194225}
   miniGameCamDrill: {fileID: 1918765102}
   miniGameCamTable: {fileID: 1565027436}
-  miniGameCam2: {fileID: 221989249}
-  miniGameCam3: {fileID: 0}
-  miniGameCam4: {fileID: 0}
   builtChair: {fileID: 8122945108771623249, guid: b5e48d8e94a73c64587d263fb65cfc0e, type: 3}
   builtChair2: {fileID: 8122945108771623249, guid: f7d8c1f039711d045bc48870ccd217af, type: 3}
   builtChair3: {fileID: 8122945108771623249, guid: 8e2f84502e120cc4abb709a82da81470, type: 3}
@@ -69034,8 +69031,6 @@ MonoBehaviour:
   secondDone: 0
   thirdDone: 0
   fourthDone: 0
-  spawnPosition: {x: 0.5686982, y: 1.73, z: -125.45}
-  spawnRotation: {x: 0, y: 0, z: 0}
   taskCompleted:
     m_PersistentCalls:
       m_Calls: []
