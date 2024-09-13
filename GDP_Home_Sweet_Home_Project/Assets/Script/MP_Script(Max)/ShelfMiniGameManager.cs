@@ -17,7 +17,6 @@ public class ShelfMiniGameManager : MonoBehaviour
     private int mountCount = 0;
 
     public Camera hammerCamera2;
-    public Transform hammerCamera2Pos2;
     public Camera hammerCamera3;
     public Camera hammerCamera4;
 
@@ -42,12 +41,10 @@ public class ShelfMiniGameManager : MonoBehaviour
     public void IncrementMountCount()
     {
         mountCount++;
-        Debug.Log("MOUNT COUNT =" + mountCount);
         if (mountCount == 2)
         {
             Debug.Log("LERPING");
             StartCoroutine(LerpCamera(gameCamera.transform.position, camera2Pos.transform.position, gameCamera.transform.rotation, camera2Pos.transform.rotation, 2f));
-            mountCount = 0;
         }
     }
 
@@ -115,7 +112,6 @@ public class ShelfMiniGameManager : MonoBehaviour
         if (interaction.hammerGame2 == true)
         {
             gameCamera = hammerCamera2;
-            camera2Pos = hammerCamera2Pos2;
         }
 
         if (interaction.hammerGame3 == true)
