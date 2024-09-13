@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneManagement : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
     public Button replayButton;
     public GameObject tutorialPromptGroup;
