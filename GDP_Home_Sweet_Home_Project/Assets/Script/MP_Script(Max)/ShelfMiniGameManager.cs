@@ -107,20 +107,5 @@ public class ShelfMiniGameManager : MonoBehaviour
             gameCamera = tableCamera;
             camera2Pos = tableCamera2Pos;
         }
-
-        if (interaction.hammerGame2 == true)
-        {
-            gameCamera = hammerCamera2;
-        }
-
-        if (interaction.hammerGame3 == true)
-        {
-            gameCamera = hammerCamera3;
-        }
-
-        if (interaction.hammerGame4 == true)
-        {
-            gameCamera = hammerCamera4;
-        }
     }
 }

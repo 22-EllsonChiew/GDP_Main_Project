@@ -391,7 +391,7 @@ public class Interaction : MonoBehaviour
             {
                 if (!ConfirmButtonClickOnce && inPackageUI == false)
                 {
-                    Debug.Log("OBJECT 2");
+                    Debug.Log("IN PACKAGE UI");
                     inPackageUI = true;
                     Package packageData = hitCollider.gameObject.GetComponent<Package>();
                     AudioManager.Instance.PlaySFX(sfx_PackageManualOpen);
