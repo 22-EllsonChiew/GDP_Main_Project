@@ -205,54 +205,81 @@ public class SnapCollider : MonoBehaviour
         switch(other.tag)
         {
             case "Draggable":
-                other.gameObject.SetActive(false);
+                if (other.gameObject != null)
+                {
+                    other.gameObject.SetActive(false);
+                }
                 Quaternion prefabQuaternion = Quaternion.Euler(prefabRotation);
                 GameObject preBuiltFurniture = Instantiate(cupBoardPrefab, prefabPosition, prefabQuaternion);
                 disableObjectRender.SetActive(false);
                 break;
             case "DraggableMirror":
-                other.gameObject.SetActive(false);
+                if (other.gameObject != null)
+                {
+                    other.gameObject.SetActive(false);
+                }
                 Quaternion mirrorPrefabQuaternion = Quaternion.Euler(mirrorPrefabRotation);
                 GameObject preBuiltmirrorPrefab = Instantiate(mirrorPrefab, mirrorPrefabPosition, mirrorPrefabQuaternion);
                 break;
             case "DraggableBarStool":
-                other.gameObject.SetActive(false);
+                if (other.gameObject != null)
+                {
+                    other.gameObject.SetActive(false);
+                }
                 barStoolTranslucent.SetActive(false);
                 Quaternion prefabBarStool1Quaternion = Quaternion.Euler(barStoolPrefabRotation);
                 GameObject prebuiltBarStool1 = Instantiate(barStoolPrefab1, barStoolPrefabPosition, prefabBarStool1Quaternion);
                 break;
             case "DraggableTvTable":
-                other.gameObject.SetActive(false);
+                if (other.gameObject != null)
+                {
+                    other.gameObject.SetActive(false);
+                }
                 translucentTVSet.SetActive(false);
                 Quaternion prefabTvTableQua = Quaternion.Euler(tvTablePrefabRotation);
                 GameObject prebuiltTvTable = Instantiate(tvTablePrefab, tvTablePrefabPosition, prefabTvTableQua);
                 break;
             case "DraggableBarStool2":
-                other.gameObject.SetActive(false);
+                if (other.gameObject != null)
+                {
+                    other.gameObject.SetActive(false);
+                }
                 barStoolTranslucent2.SetActive(false);
                 Quaternion prefabBarStool2Quaternion = Quaternion.Euler(barStoolPrefabRotation);
                 GameObject prebuiltBarStool2 = Instantiate(barStoolPrefab1, barStoolPrefabPosition, prefabBarStool2Quaternion);
                 break;
             case "DraggableOfficeChair":
-                other.gameObject.SetActive(false);
+                if (other.gameObject != null)
+                {
+                    other.gameObject.SetActive(false);
+                }
                 translucentOfiiceChair.SetActive(false);
                 Quaternion officeChairQuaternion = Quaternion.Euler(officeChairPrefabRotation);
                 GameObject officeChairPrebuilt = Instantiate(officeChairPrefab, officeChairPrefabPosition, officeChairQuaternion);
                 break;
             case "DraggableSofa":
-                other.gameObject.SetActive(false);
+                if (other.gameObject != null)
+                {
+                    other.gameObject.SetActive(false);
+                }
                 TranslucentSofa.SetActive(false);
                 Quaternion sofaQuaternion = Quaternion.Euler(sofaPrefabRotation);
                 GameObject sofaPrebuilt = Instantiate(sofaPrefab, sofaPrefabPosition, sofaQuaternion);
                 break;
             case "DraggableLRLamp":
-                other.gameObject.SetActive(false);
+                if (other.gameObject != null)
+                {
+                    other.gameObject.SetActive(false);
+                }
                 TranslucentLamp.SetActive(false);
                 Quaternion LRLampQuaternion = Quaternion.Euler(lampPrefabRotation);
                 GameObject LRLampPrebuilt = Instantiate(lampPrefab, lampPrefabPosition, LRLampQuaternion);
                 break;
             case "DraggableBRLamp":
-                other.gameObject.SetActive(false);
+                if (other.gameObject != null)
+                {
+                    other.gameObject.SetActive(false);
+                }
                 TranslucentBedRoomLamp.SetActive(false);
                 Quaternion BRLampQuaternion = Quaternion.Euler(bedRoomLampRotation);
                 GameObject BRLampPrebuilt = Instantiate(bedRoomLampPrefab, bedRoomLampPosition, BRLampQuaternion);
@@ -260,27 +287,36 @@ public class SnapCollider : MonoBehaviour
             case "DraggableDiningChair":
                 other.gameObject.SetActive(false);
                 TranslucentDc1Prefab.SetActive(false);
+                TranslucentDc2Prefab.SetActive(false);
+                TranslucentDc3Prefab.SetActive(false);
+                TranslucentDc4Prefab.SetActive(false);
                 Quaternion DC1PrefabQua = Quaternion.Euler(diningChair1Rota);
                 GameObject DC1Prebuilt = Instantiate(diningChair1Prefab, diningChair1Pos, DC1PrefabQua);
-                break;
-            case "DraggableDC2":
-                other.gameObject.SetActive(false);
-                TranslucentDc2Prefab.SetActive(false);
                 Quaternion DC2PrefabQua = Quaternion.Euler(diningChair2Rota);
                 GameObject DC2Prebuilt = Instantiate(diningChair2Prefab, diningChair2Pos, DC2PrefabQua);
-                break;
-            case "DraggableDC3":
-                other.gameObject.SetActive(false);
-                TranslucentDc3Prefab.SetActive(false);
                 Quaternion DC3PrefabQua = Quaternion.Euler(diningChair3Rota);
                 GameObject DC3Prebuilt = Instantiate(diningChair3Prefab, diningChair3Pos, DC3PrefabQua);
-                break;
-            case "DraggableDC4":
-                other.gameObject.SetActive(false);
-                TranslucentDc4Prefab.SetActive(false);
                 Quaternion DC4PrefabQua = Quaternion.Euler(diningChair4Rota);
                 GameObject DC4Prebuilt = Instantiate(diningChair4Prefab, diningChair4Pos, DC4PrefabQua);
                 break;
+            //case "DraggableDC2":
+            //    other.gameObject.SetActive(false);
+            //    TranslucentDc2Prefab.SetActive(false);
+            //    Quaternion DC2PrefabQua = Quaternion.Euler(diningChair2Rota);
+            //    GameObject DC2Prebuilt = Instantiate(diningChair2Prefab, diningChair2Pos, DC2PrefabQua);
+            //    break;
+            //case "DraggableDC3":
+            //    other.gameObject.SetActive(false);
+            //    TranslucentDc3Prefab.SetActive(false);
+            //    Quaternion DC3PrefabQua = Quaternion.Euler(diningChair3Rota);
+            //    GameObject DC3Prebuilt = Instantiate(diningChair3Prefab, diningChair3Pos, DC3PrefabQua);
+            //    break;
+            //case "DraggableDC4":
+            //    other.gameObject.SetActive(false);
+            //    TranslucentDc4Prefab.SetActive(false);
+            //    Quaternion DC4PrefabQua = Quaternion.Euler(diningChair4Rota);
+            //    GameObject DC4Prebuilt = Instantiate(diningChair4Prefab, diningChair4Pos, DC4PrefabQua);
+            //    break;
             case "DraggableDiningTable":
                 other.gameObject.SetActive(false);
                 TranslucenDiningTablePrefab.SetActive(false);

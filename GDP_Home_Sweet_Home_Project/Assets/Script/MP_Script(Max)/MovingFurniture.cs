@@ -102,7 +102,7 @@ public class MovingFurniture : MonoBehaviour
     public readonly HashSet<string> draggingTags = new HashSet<string>
     {
         "Object", "Drilling", "Draggable", "DraggableMirror", "DraggableBarStool", "DraggableTvTable", "DraggableStudyTable", "DraggableBarStool2", "DraggableOfficeChair", "DraggableSofa", "DraggableLRLamp", "DraggableBRLamp", "DraggableDiningChair",
-        "DraggableDC2", "DraggableDC3", "DraggableDC4", "DraggableDiningTable", "Object2", "Object3", "Object4"
+        "DraggableDC2", "DraggableDC3", "DraggableDC4", "DraggableDiningTable"
     };
 
     void CheckForDraggableObject()
@@ -292,15 +292,10 @@ public class MovingFurniture : MonoBehaviour
                     lampBRTranslucent.SetActive(true);
                     break;
                 case "DraggableDiningChair":
+                    // set positions for all dining chairs
                     diningChairTranslucent.SetActive(true);
-                    break;
-                case "DraggableDC2":
                     diningChair2Translucent.SetActive(true);
-                    break;
-                case "DraggableDC3":
                     diningChair3Translucent.SetActive(true);
-                    break;
-                case "DraggableDC4":
                     diningChair4Translucent.SetActive(true);
                     break;
                 case "DraggableDiningTable":

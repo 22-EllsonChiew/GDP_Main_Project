@@ -32,11 +32,8 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject miniGameCamDrill;
     [SerializeField] private GameObject miniGameCamTable;
-    [SerializeField] public GameObject miniGameCam2;
-    [SerializeField] private GameObject miniGameCam3;
-    [SerializeField] private GameObject miniGameCam4;
 
-
+    
     [Header("Buildable prefab")]
     public GameObject builtChair;
     public GameObject builtChair2;
@@ -70,14 +67,6 @@ public class Interaction : MonoBehaviour
 
     public bool drillGame = false;
     public bool hammerGame = false;
-    public bool hammerGame2 = false;
-    public bool hammerGame3 = false;
-    public bool hammerGame4 = false;
-
-    public GameObject chairMinigame2;
-    public GameObject chairMinigame3;
-    public GameObject chairMinigame4;
-
     public bool tableDrilling = false;
     private float checkRadius = 0.5f;
     public GameObject player;
@@ -138,7 +127,7 @@ public class Interaction : MonoBehaviour
 
     private void ConfirmClicked(Collider confirmedCollider)
     {
-       
+        Debug.Log("ConfirmClicked called with: " + confirmedCollider.name);
         //isGameStarting.Invoke(true);
 
         packageUI.gameObject.SetActive(false);
@@ -181,104 +170,6 @@ public class Interaction : MonoBehaviour
 
         }
         //call function for minigame
-    }
-
-    private void ConfirmClicked2(Collider comfirmCollider2)
-    {
-        packageUI.gameObject.SetActive(false);
-        interactionUIPrompt.DisablePanel();
-
-        if (comfirmCollider2 != null)
-        {
-            Debug.Log("Hello there");
-
-            ConfirmButtonClickOnce = true;
-            miniGameCam2.SetActive(true);
-            mainCam.SetActive(false);
-
-            Destroy(comfirmCollider2.gameObject);
-
-            
-
-
-            if (TimeController.CurrentDay == 2)
-            {
-                Instantiate(builtChair2, new Vector3(comfirmCollider2.gameObject.transform.position.x, builtChair2.transform.position.y, comfirmCollider2.gameObject.transform.position.z), builtChair2.transform.rotation);
-            }
-
-
-
-        }
-
-    }
-
-    private void ConfirmClicked3(Collider comfirmCollider3)
-    {
-        packageUI.gameObject.SetActive(false);
-        interactionUIPrompt.DisablePanel();
-
-        if (comfirmCollider3 != null)
-        {
-            Debug.Log("Hello there");
-
-            ConfirmButtonClickOnce = true;
-            miniGameCam3.SetActive(true);
-            mainCam.SetActive(false);
-
-            Destroy(comfirmCollider3.gameObject);
-
-
-
-
-            if (TimeController.CurrentDay == 3)
-            {
-                if (!builtChair3Instantiated)
-                {
-                    Instantiate(builtChair3, new Vector3(comfirmCollider3.gameObject.transform.position.x, builtChair3.transform.position.y, comfirmCollider3.gameObject.transform.position.z), builtChair3.transform.rotation);
-                    builtChair3Instantiated = true; // Set the flag to true after instantiation
-                }
-                else
-                {
-                    Instantiate(builtChair4, new Vector3(comfirmCollider3.gameObject.transform.position.x, builtChair4.transform.position.y, comfirmCollider3.gameObject.transform.position.z), builtChair4.transform.rotation);
-                }
-            }
-
-
-
-        }
-
-    }
-
-    private void ConfirmClicked4(Collider comfirmCollider4)
-    {
-        packageUI.gameObject.SetActive(false);
-        interactionUIPrompt.DisablePanel();
-
-        if (comfirmCollider4 != null)
-        {
-            Debug.Log("Hello there");
-
-            ConfirmButtonClickOnce = true;
-            miniGameCam4.SetActive(true);
-            mainCam.SetActive(false);
-
-            Destroy(comfirmCollider4.gameObject);
-
-
-
-
-            if (TimeController.CurrentDay == 3)
-            {
-               
-               
-               Instantiate(builtChair4, new Vector3(comfirmCollider4.gameObject.transform.position.x, builtChair4.transform.position.y, comfirmCollider4.gameObject.transform.position.z), builtChair4.transform.rotation);
-                
-            }
-
-
-
-        }
-
     }
 
     private void ConfirmClickedDrillGame(Collider drillConfirmedCollider)
@@ -437,7 +328,6 @@ public class Interaction : MonoBehaviour
 
     void CheckDistance()
     {
-
         Vector3 spherePosition = player.transform.position + player.transform.forward * checkRadius;
         spherePosition.y -= 1f;
         Collider[] hitColliders = Physics.OverlapSphere(spherePosition, checkRadius);
@@ -491,59 +381,6 @@ public class Interaction : MonoBehaviour
                 packageUI.confirmButton.onClick.AddListener(() => ConfirmClickedTableGame(hitCollider)); ;
                 packageUI.exitButton.onClick.AddListener(ExitClicked);
                 tableDrilling = true;
-            }
-            if (hitCollider.CompareTag("Object2") && Input.GetKeyDown(KeyCode.E))
-            {
-                Debug.Log("OBJECT 2");
-                inPackageUI = true;
-                Package packageData = hitCollider.gameObject.GetComponent<Package>();
-                AudioManager.Instance.PlaySFX(sfx_PackageManualOpen);
-                packageUI.gameObject.SetActive(true);
-                interactionUIPrompt.DisablePanel();
-
-                packageUI.SetFurnitureDetails(packageData);
-
-                packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked2(hitCollider));
-                packageUI.exitButton.onClick.AddListener(ExitClicked);
-                hammerGame2 = true;
-                Debug.Log(hammerGame2);
-                //chairMinigame2.SetActive(true);
-            }
-            if (hitCollider.CompareTag("Object3") && Input.GetKeyDown(KeyCode.E))
-            {
-                if (!ConfirmButtonClickOnce && inPackageUI == false)
-                {
-                    Debug.Log("IN PACKAGE UI");
-                    inPackageUI = true;
-                    Package packageData = hitCollider.gameObject.GetComponent<Package>();
-                    AudioManager.Instance.PlaySFX(sfx_PackageManualOpen);
-                    packageUI.gameObject.SetActive(true);
-                    interactionUIPrompt.DisablePanel();
-
-                    packageUI.SetFurnitureDetails(packageData);
-
-                    packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked3(hitCollider));
-                    packageUI.exitButton.onClick.AddListener(ExitClicked);
-                    hammerGame3 = true;
-                }
-            }
-            if (hitCollider.CompareTag("Object4") && Input.GetKeyDown(KeyCode.E))
-            {
-                if (!ConfirmButtonClickOnce && inPackageUI == false)
-                {
-                    Debug.Log("IN PACKAGE UI");
-                    inPackageUI = true;
-                    Package packageData = hitCollider.gameObject.GetComponent<Package>();
-                    AudioManager.Instance.PlaySFX(sfx_PackageManualOpen);
-                    packageUI.gameObject.SetActive(true);
-                    interactionUIPrompt.DisablePanel();
-
-                    packageUI.SetFurnitureDetails(packageData);
-
-                    packageUI.confirmButton.onClick.AddListener(() => ConfirmClicked4(hitCollider));
-                    packageUI.exitButton.onClick.AddListener(ExitClicked);
-                    hammerGame4 = true;
-                }
             }
 
 
